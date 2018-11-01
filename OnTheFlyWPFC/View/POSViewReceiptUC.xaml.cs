@@ -24,5 +24,6 @@ namespace OnTheFlyWPFC.View
         {
             InitializeComponent();
         }
+
     }
 }

@@ -9,7 +9,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-         Height="552.013" Width="600" ResizeMode="NoResize" >
+        Height="650" Width="600" ResizeMode="NoResize" >
 
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="#FFEFF3FA" CornerRadius="8"  >
@@ -90,6 +90,13 @@
                                 <Border Height="40" Margin="0,0,0,15">
                                     <ComboBox VerticalAlignment="Stretch"/>
                                 </Border>
+                                
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox VerticalAlignment="Stretch"/>
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox VerticalAlignment="Stretch"/>
+                                </Border>
 
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Label Content="تاريخ توفير المنتج" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
@@ -121,6 +128,12 @@
                             </StackPanel>
 
                             <StackPanel Grid.Row="1" Grid.Column="3" >
+                                <Border Height="40" Margin="0,0,0,15">
+
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+
+                                </Border>
                                 <Border Height="40" Margin="0,0,0,15">
 
                                 </Border>

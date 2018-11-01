@@ -157,6 +157,10 @@ namespace OnTheFlyWPFC.View
             newwindow.Show();
             this.Close();
         }
+
+        private void POSAddReceipt_Selected(object sender, RoutedEventArgs e) {
+
+        }
     }
 }
 

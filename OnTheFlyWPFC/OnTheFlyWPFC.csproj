@@ -53,13 +53,11 @@
     <StartupObject>OnTheFlyWPFC.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="SharpVectors.Converters.Wpf, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b532964b8548be77, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpVectors.Reloaded.1.1.0\lib\net40\SharpVectors.Converters.Wpf.dll</HintPath>
@@ -107,39 +105,124 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\BranchWindow.xaml.cs" />
-    <Compile Include="View\CustodyWindow.xaml.cs" />
-    <Compile Include="View\CustomerWindow.xaml.cs" />
-    <Compile Include="View\POSAddReceiptUC.xaml.cs" />
-    <Compile Include="View\POSAddServiceMiniWindow.xaml.cs" />
-    <Compile Include="View\POSReceiptSumUC.xaml.cs" />
-    <Compile Include="View\POSSummaryUC.xaml.cs" />
-    <Compile Include="View\POSViewReceiptUC.xaml.cs" />
-    <Compile Include="View\POSWindow.xaml.cs" />
-    <Compile Include="View\ReportsWindow.xaml.cs" />
-    <Page Include="View\BranchWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Compile Include="View\BranchAddUC.xaml.cs">
+      <DependentUpon>BranchAddUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchSummaryUC.xaml.cs">
+      <DependentUpon>BranchSummaryUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchViewUC.xaml.cs">
+      <DependentUpon>BranchViewUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchViewUsersUC.xaml.cs">
+      <DependentUpon>BranchViewUsersUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchWindow.xaml.cs">
+      <DependentUpon>BranchWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchEditMiniWindow.xaml.cs">
+      <DependentUpon>BranchEditMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustodyWindow.xaml.cs">
+      <DependentUpon>CustodyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomerWindow.xaml.cs">
+      <DependentUpon>CustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeliveryServicesUC.xaml.cs">
+      <DependentUpon>DeliveryServicesUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeliverySummaryUC.xaml.cs">
+      <DependentUpon>DeliverySummaryUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeliveryViewUC.xaml.cs">
+      <DependentUpon>DeliveryViewUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeliveryWindow.xaml.cs">
+      <DependentUpon>DeliveryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FinanceWindow.xaml.cs">
+      <DependentUpon>FinanceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HRWindow.xaml.cs">
+      <DependentUpon>HRWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POSAddReceiptUC.xaml.cs">
+      <DependentUpon>POSAddReceiptUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POSAddServiceMiniWindow.xaml.cs">
+      <DependentUpon>POSAddServiceMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POSReceiptSumUC.xaml.cs">
+      <DependentUpon>POSReceiptSumUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POSSummaryUC.xaml.cs">
+      <DependentUpon>POSSummaryUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POSViewReceiptUC.xaml.cs">
+      <DependentUpon>POSViewReceiptUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POSWindow.xaml.cs">
+      <DependentUpon>POSWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportsWindow.xaml.cs">
+      <DependentUpon>ReportsWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\BranchAddUC.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BranchSummaryUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BranchViewUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BranchViewUsersUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BranchWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BranchEditMiniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CustodyWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CustomerWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeliveryServicesUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeliverySummaryUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeliveryViewUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DeliveryWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FinanceWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HRWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainHomeUC.xaml">
       <SubType>Designer</SubType>
@@ -155,9 +238,6 @@
     </Compile>
     <Compile Include="ViewModel\Class1.cs" />
     <Compile Include="ViewModel\Class2.cs" />
-    <Compile Include="View\DeliveryWindow.xaml.cs" />
-    <Compile Include="View\FinanceWindow.xaml.cs" />
-    <Compile Include="View\HRWindow.xaml.cs" />
     <Compile Include="View\MainHomeUC.xaml.cs">
       <DependentUpon>MainHomeUC.xaml</DependentUpon>
     </Compile>
@@ -166,32 +246,32 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\POSAddReceiptUC.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\POSAddServiceMiniWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\POSReceiptSumUC.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\POSSummaryUC.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\POSViewReceiptUC.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\POSWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ReportsWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -212,7 +292,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -254,6 +333,12 @@
     <Resource Include="View\Images\Icons\ic_search.png" />
     <Resource Include="View\Images\Icons\ic_settings.png" />
     <Resource Include="View\Images\Icons\ic_summary.png" />
+    <Resource Include="test.png" />
+    <Resource Include="bar chart.png" />
+    <Resource Include="bar chart .png" />
+    <Resource Include="pie chart.png" />
+    <Resource Include="linexchart.png" />
+    <Resource Include="revenue summary chart.png" />
     <Content Include="View\Images\Icons\New System-22.svg" />
     <Content Include="View\Images\Icons\New System_ic_add.svg" />
     <Content Include="View\Images\Icons\New System_ic_arrow_down.svg" />
