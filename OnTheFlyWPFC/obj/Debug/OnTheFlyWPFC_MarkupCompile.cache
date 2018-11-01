@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\
+D:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\
 OnTheFlyWPFC
 none
 false
 DEBUG;TRACE
-C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\App.xaml
-15-78655073
+D:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\App.xaml
+231864706171
 11-1427795641
-211618524379
-251068712753
-View\BranchWindow.xaml;View\CustodyWindow.xaml;View\CustomerWindow.xaml;View\DeliveryWindow.xaml;View\FinanceWindow.xaml;View\HRWindow.xaml;View\MainHomeUC.xaml;View\MainWindow.xaml;View\POSAddReceiptUC.xaml;View\POSAddServiceMiniWindow.xaml;View\POSReceiptSumUC.xaml;View\POSSummaryUC.xaml;View\POSViewReceiptUC.xaml;View\POSWindow.xaml;View\ReportsWindow.xaml;
+29-1388627138
+25593619852
+View\BranchAddUC.xaml;View\BranchSummaryUC.xaml;View\BranchViewUC.xaml;View\BranchViewUsersUC.xaml;View\BranchWindow.xaml;View\BranchEditMiniWindow.xaml;View\CustodyWindow.xaml;View\CustomerWindow.xaml;View\DeliveryServicesUC.xaml;View\DeliverySummaryUC.xaml;View\DeliveryViewUC.xaml;View\DeliveryWindow.xaml;View\FinanceWindow.xaml;View\HRWindow.xaml;View\MainHomeUC.xaml;View\MainWindow.xaml;View\POSAddReceiptUC.xaml;View\POSAddServiceMiniWindow.xaml;View\POSReceiptSumUC.xaml;View\POSSummaryUC.xaml;View\POSViewReceiptUC.xaml;View\POSWindow.xaml;View\ReportsWindow.xaml;
 
 False
 

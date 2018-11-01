@@ -335,7 +335,7 @@
     <Border Background="#FFEFF3FA" BorderThickness="0" CornerRadius="10">
         <Grid>
 
-            <Label x:Name="lblMenuename" Content="الصفحة الرئيسية" FontFamily="Noto Kufi Arabic" FontSize="23.5" Foreground="#8C9AB6" HorizontalAlignment="Right" Margin="0,100,120,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblMenuename" Content="اضافة فرع" FontFamily="Noto Kufi Arabic" FontSize="23.5" Foreground="#8C9AB6" HorizontalAlignment="Right" Margin="0,100,120,0" VerticalAlignment="Top"/>
 
 
             <Border BorderThickness="0" CornerRadius="7" Margin="60,170,120,60">
@@ -509,13 +509,30 @@
                     </UniformGrid>
 
                     <ListView x:Name="ListViewMenu" Foreground="#FF0F6AB8" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
-                        <ListViewItem x:Name="ItemHome" Height="60" >
+                        <ListViewItem x:Name="BranchAdd" Height="60">
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                                <TextBlock Text="الرئيسية" VerticalAlignment="Center" Margin="20 10"/>
+                                <materialDesign:PackIcon Kind="OfficeBuilding" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="اضافة فرع" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
-
+                        <ListViewItem x:Name="BranchView" Height="60" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="SearchWeb" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="عرض الفروع" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="BranchViewUsers" Height="60" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="UserBoxMultiple" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="العاملين بالفروع" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="BranchSummary" Height="60" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="ملخص الفروع" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
                     </ListView>
                 </StackPanel>
             </UniformGrid>

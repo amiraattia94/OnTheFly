@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Title="MainWindow" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Height="720" Width="1366" 
+        Height="1000" Width="1200" 
         Background="Transparent" WindowStyle="None" 
-        AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -337,10 +337,10 @@
     <Border Background="#FFEFF3FA" BorderThickness="0" CornerRadius="10">
         <Grid>
 
-            <Label x:Name="lblMenuename" Content="الصفحة الرئيسية" FontFamily="Noto Kufi Arabic" FontSize="23.5" Foreground="#8C9AB6" HorizontalAlignment="Right" Margin="0,80,100,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblMenuename" Content="الصفحة الرئيسية" FontFamily="Noto Kufi Arabic" FontSize="23.5" Foreground="#8C9AB6" HorizontalAlignment="Right" Margin="0,100,120,0" VerticalAlignment="Top"/>
 
 
-            <Border BorderThickness="0" CornerRadius="7" Margin="30,150,90,30" >
+            <Border BorderThickness="0" CornerRadius="7" Margin="60,170,120,60">
                 <DockPanel x:Name="MainUC">
 
 

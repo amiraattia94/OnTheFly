@@ -6,99 +6,92 @@
              xmlns:local="clr-namespace:OnTheFlyWPFC.View"
              xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel"
              mc:Ignorable="d" 
-              >
+             d:DesignHeight="1000" d:DesignWidth="900">
     <UserControl.Resources>
         <viewmodel:Class1 x:Key="class1"/>
 
     </UserControl.Resources>
-
+    
 
     <UniformGrid FlowDirection="RightToLeft">
-        <Border BorderThickness="0" Background="#FFEFF3FA" CornerRadius="7">
-            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center"  >
-                <StackPanel Orientation="Vertical">
-                    <Border BorderThickness="0" Background="White" CornerRadius="7" MinHeight="100" Height="150" MaxHeight="170" MinWidth="200"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,30,0">
+    <Border BorderThickness="0" Background="#FFEFF3FA" CornerRadius="7" >
+        <StackPanel Orientation="Vertical">
+            <Border BorderThickness="0" Background="White" CornerRadius="7" Height="200" Width="900" VerticalAlignment="Top">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
+                </Border.Effect>
+
+                <UniformGrid FlowDirection="RightToLeft">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Border BorderThickness="0" Margin="30,0,30,0" Background="#FF53A8F6" CornerRadius="7" Width="150" Height="150">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <Label Name="lblMainHome_1" Content="4%" Foreground="White" FontFamily="Century Gothic" FontSize="40" HorizontalAlignment="Center"></Label>
+                                <Label Content="عدد الفروع" Foreground="White" FontFamily="Noto Kufi Arabic" FontSize="20" HorizontalAlignment="Center"></Label>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderThickness="0" Margin="30,0,30,0" Background="#115DB7" CornerRadius="7" Width="150" Height="150">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <Label Name="lblMainHome_2" Content="4%" Foreground="White" FontFamily="Century Gothic" FontSize="40" HorizontalAlignment="Center"></Label>
+                                <Label Content="عدد الفروع" Foreground="White" FontFamily="Noto Kufi Arabic" FontSize="20" HorizontalAlignment="Center"></Label>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderThickness="0" Margin="30,0,30,0" Background="#60C67C" CornerRadius="7" Width="150" Height="150">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <Label Name="lblMainHome_3" Content="4%" Foreground="White" FontFamily="Century Gothic" FontSize="40" HorizontalAlignment="Center"></Label>
+                                <Label Content="عدد الفروع" Foreground="White" FontFamily="Noto Kufi Arabic" FontSize="20" HorizontalAlignment="Center"></Label>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderThickness="0" Margin="30,0,30,0" Background="#ADE23F" CornerRadius="7" Width="150" Height="150">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <Label Name="lblMainHome_4" Content="4%" Foreground="White" FontFamily="Century Gothic" FontSize="40" HorizontalAlignment="Center"></Label>
+                                <Label Content="عدد الفروع" Foreground="White" FontFamily="Noto Kufi Arabic" FontSize="20" HorizontalAlignment="Center"></Label>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </UniformGrid>
+            </Border>
+            <StackPanel Margin="0,50,0,0" Orientation="Horizontal" HorizontalAlignment="Center"  >
+                <Border BorderThickness="0" Background="White" CornerRadius="7" Height="400" Width="430" VerticalAlignment="Top" Margin="0,0,40,0">
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
                     </Border.Effect>
-
-                    <UniformGrid FlowDirection="RightToLeft">
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                                <Border BorderThickness="0" Margin="30,0,15,0" Background="#FF53A8F6" CornerRadius="7" MinHeight="75" MinWidth="75" Width="100" Height="100" MaxHeight="125" MaxWidth="125">
-                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                        <Label x:Name="lblMainHome_1" Content="4%" Foreground="White" FontFamily="Century Gothic" FontSize="32" HorizontalAlignment="Center"/>
-                                        <Label Content="عدد الفروع" Foreground="White" FontFamily="Noto Kufi Arabic" FontSize="16" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border BorderThickness="0" Margin="15,0,15,0" Background="#115DB7" CornerRadius="7" MinHeight="75" MinWidth="75" Width="100" Height="100" MaxHeight="125" MaxWidth="125">
-                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                        <Label x:Name="lblMainHome_2" Content="4%" Foreground="White" FontFamily="Century Gothic" FontSize="32" HorizontalAlignment="Center"/>
-                                        <Label Content="عدد الفروع" Foreground="White" FontFamily="Noto Kufi Arabic" FontSize="16" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border BorderThickness="0" Margin="15,0,15,0" Background="#60C67C" CornerRadius="7" MinHeight="75" MinWidth="75" Width="100" Height="100" MaxHeight="125" MaxWidth="125">
-                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                        <Label x:Name="lblMainHome_3" Content="4%" Foreground="White" FontFamily="Century Gothic" FontSize="32" HorizontalAlignment="Center"/>
-                                        <Label Content="عدد الفروع" Foreground="White" FontFamily="Noto Kufi Arabic" FontSize="16" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border BorderThickness="0" Margin="15,0,30,0" Background="#ADE23F" CornerRadius="7" MinHeight="75" MinWidth="75" Width="100" Height="100" MaxHeight="125" MaxWidth="125">
-                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                        <Label x:Name="lblMainHome_4" Content="4%" Foreground="White" FontFamily="Century Gothic" FontSize="32" HorizontalAlignment="Center"/>
-                                        <Label Content="عدد الفروع" Foreground="White" FontFamily="Noto Kufi Arabic" FontSize="16" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Border>
-                            </StackPanel>
-
-                        </StackPanel>
-
-                    </UniformGrid>
-                </Border>
-                    <Border BorderThickness="0" Background="White" CornerRadius="7" MinHeight="200" Height="400" MaxHeight="550"  VerticalAlignment="Top" Margin="0,30,30,0">
-                        <Border.Effect>
-                            <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
-                        </Border.Effect>
-                        <UniformGrid Margin="20" >
-                            <StackPanel Orientation="Vertical" DataContext="{StaticResource ResourceKey=class1}">
-                                <Label x:Name="lblMenuename" Content="الصفحة الرئيسية" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0,0,0,0" VerticalAlignment="Top"/>
-                                <UniformGrid>
-                                    <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,10,0,0" MinHeight="200" Height="300" MaxHeight="350" >
+                    <UniformGrid Margin="20" >
+                        <StackPanel Orientation="Vertical" DataContext="{StaticResource ResourceKey=class1}">
+                            <Label x:Name="lblMenuename" Content="الصفحة الرئيسية" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                            <UniformGrid>
+                            <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,10,0,0" Height="300" >
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="ID" Width="115" DisplayMemberBinding="{Binding A}"/>
-
+                                                
                                                 <GridViewColumn Header="BB" Width="115" DisplayMemberBinding="{Binding B}"/>
                                                 <GridViewColumn Header="CC" Width="115" DisplayMemberBinding="{Binding C}"/>
                                             </GridView>
                                         </ListView.View>
-                                    </ListView>
-                                </UniformGrid>
-                            </StackPanel>
+                            </ListView>
+                            </UniformGrid>
+                        </StackPanel>
 
-                        </UniformGrid>
+                    </UniformGrid>
+                    
+                </Border>
+
+                <StackPanel Orientation="Vertical">
+                    <Border BorderThickness="0" Background="White" CornerRadius="7" Height="180" Width="430" VerticalAlignment="Top" Margin="0,0,0,40">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
+                        </Border.Effect>
+
+                    </Border>
+                    <Border BorderThickness="0" Background="White" CornerRadius="7" Height="180" Width="430" VerticalAlignment="Top" >
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
+                        </Border.Effect>
 
                     </Border>
                 </StackPanel>
-                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center"  >
-                    
-                    <StackPanel Orientation="Vertical">
-                        <Border BorderThickness="0" Background="White" CornerRadius="7" MinHeight="210" Height="275" MaxHeight="350" MinWidth="400"  Width="550" VerticalAlignment="Top" Margin="0,0,0,0">
-                            <Border.Effect>
-                                <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
-                            </Border.Effect>
-
-                        </Border>
-                        <Border BorderThickness="0" Background="White" CornerRadius="7" MinHeight="210" Height="275" MaxHeight="350" MinWidth="400" Width="550" VerticalAlignment="Top" Margin="0,30,0,0" >
-                            <Border.Effect>
-                                <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
-                            </Border.Effect>
-
-                        </Border>
-                    </StackPanel>
-
-                </StackPanel>
-            </StackPanel>
-        </Border>
+            </StackPanel>   
+        </StackPanel>
+    </Border>
     </UniformGrid>
 </UserControl>

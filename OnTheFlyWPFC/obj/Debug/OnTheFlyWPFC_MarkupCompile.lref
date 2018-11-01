@@ -1,18 +1,26 @@
-﻿
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\App.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\BranchWindow.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\CustodyWindow.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\CustomerWindow.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\DeliveryWindow.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\FinanceWindow.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\HRWindow.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\MainHomeUC.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\MainWindow.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\POSAddReceiptUC.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\POSAddServiceMiniWindow.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\POSReceiptSumUC.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\POSSummaryUC.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\POSViewReceiptUC.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\POSWindow.xaml;;
-FC:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\View\ReportsWindow.xaml;;
+﻿D:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\GeneratedInternalTypeHelper.g.cs
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\App.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\BranchAddUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\BranchSummaryUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\BranchViewUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\BranchViewUsersUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\BranchWindow.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\BranchEditMiniWindow.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\CustodyWindow.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\CustomerWindow.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\DeliveryServicesUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\DeliverySummaryUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\DeliveryViewUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\DeliveryWindow.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\FinanceWindow.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\HRWindow.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\MainHomeUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\MainWindow.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\POSAddReceiptUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\POSAddServiceMiniWindow.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\POSReceiptSumUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\POSSummaryUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\POSViewReceiptUC.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\POSWindow.xaml;;
+FD:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\View\ReportsWindow.xaml;;
 
