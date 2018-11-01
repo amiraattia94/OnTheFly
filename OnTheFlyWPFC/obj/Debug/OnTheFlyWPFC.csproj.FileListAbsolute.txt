@@ -1,0 +1,132 @@
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe.config
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.pdb
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignColors.dll
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\MainWindow.g.cs
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\App.g.cs
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_MarkupCompile.cache
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_MarkupCompile.lref
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\MainWindow.baml
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.g.resources
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.Properties.Resources.resources
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.GenerateResource.cache
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CoreCompileInputs.cache
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CopyComplete
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\App.baml
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\UserControlHome.g.cs
+C:\Users\Taher\source\repos\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\UserControlHome.baml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe.config
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.pdb
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignColors.dll
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\App.g.cs
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_MarkupCompile.cache
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_MarkupCompile.lref
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\App.baml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.g.resources
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.Properties.Resources.resources
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.GenerateResource.cache
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CoreCompileInputs.cache
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CopyComplete
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_Content.g.cs
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Converters.Wpf.dll
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Core.dll
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Css.dll
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Dom.dll
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Model.dll
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Gdi.dll
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Wpf.dll
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Runtime.Wpf.dll
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Converters.Wpf.xml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Core.xml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Css.xml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Dom.xml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Model.xml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Gdi.xml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Wpf.xml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Runtime.Wpf.xml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\MainWindow.g.cs
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\MainWindow.baml
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\MainHomeUC.g.cs
+C:\Users\Altah3r\Desktop\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\MainHomeUC.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe.config
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.pdb
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignColors.dll
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Converters.Wpf.dll
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Core.dll
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Css.dll
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Dom.dll
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Model.dll
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Gdi.dll
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Wpf.dll
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Runtime.Wpf.dll
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignColors.pdb
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Converters.Wpf.xml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Core.xml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Css.xml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Dom.xml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Model.xml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Gdi.xml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Wpf.xml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\SharpVectors.Runtime.Wpf.xml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\BranchWindow.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\CustodyWindow.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\CustomerWindow.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\DeliveryWindow.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\FinanceWindow.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\HRWindow.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\MainHomeUC.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\MainWindow.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSAddReceiptUC.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSAddServiceMiniWindow.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSReceiptSumUC.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSSummaryUC.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSViewReceiptUC.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSWindow.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\ReportsWindow.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\App.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_Content.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_MarkupCompile.cache
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_MarkupCompile.lref
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\App.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\BranchWindow.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\CustodyWindow.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\CustomerWindow.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\DeliveryWindow.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\FinanceWindow.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\HRWindow.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\MainHomeUC.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\MainWindow.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSAddReceiptUC.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSAddServiceMiniWindow.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSReceiptSumUC.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSSummaryUC.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSViewReceiptUC.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\POSWindow.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\View\ReportsWindow.baml
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.g.resources
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.Properties.Resources.resources
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.GenerateResource.Cache
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojResolveAssemblyReference.cache
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM layout edited\OnTheFlyWPFC\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe.config
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM layout edited\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
+C:\Users\User\Downloads\OnTheFlyWPFC MVVM layout edited\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
