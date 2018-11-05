@@ -265,3 +265,9 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustomerView
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustomerAddMiniWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustomerEditMiniWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustomerViewUC.baml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HREmployeeAddMiniWindow.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HREmployeeEditMiniWindow.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRViewUC.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HREmployeeAddMiniWindow.baml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HREmployeeEditMiniWindow.baml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRViewUC.baml

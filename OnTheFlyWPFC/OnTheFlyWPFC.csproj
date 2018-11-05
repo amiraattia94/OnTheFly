@@ -147,6 +147,9 @@
     <Compile Include="View\FinanceWindow.xaml.cs">
       <DependentUpon>FinanceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\HREmployeeAddMiniWindow.xaml.cs" />
+    <Compile Include="View\HREmployeeEditMiniWindow.xaml.cs" />
+    <Compile Include="View\HRViewUC.xaml.cs" />
     <Compile Include="View\HRWindow.xaml.cs">
       <DependentUpon>HRWindow.xaml</DependentUpon>
     </Compile>
@@ -234,6 +237,18 @@
     <Page Include="View\FinanceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HREmployeeAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\HREmployeeEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\HRViewUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\HRWindow.xaml">
       <SubType>Designer</SubType>
