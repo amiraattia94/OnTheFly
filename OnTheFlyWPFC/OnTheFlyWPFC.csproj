@@ -147,6 +147,11 @@
     <Compile Include="View\DeliveryWindow.xaml.cs">
       <DependentUpon>DeliveryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FinanceIncomeAddMiniWindow.xaml.cs" />
+    <Compile Include="View\FinanceIncomeEditMiniWindow.xaml.cs" />
+    <Compile Include="View\FinanceIncomeUC.xaml.cs" />
+    <Compile Include="View\FinanceSpendingUC.xaml.cs" />
+    <Compile Include="View\FinanceSummaryUC.xaml.cs" />
     <Compile Include="View\FinanceWindow.xaml.cs">
       <DependentUpon>FinanceWindow.xaml</DependentUpon>
     </Compile>
@@ -248,6 +253,26 @@
     <Page Include="View\DeliveryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FinanceIncomeAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FinanceIncomeEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FinanceIncomeUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FinanceSpendingUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FinanceSummaryUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\FinanceWindow.xaml">
       <SubType>Designer</SubType>
