@@ -135,6 +135,14 @@
     <Compile Include="View\CustomerWindow.xaml.cs">
       <DependentUpon>CustomerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DeliveryCarAddMiniWindow.xaml.cs" />
+    <Compile Include="View\DeliveryCarEditMiniWindow.xaml.cs" />
+    <Compile Include="View\DeliveryCarUC.xaml.cs" />
+    <Compile Include="View\DeliveryDestinationAddMiniWindow.xaml.cs" />
+    <Compile Include="View\DeliveryDestinationEditMiniWindow.xaml.cs" />
+    <Compile Include="View\DeliveryDestinationUC.xaml.cs" />
+    <Compile Include="View\DeliveryServiceAddMiniWindow.xaml.cs" />
+    <Compile Include="View\DeliveryServiceEditMiniWindow.xaml.cs" />
     <Compile Include="View\DeliveryServicesUC.xaml.cs">
       <DependentUpon>DeliveryServicesUC.xaml</DependentUpon>
     </Compile>
@@ -237,6 +245,38 @@
     <Page Include="View\CustomerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeliveryCarAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryCarEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryCarUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryDestinationAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryDestinationEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryDestinationUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryServiceAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryServiceEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\DeliveryServicesUC.xaml">
       <SubType>Designer</SubType>
