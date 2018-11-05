@@ -126,6 +126,9 @@
     <Compile Include="View\CustodyWindow.xaml.cs">
       <DependentUpon>CustodyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomerAddMiniWindow.xaml.cs" />
+    <Compile Include="View\CustomerEditMiniWindow.xaml.cs" />
+    <Compile Include="View\CustomerViewUC.xaml.cs" />
     <Compile Include="View\CustomerWindow.xaml.cs">
       <DependentUpon>CustomerWindow.xaml</DependentUpon>
     </Compile>
@@ -195,6 +198,18 @@
     <Page Include="View\CustodyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomerAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CustomerEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CustomerViewUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\CustomerWindow.xaml">
       <SubType>Designer</SubType>
