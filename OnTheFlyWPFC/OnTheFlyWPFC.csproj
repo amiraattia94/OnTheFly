@@ -123,6 +123,9 @@
     <Compile Include="View\BranchEditMiniWindow.xaml.cs">
       <DependentUpon>BranchEditMiniWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CustodyViewAddMiniWindow.xaml.cs" />
+    <Compile Include="View\CustodyViewEditMiniWindow.xaml.cs" />
+    <Compile Include="View\CustodyViewUC.xaml.cs" />
     <Compile Include="View\CustodyWindow.xaml.cs">
       <DependentUpon>CustodyWindow.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,18 @@
     <Page Include="View\BranchEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustodyViewAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CustodyViewEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CustodyViewUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\CustodyWindow.xaml">
       <SubType>Designer</SubType>

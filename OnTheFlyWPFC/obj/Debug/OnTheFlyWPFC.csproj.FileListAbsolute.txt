@@ -271,3 +271,9 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRViewUC.g.c
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HREmployeeAddMiniWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HREmployeeEditMiniWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRViewUC.baml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustodyViewAddMiniWindow.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustodyViewEditMiniWindow.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustodyViewUC.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustodyViewAddMiniWindow.baml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustodyViewEditMiniWindow.baml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustodyViewUC.baml
