@@ -22,7 +22,7 @@ namespace OnTheFlyWPFC.View
         public CustodyWindow()
         {
             InitializeComponent();
-            usc = new MainHomeUC();
+            usc = new CustodyViewUC();
             MainUC.Children.Add(usc);
         }
 
@@ -43,9 +43,9 @@ namespace OnTheFlyWPFC.View
             MainUC.Children.Clear();
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name) {
-                case "ItemHome":
-                    usc = new MainHomeUC();
-
+                case "CustodyView":
+                    usc = new CustodyViewUC();
+                    lblMenuename.Content = "العهود";
                     MainUC.Children.Add(usc);
                     break;
                 default:

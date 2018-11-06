@@ -22,7 +22,7 @@ namespace OnTheFlyWPFC.View
         public DeliveryWindow()
         {
             InitializeComponent();
-            usc = new MainHomeUC();
+            usc = new DeliveryViewUC();
             MainUC.Children.Add(usc);
         }
 
@@ -43,11 +43,33 @@ namespace OnTheFlyWPFC.View
             MainUC.Children.Clear();
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name) {
-                case "ItemHome":
-                    usc = new MainHomeUC();
 
+                case "DeliveryView":
+                    usc = new DeliveryViewUC();
+                    lblMenuename.Content = "التوصيلات";
                     MainUC.Children.Add(usc);
                     break;
+                case "DeliveryService":
+                    usc = new DeliveryServicesUC();
+                    lblMenuename.Content = "خدمات التوصيل";
+                    MainUC.Children.Add(usc);
+                    break;
+                case "DeliveryDestination":
+                    usc = new DeliveryDestinationUC();
+                    lblMenuename.Content = "وجهات التوصيل";
+                    MainUC.Children.Add(usc);
+                    break;
+                case "DeliveryCar":
+                    usc = new DeliveryCarUC();
+                    lblMenuename.Content = "المركبات";
+                    MainUC.Children.Add(usc);
+                    break;
+                case "DeliverySummary":
+                    usc = new DeliverySummaryUC();
+                    lblMenuename.Content = "الملخص";
+                    MainUC.Children.Add(usc);
+                    break;
+                
                 default:
                     break;
             }

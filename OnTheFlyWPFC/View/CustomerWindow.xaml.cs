@@ -22,7 +22,7 @@ namespace OnTheFlyWPFC.View
         public CustomerWindow()
         {
             InitializeComponent();
-            usc = new MainHomeUC();
+            usc = new CustomerViewUC();
             MainUC.Children.Add(usc);
         }
 
@@ -43,9 +43,9 @@ namespace OnTheFlyWPFC.View
             MainUC.Children.Clear();
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name) {
-                case "ItemHome":
-                    usc = new MainHomeUC();
-
+                case "CustomerView":
+                    usc = new CustomerViewUC();
+                    lblMenuename.Content = "عرض الزبون";
                     MainUC.Children.Add(usc);
                     break;
                 default:

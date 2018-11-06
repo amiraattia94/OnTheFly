@@ -336,7 +336,7 @@
     <Border Background="#FFEFF3FA" BorderThickness="0" CornerRadius="10">
         <Grid>
 
-            <Label x:Name="lblMenuename" Content="الصفحة الرئيسية" FontFamily="Noto Kufi Arabic" FontSize="23.5" Foreground="#8C9AB6" HorizontalAlignment="Right" Margin="0,100,120,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblMenuename" Content="الادارة المالية" FontFamily="Noto Kufi Arabic" FontSize="23.5" Foreground="#8C9AB6" HorizontalAlignment="Right" Margin="0,100,120,0" VerticalAlignment="Top"/>
 
 
             <Border BorderThickness="0" CornerRadius="7" Margin="60,170,120,60">
@@ -510,10 +510,22 @@
                     </UniformGrid>
 
                     <ListView x:Name="ListViewMenu" Foreground="#FF0F6AB8" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
-                        <ListViewItem x:Name="ItemHome" Height="60" >
+                        <ListViewItem x:Name="FinanceSummary" Height="60" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                                <TextBlock Text="الرئيسية" VerticalAlignment="Center" Margin="20 10"/>
+                                <TextBlock Text="ملخص المالية" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="FinanceIncome" Height="60" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="PlusCircleOutline" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="المحصلة" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="FinanceSpending" Height="60" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="MinusCircleOutline" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="المصاريف" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
 

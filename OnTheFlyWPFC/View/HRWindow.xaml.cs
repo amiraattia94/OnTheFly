@@ -22,7 +22,7 @@ namespace OnTheFlyWPFC.View
         public HRWindow()
         {
             InitializeComponent();
-            usc = new MainHomeUC();
+            usc = new HRViewUC();
             MainUC.Children.Add(usc);
         }
 
@@ -43,8 +43,8 @@ namespace OnTheFlyWPFC.View
             MainUC.Children.Clear();
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name) {
-                case "ItemHome":
-                    usc = new MainHomeUC();
+                case "HRView":
+                    usc = new HRViewUC();
 
                     MainUC.Children.Add(usc);
                     break;

@@ -22,7 +22,7 @@ namespace OnTheFlyWPFC.View
         public FinanceWindow()
         {
             InitializeComponent();
-            usc = new MainHomeUC();
+            usc = new FinanceSummaryUC();
             MainUC.Children.Add(usc);
         }
 
@@ -43,8 +43,18 @@ namespace OnTheFlyWPFC.View
             MainUC.Children.Clear();
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name) {
-                case "ItemHome":
-                    usc = new MainHomeUC();
+                case "FinanceSummary":
+                    usc = new FinanceSummaryUC();
+
+                    MainUC.Children.Add(usc);
+                    break;
+                case "FinanceIncome":
+                    usc = new FinanceIncomeUC();
+
+                    MainUC.Children.Add(usc);
+                    break;
+                case "FinanceSpending":
+                    usc = new FinanceSpendingUC();
 
                     MainUC.Children.Add(usc);
                     break;
