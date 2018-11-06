@@ -360,7 +360,7 @@
 
                                 <GridViewColumn Header="السائق" Width="80" DisplayMemberBinding="{Binding A}"/>
 
-
+                                
 
                                 <GridViewColumn Header="الحالة" Width="70" DisplayMemberBinding="{Binding B}"/>
                                 <GridViewColumn Header="عهدة" Width="60" DisplayMemberBinding="{Binding A}"/>
