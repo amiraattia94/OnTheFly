@@ -123,12 +123,26 @@
     <Compile Include="View\BranchEditMiniWindow.xaml.cs">
       <DependentUpon>BranchEditMiniWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CustodyViewAddMiniWindow.xaml.cs" />
+    <Compile Include="View\CustodyViewEditMiniWindow.xaml.cs" />
+    <Compile Include="View\CustodyViewUC.xaml.cs" />
     <Compile Include="View\CustodyWindow.xaml.cs">
       <DependentUpon>CustodyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomerAddMiniWindow.xaml.cs" />
+    <Compile Include="View\CustomerEditMiniWindow.xaml.cs" />
+    <Compile Include="View\CustomerViewUC.xaml.cs" />
     <Compile Include="View\CustomerWindow.xaml.cs">
       <DependentUpon>CustomerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DeliveryCarAddMiniWindow.xaml.cs" />
+    <Compile Include="View\DeliveryCarEditMiniWindow.xaml.cs" />
+    <Compile Include="View\DeliveryCarUC.xaml.cs" />
+    <Compile Include="View\DeliveryDestinationAddMiniWindow.xaml.cs" />
+    <Compile Include="View\DeliveryDestinationEditMiniWindow.xaml.cs" />
+    <Compile Include="View\DeliveryDestinationUC.xaml.cs" />
+    <Compile Include="View\DeliveryServiceAddMiniWindow.xaml.cs" />
+    <Compile Include="View\DeliveryServiceEditMiniWindow.xaml.cs" />
     <Compile Include="View\DeliveryServicesUC.xaml.cs">
       <DependentUpon>DeliveryServicesUC.xaml</DependentUpon>
     </Compile>
@@ -141,9 +155,17 @@
     <Compile Include="View\DeliveryWindow.xaml.cs">
       <DependentUpon>DeliveryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FinanceIncomeAddMiniWindow.xaml.cs" />
+    <Compile Include="View\FinanceIncomeEditMiniWindow.xaml.cs" />
+    <Compile Include="View\FinanceIncomeUC.xaml.cs" />
+    <Compile Include="View\FinanceSpendingUC.xaml.cs" />
+    <Compile Include="View\FinanceSummaryUC.xaml.cs" />
     <Compile Include="View\FinanceWindow.xaml.cs">
       <DependentUpon>FinanceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\HREmployeeAddMiniWindow.xaml.cs" />
+    <Compile Include="View\HREmployeeEditMiniWindow.xaml.cs" />
+    <Compile Include="View\HRViewUC.xaml.cs" />
     <Compile Include="View\HRWindow.xaml.cs">
       <DependentUpon>HRWindow.xaml</DependentUpon>
     </Compile>
@@ -192,13 +214,69 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\CustodyViewAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CustodyViewEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CustodyViewUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\CustodyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\CustomerAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CustomerEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CustomerViewUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\CustomerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeliveryCarAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryCarEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryCarUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryDestinationAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryDestinationEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryDestinationUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryServiceAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryServiceEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\DeliveryServicesUC.xaml">
       <SubType>Designer</SubType>
@@ -216,9 +294,41 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\FinanceIncomeAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FinanceIncomeEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FinanceIncomeUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FinanceSpendingUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FinanceSummaryUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\FinanceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HREmployeeAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\HREmployeeEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\HRViewUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\HRWindow.xaml">
       <SubType>Designer</SubType>
