@@ -181,6 +181,7 @@ D:\OnTheFlyWPFC\OnTheFlyWPFC\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.Generate
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe.config
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
+<<<<<<< HEAD
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe.config
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.pdb
@@ -264,3 +265,5 @@ C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.c
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CopyComplete
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
+=======
+>>>>>>> df24acbc7aa6ac8668f3e1a88e6dc4d608bc7cdf
