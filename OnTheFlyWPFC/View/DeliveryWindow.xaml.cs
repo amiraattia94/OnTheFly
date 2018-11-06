@@ -22,89 +22,98 @@ namespace OnTheFlyWPFC.View
         public DeliveryWindow()
         {
             InitializeComponent();
-            usc = new MainHomeUC();
+            usc = new DeliveryViewUC();
             MainUC.Children.Add(usc);
         }
 
         UserControl usc = null;
 
-        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
-        {
+        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e) {
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
         }
 
-        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
-        {
+        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e) {
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
         }
 
-        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             usc = null;
             MainUC.Children.Clear();
 
-            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
-            {
-                case "ItemHome":
-                    usc = new MainHomeUC();
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name) {
 
+                case "DeliveryView":
+                    usc = new DeliveryViewUC();
+                    lblMenuename.Content = "التوصيلات";
                     MainUC.Children.Add(usc);
                     break;
+                case "DeliveryService":
+                    usc = new DeliveryServicesUC();
+                    lblMenuename.Content = "خدمات التوصيل";
+                    MainUC.Children.Add(usc);
+                    break;
+                case "DeliveryDestination":
+                    usc = new DeliveryDestinationUC();
+                    lblMenuename.Content = "وجهات التوصيل";
+                    MainUC.Children.Add(usc);
+                    break;
+                case "DeliveryCar":
+                    usc = new DeliveryCarUC();
+                    lblMenuename.Content = "المركبات";
+                    MainUC.Children.Add(usc);
+                    break;
+                case "DeliverySummary":
+                    usc = new DeliverySummaryUC();
+                    lblMenuename.Content = "الملخص";
+                    MainUC.Children.Add(usc);
+                    break;
+                
                 default:
                     break;
             }
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e) {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
 
-        private void btnCloseForm_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnCloseForm_Click(object sender, RoutedEventArgs e) {
             Close();
         }
 
-        private void btnMaxForm_Click(object sender, RoutedEventArgs e)
-        {
-            if (WindowState != WindowState.Maximized)
-            {
+        private void btnMaxForm_Click(object sender, RoutedEventArgs e) {
+            if (WindowState != WindowState.Maximized) {
                 WindowState = WindowState.Maximized;
             }
-            else
-            {
+            else {
                 WindowState = WindowState.Normal;
             }
 
 
         }
 
-        private void btnMinForm_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnMinForm_Click(object sender, RoutedEventArgs e) {
             WindowState = WindowState.Minimized;
         }
 
-        private void btnMain_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnMain_Click(object sender, RoutedEventArgs e) {
             var newwindow = new MainWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnPOS_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnPOS_Click(object sender, RoutedEventArgs e) {
             var newwindow = new POSWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnBranch_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnBranch_Click(object sender, RoutedEventArgs e) {
             var newwindow = new BranchWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
@@ -112,48 +121,42 @@ namespace OnTheFlyWPFC.View
         }
 
 
-        private void btnCustomer_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnCustomer_Click(object sender, RoutedEventArgs e) {
             var newwindow = new CustomerWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnHR_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnHR_Click(object sender, RoutedEventArgs e) {
             var newwindow = new HRWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnCustody_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnCustody_Click(object sender, RoutedEventArgs e) {
             var newwindow = new CustodyWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnFinance_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnFinance_Click(object sender, RoutedEventArgs e) {
             var newwindow = new FinanceWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnDelivery_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnDelivery_Click(object sender, RoutedEventArgs e) {
             var newwindow = new DeliveryWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnReports_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnReports_Click(object sender, RoutedEventArgs e) {
             var newwindow = new ReportsWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
