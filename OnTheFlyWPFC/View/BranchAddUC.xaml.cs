@@ -1,4 +1,5 @@
 ﻿using OnTheFlyWPFC.Model.DTO;
+using OnTheFlyWPFC.Model.Service;
 using OnTheFlyWPFC.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,14 @@ namespace OnTheFlyWPFC.View
     public partial class BranchAddUC : UserControl
     {
         CityViewModel _cityViewModel;
+        BranchViewModel _branchViewModel;
+        
         public BranchAddUC()
         {
             InitializeComponent();
             _cityViewModel = new CityViewModel();
+            _branchViewModel = new BranchViewModel();
+            
 
         }
 
@@ -40,9 +45,18 @@ namespace OnTheFlyWPFC.View
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            var a = (CityDTO)cmbBranchCities.SelectedValue;
-            MessageBox.Show("hi " + a.cityCode);
+        async private void Button_Click(object sender, RoutedEventArgs e) {
+            _branchViewModel = new BranchViewModel();
+            var city = (CityDTO)cmbBranchCities.SelectedValue;
+
+            bool status = HelperClass.TrueOrFalse(cmbBranchStatus.SelectedIndex.ToString());
+
+            
+            if (await _branchViewModel.AddBranch(txtBranchName.Text, city.cityCode, txtBranchAddress.Text,status)) {
+                MessageBox.Show("added");
+            }
+
+            
         }
     }
 }

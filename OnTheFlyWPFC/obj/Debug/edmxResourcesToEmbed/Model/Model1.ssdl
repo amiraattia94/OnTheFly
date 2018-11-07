@@ -21,7 +21,7 @@
     <Key>
       <PropertyRef Name="branchID" />
     </Key>
-    <Property Name="branchID" Type="int" Nullable="false" />
+    <Property Name="branchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="branch_name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="status" Type="bit" Nullable="false" />

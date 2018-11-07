@@ -169,7 +169,9 @@
     <Compile Include="Model\serviceTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Service\BranchService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
+    <Compile Include="Model\Service\HelperClass.cs" />
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -185,6 +187,7 @@
     <Compile Include="Model\vendorTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BranchViewModel.cs" />
     <Compile Include="ViewModel\CityViewModel.cs" />
     <Compile Include="View\BranchAddUC.xaml.cs">
       <DependentUpon>BranchAddUC.xaml</DependentUpon>
