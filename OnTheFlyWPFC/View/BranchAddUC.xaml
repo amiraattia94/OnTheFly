@@ -11,6 +11,8 @@
 
     <UserControl.Resources>
         <viewmodel:Class1 x:Key="class1"/>
+        <viewmodel:CityViewModel x:Key="City"/>
+
 
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="LightGray" />
@@ -342,12 +344,14 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="اضافة فرع" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0,8"/>
 
-                            <StackPanel Grid.Row="1" Grid.Column="1" >
+                            <StackPanel Grid.Row="1" Grid.Column="1">
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox Text="" VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtBranchName" Text="" VerticalAlignment="Stretch"/>
                                 </Border>
-                                <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
+                                <Border  Height="40" Margin="0,0,0,15" >
+
+
+                                    <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" />
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
                                     <TextBox VerticalAlignment="Stretch"/>
@@ -360,7 +364,7 @@
 
                                 <Border Height="40" Margin="0,20,0,0">
                                     <Border Height="40" Width="150" BorderBrush="Transparent" CornerRadius="15"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                        <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                        <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="Button_Click">
                                             <UniformGrid FlowDirection="RightToLeft">
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة الفرع" Margin="0,0,10,0"  />
