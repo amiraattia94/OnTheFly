@@ -39,21 +39,16 @@ namespace OnTheFlyWPFC.View
             _cityViewModel.GetAllCities();
             //cmbBranchCities.DataContext = _cityViewModel;
             cmbBranchCities.ItemsSource = _cityViewModel.CityName;
-            cmbBranchCities.DisplayMemberPath = "name";
-
-
-            
+            cmbBranchCities.DisplayMemberPath = "name"; 
         }
 
         async private void Button_Click(object sender, RoutedEventArgs e) {
             _branchViewModel = new BranchViewModel();
             var city = (CityDTO)cmbBranchCities.SelectedValue;
-
             bool status = HelperClass.TrueOrFalse(cmbBranchStatus.SelectedIndex.ToString());
 
-            
             if (await _branchViewModel.AddBranch(txtBranchName.Text, city.cityCode, txtBranchAddress.Text,status)) {
-                MessageBox.Show("added");
+                MessageBox.Show("تم الحفظ");
             }
 
             

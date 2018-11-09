@@ -11,6 +11,7 @@
 
     <UserControl.Resources>
         <viewmodel:Class1 x:Key="class1"/>
+        
 
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="LightGray" />
@@ -312,7 +313,7 @@
     </UserControl.Resources>
 
 
-    <UniformGrid FlowDirection="RightToLeft">
+    <UniformGrid x:Name="ViewBranchForm" FlowDirection="RightToLeft" >
         <Border BorderThickness="0" Background="White" CornerRadius="7"  >
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -346,18 +347,36 @@
                 </StackPanel>
 
 
-                <UniformGrid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" DataContext="{StaticResource ResourceKey=class1}">
-                    <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,0,0,0" Height="447" >
+                <UniformGrid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top">
+                    <ListView Name="lstViewBraches" Margin="0,0,0,0" Height="447" Loaded="lstViewBraches_Loaded">
+                        
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="اسم الفرع" Width="90" DisplayMemberBinding="{Binding A}"/>
-                                <GridViewColumn Header="المنطقة" Width="90" DisplayMemberBinding="{Binding A}"/>
-                                <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding B}"/>
+                                <GridViewColumn Header="اسم الفرع" Width="90" DisplayMemberBinding="{Binding branch_name}"/>
+                                <GridViewColumn Header="المنطقة" Width="90" DisplayMemberBinding="{Binding cityID}"/>
+                                <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding address}"/>
                                 <GridViewColumn Header="الطلبات " Width="90" DisplayMemberBinding="{Binding C}"/>
-                                <GridViewColumn Header="الحالة " Width="90" DisplayMemberBinding="{Binding C}"/>
-                                <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
-                                <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
+                                <GridViewColumn Header="الحالة " Width="90" DisplayMemberBinding="{Binding status}"/>
+                                <GridViewColumn  Width="25" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Click="EditBranch" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  >
+                                                <materialDesign:PackIcon Kind="Edit" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn  Width="25">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Click="DeleteBranch" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
+                                                <materialDesign:PackIcon Kind="Delete" FontSize="15" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
                             </GridView>
+                            
                         </ListView.View>
                     </ListView>
                 </UniformGrid>
