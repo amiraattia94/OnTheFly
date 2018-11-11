@@ -107,6 +107,56 @@ namespace OnTheFlyWPFC.Model.Service {
 
         }
 
+        async public Task<ObservableCollection<BranchDTO>> GetBranchByState(bool BranchState) {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.CompanyBranchTBLs.Where(w => w.status == BranchState).Select(s => new BranchDTO() {
+                    branchID = s.branchID,
+                    branch_name = s.branch_name,
+                    address = s.address,
+                    status = s.status,
+                    cityID = s.LibyanCitiesTBL.name
+                }).ToList();
+
+                if (result != null) {
+                    return new ObservableCollection<BranchDTO>(result);
+                }
+                else {
+                    return new ObservableCollection<BranchDTO>();
+                }
+                
+
+                 
+            }
+
+        }
+        async public Task<ObservableCollection<BranchDTO>> GetBranchByCity(string City) {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.CompanyBranchTBLs.Where(w => w.cityID == City).Select(s => new BranchDTO() {
+                    branchID = s.branchID,
+                    branch_name = s.branch_name,
+                    address = s.address,
+                    status = s.status,
+                    cityID = s.LibyanCitiesTBL.name
+                }).ToList();
+
+                if (result != null) {
+                    return new ObservableCollection<BranchDTO>(result);
+                }
+                else {
+                    return new ObservableCollection<BranchDTO>();
+                }
+
+
+
+            }
+
+        }
+
+
         async public Task<bool> DeleteBranchByID(int BranchID) {
             await Task.FromResult(true);
 

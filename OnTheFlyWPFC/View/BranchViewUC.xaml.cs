@@ -23,15 +23,15 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class BranchViewUC : UserControl
     {
-        CityViewModel _cityViewModel;
-        BranchViewModel _branchViewModel;
+        CityViewModel cityViewModel;
+        BranchViewModel branchViewModel;
 
         public delegate void RefreshList();
         public event RefreshList RefreshListEvent;
 
         private void RefreshListView() {
-            _branchViewModel.GetAllBranches();
-            lstViewBraches.ItemsSource = _branchViewModel.ViewBranch;
+            branchViewModel.GetAllBranches();
+            lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
             lstViewBraches.Items.Refresh();
 
         }
@@ -39,15 +39,15 @@ namespace OnTheFlyWPFC.View
 
         public BranchViewUC()
         {
-            _cityViewModel = new CityViewModel();
-            _branchViewModel = new BranchViewModel();
+            cityViewModel = new CityViewModel();
+            branchViewModel = new BranchViewModel();
 
             InitializeComponent();
         }
 
         private void lstViewBraches_Loaded(object sender, RoutedEventArgs e) {
-            _branchViewModel.GetAllBranches();
-            lstViewBraches.ItemsSource = _branchViewModel.ViewBranch;
+            branchViewModel.GetAllBranches();
+            lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
 
         }
 
@@ -56,7 +56,7 @@ namespace OnTheFlyWPFC.View
             var a = button.CommandParameter as BranchDTO;
             HelperClass.BranchID =  a.branchID;
 
-            if (await _branchViewModel.DeleteBranchByID(a.branchID))
+            if (await branchViewModel.DeleteBranchByID(a.branchID))
                 MessageBox.Show("تم المسح بنجاح");
             RefreshListView();
 
@@ -78,6 +78,26 @@ namespace OnTheFlyWPFC.View
             
         }
 
-        
+        private void cmbBranchCity_Loaded(object sender, RoutedEventArgs e) {
+            cityViewModel.GetAllCities();
+            cmbBranchCity.ItemsSource = cityViewModel.CityName;
+            cmbBranchCity.DisplayMemberPath = "name";
+
+            foreach (CityDTO city in cmbBranchCity.Items) {
+                if (city.name == branchViewModel.EditBranch.cityID) {
+                    cmbBranchCity.SelectedValue = city;
+                    break;
+                }
+            }
+        }
+
+        private void cmbBranchCity_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+        }
+
+        private void cmbBranchState_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+        }
+
     }
 }

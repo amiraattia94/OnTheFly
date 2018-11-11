@@ -39,6 +39,17 @@ namespace OnTheFlyWPFC.ViewModel {
             ViewBranch = await _branchService.GetAllBranch();
         }
 
+        async public void GetBranchByCity(string city) {
+            ViewBranch = await _branchService.GetBranchByCity(city);
+        }
+
+        async public void GetBranchByState(bool branchState) {
+            ViewBranch = await _branchService.GetBranchByState(branchState);
+        }
+
+
+
+
         async public void GetBranchByID(int BranchID) {
 
             EditBranch = await _branchService.GetBranchByID(BranchID);
