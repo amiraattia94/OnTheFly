@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/model1.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/model1.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/icons/new%20system-22.svg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/icons/new%20system_ic_add.svg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/icons/new%20system_ic_arrow_down.svg")]

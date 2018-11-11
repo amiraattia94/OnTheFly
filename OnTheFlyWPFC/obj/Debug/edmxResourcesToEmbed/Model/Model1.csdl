@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnTheFlyDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CarsTBL">
+    <Key>
+      <PropertyRef Name="carID" />
+    </Key>
+    <Property Name="carID" Type="Int32" Nullable="false" />
+    <Property Name="plate_number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="made_company" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="edition_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="branchID" Type="Int32" />
+    <NavigationProperty Name="deliveryTBLs" Relationship="Self.FK_deliveryTBL_CarsTBL" FromRole="CarsTBL" ToRole="deliveryTBL" />
+  </EntityType>
+  <EntityType Name="CategoriesTBL">
+    <Key>
+      <PropertyRef Name="categoryID" />
+    </Key>
+    <Property Name="categoryID" Type="Int32" Nullable="false" />
+    <Property Name="category_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="serviceTBLs" Relationship="Self.FK_serviceTBL_CategoriesTBL" FromRole="CategoriesTBL" ToRole="serviceTBL" />
+    <NavigationProperty Name="vendorTBLs" Relationship="Self.FK_vendorTBL_CategoriesTBL" FromRole="CategoriesTBL" ToRole="vendorTBL" />
+  </EntityType>
+  <EntityType Name="CompanyBranchTBL">
+    <Key>
+      <PropertyRef Name="branchID" />
+    </Key>
+    <Property Name="branchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="branch_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="cityID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_CompanyBranchTBL_LibyanCitiesTBL" FromRole="CompanyBranchTBL" ToRole="LibyanCitiesTBL" />
+    <NavigationProperty Name="EmployeeTBLs" Relationship="Self.FK_EmployeeTBL_CompanyBranchTBL1" FromRole="CompanyBranchTBL" ToRole="EmployeeTBL" />
+    <NavigationProperty Name="invoiceTBLs" Relationship="Self.FK_invoiceTBL_CompanyBranchTBL" FromRole="CompanyBranchTBL" ToRole="invoiceTBL" />
+  </EntityType>
+  <EntityType Name="custodyTBL">
+    <Key>
+      <PropertyRef Name="custodyID" />
+    </Key>
+    <Property Name="custodyID" Type="Int32" Nullable="false" />
+    <Property Name="ownerID" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="deliveryID" Type="Int32" />
+    <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_custodyTBL_EmployeeTBL" FromRole="custodyTBL" ToRole="EmployeeTBL" />
+    <NavigationProperty Name="invoiceTBLs" Relationship="Self.FK_invoiceTBL_custodyTBL" FromRole="custodyTBL" ToRole="invoiceTBL" />
+  </EntityType>
+  <EntityType Name="customerTBL">
+    <Key>
+      <PropertyRef Name="customerID" />
+    </Key>
+    <Property Name="customerID" Type="Int32" Nullable="false" />
+    <Property Name="first_name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="last_name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="phone1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="phone2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="cityID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="add_date" Type="DateTime" Precision="0" />
+    <Property Name="credit" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_customerTBL_LibyanCitiesTBL" FromRole="customerTBL" ToRole="LibyanCitiesTBL" />
+    <NavigationProperty Name="invoiceTBLs" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="customerTBL" ToRole="invoiceTBL" />
+  </EntityType>
+  <EntityType Name="deliveryStatusTBL">
+    <Key>
+      <PropertyRef Name="statusID" />
+    </Key>
+    <Property Name="statusID" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="deliveryTBLs" Relationship="Self.FK_deliveryTBL_deliveryStatusTBL" FromRole="deliveryStatusTBL" ToRole="deliveryTBL" />
+  </EntityType>
+  <EntityType Name="deliveryTBL">
+    <Key>
+      <PropertyRef Name="deliveryID" />
+    </Key>
+    <Property Name="deliveryID" Type="Int32" Nullable="false" />
+    <Property Name="full_delivery" Type="Boolean" />
+    <Property Name="carID" Type="Int32" Nullable="false" />
+    <Property Name="driverID" Type="Int32" Nullable="false" />
+    <Property Name="invoiceID" Type="Int32" Nullable="false" />
+    <Property Name="start_date" Type="DateTime" Precision="3" />
+    <Property Name="end_date" Type="DateTime" Precision="3" />
+    <Property Name="statusID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CarsTBL" Relationship="Self.FK_deliveryTBL_CarsTBL" FromRole="deliveryTBL" ToRole="CarsTBL" />
+    <NavigationProperty Name="deliveryStatusTBL" Relationship="Self.FK_deliveryTBL_deliveryStatusTBL" FromRole="deliveryTBL" ToRole="deliveryStatusTBL" />
+    <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_deliveryTBL_EmployeeTBL" FromRole="deliveryTBL" ToRole="EmployeeTBL" />
+    <NavigationProperty Name="invoiceTBL" Relationship="Self.FK_deliveryTBL_invoiceTBL" FromRole="deliveryTBL" ToRole="invoiceTBL" />
+  </EntityType>
+  <EntityType Name="EmployeeTBL">
+    <Key>
+      <PropertyRef Name="employeeID" />
+    </Key>
+    <Property Name="employeeID" Type="Int32" Nullable="false" />
+    <Property Name="first_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="phone1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="jobID" Type="Int32" Nullable="false" />
+    <Property Name="cityID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="end_date" Type="DateTime" Precision="0" />
+    <Property Name="branchID" Type="Int32" />
+    <NavigationProperty Name="CompanyBranchTBL" Relationship="Self.FK_EmployeeTBL_CompanyBranchTBL1" FromRole="EmployeeTBL" ToRole="CompanyBranchTBL" />
+    <NavigationProperty Name="custodyTBLs" Relationship="Self.FK_custodyTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="custodyTBL" />
+    <NavigationProperty Name="deliveryTBLs" Relationship="Self.FK_deliveryTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="deliveryTBL" />
+    <NavigationProperty Name="JobsTBL" Relationship="Self.FK_EmployeeTBL_JobsTBL" FromRole="EmployeeTBL" ToRole="JobsTBL" />
+    <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_EmployeeTBL_LibyanCitiesTBL" FromRole="EmployeeTBL" ToRole="LibyanCitiesTBL" />
+    <NavigationProperty Name="userTBLs" Relationship="Self.FK_userTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="userTBL" />
+  </EntityType>
+  <EntityType Name="FinanceTBL">
+    <Key>
+      <PropertyRef Name="FinanceID" />
+    </Key>
+    <Property Name="FinanceID" Type="Int32" Nullable="false" />
+    <Property Name="FinancePositive" Type="Boolean" Nullable="false" />
+    <Property Name="FinanceValue" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="FinanceReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinanceEmployee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FinanceAddDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="invoiceTBL">
+    <Key>
+      <PropertyRef Name="invoiceID" />
+    </Key>
+    <Property Name="invoiceID" Type="Int32" Nullable="false" />
+    <Property Name="issuerID" Type="Int32" Nullable="false" />
+    <Property Name="custodyID" Type="Int32" />
+    <Property Name="customerID" Type="Int32" Nullable="false" />
+    <Property Name="time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="branchID" Type="Int32" />
+    <NavigationProperty Name="CompanyBranchTBL" Relationship="Self.FK_invoiceTBL_CompanyBranchTBL" FromRole="invoiceTBL" ToRole="CompanyBranchTBL" />
+    <NavigationProperty Name="custodyTBL" Relationship="Self.FK_invoiceTBL_custodyTBL" FromRole="invoiceTBL" ToRole="custodyTBL" />
+    <NavigationProperty Name="customerTBL" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="invoiceTBL" ToRole="customerTBL" />
+    <NavigationProperty Name="deliveryTBLs" Relationship="Self.FK_deliveryTBL_invoiceTBL" FromRole="invoiceTBL" ToRole="deliveryTBL" />
+    <NavigationProperty Name="serviceTBLs" Relationship="Self.servicesInvoice" FromRole="invoiceTBL" ToRole="serviceTBL" />
+  </EntityType>
+  <EntityType Name="JobsTBL">
+    <Key>
+      <PropertyRef Name="jobID" />
+    </Key>
+    <Property Name="jobID" Type="Int32" Nullable="false" />
+    <Property Name="job_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="basic_salary" Type="Double" />
+    <NavigationProperty Name="EmployeeTBLs" Relationship="Self.FK_EmployeeTBL_JobsTBL" FromRole="JobsTBL" ToRole="EmployeeTBL" />
+  </EntityType>
+  <EntityType Name="LibyanCitiesTBL">
+    <Key>
+      <PropertyRef Name="city_code" />
+    </Key>
+    <Property Name="city_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CompanyBranchTBLs" Relationship="Self.FK_CompanyBranchTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="CompanyBranchTBL" />
+    <NavigationProperty Name="customerTBLs" Relationship="Self.FK_customerTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="customerTBL" />
+    <NavigationProperty Name="EmployeeTBLs" Relationship="Self.FK_EmployeeTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="EmployeeTBL" />
+    <NavigationProperty Name="vendorBranchTBLs" Relationship="Self.FK_vendorBranchTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="vendorBranchTBL" />
+  </EntityType>
+  <EntityType Name="serviceTBL">
+    <Key>
+      <PropertyRef Name="serviceID" />
+    </Key>
+    <Property Name="serviceID" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="categoryID" Type="Int32" Nullable="false" />
+    <Property Name="active" Type="Boolean" />
+    <NavigationProperty Name="CategoriesTBL" Relationship="Self.FK_serviceTBL_CategoriesTBL" FromRole="serviceTBL" ToRole="CategoriesTBL" />
+    <NavigationProperty Name="invoiceTBLs" Relationship="Self.servicesInvoice" FromRole="serviceTBL" ToRole="invoiceTBL" />
+    <NavigationProperty Name="vendorTBLs" Relationship="Self.vendorServicesTBL" FromRole="serviceTBL" ToRole="vendorTBL" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="userGroupRoleTBL">
+    <Key>
+      <PropertyRef Name="groupID" />
+    </Key>
+    <Property Name="groupID" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="view_POS" Type="Boolean" Nullable="false" />
+    <Property Name="add_POS" Type="Boolean" Nullable="false" />
+    <Property Name="delete_POS" Type="Boolean" Nullable="false" />
+    <Property Name="view_HR" Type="Boolean" Nullable="false" />
+    <Property Name="add_HR" Type="Boolean" Nullable="false" />
+    <Property Name="delete_HR" Type="Boolean" Nullable="false" />
+    <Property Name="view_branch" Type="Boolean" Nullable="false" />
+    <Property Name="add_branch" Type="Boolean" Nullable="false" />
+    <Property Name="delete_branch" Type="Boolean" Nullable="false" />
+    <Property Name="view_custody" Type="Boolean" Nullable="false" />
+    <Property Name="add_custody" Type="Boolean" Nullable="false" />
+    <Property Name="delete_custody" Type="Boolean" Nullable="false" />
+    <Property Name="view_finance" Type="Boolean" Nullable="false" />
+    <Property Name="add_finance" Type="Boolean" Nullable="false" />
+    <Property Name="delete_finance" Type="Boolean" Nullable="false" />
+    <Property Name="view_delivery" Type="Boolean" Nullable="false" />
+    <Property Name="add_delivery" Type="Boolean" Nullable="false" />
+    <Property Name="delete_delivery" Type="Boolean" Nullable="false" />
+    <Property Name="view_report" Type="Boolean" Nullable="false" />
+    <Property Name="view_customer" Type="Boolean" Nullable="false" />
+    <Property Name="add_customer" Type="Boolean" Nullable="false" />
+    <Property Name="delete_customer" Type="Boolean" Nullable="false" />
+    <Property Name="view_vendor" Type="Boolean" Nullable="false" />
+    <Property Name="add_vendor" Type="Boolean" Nullable="false" />
+    <Property Name="delete_vendor" Type="Boolean" Nullable="false" />
+    <Property Name="view_service" Type="Boolean" Nullable="false" />
+    <Property Name="add_service" Type="Boolean" Nullable="false" />
+    <Property Name="delete_service" Type="Boolean" Nullable="false" />
+    <Property Name="admin_rights" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="userTBLs" Relationship="Self.userGroupsTBL" FromRole="userGroupRoleTBL" ToRole="userTBL" />
+  </EntityType>
+  <EntityType Name="userTBL">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="employeeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_userTBL_EmployeeTBL" FromRole="userTBL" ToRole="EmployeeTBL" />
+    <NavigationProperty Name="userGroupRoleTBLs" Relationship="Self.userGroupsTBL" FromRole="userTBL" ToRole="userGroupRoleTBL" />
+  </EntityType>
+  <EntityType Name="vendorBranchTBL">
+    <Key>
+      <PropertyRef Name="vendor_branchID" />
+    </Key>
+    <Property Name="vendor_branchID" Type="Int32" Nullable="false" />
+    <Property Name="vendorID" Type="Int32" Nullable="false" />
+    <Property Name="cityID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_vendorBranchTBL_LibyanCitiesTBL" FromRole="vendorBranchTBL" ToRole="LibyanCitiesTBL" />
+    <NavigationProperty Name="vendorTBL" Relationship="Self.FK_vendorBranchTBL_vendorTBL" FromRole="vendorBranchTBL" ToRole="vendorTBL" />
+  </EntityType>
+  <EntityType Name="vendorTBL">
+    <Key>
+      <PropertyRef Name="vendorID" />
+    </Key>
+    <Property Name="vendorID" Type="Int32" Nullable="false" />
+    <Property Name="categoryID" Type="Int32" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CategoriesTBL" Relationship="Self.FK_vendorTBL_CategoriesTBL" FromRole="vendorTBL" ToRole="CategoriesTBL" />
+    <NavigationProperty Name="vendorBranchTBLs" Relationship="Self.FK_vendorBranchTBL_vendorTBL" FromRole="vendorTBL" ToRole="vendorBranchTBL" />
+    <NavigationProperty Name="serviceTBLs" Relationship="Self.vendorServicesTBL" FromRole="vendorTBL" ToRole="serviceTBL" />
+  </EntityType>
+  <Association Name="FK_deliveryTBL_CarsTBL">
+    <End Role="CarsTBL" Type="Self.CarsTBL" Multiplicity="1" />
+    <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarsTBL">
+        <PropertyRef Name="carID" />
+      </Principal>
+      <Dependent Role="deliveryTBL">
+        <PropertyRef Name="carID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_serviceTBL_CategoriesTBL">
+    <End Role="CategoriesTBL" Type="Self.CategoriesTBL" Multiplicity="1" />
+    <End Role="serviceTBL" Type="Self.serviceTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriesTBL">
+        <PropertyRef Name="categoryID" />
+      </Principal>
+      <Dependent Role="serviceTBL">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vendorTBL_CategoriesTBL">
+    <End Role="CategoriesTBL" Type="Self.CategoriesTBL" Multiplicity="0..1" />
+    <End Role="vendorTBL" Type="Self.vendorTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriesTBL">
+        <PropertyRef Name="categoryID" />
+      </Principal>
+      <Dependent Role="vendorTBL">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyBranchTBL_LibyanCitiesTBL">
+    <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+    <End Role="CompanyBranchTBL" Type="Self.CompanyBranchTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibyanCitiesTBL">
+        <PropertyRef Name="city_code" />
+      </Principal>
+      <Dependent Role="CompanyBranchTBL">
+        <PropertyRef Name="cityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeTBL_CompanyBranchTBL1">
+    <End Role="CompanyBranchTBL" Type="Self.CompanyBranchTBL" Multiplicity="0..1" />
+    <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyBranchTBL">
+        <PropertyRef Name="branchID" />
+      </Principal>
+      <Dependent Role="EmployeeTBL">
+        <PropertyRef Name="branchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceTBL_CompanyBranchTBL">
+    <End Role="CompanyBranchTBL" Type="Self.CompanyBranchTBL" Multiplicity="0..1" />
+    <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyBranchTBL">
+        <PropertyRef Name="branchID" />
+      </Principal>
+      <Dependent Role="invoiceTBL">
+        <PropertyRef Name="branchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_custodyTBL_EmployeeTBL">
+    <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="1" />
+    <End Role="custodyTBL" Type="Self.custodyTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeTBL">
+        <PropertyRef Name="employeeID" />
+      </Principal>
+      <Dependent Role="custodyTBL">
+        <PropertyRef Name="ownerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceTBL_custodyTBL">
+    <End Role="custodyTBL" Type="Self.custodyTBL" Multiplicity="0..1" />
+    <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="custodyTBL">
+        <PropertyRef Name="custodyID" />
+      </Principal>
+      <Dependent Role="invoiceTBL">
+        <PropertyRef Name="custodyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customerTBL_LibyanCitiesTBL">
+    <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+    <End Role="customerTBL" Type="Self.customerTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibyanCitiesTBL">
+        <PropertyRef Name="city_code" />
+      </Principal>
+      <Dependent Role="customerTBL">
+        <PropertyRef Name="cityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceTBL_customerTBL">
+    <End Role="customerTBL" Type="Self.customerTBL" Multiplicity="1" />
+    <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customerTBL">
+        <PropertyRef Name="customerID" />
+      </Principal>
+      <Dependent Role="invoiceTBL">
+        <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_deliveryTBL_deliveryStatusTBL">
+    <End Role="deliveryStatusTBL" Type="Self.deliveryStatusTBL" Multiplicity="1" />
+    <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deliveryStatusTBL">
+        <PropertyRef Name="statusID" />
+      </Principal>
+      <Dependent Role="deliveryTBL">
+        <PropertyRef Name="statusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_deliveryTBL_EmployeeTBL">
+    <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="1" />
+    <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeTBL">
+        <PropertyRef Name="employeeID" />
+      </Principal>
+      <Dependent Role="deliveryTBL">
+        <PropertyRef Name="driverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_deliveryTBL_invoiceTBL">
+    <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="1" />
+    <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoiceTBL">
+        <PropertyRef Name="invoiceID" />
+      </Principal>
+      <Dependent Role="deliveryTBL">
+        <PropertyRef Name="invoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeTBL_JobsTBL">
+    <End Role="JobsTBL" Type="Self.JobsTBL" Multiplicity="1" />
+    <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobsTBL">
+        <PropertyRef Name="jobID" />
+      </Principal>
+      <Dependent Role="EmployeeTBL">
+        <PropertyRef Name="jobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeTBL_LibyanCitiesTBL">
+    <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+    <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibyanCitiesTBL">
+        <PropertyRef Name="city_code" />
+      </Principal>
+      <Dependent Role="EmployeeTBL">
+        <PropertyRef Name="cityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userTBL_EmployeeTBL">
+    <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="1" />
+    <End Role="userTBL" Type="Self.userTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeTBL">
+        <PropertyRef Name="employeeID" />
+      </Principal>
+      <Dependent Role="userTBL">
+        <PropertyRef Name="employeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vendorBranchTBL_LibyanCitiesTBL">
+    <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+    <End Role="vendorBranchTBL" Type="Self.vendorBranchTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibyanCitiesTBL">
+        <PropertyRef Name="city_code" />
+      </Principal>
+      <Dependent Role="vendorBranchTBL">
+        <PropertyRef Name="cityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vendorBranchTBL_vendorTBL">
+    <End Role="vendorTBL" Type="Self.vendorTBL" Multiplicity="1" />
+    <End Role="vendorBranchTBL" Type="Self.vendorBranchTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendorTBL">
+        <PropertyRef Name="vendorID" />
+      </Principal>
+      <Dependent Role="vendorBranchTBL">
+        <PropertyRef Name="vendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servicesInvoice">
+    <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
+    <End Role="serviceTBL" Type="Self.serviceTBL" Multiplicity="*" />
+  </Association>
+  <Association Name="userGroupsTBL">
+    <End Role="userGroupRoleTBL" Type="Self.userGroupRoleTBL" Multiplicity="*" />
+    <End Role="userTBL" Type="Self.userTBL" Multiplicity="*" />
+  </Association>
+  <Association Name="vendorServicesTBL">
+    <End Role="serviceTBL" Type="Self.serviceTBL" Multiplicity="*" />
+    <End Role="vendorTBL" Type="Self.vendorTBL" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="OnTheFlyDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CarsTBLs" EntityType="Self.CarsTBL" />
+    <EntitySet Name="CategoriesTBLs" EntityType="Self.CategoriesTBL" />
+    <EntitySet Name="CompanyBranchTBLs" EntityType="Self.CompanyBranchTBL" />
+    <EntitySet Name="custodyTBLs" EntityType="Self.custodyTBL" />
+    <EntitySet Name="customerTBLs" EntityType="Self.customerTBL" />
+    <EntitySet Name="deliveryStatusTBLs" EntityType="Self.deliveryStatusTBL" />
+    <EntitySet Name="deliveryTBLs" EntityType="Self.deliveryTBL" />
+    <EntitySet Name="EmployeeTBLs" EntityType="Self.EmployeeTBL" />
+    <EntitySet Name="FinanceTBLs" EntityType="Self.FinanceTBL" />
+    <EntitySet Name="invoiceTBLs" EntityType="Self.invoiceTBL" />
+    <EntitySet Name="JobsTBLs" EntityType="Self.JobsTBL" />
+    <EntitySet Name="LibyanCitiesTBLs" EntityType="Self.LibyanCitiesTBL" />
+    <EntitySet Name="serviceTBLs" EntityType="Self.serviceTBL" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="userGroupRoleTBLs" EntityType="Self.userGroupRoleTBL" />
+    <EntitySet Name="userTBLs" EntityType="Self.userTBL" />
+    <EntitySet Name="vendorBranchTBLs" EntityType="Self.vendorBranchTBL" />
+    <EntitySet Name="vendorTBLs" EntityType="Self.vendorTBL" />
+    <AssociationSet Name="FK_deliveryTBL_CarsTBL" Association="Self.FK_deliveryTBL_CarsTBL">
+      <End Role="CarsTBL" EntitySet="CarsTBLs" />
+      <End Role="deliveryTBL" EntitySet="deliveryTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_serviceTBL_CategoriesTBL" Association="Self.FK_serviceTBL_CategoriesTBL">
+      <End Role="CategoriesTBL" EntitySet="CategoriesTBLs" />
+      <End Role="serviceTBL" EntitySet="serviceTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vendorTBL_CategoriesTBL" Association="Self.FK_vendorTBL_CategoriesTBL">
+      <End Role="CategoriesTBL" EntitySet="CategoriesTBLs" />
+      <End Role="vendorTBL" EntitySet="vendorTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyBranchTBL_LibyanCitiesTBL" Association="Self.FK_CompanyBranchTBL_LibyanCitiesTBL">
+      <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
+      <End Role="CompanyBranchTBL" EntitySet="CompanyBranchTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeTBL_CompanyBranchTBL1" Association="Self.FK_EmployeeTBL_CompanyBranchTBL1">
+      <End Role="CompanyBranchTBL" EntitySet="CompanyBranchTBLs" />
+      <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceTBL_CompanyBranchTBL" Association="Self.FK_invoiceTBL_CompanyBranchTBL">
+      <End Role="CompanyBranchTBL" EntitySet="CompanyBranchTBLs" />
+      <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_custodyTBL_EmployeeTBL" Association="Self.FK_custodyTBL_EmployeeTBL">
+      <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
+      <End Role="custodyTBL" EntitySet="custodyTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceTBL_custodyTBL" Association="Self.FK_invoiceTBL_custodyTBL">
+      <End Role="custodyTBL" EntitySet="custodyTBLs" />
+      <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customerTBL_LibyanCitiesTBL" Association="Self.FK_customerTBL_LibyanCitiesTBL">
+      <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
+      <End Role="customerTBL" EntitySet="customerTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceTBL_customerTBL" Association="Self.FK_invoiceTBL_customerTBL">
+      <End Role="customerTBL" EntitySet="customerTBLs" />
+      <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_deliveryTBL_deliveryStatusTBL" Association="Self.FK_deliveryTBL_deliveryStatusTBL">
+      <End Role="deliveryStatusTBL" EntitySet="deliveryStatusTBLs" />
+      <End Role="deliveryTBL" EntitySet="deliveryTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_deliveryTBL_EmployeeTBL" Association="Self.FK_deliveryTBL_EmployeeTBL">
+      <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
+      <End Role="deliveryTBL" EntitySet="deliveryTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_deliveryTBL_invoiceTBL" Association="Self.FK_deliveryTBL_invoiceTBL">
+      <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
+      <End Role="deliveryTBL" EntitySet="deliveryTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeTBL_JobsTBL" Association="Self.FK_EmployeeTBL_JobsTBL">
+      <End Role="JobsTBL" EntitySet="JobsTBLs" />
+      <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeTBL_LibyanCitiesTBL" Association="Self.FK_EmployeeTBL_LibyanCitiesTBL">
+      <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
+      <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userTBL_EmployeeTBL" Association="Self.FK_userTBL_EmployeeTBL">
+      <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
+      <End Role="userTBL" EntitySet="userTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vendorBranchTBL_LibyanCitiesTBL" Association="Self.FK_vendorBranchTBL_LibyanCitiesTBL">
+      <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
+      <End Role="vendorBranchTBL" EntitySet="vendorBranchTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vendorBranchTBL_vendorTBL" Association="Self.FK_vendorBranchTBL_vendorTBL">
+      <End Role="vendorTBL" EntitySet="vendorTBLs" />
+      <End Role="vendorBranchTBL" EntitySet="vendorBranchTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="servicesInvoice" Association="Self.servicesInvoice">
+      <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
+      <End Role="serviceTBL" EntitySet="serviceTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="userGroupsTBL" Association="Self.userGroupsTBL">
+      <End Role="userGroupRoleTBL" EntitySet="userGroupRoleTBLs" />
+      <End Role="userTBL" EntitySet="userTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="vendorServicesTBL" Association="Self.vendorServicesTBL">
+      <End Role="serviceTBL" EntitySet="serviceTBLs" />
+      <End Role="vendorTBL" EntitySet="vendorTBLs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

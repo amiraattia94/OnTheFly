@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OnTheFlyWPFC.View"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="400"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -11,6 +12,8 @@
 
     <UserControl.Resources>
         <viewmodel:Class1 x:Key="class1"/>
+        <viewmodel:CityViewModel x:Key="City"/>
+
 
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="LightGray" />
@@ -342,36 +345,53 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="اضافة فرع" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0,8"/>
 
-                            <StackPanel Grid.Row="1" Grid.Column="1" >
+                            <StackPanel Grid.Row="1" Grid.Column="1">
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox Text="" VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtBranchName" Text="bransh name" VerticalAlignment="Stretch"/>
+                                </Border>
+                                <Border  Height="40" Margin="0,0,0,15" >
+
+
+                                    <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" />
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
-                                </Border>
-                                <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtBranchAddress" Text="address" VerticalAlignment="Stretch"/>
                                 </Border>
 
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
+                                    <ComboBox Name="cmbBranchStatus" VerticalAlignment="Stretch">
+                                        <ComboBoxItem Content="مفعل">
+                                            <ComboBoxItem.Tag>
+                                                <sys:Boolean>True</sys:Boolean>
+                                            </ComboBoxItem.Tag>
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Content="غير مفعل">
+                                            <ComboBoxItem.Tag>
+                                                <sys:Boolean>false</sys:Boolean>
+                                            </ComboBoxItem.Tag>
+                                        </ComboBoxItem>
+                                    </ComboBox>
                                 </Border>
 
 
                                 <Border Height="40" Margin="0,20,0,0">
                                     <Border Height="40" Width="150" BorderBrush="Transparent" CornerRadius="15"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                        <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                        <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="Button_Click">
                                             <UniformGrid FlowDirection="RightToLeft">
+                                                
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة الفرع" Margin="0,0,10,0"  />
                                                     <materialDesign:PackIcon Kind="Plus" HorizontalAlignment="Center" Height="20" Width="20" VerticalAlignment="Center"/>
 
                                                 </StackPanel>
+                                                
+                                                
                                             </UniformGrid>
                                         </Button>
                                     </Border>
                                 </Border>
 
+                                
                             </StackPanel>
 
                             <StackPanel Grid.Row="1" Grid.Column="3" >
