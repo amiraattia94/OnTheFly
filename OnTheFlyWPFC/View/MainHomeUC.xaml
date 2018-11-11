@@ -17,7 +17,7 @@
         <Border BorderThickness="0" Background="#FFEFF3FA" CornerRadius="7">
             <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center"  >
                 <StackPanel Orientation="Vertical">
-                    <Border BorderThickness="0" Background="White" CornerRadius="7" MinHeight="100" Height="150" MaxHeight="170" MinWidth="200"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,30,0">
+                    <Border BorderThickness="0" Background="White" CornerRadius="7" MinHeight="75" Height="150" MaxHeight="170" MinWidth="200"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,30,0">
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
                         </Border.Effect>
