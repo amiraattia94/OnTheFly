@@ -52,6 +52,19 @@ namespace OnTheFlyWPFC.ViewModel
                 OnPropertyChanged("SelectedUser");
             }
         }
+        private Boolean _userExists;
+        public Boolean UserExists
+        {
+            get
+            {
+                return _userExists;
+            }
+
+            set
+            {
+                _userExists = value;            
+            }
+        }
 
 
 
@@ -63,7 +76,7 @@ namespace OnTheFlyWPFC.ViewModel
 
         }
 
-        async public void GetAllCities()
+        async public void GetAllUsers()
         {
             var users = await _userService.GetUser();
             UN = new List<string>();
@@ -72,6 +85,12 @@ namespace OnTheFlyWPFC.ViewModel
                 _userName.Add(user);
                 UN.Add(user.username);
             }
+        }
+        async public  void GetUserExists(string username, string password)
+        {
+            var result = await _userService.GetUserExists(username,password);
+            
+            UserExists = result;
         }
     }
 }
