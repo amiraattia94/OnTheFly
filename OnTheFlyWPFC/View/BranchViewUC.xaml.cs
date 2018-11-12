@@ -51,10 +51,23 @@ namespace OnTheFlyWPFC.View
 
         }
 
+        private void cmbBranchCity_Loaded(object sender, RoutedEventArgs e) {
+            cityViewModel.GetAllCities();
+            cmbBranchCity.ItemsSource = cityViewModel.CityName;
+            cmbBranchCity.DisplayMemberPath = "name";
+
+            foreach (CityDTO city in cmbBranchCity.Items) {
+                if (city.name == branchViewModel.EditBranch.cityID) {
+                    cmbBranchCity.SelectedValue = city;
+                    break;
+                }
+            }
+        }
+
         private async void DeleteBranch(object sender, RoutedEventArgs e) {
             Button button = sender as Button;
             var a = button.CommandParameter as BranchDTO;
-            HelperClass.BranchID =  a.branchID;
+            //HelperClass.BranchID =  a.branchID;
 
             if (await branchViewModel.DeleteBranchByID(a.branchID))
                 MessageBox.Show("تم المسح بنجاح");
@@ -78,18 +91,7 @@ namespace OnTheFlyWPFC.View
             
         }
 
-        private void cmbBranchCity_Loaded(object sender, RoutedEventArgs e) {
-            cityViewModel.GetAllCities();
-            cmbBranchCity.ItemsSource = cityViewModel.CityName;
-            cmbBranchCity.DisplayMemberPath = "name";
 
-            foreach (CityDTO city in cmbBranchCity.Items) {
-                if (city.name == branchViewModel.EditBranch.cityID) {
-                    cmbBranchCity.SelectedValue = city;
-                    break;
-                }
-            }
-        }
 
         private void cmbBranchCity_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
