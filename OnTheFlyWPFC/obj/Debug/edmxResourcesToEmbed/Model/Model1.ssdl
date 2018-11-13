@@ -41,9 +41,8 @@
     <Key>
       <PropertyRef Name="customerID" />
     </Key>
-    <Property Name="customerID" Type="int" Nullable="false" />
-    <Property Name="first_name" Type="nvarchar" MaxLength="15" />
-    <Property Name="last_name" Type="nvarchar" MaxLength="15" />
+    <Property Name="customerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="15" />
     <Property Name="phone1" Type="varchar" MaxLength="10" />
     <Property Name="phone2" Type="varchar" MaxLength="10" />
     <Property Name="cityID" Type="varchar" MaxLength="2" />

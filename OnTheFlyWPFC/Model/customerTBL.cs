@@ -21,8 +21,7 @@ namespace OnTheFlyWPFC.Model
         }
     
         public int customerID { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
+        public string name { get; set; }
         public string phone1 { get; set; }
         public string phone2 { get; set; }
         public string cityID { get; set; }

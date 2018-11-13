@@ -92,17 +92,23 @@ namespace OnTheFlyWPFC.View
         }
 
         private void cmbBranchCity_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            var citytemp = cmbBranchCity.SelectedValue as CityDTO;
-            branchViewModel.GetBranchByCity(citytemp.cityCode);
-            lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
-            lstViewBraches.Items.Refresh();
+            if(cmbBranchCity.SelectedIndex != -1) {
+                var citytemp = cmbBranchCity.SelectedValue as CityDTO;
+                branchViewModel.GetBranchByCity(citytemp.cityCode);
+                cmbBranchState.SelectedIndex = -1;
+                lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
+                lstViewBraches.Items.Refresh();
+            }
+            
         }
 
         private void cmbBranchState_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            
-            branchViewModel.GetBranchByState(HelperClass.TrueOrFalse(cmbBranchState.SelectedIndex));
-            lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
-            lstViewBraches.Items.Refresh();
+            if (cmbBranchState.SelectedIndex != -1) {
+                branchViewModel.GetBranchByState(HelperClass.TrueOrFalse(cmbBranchState.SelectedIndex));
+                cmbBranchCity.SelectedIndex = -1;
+                lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
+                lstViewBraches.Items.Refresh();
+            }
             
         }
 
