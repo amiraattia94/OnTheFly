@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="Model\DTO\BranchDTO.cs" />
     <Compile Include="Model\DTO\CityDTO.cs" />
+    <Compile Include="Model\DTO\UserDTO.cs" />
     <Compile Include="Model\EmployeeTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -173,6 +174,7 @@
     <Compile Include="Model\Service\BranchService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
     <Compile Include="Model\Service\HelperClass.cs" />
+    <Compile Include="Model\Service\UserService.cs" />
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -190,6 +192,7 @@
     </Compile>
     <Compile Include="ViewModel\BranchViewModel.cs" />
     <Compile Include="ViewModel\CityViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="View\BranchAddUC.xaml.cs">
       <DependentUpon>BranchAddUC.xaml</DependentUpon>
     </Compile>
@@ -297,6 +300,9 @@
     </Compile>
     <Compile Include="View\HRWindow.xaml.cs">
       <DependentUpon>HRWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\POSAddReceiptUC.xaml.cs">
       <DependentUpon>POSAddReceiptUC.xaml</DependentUpon>
@@ -460,6 +466,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HRWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
