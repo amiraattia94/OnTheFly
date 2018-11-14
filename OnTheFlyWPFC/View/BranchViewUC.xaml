@@ -350,11 +350,11 @@
                     
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Right">
+                <!--<StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Right">
                     <Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                     <TextBox Width="200" VerticalAlignment="Center"/>
                     <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Height="30" Width="30" Foreground="#8C9AB6"/>
-                </StackPanel>
+                </StackPanel>-->
 
 
                 <UniformGrid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top">

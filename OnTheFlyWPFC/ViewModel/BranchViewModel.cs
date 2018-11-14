@@ -33,7 +33,6 @@ namespace OnTheFlyWPFC.ViewModel {
         async public Task<bool> DeleteBranchByID(int branchID) {
             return await _branchService.DeleteBranchByID(branchID);
         }
-
         
         async public void GetAllBranches() {
             ViewBranch = await _branchService.GetAllBranch();
@@ -46,9 +45,6 @@ namespace OnTheFlyWPFC.ViewModel {
         async public void GetBranchByState(bool branchState) {
             ViewBranch = await _branchService.GetBranchByState(branchState);
         }
-
-
-
 
         async public void GetBranchByID(int BranchID) {
 

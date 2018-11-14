@@ -8,7 +8,7 @@
         Title="CustomerAddMiniWindow" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        Height="500" Width="400" ResizeMode="NoResize" >
+        Height="550" Width="400" ResizeMode="NoResize" >
 
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="#FFEFF3FA" CornerRadius="8"  >
@@ -76,26 +76,31 @@
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox Text="" VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtCustomerName" Text="ادخل اسم الزبون" VerticalAlignment="Stretch"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtCustomerPhone1" Text="ادخل رقم الزبون" VerticalAlignment="Stretch"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtCustomerPhone2" Text="ادخل رقم الزبون" VerticalAlignment="Stretch"/>
                                 </Border>
 
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
+                                    <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded"/>
                                 </Border>
+                                
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtCustomerAddress" Text="عنوان الزبون" VerticalAlignment="Stretch"/>
+                                </Border>
+                                
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <TextBox Name="txtCustomerCredit" Text="رصيد الزبون" VerticalAlignment="Stretch"/>
                                 </Border>
 
 
                                 <Border Height="40" Margin="0,20,0,0">
                                     <Border Height="40" BorderBrush="Transparent" CornerRadius="15"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                        <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                        <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="Button_Click">
                                             <UniformGrid FlowDirection="RightToLeft">
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة زبون " Margin="0,0,0,0"  />

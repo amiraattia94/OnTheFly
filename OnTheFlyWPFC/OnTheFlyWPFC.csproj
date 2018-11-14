@@ -137,7 +137,11 @@
     </Compile>
     <Compile Include="Model\DTO\BranchDTO.cs" />
     <Compile Include="Model\DTO\CityDTO.cs" />
+<<<<<<< HEAD
+    <Compile Include="Model\DTO\CustomerDTO.cs" />
+=======
     <Compile Include="Model\DTO\UserDTO.cs" />
+>>>>>>> master
     <Compile Include="Model\EmployeeTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -173,6 +177,7 @@
     </Compile>
     <Compile Include="Model\Service\BranchService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
+    <Compile Include="Model\Service\CustomerService.cs" />
     <Compile Include="Model\Service\HelperClass.cs" />
     <Compile Include="Model\Service\UserService.cs" />
     <Compile Include="Model\sysdiagram.cs">
@@ -192,7 +197,11 @@
     </Compile>
     <Compile Include="ViewModel\BranchViewModel.cs" />
     <Compile Include="ViewModel\CityViewModel.cs" />
+<<<<<<< HEAD
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
+=======
     <Compile Include="ViewModel\LoginViewModel.cs" />
+>>>>>>> master
     <Compile Include="View\BranchAddUC.xaml.cs">
       <DependentUpon>BranchAddUC.xaml</DependentUpon>
     </Compile>
