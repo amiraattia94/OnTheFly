@@ -88,11 +88,11 @@
                                 <Border Height="40" Margin="0,0,0,15">
                                     <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded"/>
                                 </Border>
-                                
+
                                 <Border Height="40" Margin="0,0,0,15">
                                     <TextBox Name="txtCustomerAddress" Text="عنوان الزبون" VerticalAlignment="Stretch"/>
                                 </Border>
-                                
+
                                 <Border Height="40" Margin="0,0,0,15">
                                     <TextBox Name="txtCustomerCredit" Text="رصيد الزبون" VerticalAlignment="Stretch"/>
                                 </Border>

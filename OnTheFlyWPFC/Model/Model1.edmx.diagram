@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="821ada31698149869b0e6d79c95c5e05" Name="Diagram1">
+      <Diagram DiagramId="ee949149f32f45f2bea136c6fb593ab2" Name="Diagram1">
         <EntityTypeShape EntityType="OnTheFlyDBModel.CarsTBL" Width="1.5" PointX="9.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.CategoriesTBL" Width="1.5" PointX="9.75" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.CompanyBranchTBL" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />

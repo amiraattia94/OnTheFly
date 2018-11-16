@@ -14,13 +14,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace OnTheFlyWPFC.View
-{
+namespace OnTheFlyWPFC.View {
     /// <summary>
     /// Interaction logic for CustomerViewUC.xaml
     /// </summary>
-    public partial class CustomerViewUC : UserControl
-    {
+    public partial class CustomerViewUC : UserControl {
 
         CityViewModel cityViewModel;
         CustomerViewModel customerViewModel;
@@ -29,8 +27,7 @@ namespace OnTheFlyWPFC.View
         //public event RefreshList RefreshListEvent;
 
 
-        public CustomerViewUC()
-        {
+        public CustomerViewUC() {
 
             InitializeComponent();
 

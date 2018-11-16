@@ -15,12 +15,5 @@ namespace OnTheFlyWPFC.Model.Service {
 
             return false;
         }
-        public static bool TrueOrFalse(int status) {
-
-            if (status == 0)
-                return true;
-
-            return false;
-        }
     }
 }

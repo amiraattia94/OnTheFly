@@ -51,23 +51,10 @@ namespace OnTheFlyWPFC.View
 
         }
 
-        private void cmbBranchCity_Loaded(object sender, RoutedEventArgs e) {
-            cityViewModel.GetAllCities();
-            cmbBranchCity.ItemsSource = cityViewModel.CityName;
-            cmbBranchCity.DisplayMemberPath = "name";
-
-            foreach (CityDTO city in cmbBranchCity.Items) {
-                if (city.name == branchViewModel.EditBranch.cityID) {
-                    cmbBranchCity.SelectedValue = city;
-                    break;
-                }
-            }
-        }
-
         private async void DeleteBranch(object sender, RoutedEventArgs e) {
             Button button = sender as Button;
             var a = button.CommandParameter as BranchDTO;
-            //HelperClass.BranchID =  a.branchID;
+            HelperClass.BranchID =  a.branchID;
 
             if (await branchViewModel.DeleteBranchByID(a.branchID))
                 MessageBox.Show("تم المسح بنجاح");
@@ -91,25 +78,25 @@ namespace OnTheFlyWPFC.View
             
         }
 
-        private void cmbBranchCity_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if(cmbBranchCity.SelectedIndex != -1) {
-                var citytemp = cmbBranchCity.SelectedValue as CityDTO;
-                branchViewModel.GetBranchByCity(citytemp.cityCode);
-                cmbBranchState.SelectedIndex = -1;
-                lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
-                lstViewBraches.Items.Refresh();
+        private void cmbBranchCity_Loaded(object sender, RoutedEventArgs e) {
+            cityViewModel.GetAllCities();
+            cmbBranchCity.ItemsSource = cityViewModel.CityName;
+            cmbBranchCity.DisplayMemberPath = "name";
+
+            foreach (CityDTO city in cmbBranchCity.Items) {
+                if (city.name == branchViewModel.EditBranch.cityID) {
+                    cmbBranchCity.SelectedValue = city;
+                    break;
+                }
             }
-            
+        }
+
+        private void cmbBranchCity_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
         }
 
         private void cmbBranchState_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (cmbBranchState.SelectedIndex != -1) {
-                branchViewModel.GetBranchByState(HelperClass.TrueOrFalse(cmbBranchState.SelectedIndex));
-                cmbBranchCity.SelectedIndex = -1;
-                lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
-                lstViewBraches.Items.Refresh();
-            }
-            
+
         }
 
     }

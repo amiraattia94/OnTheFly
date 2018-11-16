@@ -10,9 +10,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Height="720" Width="1366" 
         Background="Transparent" WindowStyle="None" 
-
-        AllowsTransparency="True" WindowState="Maximized" WindowStartupLocation="Manual" WindowStartupLocation="CenterScreen"  ResizeMode="CanResizeWithGrip" WindowState="Maximized">
-
+        AllowsTransparency="True" WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">

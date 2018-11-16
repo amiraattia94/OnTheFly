@@ -125,11 +125,12 @@ namespace OnTheFlyWPFC.Model.Service {
                 else {
                     return new ObservableCollection<BranchDTO>();
                 }
+                
+
                  
             }
 
         }
-
         async public Task<ObservableCollection<BranchDTO>> GetBranchByCity(string City) {
             await Task.FromResult(true);
 
@@ -149,9 +150,12 @@ namespace OnTheFlyWPFC.Model.Service {
                     return new ObservableCollection<BranchDTO>();
                 }
 
+
+
             }
 
         }
+
 
         async public Task<bool> DeleteBranchByID(int BranchID) {
             await Task.FromResult(true);

@@ -4,30 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
-C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\
-=======
-C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\
->>>>>>> master
+C:\Users\Taher\Desktop\OnTheFly-master\OnTheFlyWPFC\obj\Debug\
 OnTheFlyWPFC
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
-C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\App.xaml
-45-1789802978
-131310327145
-861682651321
-30360476021
-View\BranchAddUC.xaml;View\BranchSummaryUC.xaml;View\BranchViewUC.xaml;View\BranchViewUsersUC.xaml;View\BranchWindow.xaml;View\BranchEditMiniWindow.xaml;View\CustodyViewAddMiniWindow.xaml;View\CustodyViewEditMiniWindow.xaml;View\CustodyViewUC.xaml;View\CustodyWindow.xaml;View\CustomerAddMiniWindow.xaml;View\CustomerEditMiniWindow.xaml;View\CustomerViewUC.xaml;View\CustomerWindow.xaml;View\DeliveryCarAddMiniWindow.xaml;View\DeliveryCarEditMiniWindow.xaml;View\DeliveryCarUC.xaml;View\DeliveryDestinationAddMiniWindow.xaml;View\DeliveryDestinationEditMiniWindow.xaml;View\DeliveryDestinationUC.xaml;View\DeliveryServiceAddMiniWindow.xaml;View\DeliveryServiceEditMiniWindow.xaml;View\DeliveryServicesUC.xaml;View\DeliverySummaryUC.xaml;View\DeliveryViewUC.xaml;View\DeliveryWindow.xaml;View\FinanceIncomeAddMiniWindow.xaml;View\FinanceIncomeEditMiniWindow.xaml;View\FinanceIncomeUC.xaml;View\FinanceSpendingUC.xaml;View\FinanceSummaryUC.xaml;View\FinanceWindow.xaml;View\HREmployeeAddMiniWindow.xaml;View\HREmployeeEditMiniWindow.xaml;View\HRViewUC.xaml;View\HRWindow.xaml;View\MainHomeUC.xaml;View\MainWindow.xaml;View\POSAddReceiptUC.xaml;View\POSAddServiceMiniWindow.xaml;View\POSReceiptSumUC.xaml;View\POSSummaryUC.xaml;View\POSViewReceiptUC.xaml;View\POSWindow.xaml;View\ReportsWindow.xaml;
-=======
-C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\App.xaml
+C:\Users\Taher\Desktop\OnTheFly-master\OnTheFlyWPFC\App.xaml
 461607008983
 131310327145
-871617913379
-30-937501801
+906990172
+30742920904
 View\BranchAddUC.xaml;View\BranchSummaryUC.xaml;View\BranchViewUC.xaml;View\BranchViewUsersUC.xaml;View\BranchWindow.xaml;View\BranchEditMiniWindow.xaml;View\CustodyViewAddMiniWindow.xaml;View\CustodyViewEditMiniWindow.xaml;View\CustodyViewUC.xaml;View\CustodyWindow.xaml;View\CustomerAddMiniWindow.xaml;View\CustomerEditMiniWindow.xaml;View\CustomerViewUC.xaml;View\CustomerWindow.xaml;View\DeliveryCarAddMiniWindow.xaml;View\DeliveryCarEditMiniWindow.xaml;View\DeliveryCarUC.xaml;View\DeliveryDestinationAddMiniWindow.xaml;View\DeliveryDestinationEditMiniWindow.xaml;View\DeliveryDestinationUC.xaml;View\DeliveryServiceAddMiniWindow.xaml;View\DeliveryServiceEditMiniWindow.xaml;View\DeliveryServicesUC.xaml;View\DeliverySummaryUC.xaml;View\DeliveryViewUC.xaml;View\DeliveryWindow.xaml;View\FinanceIncomeAddMiniWindow.xaml;View\FinanceIncomeEditMiniWindow.xaml;View\FinanceIncomeUC.xaml;View\FinanceSpendingUC.xaml;View\FinanceSummaryUC.xaml;View\FinanceWindow.xaml;View\HREmployeeAddMiniWindow.xaml;View\HREmployeeEditMiniWindow.xaml;View\HRViewUC.xaml;View\HRWindow.xaml;View\LoginWindow.xaml;View\MainHomeUC.xaml;View\MainWindow.xaml;View\POSAddReceiptUC.xaml;View\POSAddServiceMiniWindow.xaml;View\POSReceiptSumUC.xaml;View\POSSummaryUC.xaml;View\POSViewReceiptUC.xaml;View\POSWindow.xaml;View\ReportsWindow.xaml;
->>>>>>> master
 
 False
 
