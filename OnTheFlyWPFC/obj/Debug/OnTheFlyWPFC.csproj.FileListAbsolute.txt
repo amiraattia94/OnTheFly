@@ -259,7 +259,6 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.Prop
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.GenerateResource.Cache
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
-C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojResolveAssemblyReference.cache
 C:\Users\Taher\Desktop\OnTheFly-master\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe.config
 C:\Users\Taher\Desktop\OnTheFly-master\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.exe
 C:\Users\Taher\Desktop\OnTheFly-master\OnTheFlyWPFC\bin\Debug\OnTheFlyWPFC.pdb
@@ -393,3 +392,6 @@ C:\Users\Taher\Desktop\OnTheFly-master\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.cspro
 C:\Users\Taher\Desktop\OnTheFly-master\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CopyComplete
 C:\Users\Taher\Desktop\OnTheFly-master\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\Taher\Desktop\OnTheFly-master\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CopyComplete
