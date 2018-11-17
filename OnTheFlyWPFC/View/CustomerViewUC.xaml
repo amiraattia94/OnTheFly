@@ -343,26 +343,45 @@
                 </StackPanel>
 
 
-                <UniformGrid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" DataContext="{StaticResource ResourceKey=class1}">
+                <UniformGrid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" >
                     <StackPanel>
-                        <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,0,0,0" Height="391" >
+                        <ListView Name="lstviewCustomers"  Margin="0,0,0,0" Height="391" Loaded="lstviewCustomers_Loaded">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="الاسم" Width="90" DisplayMemberBinding="{Binding A}"/>
-                                    <GridViewColumn Header="المنطقة" Width="90" DisplayMemberBinding="{Binding A}"/>
-                                    <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding B}"/>
-                                    <GridViewColumn Header="رقم الهاتف " Width="90" DisplayMemberBinding="{Binding C}"/>
-                                    <GridViewColumn Header="الرصيد " Width="90" DisplayMemberBinding="{Binding C}"/>
+                                    <GridViewColumn Header="الاسم" Width="90" DisplayMemberBinding="{Binding name}"/>
+                                    <GridViewColumn Header="المنطقة" Width="90" DisplayMemberBinding="{Binding city}"/>
+                                    <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding address}"/>
+                                    <GridViewColumn Header="رقم الهاتف 1 " Width="100" DisplayMemberBinding="{Binding phone1}"/>
+                                    <GridViewColumn Header="رقم الهاتف 2 " Width="100" DisplayMemberBinding="{Binding phone2}"/>
+                                    <GridViewColumn Header="الرصيد " Width="90" DisplayMemberBinding="{Binding credit}"/>
+                                    <GridViewColumn Header="تاريخ الاضافة " Width="100" DisplayMemberBinding="{Binding adddate}"/>
 
-                                    <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
-                                    <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
+
+                                    <GridViewColumn  Width="25" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Click="EditCustomer" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  >
+                                                    <materialDesign:PackIcon Kind="Edit" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
+                                                </Button>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn  Width="25">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Click="DeleteCustomer" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
+                                                    <materialDesign:PackIcon Kind="Delete" FontSize="15" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
+                                                </Button>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>
 
                         <Border Height="40" Margin="0,20,0,0" HorizontalAlignment="Left">
                             <Border Height="40" Width="150" BorderBrush="Transparent" CornerRadius="15"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Name="btnAddCustomer" Click="btnAddCustomer_Click">
                                     <UniformGrid FlowDirection="RightToLeft">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة زبون" Margin="0,0,0,0"  />
@@ -374,9 +393,8 @@
                             </Border>
                         </Border>
                     </StackPanel>
-                    
-                </UniformGrid>
 
+                </UniformGrid>
 
 
 

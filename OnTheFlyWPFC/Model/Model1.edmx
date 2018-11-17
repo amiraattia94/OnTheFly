@@ -46,9 +46,8 @@
           <Key>
             <PropertyRef Name="customerID" />
           </Key>
-          <Property Name="customerID" Type="int" Nullable="false" />
-          <Property Name="first_name" Type="nvarchar" MaxLength="15" />
-          <Property Name="last_name" Type="nvarchar" MaxLength="15" />
+          <Property Name="customerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="15" />
           <Property Name="phone1" Type="varchar" MaxLength="10" />
           <Property Name="phone2" Type="varchar" MaxLength="10" />
           <Property Name="cityID" Type="varchar" MaxLength="2" />
@@ -700,9 +699,8 @@
           <Key>
             <PropertyRef Name="customerID" />
           </Key>
-          <Property Name="customerID" Type="Int32" Nullable="false" />
-          <Property Name="first_name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="last_name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="customerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="phone1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="phone2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="cityID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
@@ -1286,8 +1284,7 @@
             <EntityTypeMapping TypeName="OnTheFlyDBModel.customerTBL">
               <MappingFragment StoreEntitySet="customerTBL">
                 <ScalarProperty Name="customerID" ColumnName="customerID" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="phone1" ColumnName="phone1" />
                 <ScalarProperty Name="phone2" ColumnName="phone2" />
                 <ScalarProperty Name="cityID" ColumnName="cityID" />
