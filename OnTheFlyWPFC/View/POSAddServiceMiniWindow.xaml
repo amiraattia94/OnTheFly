@@ -9,72 +9,71 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        Height="650" Width="600" ResizeMode="NoResize" >
+        Height="750" Width="500" ResizeMode="NoResize" >
+   
 
     <UniformGrid FlowDirection="RightToLeft">
-        <Border BorderThickness="0" Background="#FFEFF3FA" CornerRadius="8"  >
+        <Border BorderThickness="0" Background="White" CornerRadius="8" Height="650" Width="400" MouseDown="Border_MouseDown" >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1" Color="#FFACACAC"/>
+            </Border.Effect>
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="63"/>
+                    
+                      
+                    <RowDefinition Height="178*"/>
+                    <RowDefinition Height="40"/>
+
                     <RowDefinition Height="30"/>
-                    <RowDefinition/>
+                   
+                    
                 </Grid.RowDefinitions>
-                <Grid Height="30" VerticalAlignment="Top" Grid.Row="0">
+                <Grid Height="63" VerticalAlignment="Top" Grid.Row="0">
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
                     </Grid.Effect>
-                    <Border  CornerRadius="7,7,0,0" MouseDown="Border_MouseDown" >
-                        <Border.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FF1246B0"/>
-                                <GradientStop Color="#FF0F6AB8" Offset="0.996"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
 
-                    </Border>
                     <UniformGrid FlowDirection="LeftToRight">
                         <StackPanel Orientation="Horizontal">
-                            <Button Name="btnCloseForm"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnCloseForm_Click">
+                            <Button  Name="btnCloseForm"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnCloseForm_Click" Height="63">
                                 <UniformGrid FlowDirection="RightToLeft">
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Source="Images\icons\ic_close.png" Height="15" Width="15"/>
+                                        <materialDesign:PackIcon Kind="Close" Width="20" Height="20" Foreground="#8C9AB6"/>
                                     </StackPanel>
                                 </UniformGrid>
                             </Button>
                         </StackPanel>
                     </UniformGrid>
                 </Grid>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="107*"/>
+                        <ColumnDefinition Width="13*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
 
-                    <Border Background="White" Grid.Row="0" Grid.RowSpan="2"  CornerRadius="7" Margin="20,10,20,20">
-                        <Border.Effect>
-                            <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
-                        </Border.Effect>
+                    <Border Background="Transparent"  Grid.ColumnSpan="2">
+                       
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="60"/>
                                 <RowDefinition Height="178*"/>
+                                <RowDefinition Height="30"/>
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="175*"/>
-                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="20"/>
                                 <ColumnDefinition Width="109*"/>
-                                <ColumnDefinition Width="246*"/>
+                                <ColumnDefinition Width="30"/>
+                                
                             </Grid.ColumnDefinitions>
-                            <Label Content="اضافة خدمة توصيل" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0,8"/>
+                            <Label Content="اضافة خدمة توصيل" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Column="1" Height="44" Margin="0,8"/>
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 <Border Height="40" Margin="0,0,0,15">
@@ -90,7 +89,7 @@
                                 <Border Height="40" Margin="0,0,0,15">
                                     <ComboBox VerticalAlignment="Stretch"/>
                                 </Border>
-                                
+
                                 <Border Height="40" Margin="0,0,0,15">
                                     <ComboBox VerticalAlignment="Stretch"/>
                                 </Border>
@@ -101,7 +100,7 @@
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Label Content="تاريخ توفير المنتج" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
                                 </Border>
-                                
+
 
                                 <Border Height="40" Margin="0,0,0,15">
                                     <StackPanel Orientation="Horizontal">
@@ -112,18 +111,7 @@
                                 </Border>
 
 
-                                <Border Height="40" Margin="0,0,0,15">
-                                    <Border Height="40" BorderBrush="Transparent" CornerRadius="15"  Grid.Column="2" Background="#2C99F5" Margin="0,0,0,0" >
-                                        <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
-                                            <UniformGrid FlowDirection="RightToLeft">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة الخدمة" Margin="0,0,0,0"  />
-
-                                                </StackPanel>
-                                            </UniformGrid>
-                                        </Button>
-                                    </Border>
-                                </Border>
+                               
 
                             </StackPanel>
 
@@ -166,7 +154,17 @@
 
                 </Grid>
 
-
+                <Grid Grid.Row="2" >
+                    <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="120,0,120,0" >
+                        <Button Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                            <UniformGrid FlowDirection="RightToLeft">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="15" Foreground="White" VerticalAlignment="Center" FontFamily="Noto Kufi Arabic" Text="اضافة الخدمة" Margin="0,0,0,0"  />
+                                </StackPanel>
+                            </UniformGrid>
+                        </Button>
+                    </Border>
+                </Grid>
 
             </Grid>
 
