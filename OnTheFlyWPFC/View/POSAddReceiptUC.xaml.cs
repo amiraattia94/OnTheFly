@@ -27,7 +27,7 @@ namespace OnTheFlyWPFC.View
 
         private void ADDService_Click(object sender, RoutedEventArgs e) {
             var tempW = new POSAddServiceMiniWindow();
-            tempW.Show();
+            tempW.ShowDialog();
 
         }
     }
