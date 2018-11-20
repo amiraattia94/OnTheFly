@@ -326,7 +326,7 @@
                         <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="65"/>
-                                <RowDefinition Height="178*"/>
+                                <RowDefinition Height="200*"/>
                                 <RowDefinition Height="30"/>
                         </Grid.RowDefinitions>
 
@@ -390,7 +390,7 @@
                                             <UniformGrid FlowDirection="RightToLeft">
                                                 
                                                 <StackPanel Orientation="Horizontal">
-                                                    <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة الفرع" Margin="0,0,0,0" VerticalAlignment="Center" />
+                                                    <TextBlock FontSize="16" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة الفرع" Margin="0,0,0,0" VerticalAlignment="Center" />
                                                 
 
                                                 </StackPanel>

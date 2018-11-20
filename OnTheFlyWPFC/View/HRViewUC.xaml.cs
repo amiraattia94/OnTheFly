@@ -24,5 +24,11 @@ namespace OnTheFlyWPFC.View
         {
             InitializeComponent();
         }
+
+        private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new HREmployeeAddMiniWindow();
+            newWindow.ShowDialog();
+        }
     }
 }
