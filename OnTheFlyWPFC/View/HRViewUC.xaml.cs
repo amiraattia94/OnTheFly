@@ -30,5 +30,10 @@ namespace OnTheFlyWPFC.View
             var newWindow = new HREmployeeAddMiniWindow();
             newWindow.ShowDialog();
         }
+
+        private void BtnSearchHR_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
