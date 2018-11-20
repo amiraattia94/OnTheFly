@@ -50,7 +50,7 @@ namespace OnTheFlyWPFC.View {
             //RefreshListEvent += new RefreshList(RefreshListView);
             //newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.Show();
+            newwindow.ShowDialog();
         }
 
         private void lstviewCustomers_Loaded(object sender, RoutedEventArgs e) {
