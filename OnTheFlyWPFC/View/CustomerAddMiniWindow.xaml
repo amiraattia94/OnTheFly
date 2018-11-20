@@ -76,7 +76,10 @@
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox Name="txtCustomerName" Text="ادخل اسم الزبون" VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtCustomerFirstName" Text="ادخل اسم الزبون" VerticalAlignment="Stretch"/>
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <TextBox Name="txtCustomerLastName" Text="ادخل لقب الزبون" VerticalAlignment="Stretch"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
                                     <TextBox Name="txtCustomerPhone1" Text="ادخل رقم الزبون" VerticalAlignment="Stretch"/>
