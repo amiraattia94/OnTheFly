@@ -22,7 +22,7 @@ namespace OnTheFlyWPFC.View
         public BranchWindow()
         {
             InitializeComponent();
-            usc = new BranchAddUC();
+            usc = new BranchViewUC();
             MainUC.Children.Add(usc);
         }
 
@@ -44,7 +44,7 @@ namespace OnTheFlyWPFC.View
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name) {
                 case "BranchAdd":
-                    usc = new BranchAddUC();
+                    usc = new BranchViewUsersUC();
                     lblMenuename.Content = "اضافة فرع";
                     MainUC.Children.Add(usc);
                     break;

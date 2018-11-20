@@ -199,8 +199,8 @@
     <Compile Include="ViewModel\CityViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="View\BranchAddUC.xaml.cs">
-      <DependentUpon>BranchAddUC.xaml</DependentUpon>
+    <Compile Include="View\BranchAddMiniWindow.xaml.cs">
+      <DependentUpon>BranchAddMiniWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\BranchSummaryUC.xaml.cs">
       <DependentUpon>BranchSummaryUC.xaml</DependentUpon>
@@ -331,7 +331,7 @@
     <Compile Include="View\ReportsWindow.xaml.cs">
       <DependentUpon>ReportsWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\BranchAddUC.xaml">
+    <Page Include="View\BranchAddMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
