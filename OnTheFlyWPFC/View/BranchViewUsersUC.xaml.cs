@@ -24,5 +24,12 @@ namespace OnTheFlyWPFC.View
         {
             InitializeComponent();
         }
+
+     
+
+        private void BtnSearchUsers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

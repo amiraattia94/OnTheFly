@@ -9,42 +9,29 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        Height="500" Width="400" ResizeMode="NoResize" >
+        Height="500" Width="350" ResizeMode="NoResize" >
 
     <UniformGrid FlowDirection="RightToLeft">
-        <Border BorderThickness="0" Background="#FFEFF3FA" CornerRadius="8"  >
+        <Border BorderThickness="0" Background="White" CornerRadius="8"  Height="450" Width="300"  >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1" Color="#FFACACAC" />
+            </Border.Effect>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="65"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid Height="30" VerticalAlignment="Top" Grid.Row="0">
+                <Grid Height="65" VerticalAlignment="Top" Grid.Row="0">
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
                     </Grid.Effect>
-                    <Border  CornerRadius="7,7,0,0" MouseDown="Border_MouseDown" >
-                        <Border.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FF1246B0"/>
-                                <GradientStop Color="#FF0F6AB8" Offset="0.996"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
 
-                    </Border>
                     <UniformGrid FlowDirection="LeftToRight">
                         <StackPanel Orientation="Horizontal">
-                            <Button Name="btnCloseForm"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnCloseForm_Click">
+                            <Button Name="btnCloseForm"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Height="65" FontWeight="Light" BorderBrush="{x:Null}" Click="BtnCloseForm_Click">
                                 <UniformGrid FlowDirection="RightToLeft">
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Source="Images\icons\ic_close.png" Height="15" Width="15"/>
+                                        <materialDesign:PackIcon Kind="Close" Width="20" Height="20" Foreground="#8C9AB6"/>
                                     </StackPanel>
                                 </UniformGrid>
                             </Button>
@@ -57,47 +44,44 @@
                     </Grid.RowDefinitions>
 
 
-                    <Border Background="White" Grid.Row="0" Grid.RowSpan="2"  CornerRadius="7" Margin="20,10,20,20">
-                        <Border.Effect>
-                            <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
-                        </Border.Effect>
+                    
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="60"/>
-                                <RowDefinition Height="178*"/>
-                            </Grid.RowDefinitions>
+                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="200*"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20"/>
-                                <ColumnDefinition Width="127*"/>
-                                <ColumnDefinition Width="48"/>
-                                <ColumnDefinition Width="19*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Content="اضافة خدمة" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0,8"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="150*"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                            <Label Content="اضافة خدمة" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Height="44" Margin="0,8"/>
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox Text="" VerticalAlignment="Stretch"/>
+                                <TextBox Text="" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
+                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
+                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
 
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox VerticalAlignment="Stretch"/>
+                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
 
 
-                                <Border Height="40" Margin="0,20,0,0">
-                                    <Border Height="40" BorderBrush="Transparent" CornerRadius="15"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                        <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                <Border Height="40" Margin="50,20,50,0">
+                                    <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
+                                    <Button Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                             <UniformGrid FlowDirection="RightToLeft">
                                                 <StackPanel Orientation="Horizontal">
-                                                    <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة خدمة" Margin="0,0,0,0"  />
-                                                    <materialDesign:PackIcon Kind="Add"  Height="25" Width="25" Margin="0,0,0,0" />
+                                                    <TextBlock FontSize="16" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة خدمة" Margin="0,0,0,0"  />
+                                                    
                                                 </StackPanel>
                                             </UniformGrid>
                                         </Button>
@@ -123,8 +107,7 @@
                         </Grid>
 
 
-                    </Border>
-
+                    
 
 
                 </Grid>

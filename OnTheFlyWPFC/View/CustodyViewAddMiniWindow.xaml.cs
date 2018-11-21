@@ -29,7 +29,7 @@ namespace OnTheFlyWPFC.View
                 this.DragMove();
         }
 
-        private void btnCloseForm_Click(object sender, RoutedEventArgs e) {
+        private void BtnCloseForm_Click(object sender, RoutedEventArgs e) {
             this.Close();
         }
     }

@@ -99,5 +99,20 @@ namespace OnTheFlyWPFC.View
 
         }
 
+        private void btnAddBranch_Click(object sender, RoutedEventArgs e)
+        {
+            var newwindow = new BranchAddMiniWindow();
+          
+            
+            //RefreshListEvent += new RefreshList(RefreshListView);
+            //newwindow.UpdateMainList = RefreshListEvent;
+         
+           newwindow.ShowDialog();
+        }
+
+        private void BtnSearchBranch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
