@@ -28,7 +28,7 @@ namespace OnTheFlyWPFC.View
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string username, password, error_message;
-            bool result;
+            //bool result;
             if (string.IsNullOrWhiteSpace(usernametxt.Text) || string.IsNullOrWhiteSpace(passwordtxt.Text))
             {
                 error_message = get_message();
