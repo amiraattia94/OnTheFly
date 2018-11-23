@@ -18,9 +18,9 @@ namespace OnTheFlyWPFC.Model
         public LibyanCitiesTBL()
         {
             this.CompanyBranchTBLs = new HashSet<CompanyBranchTBL>();
-            this.customerTBLs = new HashSet<customerTBL>();
+            this.CustomerTBLs = new HashSet<CustomerTBL>();
             this.EmployeeTBLs = new HashSet<EmployeeTBL>();
-            this.vendorBranchTBLs = new HashSet<vendorBranchTBL>();
+            this.VendorBranchTBLs = new HashSet<VendorBranchTBL>();
         }
     
         public string city_code { get; set; }
@@ -29,10 +29,10 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CompanyBranchTBL> CompanyBranchTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<customerTBL> customerTBLs { get; set; }
+        public virtual ICollection<CustomerTBL> CustomerTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeTBL> EmployeeTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vendorBranchTBL> vendorBranchTBLs { get; set; }
+        public virtual ICollection<VendorBranchTBL> VendorBranchTBLs { get; set; }
     }
 }

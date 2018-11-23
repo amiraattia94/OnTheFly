@@ -12,10 +12,10 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class custodyTBL
+    public partial class CustodyTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public custodyTBL()
+        public CustodyTBL()
         {
             this.invoiceTBLs = new HashSet<invoiceTBL>();
         }

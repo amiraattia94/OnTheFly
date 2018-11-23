@@ -15,7 +15,7 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                List<UserDTO> result = con.userTBLs.Select(s => new UserDTO()
+                List<UserDTO> result = con.UserTBLs.Select(s => new UserDTO()
                 {
                     username = s.user_name,
                     password = s.password
@@ -30,7 +30,7 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.userTBLs.SingleOrDefault(u => u.user_name == username && u.password == password);
+                var result = con.UserTBLs.SingleOrDefault(u => u.user_name == username && u.password == password);
                 if (result != null)
                 {
                     username = result.user_name;

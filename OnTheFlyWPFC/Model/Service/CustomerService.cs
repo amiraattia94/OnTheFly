@@ -11,7 +11,7 @@ namespace OnTheFlyWPFC.Model.Service {
         async public Task<bool> AddCustomer(string CustomerName, string CustomerPhone1, string CustomerPhone2, string cityCode, string CustomerAddress, decimal CustomerCredit) {
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                    con.customerTBLs.Add(new customerTBL() {
+                    con.CustomerTBLs.Add(new CustomerTBL() {
                         name = CustomerName,
                         phone1 = CustomerPhone1,
                         phone2 = CustomerPhone2,
@@ -35,7 +35,7 @@ namespace OnTheFlyWPFC.Model.Service {
             await Task.FromResult(true);
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                var result = con.customerTBLs.Select(s => new CustomerDTO() {
+                var result = con.CustomerTBLs.Select(s => new CustomerDTO() {
                     name = s.name,
                     phone1 = s.phone1,
                     phone2 = s.phone2,

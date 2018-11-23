@@ -17,14 +17,14 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EmployeeTBL()
         {
-            this.custodyTBLs = new HashSet<custodyTBL>();
-            this.deliveryTBLs = new HashSet<deliveryTBL>();
-            this.userTBLs = new HashSet<userTBL>();
+            this.CustodyTBLs = new HashSet<CustodyTBL>();
+            this.DeliveryTBLs = new HashSet<DeliveryTBL>();
+            this.PayrollTBLs = new HashSet<PayrollTBL>();
+            this.UserTBLs = new HashSet<UserTBL>();
         }
     
         public int employeeID { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
+        public string name { get; set; }
         public string phone1 { get; set; }
         public string phone2 { get; set; }
         public string address { get; set; }
@@ -37,12 +37,14 @@ namespace OnTheFlyWPFC.Model
     
         public virtual CompanyBranchTBL CompanyBranchTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<custodyTBL> custodyTBLs { get; set; }
+        public virtual ICollection<CustodyTBL> CustodyTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<deliveryTBL> deliveryTBLs { get; set; }
+        public virtual ICollection<DeliveryTBL> DeliveryTBLs { get; set; }
         public virtual JobsTBL JobsTBL { get; set; }
         public virtual LibyanCitiesTBL LibyanCitiesTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<userTBL> userTBLs { get; set; }
+        public virtual ICollection<PayrollTBL> PayrollTBLs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserTBL> UserTBLs { get; set; }
     }
 }

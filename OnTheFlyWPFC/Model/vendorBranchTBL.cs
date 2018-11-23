@@ -12,7 +12,7 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class vendorBranchTBL
+    public partial class VendorBranchTBL
     {
         public int vendor_branchID { get; set; }
         public int vendorID { get; set; }
@@ -22,6 +22,6 @@ namespace OnTheFlyWPFC.Model
         public string name { get; set; }
     
         public virtual LibyanCitiesTBL LibyanCitiesTBL { get; set; }
-        public virtual vendorTBL vendorTBL { get; set; }
+        public virtual VendorTBL VendorTBL { get; set; }
     }
 }

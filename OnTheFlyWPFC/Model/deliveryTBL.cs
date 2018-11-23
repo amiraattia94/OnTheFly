@@ -12,7 +12,7 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class deliveryTBL
+    public partial class DeliveryTBL
     {
         public int deliveryID { get; set; }
         public Nullable<bool> full_delivery { get; set; }
@@ -24,7 +24,7 @@ namespace OnTheFlyWPFC.Model
         public int statusID { get; set; }
     
         public virtual CarsTBL CarsTBL { get; set; }
-        public virtual deliveryStatusTBL deliveryStatusTBL { get; set; }
+        public virtual DeliveryStatusTBL DeliveryStatusTBL { get; set; }
         public virtual EmployeeTBL EmployeeTBL { get; set; }
         public virtual invoiceTBL invoiceTBL { get; set; }
     }

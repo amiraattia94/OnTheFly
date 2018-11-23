@@ -17,16 +17,16 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CategoriesTBL()
         {
-            this.serviceTBLs = new HashSet<serviceTBL>();
-            this.vendorTBLs = new HashSet<vendorTBL>();
+            this.ServiceTBLs = new HashSet<ServiceTBL>();
+            this.VendorTBLs = new HashSet<VendorTBL>();
         }
     
         public int categoryID { get; set; }
         public string category_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<serviceTBL> serviceTBLs { get; set; }
+        public virtual ICollection<ServiceTBL> ServiceTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vendorTBL> vendorTBLs { get; set; }
+        public virtual ICollection<VendorTBL> VendorTBLs { get; set; }
     }
 }

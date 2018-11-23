@@ -12,24 +12,21 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class serviceTBL
+    public partial class ServiceTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public serviceTBL()
+        public ServiceTBL()
         {
             this.invoiceTBLs = new HashSet<invoiceTBL>();
-            this.vendorTBLs = new HashSet<vendorTBL>();
         }
     
         public int serviceID { get; set; }
         public string name { get; set; }
-        public int categoryID { get; set; }
+        public Nullable<int> categoryID { get; set; }
         public Nullable<bool> active { get; set; }
     
         public virtual CategoriesTBL CategoriesTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<invoiceTBL> invoiceTBLs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vendorTBL> vendorTBLs { get; set; }
     }
 }
