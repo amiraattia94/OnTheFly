@@ -131,6 +131,7 @@ namespace OnTheFlyWPFC.Model.Service {
             }
 
         }
+
         async public Task<ObservableCollection<BranchDTO>> GetBranchByCity(string City) {
             await Task.FromResult(true);
 

@@ -33,9 +33,7 @@ namespace OnTheFlyWPFC.View
             branchViewModel.GetAllBranches();
             lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
             lstViewBraches.Items.Refresh();
-
         }
-
 
         public BranchViewUC()
         {
