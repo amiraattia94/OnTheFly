@@ -215,6 +215,7 @@
     <Compile Include="ViewModel\BranchViewModel.cs" />
     <Compile Include="ViewModel\CityViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\JobsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="View\BranchAddMiniWindow.xaml.cs">
       <DependentUpon>BranchAddMiniWindow.xaml</DependentUpon>
@@ -318,6 +319,12 @@
     <Compile Include="View\HREmployeeEditMiniWindow.xaml.cs">
       <DependentUpon>HREmployeeEditMiniWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\HRJobDescriptionAddMiniWindow.xaml.cs">
+      <DependentUpon>HRJobDescriptionAddMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HRJobDescriptionEditMiniWindow.xaml.cs">
+      <DependentUpon>HRJobDescriptionEditMiniWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HRViewUC.xaml.cs">
       <DependentUpon>HRViewUC.xaml</DependentUpon>
     </Compile>
@@ -348,8 +355,8 @@
     <Compile Include="View\ReportsWindow.xaml.cs">
       <DependentUpon>ReportsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SettingsJobDescriptionUC.xaml.cs">
-      <DependentUpon>SettingsJobDescriptionUC.xaml</DependentUpon>
+    <Compile Include="View\HRJobDescriptionUC.xaml.cs">
+      <DependentUpon>HRJobDescriptionUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
@@ -490,6 +497,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\HRJobDescriptionAddMiniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HRJobDescriptionEditMiniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HRViewUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -551,7 +566,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SettingsJobDescriptionUC.xaml">
+    <Page Include="View\HRJobDescriptionUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

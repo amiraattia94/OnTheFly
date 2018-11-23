@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace OnTheFlyWPFC.Model.Service
 {
     public class JobsService
     {
-        async public Task<List<JobsDTO>> GetJobs()
+        async public Task<ObservableCollection<JobsDTO>> GetAllJobs()
         {
             await Task.FromResult(true);
 
@@ -23,7 +24,7 @@ namespace OnTheFlyWPFC.Model.Service
 
                 }).ToList();
 
-                return result;
+                return new ObservableCollection<JobsDTO>(result);
             }
         }
         async public Task<bool> AddJob(string jobname, int basic_salary, int working_days_per_month)
@@ -47,6 +48,40 @@ namespace OnTheFlyWPFC.Model.Service
 
             }
             return false;
+        }
+
+        async public Task<JobsDTO> GetJobByID(int jobID)
+        {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+                var result = con.JobsTBLs.SingleOrDefault(w => w.jobID == jobID);
+
+                if (result != null)
+                {
+                    return new JobsDTO()
+                    {
+                        jobID = result.jobID,
+                        job_name = result.job_name,
+                        basic_salary = result.basic_salary??0,
+                        working_days_per_month = result.working_days_per_month??0
+                    };
+                };
+
+                return new JobsDTO()
+                {
+                    jobID = 0,
+                    job_name = "",
+                    basic_salary = 0,
+                    working_days_per_month =  0
+
+                };
+
+
+
+            }
+
         }
         async public Task<bool> EditJobByID(int jobID, string job_name, int basic_salary, int working_hours_per_month)
         {
