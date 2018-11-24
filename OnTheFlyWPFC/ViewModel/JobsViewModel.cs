@@ -27,7 +27,7 @@ namespace OnTheFlyWPFC.ViewModel
         {
             ViewJob = await _jobsService.GetAllJobs();
         }
-        async public Task<bool> AddJob(string job_name, int basic_salary, int working_days_per_month)
+        async public Task<bool> AddJob(string job_name, double basic_salary, int working_days_per_month)
         {
             return await _jobsService.AddJob(job_name, basic_salary, working_days_per_month);
         }

@@ -141,7 +141,10 @@
     <Compile Include="Model\DTO\BranchDTO.cs" />
     <Compile Include="Model\DTO\CarsDTO.cs" />
     <Compile Include="Model\DTO\CityDTO.cs" />
+    <Compile Include="Model\DTO\CustodyDTO.cs" />
     <Compile Include="Model\DTO\CustomerDTO.cs" />
+    <Compile Include="Model\DTO\DeliveryDTO.cs" />
+    <Compile Include="Model\DTO\DeliveryStatusDTO.cs" />
     <Compile Include="Model\DTO\EmployeeDTO.cs" />
     <Compile Include="Model\DTO\FinanceDTO.cs" />
     <Compile Include="Model\DTO\InvoiceDTO.cs" />
@@ -193,6 +196,7 @@
     <Compile Include="Model\Service\CustomerService.cs" />
     <Compile Include="Model\Service\HelperClass.cs" />
     <Compile Include="Model\Service\JobsService.cs" />
+    <Compile Include="Model\Service\UserGroupRoleService.cs" />
     <Compile Include="Model\Service\UserService.cs" />
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -217,6 +221,7 @@
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\JobsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\UserGroupRoleViewModel.cs" />
     <Compile Include="View\BranchAddMiniWindow.xaml.cs">
       <DependentUpon>BranchAddMiniWindow.xaml</DependentUpon>
     </Compile>
@@ -357,6 +362,9 @@
     </Compile>
     <Compile Include="View\HRJobDescriptionUC.xaml.cs">
       <DependentUpon>HRJobDescriptionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsUserGroupRoleUC.xaml.cs">
+      <DependentUpon>SettingsUserGroupRoleUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
@@ -567,6 +575,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HRJobDescriptionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsUserGroupRoleUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

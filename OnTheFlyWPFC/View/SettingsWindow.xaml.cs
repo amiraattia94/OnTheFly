@@ -54,12 +54,12 @@ namespace OnTheFlyWPFC.View
                         MainUC.Children.Add(usc);
                         break;
                     case "ItemUserRoles":
-                        usc = new MainHomeUC();
+                        usc = new SettingsUserGroupRoleUC();
 
                         MainUC.Children.Add(usc);
                         break;
                     case "ItemJobDscription":
-                        usc = new SettingsJobDescriptionUC();
+                        usc = new HRJobDescriptionUC();
 
                         MainUC.Children.Add(usc);
                         break;

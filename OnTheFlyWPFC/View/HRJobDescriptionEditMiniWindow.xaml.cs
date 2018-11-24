@@ -43,8 +43,8 @@ namespace OnTheFlyWPFC.View
                 MessageBox.Show("تم الحفظ");
            
                 this.Close();
-
             }
+
         }
 
         private void btnCloseForm_Click(object sender, RoutedEventArgs e)

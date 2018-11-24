@@ -27,7 +27,7 @@ namespace OnTheFlyWPFC.Model.Service
                 return new ObservableCollection<JobsDTO>(result);
             }
         }
-        async public Task<bool> AddJob(string jobname, int basic_salary, int working_days_per_month)
+        async public Task<bool> AddJob(string jobname, double basic_salary, int working_days_per_month)
         {
             try
             {
@@ -43,9 +43,9 @@ namespace OnTheFlyWPFC.Model.Service
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                System.Windows.Forms.MessageBox.Show(e.Message,"");
             }
             return false;
         }

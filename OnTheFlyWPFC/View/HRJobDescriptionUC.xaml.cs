@@ -20,9 +20,9 @@ using OnTheFlyWPFC.Model.Service;
 namespace OnTheFlyWPFC.View
 {
     /// <summary>
-    /// Interaction logic for SettingsJobDescriptionUC.xaml
+    /// Interaction logic for HRJobDescriptionUC.xaml
     /// </summary>
-    public partial class SettingsJobDescriptionUC : UserControl
+    public partial class HRJobDescriptionUC : UserControl
     {
         JobsViewModel jobViewModel;
 
@@ -37,7 +37,7 @@ namespace OnTheFlyWPFC.View
 
 
         }
-        public SettingsJobDescriptionUC()
+        public HRJobDescriptionUC()
         {
             jobViewModel = new JobsViewModel();
             InitializeComponent();
