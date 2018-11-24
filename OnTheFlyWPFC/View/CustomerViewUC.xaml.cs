@@ -113,6 +113,16 @@ namespace OnTheFlyWPFC.View {
         }
 
         private void Memberships(object sender, RoutedEventArgs e) {
+            Button button = sender as Button;
+            var a = button.CommandParameter as CustomerDTO;
+            HelperClass.Customer = a.customerID;
+
+            var newwindow = new CustomerMembershipMiniWindow();
+
+            RefreshListEvent += new RefreshList(RefreshListView);
+            newwindow.UpdateMainList = RefreshListEvent;
+
+            newwindow.ShowDialog();
 
         }
 

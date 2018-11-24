@@ -12,10 +12,10 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class userTBL
+    public partial class UserTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public userTBL()
+        public UserTBL()
         {
             this.userGroupRoleTBLs = new HashSet<userGroupRoleTBL>();
         }

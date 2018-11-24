@@ -12,13 +12,13 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class invoiceTBL
+    public partial class InvoiceTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public invoiceTBL()
+        public InvoiceTBL()
         {
-            this.deliveryTBLs = new HashSet<deliveryTBL>();
-            this.serviceTBLs = new HashSet<serviceTBL>();
+            this.DeliveryTBLs = new HashSet<DeliveryTBL>();
+            this.ServiceTBLs = new HashSet<ServiceTBL>();
         }
     
         public int invoiceID { get; set; }
@@ -30,11 +30,11 @@ namespace OnTheFlyWPFC.Model
         public Nullable<int> branchID { get; set; }
     
         public virtual CompanyBranchTBL CompanyBranchTBL { get; set; }
-        public virtual custodyTBL custodyTBL { get; set; }
-        public virtual customerTBL customerTBL { get; set; }
+        public virtual CustodyTBL CustodyTBL { get; set; }
+        public virtual CustomerTBL CustomerTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<deliveryTBL> deliveryTBLs { get; set; }
+        public virtual ICollection<DeliveryTBL> DeliveryTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<serviceTBL> serviceTBLs { get; set; }
+        public virtual ICollection<ServiceTBL> ServiceTBLs { get; set; }
     }
 }

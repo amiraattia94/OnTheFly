@@ -12,12 +12,13 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class customerTBL
+    public partial class CustomerTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public customerTBL()
+        public CustomerTBL()
         {
-            this.invoiceTBLs = new HashSet<invoiceTBL>();
+            this.InvoiceTBLs = new HashSet<InvoiceTBL>();
+            this.MembershipTBLs = new HashSet<MembershipTBL>();
         }
     
         public int customerID { get; set; }
@@ -31,6 +32,8 @@ namespace OnTheFlyWPFC.Model
     
         public virtual LibyanCitiesTBL LibyanCitiesTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<invoiceTBL> invoiceTBLs { get; set; }
+        public virtual ICollection<InvoiceTBL> InvoiceTBLs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MembershipTBL> MembershipTBLs { get; set; }
     }
 }

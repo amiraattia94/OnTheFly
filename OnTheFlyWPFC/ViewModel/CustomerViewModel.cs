@@ -12,12 +12,16 @@ namespace OnTheFlyWPFC.ViewModel {
 
         CustomerService customerService;
         public ObservableCollection<CustomerDTO> ViewCustomers { get; set; }
+        public ObservableCollection<MembershipDTO> ViewMembership { get; set; }
         public CustomerDTO customer { get; set; }
+        public MembershipDTO membership { get; set; }
 
         public CustomerViewModel() {
             customerService = new CustomerService();
             ViewCustomers = new ObservableCollection<CustomerDTO>();
+            ViewMembership = new ObservableCollection<MembershipDTO>();
             customer = new CustomerDTO();
+            membership = new MembershipDTO();
 
             GetAllCustomers();
         }
@@ -52,6 +56,25 @@ namespace OnTheFlyWPFC.ViewModel {
             customer = await customerService.GetCustomerByID(CustomerID);
         }
 
+        async public Task<bool> AddMembership(string MembershipID, int CustomerID, int VendorID) {
+            return await customerService.AddMembership(MembershipID, CustomerID, VendorID);
+        }
+
+        async public Task<bool> EditMembershipByID(string MembershipID, int VendorID) {
+            return await customerService.EditMembershipByID(MembershipID, VendorID);
+        }
+
+        async public Task<bool> DeleteMembershipByID(string MembershipID) {
+            return await customerService.DeleteMembershipByID(MembershipID);
+        }
+
+        async public void GetMembershipByCustomerID(int CustomerID) {
+            ViewMembership = await customerService.GetMembershipByCustomerID(CustomerID);
+        }
+
+        async public void GetMembershipByID(string membershipID) {
+            membership = await customerService.GetMembershipByID(membershipID);
+        }
 
 
 

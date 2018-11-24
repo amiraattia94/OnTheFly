@@ -18,7 +18,7 @@ namespace OnTheFlyWPFC.Model
         public CompanyBranchTBL()
         {
             this.EmployeeTBLs = new HashSet<EmployeeTBL>();
-            this.invoiceTBLs = new HashSet<invoiceTBL>();
+            this.InvoiceTBLs = new HashSet<InvoiceTBL>();
         }
     
         public int branchID { get; set; }
@@ -31,6 +31,6 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeTBL> EmployeeTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<invoiceTBL> invoiceTBLs { get; set; }
+        public virtual ICollection<InvoiceTBL> InvoiceTBLs { get; set; }
     }
 }
