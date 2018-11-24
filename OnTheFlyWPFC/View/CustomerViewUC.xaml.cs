@@ -49,11 +49,6 @@ namespace OnTheFlyWPFC.View {
             lstviewCustomers.ItemsSource = customerViewModel.ViewCustomers;
         }
 
-
-        
-
-
-
         private void cmbCustomerCity_Loaded(object sender, RoutedEventArgs e) {
             cityViewModel.GetAllCities();
             cmbCustomerCity.ItemsSource = cityViewModel.CityName;
@@ -105,10 +100,19 @@ namespace OnTheFlyWPFC.View {
         }
 
         private void TxtSearchCustomerName_TextChanged(object sender, TextChangedEventArgs e) {
-            customerViewModel.GetCustomerByName(txtSearchCustomerName.Text);
-            lstviewCustomers.ItemsSource = customerViewModel.ViewCustomers;
-            lstviewCustomers.Items.Refresh();
-            cmbCustomerCity.SelectedIndex = -1;
+            if(cmbSearchType.SelectedIndex == 0) {
+                customerViewModel.GetCustomerByName(txtSearchCustomerName.Text);
+                lstviewCustomers.ItemsSource = customerViewModel.ViewCustomers;
+                lstviewCustomers.Items.Refresh();
+                cmbCustomerCity.SelectedIndex = -1;
+            }
+            if(cmbSearchType.SelectedIndex == 1) {
+                customerViewModel.GetCustomerByMembershipID(txtSearchCustomerName.Text);
+                lstviewCustomers.ItemsSource = customerViewModel.ViewCustomers;
+                lstviewCustomers.Items.Refresh();
+                cmbCustomerCity.SelectedIndex = -1;
+            }
+            
             
         }
 

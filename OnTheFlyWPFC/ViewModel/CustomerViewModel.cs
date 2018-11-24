@@ -76,7 +76,8 @@ namespace OnTheFlyWPFC.ViewModel {
             membership = await customerService.GetMembershipByID(membershipID);
         }
 
-
-
+        async public void GetCustomerByMembershipID(string MembershipID) {
+            ViewCustomers = await customerService.GetCustomerByMembershipID(MembershipID);
+        }
     }
 }

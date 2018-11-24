@@ -165,6 +165,31 @@ namespace OnTheFlyWPFC.Model.Service {
 
         }
 
+        async public Task<ObservableCollection<CustomerDTO>> GetCustomerByMembershipID(string membershipID) {
+            await Task.FromResult(true);
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+
+                var result = con.MembershipTBLs.Where(w => w.membershipID.StartsWith(membershipID)).Select(s => new CustomerDTO() {
+                    customerID = s.customerID,
+                    name = s.CustomerTBL.name,
+                    address = s.CustomerTBL.address,
+                    phone1 = s.CustomerTBL.phone1,
+                    phone2 = s.CustomerTBL.phone2,
+                    credit = s.CustomerTBL.credit,
+                    city = s.CustomerTBL.LibyanCitiesTBL.name,
+                    membershipCount = s.CustomerTBL.MembershipTBLs.Where(w => w.customerID == s.customerID).Count()
+                }).ToList();
+                
+
+                if (result != null) {
+                    return new ObservableCollection<CustomerDTO>(result);
+                }
+                else {
+                    return new ObservableCollection<CustomerDTO>();
+                }
+            }
+        }
+
         async public Task<ObservableCollection<CustomerDTO>> GetCustomerByCity(string City) {
             await Task.FromResult(true);
 

@@ -342,7 +342,15 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
-                    <Label Content="الاسم : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                    <ComboBox Name="cmbSearchType" FontFamily="Noto Kufi Arabic" FontSize="12" Foreground="#8C9AB6" Margin="20,0" HorizontalAlignment="Left" Width="100" Height="30">
+                        <ComboBoxItem Content="الاسم">
+                           
+                        </ComboBoxItem>
+                        <ComboBoxItem Content="العضوية">
+                            
+                        </ComboBoxItem>
+                    </ComboBox>
+
                     <TextBox Name="txtSearchCustomerName" Width="200" VerticalAlignment="Center"  FontSize="16" Foreground="#768295" TextChanged="TxtSearchCustomerName_TextChanged" />
                     <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Height="30" Width="30" Foreground="#8C9AB6"/>
                 </StackPanel>
