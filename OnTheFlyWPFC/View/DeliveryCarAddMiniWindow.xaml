@@ -12,10 +12,10 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        Height="550" Width="350" ResizeMode="NoResize" >
+        Height="700" Width="350" ResizeMode="NoResize" >
 
     <UniformGrid FlowDirection="RightToLeft">
-        <Border BorderThickness="0" Background="White" CornerRadius="8"  Height="500" Width="300" >
+        <Border BorderThickness="0" Background="White" CornerRadius="8"  Height="650" Width="300" >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" ShadowDepth="1" Color="#FFACACAC"/>
             </Border.Effect>
@@ -69,26 +69,39 @@
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <ComboBox Name="cmbCarType" Loaded="CmbCarType_Loaded" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Name="txtPlateNumber" Text="رقم اللوحة" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Name="txtCompany" Text="الشركة" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
 
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Name="txtModel" Text="موديل" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Name="txtYear" Text="سنة الصنع" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox Name="cmbBranchs" VerticalAlignment="Stretch" Loaded="cmbBranchS_Loaded" FontSize="16" Foreground="#768295" />
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+                                <ComboBox Name="cmbStatus" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295">
+                                    <ComboBoxItem Content="تشتغل">
+
+                                    </ComboBoxItem>
+                                    <ComboBoxItem Content="متوقف">
+
+                                    </ComboBoxItem>
+                                </ComboBox>
+                            </Border>
 
 
-                                <Border Height="40" Margin="55,20,55,0">
+                            <Border Height="40" Margin="55,20,55,0">
                                     <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                        <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                        <Button Click="Save" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                             <UniformGrid FlowDirection="RightToLeft">
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock FontSize="16" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة مركبة" Margin="0,0,0,0" VerticalAlignment="Center" />

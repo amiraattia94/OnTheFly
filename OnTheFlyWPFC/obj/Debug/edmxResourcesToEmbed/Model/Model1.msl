@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="OnTheFlyDBModelStoreContainer" CdmEntityContainer="OnTheFlyDBEntities">
-    <EntitySetMapping Name="CarsTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.CarsTBL">
-        <MappingFragment StoreEntitySet="CarsTBL">
-          <ScalarProperty Name="carID" ColumnName="carID" />
-          <ScalarProperty Name="plate_number" ColumnName="plate_number" />
-          <ScalarProperty Name="made_company" ColumnName="made_company" />
-          <ScalarProperty Name="edition_name" ColumnName="edition_name" />
-          <ScalarProperty Name="branchID" ColumnName="branchID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CategoriesTBLs">
       <EntityTypeMapping TypeName="OnTheFlyDBModel.CategoriesTBL">
         <MappingFragment StoreEntitySet="CategoriesTBL">
@@ -233,6 +222,28 @@
           <ScalarProperty Name="user_name" ColumnName="user_name" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.VehicleTBL">
+        <MappingFragment StoreEntitySet="VehicleTBL">
+          <ScalarProperty Name="vehicleID" ColumnName="vehicleID" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="plate_number" ColumnName="plate_number" />
+          <ScalarProperty Name="made_company" ColumnName="made_company" />
+          <ScalarProperty Name="made_year" ColumnName="made_year" />
+          <ScalarProperty Name="edition_name" ColumnName="edition_name" />
+          <ScalarProperty Name="branchID" ColumnName="branchID" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleTypeTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.VehicleTypeTBL">
+        <MappingFragment StoreEntitySet="VehicleTypeTBL">
+          <ScalarProperty Name="vehicleTID" ColumnName="vehicleTID" />
+          <ScalarProperty Name="vehicleTName" ColumnName="vehicleTName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

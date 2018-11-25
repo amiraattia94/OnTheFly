@@ -23,8 +23,8 @@ namespace OnTheFlyWPFC.Model
         public Nullable<System.DateTime> end_date { get; set; }
         public int statusID { get; set; }
     
-        public virtual CarsTBL CarsTBL { get; set; }
         public virtual DeliveryStatusTBL DeliveryStatusTBL { get; set; }
+        public virtual VehicleTBL VehicleTBL { get; set; }
         public virtual EmployeeTBL EmployeeTBL { get; set; }
         public virtual InvoiceTBL InvoiceTBL { get; set; }
     }

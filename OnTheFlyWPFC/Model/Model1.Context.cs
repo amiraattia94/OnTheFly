@@ -25,7 +25,6 @@ namespace OnTheFlyWPFC.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CarsTBL> CarsTBLs { get; set; }
         public virtual DbSet<CategoriesTBL> CategoriesTBLs { get; set; }
         public virtual DbSet<CompanyBranchTBL> CompanyBranchTBLs { get; set; }
         public virtual DbSet<CustodyTBL> CustodyTBLs { get; set; }
@@ -43,6 +42,8 @@ namespace OnTheFlyWPFC.Model
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<userGroupRoleTBL> userGroupRoleTBLs { get; set; }
         public virtual DbSet<UserTBL> UserTBLs { get; set; }
+        public virtual DbSet<VehicleTBL> VehicleTBLs { get; set; }
+        public virtual DbSet<VehicleTypeTBL> VehicleTypeTBLs { get; set; }
         public virtual DbSet<VendorBranchTBL> VendorBranchTBLs { get; set; }
         public virtual DbSet<VendorServicesTBL> VendorServicesTBLs { get; set; }
         public virtual DbSet<vendorTBL> vendorTBLs { get; set; }

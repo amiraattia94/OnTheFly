@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace OnTheFlyWPFC.Model.Service {
     public static class HelperClass {
         public static int BranchID;
-
         public static int Customer;
+        public static int CarID;
 
         public static bool TrueOrFalse(string status) {
 

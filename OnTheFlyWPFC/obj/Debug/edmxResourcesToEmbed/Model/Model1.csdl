@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="OnTheFlyDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="CarsTBL">
-    <Key>
-      <PropertyRef Name="carID" />
-    </Key>
-    <Property Name="carID" Type="Int32" Nullable="false" />
-    <Property Name="plate_number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="made_company" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="edition_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="branchID" Type="Int32" />
-    <NavigationProperty Name="DeliveryTBLs" Relationship="Self.FK_deliveryTBL_CarsTBL" FromRole="CarsTBL" ToRole="DeliveryTBL" />
-  </EntityType>
   <EntityType Name="CategoriesTBL">
     <Key>
       <PropertyRef Name="categoryID" />
@@ -32,6 +21,7 @@
     <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_CompanyBranchTBL_LibyanCitiesTBL" FromRole="CompanyBranchTBL" ToRole="LibyanCitiesTBL" />
     <NavigationProperty Name="EmployeeTBLs" Relationship="Self.FK_EmployeeTBL_CompanyBranchTBL1" FromRole="CompanyBranchTBL" ToRole="EmployeeTBL" />
     <NavigationProperty Name="InvoiceTBLs" Relationship="Self.FK_invoiceTBL_CompanyBranchTBL" FromRole="CompanyBranchTBL" ToRole="InvoiceTBL" />
+    <NavigationProperty Name="VehicleTBLs" Relationship="Self.FK_VehicleTBL_CompanyBranchTBL" FromRole="CompanyBranchTBL" ToRole="VehicleTBL" />
   </EntityType>
   <EntityType Name="CustodyTBL">
     <Key>
@@ -81,8 +71,8 @@
     <Property Name="start_date" Type="DateTime" Precision="3" />
     <Property Name="end_date" Type="DateTime" Precision="3" />
     <Property Name="statusID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="CarsTBL" Relationship="Self.FK_deliveryTBL_CarsTBL" FromRole="DeliveryTBL" ToRole="CarsTBL" />
     <NavigationProperty Name="DeliveryStatusTBL" Relationship="Self.FK_deliveryTBL_deliveryStatusTBL" FromRole="DeliveryTBL" ToRole="DeliveryStatusTBL" />
+    <NavigationProperty Name="VehicleTBL" Relationship="Self.FK_deliveryTBL_CarsTBL" FromRole="DeliveryTBL" ToRole="VehicleTBL" />
     <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_deliveryTBL_EmployeeTBL" FromRole="DeliveryTBL" ToRole="EmployeeTBL" />
     <NavigationProperty Name="InvoiceTBL" Relationship="Self.FK_deliveryTBL_invoiceTBL" FromRole="DeliveryTBL" ToRole="InvoiceTBL" />
   </EntityType>
@@ -258,6 +248,30 @@
     <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_userTBL_EmployeeTBL" FromRole="UserTBL" ToRole="EmployeeTBL" />
     <NavigationProperty Name="userGroupRoleTBLs" Relationship="Self.UserGroupsTBL" FromRole="UserTBL" ToRole="userGroupRoleTBL" />
   </EntityType>
+  <EntityType Name="VehicleTBL">
+    <Key>
+      <PropertyRef Name="vehicleID" />
+    </Key>
+    <Property Name="vehicleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeID" Type="Int32" />
+    <Property Name="plate_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="made_company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="made_year" Type="Int32" />
+    <Property Name="edition_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="branchID" Type="Int32" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CompanyBranchTBL" Relationship="Self.FK_VehicleTBL_CompanyBranchTBL" FromRole="VehicleTBL" ToRole="CompanyBranchTBL" />
+    <NavigationProperty Name="DeliveryTBLs" Relationship="Self.FK_deliveryTBL_CarsTBL" FromRole="VehicleTBL" ToRole="DeliveryTBL" />
+    <NavigationProperty Name="VehicleTypeTBL" Relationship="Self.FK_VehicleTBL_VehicleTypeTBL" FromRole="VehicleTBL" ToRole="VehicleTypeTBL" />
+  </EntityType>
+  <EntityType Name="VehicleTypeTBL">
+    <Key>
+      <PropertyRef Name="vehicleTID" />
+    </Key>
+    <Property Name="vehicleTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vehicleTName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="VehicleTBLs" Relationship="Self.FK_VehicleTBL_VehicleTypeTBL" FromRole="VehicleTypeTBL" ToRole="VehicleTBL" />
+  </EntityType>
   <EntityType Name="VendorBranchTBL">
     <Key>
       <PropertyRef Name="vendor_branchID" />
@@ -293,18 +307,6 @@
     <NavigationProperty Name="VendorBranchTBLs" Relationship="Self.FK_vendorBranchTBL_vendorTBL" FromRole="vendorTBL" ToRole="VendorBranchTBL" />
     <NavigationProperty Name="VendorServicesTBLs" Relationship="Self.FK_vendorServicesTBL_vendorTBL" FromRole="vendorTBL" ToRole="VendorServicesTBL" />
   </EntityType>
-  <Association Name="FK_deliveryTBL_CarsTBL">
-    <End Role="CarsTBL" Type="Self.CarsTBL" Multiplicity="1" />
-    <End Role="DeliveryTBL" Type="Self.DeliveryTBL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CarsTBL">
-        <PropertyRef Name="carID" />
-      </Principal>
-      <Dependent Role="DeliveryTBL">
-        <PropertyRef Name="carID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_serviceTBL_CategoriesTBL">
     <End Role="CategoriesTBL" Type="Self.CategoriesTBL" Multiplicity="0..1" />
     <End Role="ServiceTBL" Type="Self.ServiceTBL" Multiplicity="*" />
@@ -361,6 +363,18 @@
         <PropertyRef Name="branchID" />
       </Principal>
       <Dependent Role="InvoiceTBL">
+        <PropertyRef Name="branchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleTBL_CompanyBranchTBL">
+    <End Role="CompanyBranchTBL" Type="Self.CompanyBranchTBL" Multiplicity="0..1" />
+    <End Role="VehicleTBL" Type="Self.VehicleTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyBranchTBL">
+        <PropertyRef Name="branchID" />
+      </Principal>
+      <Dependent Role="VehicleTBL">
         <PropertyRef Name="branchID" />
       </Dependent>
     </ReferentialConstraint>
@@ -434,6 +448,18 @@
       </Principal>
       <Dependent Role="DeliveryTBL">
         <PropertyRef Name="statusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_deliveryTBL_CarsTBL">
+    <End Role="VehicleTBL" Type="Self.VehicleTBL" Multiplicity="1" />
+    <End Role="DeliveryTBL" Type="Self.DeliveryTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleTBL">
+        <PropertyRef Name="vehicleID" />
+      </Principal>
+      <Dependent Role="DeliveryTBL">
+        <PropertyRef Name="carID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -533,6 +559,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_VehicleTBL_VehicleTypeTBL">
+    <End Role="VehicleTypeTBL" Type="Self.VehicleTypeTBL" Multiplicity="0..1" />
+    <End Role="VehicleTBL" Type="Self.VehicleTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleTypeTBL">
+        <PropertyRef Name="vehicleTID" />
+      </Principal>
+      <Dependent Role="VehicleTBL">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_vendorBranchTBL_vendorTBL">
     <End Role="vendorTBL" Type="Self.vendorTBL" Multiplicity="1" />
     <End Role="VendorBranchTBL" Type="Self.VendorBranchTBL" Multiplicity="*" />
@@ -566,7 +604,6 @@
     <End Role="UserTBL" Type="Self.UserTBL" Multiplicity="*" />
   </Association>
   <EntityContainer Name="OnTheFlyDBEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="CarsTBLs" EntityType="Self.CarsTBL" />
     <EntitySet Name="CategoriesTBLs" EntityType="Self.CategoriesTBL" />
     <EntitySet Name="CompanyBranchTBLs" EntityType="Self.CompanyBranchTBL" />
     <EntitySet Name="CustodyTBLs" EntityType="Self.CustodyTBL" />
@@ -584,13 +621,11 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="userGroupRoleTBLs" EntityType="Self.userGroupRoleTBL" />
     <EntitySet Name="UserTBLs" EntityType="Self.UserTBL" />
+    <EntitySet Name="VehicleTBLs" EntityType="Self.VehicleTBL" />
+    <EntitySet Name="VehicleTypeTBLs" EntityType="Self.VehicleTypeTBL" />
     <EntitySet Name="VendorBranchTBLs" EntityType="Self.VendorBranchTBL" />
     <EntitySet Name="VendorServicesTBLs" EntityType="Self.VendorServicesTBL" />
     <EntitySet Name="vendorTBLs" EntityType="Self.vendorTBL" />
-    <AssociationSet Name="FK_deliveryTBL_CarsTBL" Association="Self.FK_deliveryTBL_CarsTBL">
-      <End Role="CarsTBL" EntitySet="CarsTBLs" />
-      <End Role="DeliveryTBL" EntitySet="DeliveryTBLs" />
-    </AssociationSet>
     <AssociationSet Name="FK_serviceTBL_CategoriesTBL" Association="Self.FK_serviceTBL_CategoriesTBL">
       <End Role="CategoriesTBL" EntitySet="CategoriesTBLs" />
       <End Role="ServiceTBL" EntitySet="ServiceTBLs" />
@@ -610,6 +645,10 @@
     <AssociationSet Name="FK_invoiceTBL_CompanyBranchTBL" Association="Self.FK_invoiceTBL_CompanyBranchTBL">
       <End Role="CompanyBranchTBL" EntitySet="CompanyBranchTBLs" />
       <End Role="InvoiceTBL" EntitySet="InvoiceTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleTBL_CompanyBranchTBL" Association="Self.FK_VehicleTBL_CompanyBranchTBL">
+      <End Role="CompanyBranchTBL" EntitySet="CompanyBranchTBLs" />
+      <End Role="VehicleTBL" EntitySet="VehicleTBLs" />
     </AssociationSet>
     <AssociationSet Name="FK_custodyTBL_EmployeeTBL" Association="Self.FK_custodyTBL_EmployeeTBL">
       <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
@@ -633,6 +672,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_deliveryTBL_deliveryStatusTBL" Association="Self.FK_deliveryTBL_deliveryStatusTBL">
       <End Role="DeliveryStatusTBL" EntitySet="DeliveryStatusTBLs" />
+      <End Role="DeliveryTBL" EntitySet="DeliveryTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_deliveryTBL_CarsTBL" Association="Self.FK_deliveryTBL_CarsTBL">
+      <End Role="VehicleTBL" EntitySet="VehicleTBLs" />
       <End Role="DeliveryTBL" EntitySet="DeliveryTBLs" />
     </AssociationSet>
     <AssociationSet Name="FK_deliveryTBL_EmployeeTBL" Association="Self.FK_deliveryTBL_EmployeeTBL">
@@ -666,6 +709,10 @@
     <AssociationSet Name="FK_MembershipTBL_vendorTBL" Association="Self.FK_MembershipTBL_vendorTBL">
       <End Role="vendorTBL" EntitySet="vendorTBLs" />
       <End Role="MembershipTBL" EntitySet="MembershipTBLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleTBL_VehicleTypeTBL" Association="Self.FK_VehicleTBL_VehicleTypeTBL">
+      <End Role="VehicleTypeTBL" EntitySet="VehicleTypeTBLs" />
+      <End Role="VehicleTBL" EntitySet="VehicleTBLs" />
     </AssociationSet>
     <AssociationSet Name="FK_vendorBranchTBL_vendorTBL" Association="Self.FK_vendorBranchTBL_vendorTBL">
       <End Role="vendorTBL" EntitySet="vendorTBLs" />
