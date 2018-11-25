@@ -131,6 +131,7 @@ namespace OnTheFlyWPFC.Model.Service {
             }
 
         }
+
         async public Task<ObservableCollection<BranchDTO>> GetBranchByCity(string City) {
             await Task.FromResult(true);
 
@@ -156,9 +157,30 @@ namespace OnTheFlyWPFC.Model.Service {
 
         }
 
+        async public Task<ObservableCollection<BranchDTO>> GetBranchByName(string BranchName) {
+            await Task.FromResult(true);
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+
+                var result = con.CompanyBranchTBLs.Where(w => w.branch_name.StartsWith(BranchName)).Select(s => new BranchDTO() {
+                    branchID = s.branchID,
+                    branch_name = s.branch_name,
+                    address = s.address,
+                    status = s.status,
+                    cityID = s.LibyanCitiesTBL.name
+                }).ToList();
+
+                if (result != null) {
+                    return new ObservableCollection<BranchDTO>(result);
+                }
+                else {
+                    return new ObservableCollection<BranchDTO>();
+                }
+            }
+
+        }
 
         async public Task<bool> DeleteBranchByID(int BranchID) {
-            await Task.FromResult(true);
+        await Task.FromResult(true);
 
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {

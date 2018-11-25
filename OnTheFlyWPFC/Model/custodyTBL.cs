@@ -17,7 +17,7 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CustodyTBL()
         {
-            this.invoiceTBLs = new HashSet<invoiceTBL>();
+            this.InvoiceTBLs = new HashSet<InvoiceTBL>();
         }
     
         public int custodyID { get; set; }
@@ -28,6 +28,6 @@ namespace OnTheFlyWPFC.Model
     
         public virtual EmployeeTBL EmployeeTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<invoiceTBL> invoiceTBLs { get; set; }
+        public virtual ICollection<InvoiceTBL> InvoiceTBLs { get; set; }
     }
 }

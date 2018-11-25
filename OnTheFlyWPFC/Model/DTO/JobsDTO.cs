@@ -10,7 +10,7 @@ namespace OnTheFlyWPFC.Model.DTO
     {
         public int jobID { get; set; }
         public string job_name { get; set; }
-        public Double basic_salary { get; set; }
+        public float basice_salary { get; set; }
         public int working_days_per_month { get; set; }
     }
 }

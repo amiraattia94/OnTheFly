@@ -19,6 +19,8 @@ namespace OnTheFlyWPFC.View {
     /// Interaction logic for CustomerAddMiniWindow.xaml
     /// </summary>
     public partial class CustomerAddMiniWindow : Window {
+
+        public Delegate UpdateMainList;
         CityViewModel cityViewModel;
         CustomerViewModel customerViewModel;
 
@@ -40,7 +42,7 @@ namespace OnTheFlyWPFC.View {
 
         private void cmbBranchCities_Loaded(object sender, RoutedEventArgs e) {
             cityViewModel.GetAllCities();
-            //cmbBranchCities.DataContext = _cityViewModel;
+            
             cmbBranchCities.ItemsSource = cityViewModel.CityName;
             cmbBranchCities.DisplayMemberPath = "name";
         }
@@ -53,7 +55,7 @@ namespace OnTheFlyWPFC.View {
             if (await customerViewModel.AddCustomer(txtCustomerName.Text, txtCustomerPhone1.Text, txtCustomerPhone2.Text, city.cityCode, txtCustomerAddress.Text, decimal.Parse(txtCustomerCredit.Text))) {
                 MessageBox.Show("تم الحفظ");
 
-                //UpdateMainList.DynamicInvoke();
+                UpdateMainList.DynamicInvoke();
                 this.Close();
             }
 
