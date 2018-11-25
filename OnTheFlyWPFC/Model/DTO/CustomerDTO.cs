@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnTheFlyWPFC.Model.DTO {
-    class CustomerDTO {
+namespace OnTheFlyWPFC.Model.DTO
+{
+    class CustomerDTO
+    {
 
         public int customerID { get; set; }
         public string name { get; set; }
@@ -14,7 +16,9 @@ namespace OnTheFlyWPFC.Model.DTO {
         public string city { get; set; }
         public string address { get; set; }
         public string adddate { get; set; }
-        public Nullable<decimal> credit { get; set; }
+        public decimal? credit { get; set; }
+        public int membershipCount { get; set; }
+
 
     }
 }

@@ -10,7 +10,7 @@
 
     <UserControl.Resources>
         <viewmodel:Class1 x:Key="class1"/>
-        
+
 
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="LightGray" />
@@ -350,13 +350,13 @@
 
                         </ComboBoxItem>
                     </ComboBox>
-                    
-                    
+
+
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
                     <Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                    <TextBox Width="200" VerticalAlignment="Center" FontSize="16" Foreground="#8C9AB6"/>
+                    <TextBox Name="txtSearchBranshName" Width="200" VerticalAlignment="Center" FontSize="16" Foreground="#8C9AB6" TextChanged="TxtSearchBranshName_TextChanged"/>
                     <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Name="btnSearchBranch" Click="BtnSearchBranch_Click">
                         <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Height="30" Width="30" Foreground="#8C9AB6"/>
                     </Button>
@@ -410,7 +410,7 @@
                             </Border>
                         </Border>
                     </StackPanel>
-                   
+
                 </UniformGrid>
 
 

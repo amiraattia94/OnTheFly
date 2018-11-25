@@ -23,35 +23,43 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class BranchAddMiniWindow : Window
     {
+
+        public Delegate UpdateMainList;
         CityViewModel _cityViewModel;
         BranchViewModel _branchViewModel;
-        
+
         public BranchAddMiniWindow()
         {
-            
+
             _cityViewModel = new CityViewModel();
             _branchViewModel = new BranchViewModel();
             InitializeComponent();
 
         }
 
-        private void cmbBranchCities_Loaded(object sender, RoutedEventArgs e) {
+        private void cmbBranchCities_Loaded(object sender, RoutedEventArgs e)
+        {
             _cityViewModel.GetAllCities();
             //cmbBranchCities.DataContext = _cityViewModel;
             cmbBranchCities.ItemsSource = _cityViewModel.CityName;
-            cmbBranchCities.DisplayMemberPath = "name"; 
+            cmbBranchCities.DisplayMemberPath = "name";
         }
 
-        async private void Button_Click(object sender, RoutedEventArgs e) {
+        async private void Button_Click(object sender, RoutedEventArgs e)
+        {
             _branchViewModel = new BranchViewModel();
             var city = (CityDTO)cmbBranchCities.SelectedValue;
             bool status = HelperClass.TrueOrFalse(cmbBranchStatus.SelectedIndex.ToString());
 
-            if (await _branchViewModel.AddBranch(txtBranchName.Text, city.cityCode, txtBranchAddress.Text,status)) {
+            if (await _branchViewModel.AddBranch(txtBranchName.Text, city.cityCode, txtBranchAddress.Text, status))
+            {
                 MessageBox.Show("تم الحفظ");
+                UpdateMainList.DynamicInvoke();
+                this.Close();
+
             }
 
-            
+
         }
 
         private void BtnCloseForm_Click(object sender, RoutedEventArgs e)

@@ -140,6 +140,7 @@
     </Compile>
     <Compile Include="Model\DTO\BranchDTO.cs" />
     <Compile Include="Model\DTO\CarsDTO.cs" />
+    <Compile Include="Model\DTO\CategoryDTO.cs" />
     <Compile Include="Model\DTO\CityDTO.cs" />
     <Compile Include="Model\DTO\CustodyDTO.cs" />
     <Compile Include="Model\DTO\CustomerDTO.cs" />
@@ -149,9 +150,11 @@
     <Compile Include="Model\DTO\FinanceDTO.cs" />
     <Compile Include="Model\DTO\InvoiceDTO.cs" />
     <Compile Include="Model\DTO\JobsDTO.cs" />
+    <Compile Include="Model\DTO\MembershipDTO.cs" />
     <Compile Include="Model\DTO\UserDTO.cs" />
     <Compile Include="Model\DTO\UserGroupRoleDTO.cs" />
     <Compile Include="Model\DTO\UserGroupsDTO.cs" />
+    <Compile Include="Model\DTO\VendorDTO.cs" />
     <Compile Include="Model\EmployeeTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -192,12 +195,14 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Service\BranchService.cs" />
+    <Compile Include="Model\Service\CategoryService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
     <Compile Include="Model\Service\CustomerService.cs" />
     <Compile Include="Model\Service\HelperClass.cs" />
     <Compile Include="Model\Service\JobsService.cs" />
     <Compile Include="Model\Service\UserGroupRoleService.cs" />
     <Compile Include="Model\Service\UserService.cs" />
+    <Compile Include="Model\Service\VendorService.cs" />
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -217,11 +222,13 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BranchViewModel.cs" />
+    <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\CityViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\JobsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\UserGroupRoleViewModel.cs" />
+    <Compile Include="ViewModel\VendorViewModel.cs" />
     <Compile Include="View\BranchAddMiniWindow.xaml.cs">
       <DependentUpon>BranchAddMiniWindow.xaml</DependentUpon>
     </Compile>
@@ -257,6 +264,9 @@
     </Compile>
     <Compile Include="View\CustomerEditMiniWindow.xaml.cs">
       <DependentUpon>CustomerEditMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomerMembershipMiniWindow.xaml.cs">
+      <DependentUpon>CustomerMembershipMiniWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CustomerViewUC.xaml.cs">
       <DependentUpon>CustomerViewUC.xaml</DependentUpon>
@@ -414,6 +424,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CustomerEditMiniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomerMembershipMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
