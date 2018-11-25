@@ -28,20 +28,23 @@ namespace OnTheFlyWPFC.Model
         public virtual DbSet<CarsTBL> CarsTBLs { get; set; }
         public virtual DbSet<CategoriesTBL> CategoriesTBLs { get; set; }
         public virtual DbSet<CompanyBranchTBL> CompanyBranchTBLs { get; set; }
-        public virtual DbSet<custodyTBL> custodyTBLs { get; set; }
-        public virtual DbSet<customerTBL> customerTBLs { get; set; }
-        public virtual DbSet<deliveryStatusTBL> deliveryStatusTBLs { get; set; }
-        public virtual DbSet<deliveryTBL> deliveryTBLs { get; set; }
+        public virtual DbSet<CustodyTBL> CustodyTBLs { get; set; }
+        public virtual DbSet<CustomerTBL> CustomerTBLs { get; set; }
+        public virtual DbSet<DeliveryStatusTBL> DeliveryStatusTBLs { get; set; }
+        public virtual DbSet<DeliveryTBL> DeliveryTBLs { get; set; }
         public virtual DbSet<EmployeeTBL> EmployeeTBLs { get; set; }
         public virtual DbSet<FinanceTBL> FinanceTBLs { get; set; }
-        public virtual DbSet<invoiceTBL> invoiceTBLs { get; set; }
+        public virtual DbSet<InvoiceTBL> InvoiceTBLs { get; set; }
         public virtual DbSet<JobsTBL> JobsTBLs { get; set; }
         public virtual DbSet<LibyanCitiesTBL> LibyanCitiesTBLs { get; set; }
-        public virtual DbSet<serviceTBL> serviceTBLs { get; set; }
+        public virtual DbSet<MembershipTBL> MembershipTBLs { get; set; }
+        public virtual DbSet<PayrollTBL> PayrollTBLs { get; set; }
+        public virtual DbSet<ServiceTBL> ServiceTBLs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<userGroupRoleTBL> userGroupRoleTBLs { get; set; }
-        public virtual DbSet<userTBL> userTBLs { get; set; }
-        public virtual DbSet<vendorBranchTBL> vendorBranchTBLs { get; set; }
+        public virtual DbSet<UserTBL> UserTBLs { get; set; }
+        public virtual DbSet<VendorBranchTBL> VendorBranchTBLs { get; set; }
+        public virtual DbSet<VendorServicesTBL> VendorServicesTBLs { get; set; }
         public virtual DbSet<vendorTBL> vendorTBLs { get; set; }
     }
 }

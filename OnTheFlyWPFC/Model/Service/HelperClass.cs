@@ -8,16 +8,11 @@ namespace OnTheFlyWPFC.Model.Service {
     public static class HelperClass {
         public static int BranchID;
 
+        public static int Customer;
+
         public static bool TrueOrFalse(string status) {
 
             if (status == "0")
-                return true;
-
-            return false;
-        }
-        public static bool TrueOrFalse(int status) {
-
-            if (status == 0)
                 return true;
 
             return false;

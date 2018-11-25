@@ -33,9 +33,7 @@ namespace OnTheFlyWPFC.View
             branchViewModel.GetAllBranches();
             lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
             lstViewBraches.Items.Refresh();
-
         }
-
 
         public BranchViewUC()
         {
@@ -51,23 +49,10 @@ namespace OnTheFlyWPFC.View
 
         }
 
-        private void cmbBranchCity_Loaded(object sender, RoutedEventArgs e) {
-            cityViewModel.GetAllCities();
-            cmbBranchCity.ItemsSource = cityViewModel.CityName;
-            cmbBranchCity.DisplayMemberPath = "name";
-
-            foreach (CityDTO city in cmbBranchCity.Items) {
-                if (city.name == branchViewModel.EditBranch.cityID) {
-                    cmbBranchCity.SelectedValue = city;
-                    break;
-                }
-            }
-        }
-
         private async void DeleteBranch(object sender, RoutedEventArgs e) {
             Button button = sender as Button;
             var a = button.CommandParameter as BranchDTO;
-            //HelperClass.BranchID =  a.branchID;
+            HelperClass.BranchID =  a.branchID;
 
             if (await branchViewModel.DeleteBranchByID(a.branchID))
                 MessageBox.Show("تم المسح بنجاح");
@@ -91,26 +76,73 @@ namespace OnTheFlyWPFC.View
             
         }
 
+        private void cmbBranchCity_Loaded(object sender, RoutedEventArgs e) {
+            cityViewModel.GetAllCities();
+            cmbBranchCity.ItemsSource = cityViewModel.CityName;
+            cmbBranchCity.DisplayMemberPath = "name";
+
+            foreach (CityDTO city in cmbBranchCity.Items) {
+                if (city.name == branchViewModel.EditBranch.cityID) {
+                    cmbBranchCity.SelectedValue = city;
+                    break;
+                }
+            }
+        }
+
         private void cmbBranchCity_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
             if(cmbBranchCity.SelectedIndex != -1) {
-                var citytemp = cmbBranchCity.SelectedValue as CityDTO;
-                branchViewModel.GetBranchByCity(citytemp.cityCode);
-                cmbBranchState.SelectedIndex = -1;
+                var selectedcity = (CityDTO)cmbBranchCity.SelectedItem;
+                branchViewModel.GetBranchByCity(selectedcity.cityCode);
                 lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
                 lstViewBraches.Items.Refresh();
+                cmbBranchState.SelectedIndex = -1;
+                txtSearchBranshName.Text = "";
             }
-            
+           
+
         }
 
         private void cmbBranchState_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (cmbBranchState.SelectedIndex != -1) {
-                branchViewModel.GetBranchByState(HelperClass.TrueOrFalse(cmbBranchState.SelectedIndex));
-                cmbBranchCity.SelectedIndex = -1;
+            if(cmbBranchState.SelectedIndex != -1) {
+                bool SelectedState = false;
+                if (cmbBranchState.SelectedIndex == 0)
+                    SelectedState = true;
+                else if (cmbBranchState.SelectedIndex == 1)
+                    SelectedState = false;
+
+                branchViewModel.GetBranchByState(SelectedState);
                 lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
                 lstViewBraches.Items.Refresh();
+                cmbBranchCity.SelectedIndex = -1;
+                txtSearchBranshName.Text = "";
+
             }
-            
         }
 
+        private void btnAddBranch_Click(object sender, RoutedEventArgs e)
+        {
+            var newwindow = new BranchAddMiniWindow();
+          
+            
+            RefreshListEvent += new RefreshList(RefreshListView);
+            newwindow.UpdateMainList = RefreshListEvent;
+         
+           newwindow.ShowDialog();
+        }
+
+        private void BtnSearchBranch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TxtSearchBranshName_TextChanged(object sender, TextChangedEventArgs e) {
+            branchViewModel.GetBranchByName(txtSearchBranshName.Text);
+            lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
+            lstViewBraches.Items.Refresh();
+            cmbBranchCity.SelectedIndex = -1;
+            cmbBranchState.SelectedIndex = -1;
+
+        }
     }
 }

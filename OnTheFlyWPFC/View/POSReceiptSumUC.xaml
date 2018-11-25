@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OnTheFlyWPFC.View"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="900"
+             
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel">
 
@@ -314,24 +314,28 @@
 
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="7"  >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
+            </Border.Effect>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="338*"/>
                     <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="449*"/>
-                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="85*"/>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="42"/>
-                    <RowDefinition Height="873*"/>
+                    <RowDefinition Height="42"/>
+                    <RowDefinition Height="473*"/>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                     <Label Content="الفواتير " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="00,0,0,0" VerticalAlignment="Center"/>
                 </StackPanel >
 
-                <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
                     <Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                     <ComboBox MinWidth="50" Margin="10,0,10,0"></ComboBox>
 
@@ -339,14 +343,14 @@
                     <ComboBox MinWidth="50" Margin="10,0,10,0"></ComboBox>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
                     <Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                     <TextBox Width="200" VerticalAlignment="Center"/>
                     <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Height="30" Width="30" Foreground="#8C9AB6"/>
                 </StackPanel>
 
 
-                <UniformGrid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" DataContext="{StaticResource ResourceKey=class1}">
+                <UniformGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Top" DataContext="{StaticResource ResourceKey=class1}">
                     <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,0,0,0" Height="447" >
                         <ListView.View>
                             <GridView>

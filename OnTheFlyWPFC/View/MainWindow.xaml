@@ -10,9 +10,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Height="720" Width="1366" 
         Background="Transparent" WindowStyle="None" 
-
-        AllowsTransparency="True" WindowState="Maximized" WindowStartupLocation="Manual" WindowStartupLocation="CenterScreen"  ResizeMode="CanResizeWithGrip" WindowState="Maximized">
-
+        AllowsTransparency="True" WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -461,28 +459,34 @@
 
                 <UniformGrid>
                     <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
-                        <Button Name="btnCloseForm"  Background="Transparent" Margin="10,0,0,0" Height="63"  VerticalAlignment="Center" HorizontalAlignment="Right"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnCloseForm_Click">
-                            <UniformGrid FlowDirection="RightToLeft">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="Images\icons\ic_close.png" Height="15" Width="15"/>
-                                </StackPanel>
-                            </UniformGrid>
-                        </Button>
-                        <Button  Name="btnMaxForm" Background="Transparent" Height="63"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnMaxForm_Click">
-                            <UniformGrid FlowDirection="RightToLeft">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="Images\icons\ic_maximize.png" Height="15" Width="15"/>
-                                </StackPanel>
-                            </UniformGrid>
-                        </Button>
-                        <Button Name="btnMinForm" Background="Transparent" Height="63"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnMinForm_Click">
-                            <UniformGrid FlowDirection="RightToLeft">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="Images\icons\ic_minimize.png" Height="15" Width="15"/>
-                                </StackPanel>
-                            </UniformGrid>
-                        </Button>
-
+                        <StackPanel Orientation="Horizontal">
+                            
+                            <Button Name="btnCloseForm"  Background="Transparent" Margin="10,0,0,0" Height="63"  VerticalAlignment="Center" HorizontalAlignment="Right"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnCloseForm_Click">
+                                <UniformGrid FlowDirection="RightToLeft">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images\icons\ic_close.png" Height="15" Width="15"/>
+                                    </StackPanel>
+                                </UniformGrid>
+                            </Button>
+                            <Button  Name="btnMaxForm" Background="Transparent" Height="63"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnMaxForm_Click">
+                                <UniformGrid FlowDirection="RightToLeft">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images\icons\ic_maximize.png" Height="15" Width="15"/>
+                                    </StackPanel>
+                                </UniformGrid>
+                            </Button>
+                            <Button Name="btnMinForm" Background="Transparent" Height="63"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnMinForm_Click">
+                                <UniformGrid FlowDirection="RightToLeft">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images\icons\ic_minimize.png" Height="15" Width="15"/>
+                                    </StackPanel>
+                                </UniformGrid>
+                            </Button>
+                            <materialDesign:PopupBox PlacementMode="BottomAndAlignCentres" Foreground="White" Margin="0,0,0,0">
+                                <Button Content="الإعدادات"/>
+                            </materialDesign:PopupBox>
+                        </StackPanel>
+                        
                     </StackPanel>
                 </UniformGrid>
 

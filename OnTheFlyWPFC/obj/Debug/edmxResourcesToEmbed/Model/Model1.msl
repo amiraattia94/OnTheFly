@@ -31,9 +31,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="custodyTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.custodyTBL">
-        <MappingFragment StoreEntitySet="custodyTBL">
+    <EntitySetMapping Name="CustodyTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.CustodyTBL">
+        <MappingFragment StoreEntitySet="CustodyTBL">
           <ScalarProperty Name="custodyID" ColumnName="custodyID" />
           <ScalarProperty Name="ownerID" ColumnName="ownerID" />
           <ScalarProperty Name="amount" ColumnName="amount" />
@@ -42,9 +42,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="customerTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.customerTBL">
-        <MappingFragment StoreEntitySet="customerTBL">
+    <EntitySetMapping Name="CustomerTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.CustomerTBL">
+        <MappingFragment StoreEntitySet="CustomerTBL">
           <ScalarProperty Name="customerID" ColumnName="customerID" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="phone1" ColumnName="phone1" />
@@ -56,17 +56,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="deliveryStatusTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.deliveryStatusTBL">
-        <MappingFragment StoreEntitySet="deliveryStatusTBL">
+    <EntitySetMapping Name="DeliveryStatusTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryStatusTBL">
+        <MappingFragment StoreEntitySet="DeliveryStatusTBL">
           <ScalarProperty Name="statusID" ColumnName="statusID" />
           <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="deliveryTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.deliveryTBL">
-        <MappingFragment StoreEntitySet="deliveryTBL">
+    <EntitySetMapping Name="DeliveryTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryTBL">
+        <MappingFragment StoreEntitySet="DeliveryTBL">
           <ScalarProperty Name="deliveryID" ColumnName="deliveryID" />
           <ScalarProperty Name="full_delivery" ColumnName="full_delivery" />
           <ScalarProperty Name="carID" ColumnName="carID" />
@@ -82,8 +82,7 @@
       <EntityTypeMapping TypeName="OnTheFlyDBModel.EmployeeTBL">
         <MappingFragment StoreEntitySet="EmployeeTBL">
           <ScalarProperty Name="employeeID" ColumnName="employeeID" />
-          <ScalarProperty Name="first_name" ColumnName="first_name" />
-          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="phone1" ColumnName="phone1" />
           <ScalarProperty Name="phone2" ColumnName="phone2" />
           <ScalarProperty Name="address" ColumnName="address" />
@@ -108,9 +107,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="invoiceTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.invoiceTBL">
-        <MappingFragment StoreEntitySet="invoiceTBL">
+    <EntitySetMapping Name="InvoiceTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.InvoiceTBL">
+        <MappingFragment StoreEntitySet="InvoiceTBL">
           <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
           <ScalarProperty Name="issuerID" ColumnName="issuerID" />
           <ScalarProperty Name="custodyID" ColumnName="custodyID" />
@@ -127,6 +126,7 @@
           <ScalarProperty Name="jobID" ColumnName="jobID" />
           <ScalarProperty Name="job_name" ColumnName="job_name" />
           <ScalarProperty Name="basic_salary" ColumnName="basic_salary" />
+          <ScalarProperty Name="working_days_per_month" ColumnName="working_days_per_month" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -138,9 +138,38 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="serviceTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.serviceTBL">
-        <MappingFragment StoreEntitySet="serviceTBL">
+    <EntitySetMapping Name="MembershipTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.MembershipTBL">
+        <MappingFragment StoreEntitySet="MembershipTBL">
+          <ScalarProperty Name="membershipID" ColumnName="membershipID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="vendorID" ColumnName="vendorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayrollTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.PayrollTBL">
+        <MappingFragment StoreEntitySet="PayrollTBL">
+          <ScalarProperty Name="payrollID" ColumnName="payrollID" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="number_of_worked_days" ColumnName="number_of_worked_days" />
+          <ScalarProperty Name="bonus" ColumnName="bonus" />
+          <ScalarProperty Name="overtime_pay" ColumnName="overtime_pay" />
+          <ScalarProperty Name="cash_advance" ColumnName="cash_advance" />
+          <ScalarProperty Name="late_hours" ColumnName="late_hours" />
+          <ScalarProperty Name="absent_days" ColumnName="absent_days" />
+          <ScalarProperty Name="total_deduction" ColumnName="total_deduction" />
+          <ScalarProperty Name="total_addition" ColumnName="total_addition" />
+          <ScalarProperty Name="gross_salary" ColumnName="gross_salary" />
+          <ScalarProperty Name="payroll_month" ColumnName="payroll_month" />
+          <ScalarProperty Name="payroll_year" ColumnName="payroll_year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.ServiceTBL">
+        <MappingFragment StoreEntitySet="ServiceTBL">
           <ScalarProperty Name="serviceID" ColumnName="serviceID" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="categoryID" ColumnName="categoryID" />
@@ -193,12 +222,13 @@
           <ScalarProperty Name="add_service" ColumnName="add_service" />
           <ScalarProperty Name="delete_service" ColumnName="delete_service" />
           <ScalarProperty Name="admin_rights" ColumnName="admin_rights" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="userTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.userTBL">
-        <MappingFragment StoreEntitySet="userTBL">
+    <EntitySetMapping Name="UserTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.UserTBL">
+        <MappingFragment StoreEntitySet="UserTBL">
           <ScalarProperty Name="userID" ColumnName="userID" />
           <ScalarProperty Name="user_name" ColumnName="user_name" />
           <ScalarProperty Name="password" ColumnName="password" />
@@ -206,15 +236,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vendorBranchTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.vendorBranchTBL">
-        <MappingFragment StoreEntitySet="vendorBranchTBL">
+    <EntitySetMapping Name="VendorBranchTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.VendorBranchTBL">
+        <MappingFragment StoreEntitySet="VendorBranchTBL">
           <ScalarProperty Name="vendor_branchID" ColumnName="vendor_branchID" />
           <ScalarProperty Name="vendorID" ColumnName="vendorID" />
           <ScalarProperty Name="cityID" ColumnName="cityID" />
           <ScalarProperty Name="address" ColumnName="address" />
           <ScalarProperty Name="active" ColumnName="active" />
           <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorServicesTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.VendorServicesTBL">
+        <MappingFragment StoreEntitySet="VendorServicesTBL">
+          <ScalarProperty Name="vendorID" ColumnName="vendorID" />
+          <ScalarProperty Name="serviceID" ColumnName="serviceID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -228,28 +266,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="servicesInvoice" TypeName="OnTheFlyDBModel.servicesInvoice" StoreEntitySet="servicesInvoice">
-      <EndProperty Name="invoiceTBL">
+    <AssociationSetMapping Name="ServicesInvoice" TypeName="OnTheFlyDBModel.ServicesInvoice" StoreEntitySet="ServicesInvoice">
+      <EndProperty Name="InvoiceTBL">
         <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
       </EndProperty>
-      <EndProperty Name="serviceTBL">
+      <EndProperty Name="ServiceTBL">
         <ScalarProperty Name="serviceID" ColumnName="serviceID" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="userGroupsTBL" TypeName="OnTheFlyDBModel.userGroupsTBL" StoreEntitySet="userGroupsTBL">
+    <AssociationSetMapping Name="UserGroupsTBL" TypeName="OnTheFlyDBModel.UserGroupsTBL" StoreEntitySet="UserGroupsTBL">
       <EndProperty Name="userGroupRoleTBL">
         <ScalarProperty Name="groupID" ColumnName="groupID" />
       </EndProperty>
-      <EndProperty Name="userTBL">
+      <EndProperty Name="UserTBL">
         <ScalarProperty Name="userID" ColumnName="userID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="vendorServicesTBL" TypeName="OnTheFlyDBModel.vendorServicesTBL" StoreEntitySet="vendorServicesTBL">
-      <EndProperty Name="serviceTBL">
-        <ScalarProperty Name="serviceID" ColumnName="serviceID" />
-      </EndProperty>
-      <EndProperty Name="vendorTBL">
-        <ScalarProperty Name="vendorID" ColumnName="vendorID" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

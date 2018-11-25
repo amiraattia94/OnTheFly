@@ -311,35 +311,42 @@
 
 
     <UniformGrid FlowDirection="RightToLeft">
-        <Border BorderThickness="0" Background="White" CornerRadius="7"  >
+        <Border BorderThickness="1" Background="White" CornerRadius="7"  >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#FFACACAC"/>
+            </Border.Effect>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="338*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="200*"/>
                     <ColumnDefinition Width="50"/>
-                    <ColumnDefinition Width="449*"/>
-                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="500*"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="85*"/>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="896*"/>
+                    <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                     <Label Content="رقم الفاتورة :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="00,0,0,0" VerticalAlignment="Center"/>
                     <TextBox Text="000002" FontFamily="Myriad Pro"  FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
                     <materialDesign:PackIcon Kind="Search" FontFamily="Myriad Pro" Height="20" Width="20"  FontSize="18" Foreground="#8C9AB6" Margin="5,0,0,0" VerticalAlignment="Center"/>
 
 
                 </StackPanel >
-                <StackPanel Orientation="Horizontal"  Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" >
+                <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" >
                     <Label Content="التاريخ " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="140,0,0,0" VerticalAlignment="Center"/>
                     <Label Content="2017/5/10" FontFamily="Myriad Pro"  FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
                 </StackPanel >
 
 
 
-                <Grid Grid.Column="1" Grid.Row="2">
+                <Grid Grid.Column="1" Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="227*"/>
                         <ColumnDefinition Width="15"/>
@@ -347,7 +354,7 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Height="auto">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Height="auto">
                         <Border Height="40" Margin="0,0,0,15">
                             <TextBox VerticalAlignment="Stretch" IsEnabled="False"/>
                         </Border>
@@ -367,23 +374,23 @@
                         <Border Height="40" Margin="0,15,0,15" >
 
                         </Border>
-
+                        <Border Height="40" Margin="0,0,0,0" Grid.ColumnSpan="3" >
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="اسم الموضف :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
+                                <Label Content="potato" FontFamily="Noto Kufi Arabic"  FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
-                    <Border Height="40" Margin="0,0,0,0" Grid.ColumnSpan="3" >
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="اسم الموضف :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
-                            <Label Content="potato" FontFamily="Noto Kufi Arabic"  FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Border>
+                    
 
 
 
-                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="2"/>
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2"/>
                 </Grid>
 
-                <StackPanel  Grid.Row="2" Grid.Column="3" >
+                <StackPanel  Grid.Row="3" Grid.Column="3" >
                     <UniformGrid VerticalAlignment="Top" DataContext="{StaticResource ResourceKey=class1}">
-                        <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,0,0,0" Height="227" >
+                        <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,0,0,0" Height="400" >
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="نوع الخدمة" Width="90" DisplayMemberBinding="{Binding A}"/>
@@ -398,7 +405,15 @@
                         </ListView>
                     </UniformGrid>
 
-                    <Grid HorizontalAlignment="Stretch" Margin="0,20,0,0">
+                  
+
+                    
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Column="5" Grid.Row="3">
+                    <Grid HorizontalAlignment="Stretch" Margin="0,20,0,0" Grid.Column="5" Grid.Row="3">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="211*"/>
                             <ColumnDefinition Width="20"/>
@@ -408,72 +423,57 @@
                             <ColumnDefinition Width="52*"/>
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="0" Margin="70,0,0,0" >
-                            <Label Content="المبلغ الاجمالي :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
-                            <Label Content="قيمة التوصيل :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
-                            <Label Content="تخفيض :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
-                            <Label Content="الاجمالي :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-
+                        <StackPanel Grid.Column="0" Margin="0,0,0,0" >
+                            <Label Content="المبلغ الاجمالي :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
+                            <Label Content="قيمة التوصيل :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
+                            <Label Content="تخفيض :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
+                            <Label Content="الاجمالي :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                            <Label Content="الرصيد المتوفر : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                         </StackPanel>
                         <StackPanel Grid.Column="2" HorizontalAlignment="Left">
-                            <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" />
-                            <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" />
-                            <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" />
-                            <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" />
+                            <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                            <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                            <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                            <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                            <Label Content="500" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Center"/>
+
                         </StackPanel>
 
                     </Grid>
-
-                    <Grid Margin="0,20,0,0">
+                    <Grid Margin="0,0,0,0">
                         <StackPanel>
+                            <!--
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="الرصيد المتوفر : " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                                <Label Content="500" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-
+                                <Label Content="الرصيد المتوفر : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Center"/>
+                                <Label Content="500" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Center"/>
                             </StackPanel>
+                            -->
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="طريقة الدفع : " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                                <TextBox MinWidth="50" Margin="10,0,10,0" IsEnabled="False"></TextBox>
-
-
-
-
-
-
+                                <Label Content="طريقة الدفع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                                <TextBox MinWidth="50" Margin="10,0,10,0" FontSize="16" IsEnabled="False"></TextBox>
                             </StackPanel>
                         </StackPanel>
-
-
-
                     </Grid>
 
 
-                    <Grid Margin="0,20,0,0">
-
-                        <StackPanel Orientation="Horizontal" >
-                            <Border Height="40" Margin="0,15,20,15" >
-                                <Border Height="40" BorderBrush="Transparent" CornerRadius="15"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                    <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                    <Grid Margin="0,0,0,0" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                            <Border Height="40" Margin="0,15,0,15" HorizontalAlignment="Center">
+                                <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
+                                    <Button Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                         <UniformGrid FlowDirection="RightToLeft">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text=" طباعة " Margin="0,0,5,0"  />
-                                                <materialDesign:PackIcon Kind="Printer" Height="25" Width="25" Margin="0,0,0,0" />
+                                                <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text=" طباعة " Margin="0,0,5,0" VerticalAlignment="Center" />
+                                                <materialDesign:PackIcon Kind="Printer" Height="15" Width="15" Margin="5,0,0,0" VerticalAlignment="Center" />
                                             </StackPanel>
                                         </UniformGrid>
                                     </Button>
                                 </Border>
                             </Border>
-
-
                         </StackPanel>
                     </Grid>
-
-
-
                 </StackPanel>
-
-
-
+                
 
             </Grid>
 

@@ -24,5 +24,10 @@ namespace OnTheFlyWPFC.View
         {
             InitializeComponent();
         }
+
+        private void BtnSearchDeliveryCars_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
