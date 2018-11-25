@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace OnTheFlyWPFC.Model.DTO
 {
-    class CategoryDTO
+    public class UserGroupsDTO
     {
-        public int CategoryID { get; set; }
-        public string CategoryName { get; set; }
+        public int userID { get; set; }
+        public int groupID { get; set; }
     }
 }

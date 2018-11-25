@@ -22,6 +22,6 @@ namespace OnTheFlyWPFC.Model
         public string name { get; set; }
     
         public virtual LibyanCitiesTBL LibyanCitiesTBL { get; set; }
-        public virtual vendorTBL vendorTBL { get; set; }
+        public virtual VendorTBL VendorTBL { get; set; }
     }
 }

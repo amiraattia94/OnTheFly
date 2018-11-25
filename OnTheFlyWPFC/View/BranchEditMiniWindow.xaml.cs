@@ -34,6 +34,10 @@ namespace OnTheFlyWPFC.View
             cityViewModel = new CityViewModel();
             branchViewModel = new BranchViewModel();
             branchViewModel.GetBranchByID(HelperClass.BranchID);
+
+            
+
+
         }
 
         private void cmbBranchCities_Loaded(object sender, RoutedEventArgs e) {

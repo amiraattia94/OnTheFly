@@ -107,15 +107,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="InvoiceTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.InvoiceTBL">
-        <MappingFragment StoreEntitySet="InvoiceTBL">
+    <EntitySetMapping Name="invoiceTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.invoiceTBL">
+        <MappingFragment StoreEntitySet="invoiceTBL">
           <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
           <ScalarProperty Name="issuerID" ColumnName="issuerID" />
           <ScalarProperty Name="custodyID" ColumnName="custodyID" />
           <ScalarProperty Name="customerID" ColumnName="customerID" />
           <ScalarProperty Name="time" ColumnName="time" />
-          <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="branchID" ColumnName="branchID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -256,9 +255,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vendorTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.vendorTBL">
-        <MappingFragment StoreEntitySet="vendorTBL">
+    <EntitySetMapping Name="VendorTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.VendorTBL">
+        <MappingFragment StoreEntitySet="VendorTBL">
           <ScalarProperty Name="vendorID" ColumnName="vendorID" />
           <ScalarProperty Name="categoryID" ColumnName="categoryID" />
           <ScalarProperty Name="active" ColumnName="active" />
@@ -267,7 +266,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <AssociationSetMapping Name="ServicesInvoice" TypeName="OnTheFlyDBModel.ServicesInvoice" StoreEntitySet="ServicesInvoice">
-      <EndProperty Name="InvoiceTBL">
+      <EndProperty Name="invoiceTBL">
         <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
       </EndProperty>
       <EndProperty Name="ServiceTBL">

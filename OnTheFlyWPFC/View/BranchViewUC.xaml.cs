@@ -33,7 +33,9 @@ namespace OnTheFlyWPFC.View
             branchViewModel.GetAllBranches();
             lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
             lstViewBraches.Items.Refresh();
+
         }
+
 
         public BranchViewUC()
         {
@@ -91,33 +93,10 @@ namespace OnTheFlyWPFC.View
 
         private void cmbBranchCity_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
-            if(cmbBranchCity.SelectedIndex != -1) {
-                var selectedcity = (CityDTO)cmbBranchCity.SelectedItem;
-                branchViewModel.GetBranchByCity(selectedcity.cityCode);
-                lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
-                lstViewBraches.Items.Refresh();
-                cmbBranchState.SelectedIndex = -1;
-                txtSearchBranshName.Text = "";
-            }
-           
-
         }
 
         private void cmbBranchState_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if(cmbBranchState.SelectedIndex != -1) {
-                bool SelectedState = false;
-                if (cmbBranchState.SelectedIndex == 0)
-                    SelectedState = true;
-                else if (cmbBranchState.SelectedIndex == 1)
-                    SelectedState = false;
 
-                branchViewModel.GetBranchByState(SelectedState);
-                lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
-                lstViewBraches.Items.Refresh();
-                cmbBranchCity.SelectedIndex = -1;
-                txtSearchBranshName.Text = "";
-
-            }
         }
 
         private void btnAddBranch_Click(object sender, RoutedEventArgs e)
@@ -125,23 +104,14 @@ namespace OnTheFlyWPFC.View
             var newwindow = new BranchAddMiniWindow();
           
             
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+            //RefreshListEvent += new RefreshList(RefreshListView);
+            //newwindow.UpdateMainList = RefreshListEvent;
          
            newwindow.ShowDialog();
         }
 
         private void BtnSearchBranch_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void TxtSearchBranshName_TextChanged(object sender, TextChangedEventArgs e) {
-            branchViewModel.GetBranchByName(txtSearchBranshName.Text);
-            lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
-            lstViewBraches.Items.Refresh();
-            cmbBranchCity.SelectedIndex = -1;
-            cmbBranchState.SelectedIndex = -1;
 
         }
     }

@@ -23,8 +23,6 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class BranchAddMiniWindow : Window
     {
-
-        public Delegate UpdateMainList;
         CityViewModel _cityViewModel;
         BranchViewModel _branchViewModel;
         
@@ -51,9 +49,6 @@ namespace OnTheFlyWPFC.View
 
             if (await _branchViewModel.AddBranch(txtBranchName.Text, city.cityCode, txtBranchAddress.Text,status)) {
                 MessageBox.Show("تم الحفظ");
-                UpdateMainList.DynamicInvoke();
-                this.Close();
-
             }
 
             

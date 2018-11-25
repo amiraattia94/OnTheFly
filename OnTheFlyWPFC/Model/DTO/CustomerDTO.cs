@@ -15,8 +15,6 @@ namespace OnTheFlyWPFC.Model.DTO {
         public string address { get; set; }
         public string adddate { get; set; }
         public Nullable<decimal> credit { get; set; }
-        public int membershipCount { get; set; }
-
 
     }
 }
