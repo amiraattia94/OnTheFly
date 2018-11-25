@@ -12,10 +12,10 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class vendorTBL
+    public partial class VendorTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public vendorTBL()
+        public VendorTBL()
         {
             this.MembershipTBLs = new HashSet<MembershipTBL>();
             this.VendorBranchTBLs = new HashSet<VendorBranchTBL>();

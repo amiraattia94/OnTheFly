@@ -508,14 +508,14 @@
                     </UniformGrid>
 
                     <ListView x:Name="ListViewMenu" Foreground="#FF0F6AB8" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
-                       <!--
+                        <!--
                         <ListViewItem x:Name="BranchAdd" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="OfficeBuilding" Height="25" Width="25" Margin="10"/>
                                 <TextBlock Text="اضافة فرع" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
-                        -->                        
+                        -->
                         <ListViewItem x:Name="BranchView" Height="60" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="OfficeBuilding" Height="25" Width="25" Margin="10"/>

@@ -12,10 +12,10 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class InvoiceTBL
+    public partial class invoiceTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public InvoiceTBL()
+        public invoiceTBL()
         {
             this.DeliveryTBLs = new HashSet<DeliveryTBL>();
             this.ServiceTBLs = new HashSet<ServiceTBL>();
@@ -25,8 +25,7 @@ namespace OnTheFlyWPFC.Model
         public int issuerID { get; set; }
         public Nullable<int> custodyID { get; set; }
         public int customerID { get; set; }
-        public System.TimeSpan time { get; set; }
-        public System.DateTime date { get; set; }
+        public System.DateTime time { get; set; }
         public Nullable<int> branchID { get; set; }
     
         public virtual CompanyBranchTBL CompanyBranchTBL { get; set; }

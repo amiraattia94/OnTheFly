@@ -15,13 +15,15 @@ namespace OnTheFlyWPFC.ViewModel
         VendorService vendorService;
         public ObservableCollection<VendorDTO> vendors { get; set; }
 
-        public VendorViewModel() {
+        public VendorViewModel()
+        {
 
             vendorService = new VendorService();
             vendors = new ObservableCollection<VendorDTO>();
         }
 
-        async public void GetVendors(int category) {
+        async public void GetVendors(int category)
+        {
             vendors = await vendorService.GetVendorByCategoryID(category);
         }
 

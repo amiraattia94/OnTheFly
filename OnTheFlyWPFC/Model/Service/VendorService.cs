@@ -10,11 +10,14 @@ namespace OnTheFlyWPFC.Model.Service
 {
     class VendorService
     {
-        async public Task<ObservableCollection<VendorDTO>> GetVendorByCategoryID(int categoryID) {
+        async public Task<ObservableCollection<VendorDTO>> GetVendorByCategoryID(int categoryID)
+        {
             await Task.FromResult(true);
 
-            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                List<VendorDTO> result = con.vendorTBLs.Where(w => w.categoryID == categoryID).Select(s => new VendorDTO() {
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+                List<VendorDTO> result = con.vendorTBLs.Where(w => w.categoryID == categoryID).Select(s => new VendorDTO()
+                {
                     VendorCategoryID = (int)s.categoryID,
                     VendorID = s.vendorID,
                     VendorStatus = s.active,

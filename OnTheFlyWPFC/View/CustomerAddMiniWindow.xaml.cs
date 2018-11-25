@@ -14,45 +14,53 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace OnTheFlyWPFC.View {
+namespace OnTheFlyWPFC.View
+{
     /// <summary>
     /// Interaction logic for CustomerAddMiniWindow.xaml
     /// </summary>
-    public partial class CustomerAddMiniWindow : Window {
+    public partial class CustomerAddMiniWindow : Window
+    {
 
         public Delegate UpdateMainList;
         CityViewModel cityViewModel;
         CustomerViewModel customerViewModel;
 
 
-        public CustomerAddMiniWindow() {
+        public CustomerAddMiniWindow()
+        {
             cityViewModel = new CityViewModel();
             customerViewModel = new CustomerViewModel();
             InitializeComponent();
         }
 
-        private void btnCloseForm_Click(object sender, RoutedEventArgs e) {
+        private void btnCloseForm_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e) {
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
 
-        private void cmbBranchCities_Loaded(object sender, RoutedEventArgs e) {
+        private void cmbBranchCities_Loaded(object sender, RoutedEventArgs e)
+        {
             cityViewModel.GetAllCities();
-            
+
             cmbBranchCities.ItemsSource = cityViewModel.CityName;
             cmbBranchCities.DisplayMemberPath = "name";
         }
 
-        async private void Button_Click(object sender, RoutedEventArgs e) {
+        async private void Button_Click(object sender, RoutedEventArgs e)
+        {
             customerViewModel = new CustomerViewModel();
             var city = (CityDTO)cmbBranchCities.SelectedValue;
 
 
-            if (await customerViewModel.AddCustomer(txtCustomerName.Text, txtCustomerPhone1.Text, txtCustomerPhone2.Text, city.cityCode, txtCustomerAddress.Text, decimal.Parse(txtCustomerCredit.Text))) {
+            if (await customerViewModel.AddCustomer(txtCustomerName.Text, txtCustomerPhone1.Text, txtCustomerPhone2.Text, city.cityCode, txtCustomerAddress.Text, decimal.Parse(txtCustomerCredit.Text)))
+            {
                 MessageBox.Show("تم الحفظ");
 
                 UpdateMainList.DynamicInvoke();

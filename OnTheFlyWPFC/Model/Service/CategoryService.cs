@@ -10,11 +10,14 @@ namespace OnTheFlyWPFC.Model.Service
 {
     class CategoryService
     {
-        async public Task<ObservableCollection<CategoryDTO>> GetAllCategory() {
+        async public Task<ObservableCollection<CategoryDTO>> GetAllCategory()
+        {
             await Task.FromResult(true);
 
-            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                List<CategoryDTO> result = con.CategoriesTBLs.Select(s => new CategoryDTO() {
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+                List<CategoryDTO> result = con.CategoriesTBLs.Select(s => new CategoryDTO()
+                {
                     CategoryID = s.categoryID,
                     CategoryName = s.category_name
                 }).ToList();

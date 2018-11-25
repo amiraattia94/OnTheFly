@@ -10,7 +10,7 @@
 
     <UserControl.Resources>
         <viewmodel:Class1 x:Key="class1"/>
-        
+
 
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="LightGray" />
@@ -350,8 +350,8 @@
 
                         </ComboBoxItem>
                     </ComboBox>
-                    
-                    
+
+
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
@@ -410,7 +410,7 @@
                             </Border>
                         </Border>
                     </StackPanel>
-                   
+
                 </UniformGrid>
 
 

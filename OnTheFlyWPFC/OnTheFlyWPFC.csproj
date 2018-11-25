@@ -139,9 +139,13 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DTO\BranchDTO.cs" />
+    <Compile Include="Model\DTO\CarsDTO.cs" />
     <Compile Include="Model\DTO\CategoryDTO.cs" />
     <Compile Include="Model\DTO\CityDTO.cs" />
+    <Compile Include="Model\DTO\CustodyDTO.cs" />
     <Compile Include="Model\DTO\CustomerDTO.cs" />
+    <Compile Include="Model\DTO\DeliveryDTO.cs" />
+    <Compile Include="Model\DTO\DeliveryStatusDTO.cs" />
     <Compile Include="Model\DTO\EmployeeDTO.cs" />
     <Compile Include="Model\DTO\FinanceDTO.cs" />
     <Compile Include="Model\DTO\InvoiceDTO.cs" />
@@ -149,6 +153,7 @@
     <Compile Include="Model\DTO\MembershipDTO.cs" />
     <Compile Include="Model\DTO\UserDTO.cs" />
     <Compile Include="Model\DTO\UserGroupRoleDTO.cs" />
+    <Compile Include="Model\DTO\UserGroupsDTO.cs" />
     <Compile Include="Model\DTO\VendorDTO.cs" />
     <Compile Include="Model\EmployeeTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -156,7 +161,7 @@
     <Compile Include="Model\FinanceTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\InvoiceTBL.cs">
+    <Compile Include="Model\invoiceTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\JobsTBL.cs">
@@ -194,6 +199,8 @@
     <Compile Include="Model\Service\CityService.cs" />
     <Compile Include="Model\Service\CustomerService.cs" />
     <Compile Include="Model\Service\HelperClass.cs" />
+    <Compile Include="Model\Service\JobsService.cs" />
+    <Compile Include="Model\Service\UserGroupRoleService.cs" />
     <Compile Include="Model\Service\UserService.cs" />
     <Compile Include="Model\Service\VendorService.cs" />
     <Compile Include="Model\sysdiagram.cs">
@@ -211,14 +218,16 @@
     <Compile Include="Model\VendorServicesTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\vendorTBL.cs">
+    <Compile Include="Model\VendorTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BranchViewModel.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\CityViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\JobsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\UserGroupRoleViewModel.cs" />
     <Compile Include="ViewModel\VendorViewModel.cs" />
     <Compile Include="View\BranchAddMiniWindow.xaml.cs">
       <DependentUpon>BranchAddMiniWindow.xaml</DependentUpon>
@@ -325,6 +334,12 @@
     <Compile Include="View\HREmployeeEditMiniWindow.xaml.cs">
       <DependentUpon>HREmployeeEditMiniWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\HRJobDescriptionAddMiniWindow.xaml.cs">
+      <DependentUpon>HRJobDescriptionAddMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HRJobDescriptionEditMiniWindow.xaml.cs">
+      <DependentUpon>HRJobDescriptionEditMiniWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HRViewUC.xaml.cs">
       <DependentUpon>HRViewUC.xaml</DependentUpon>
     </Compile>
@@ -354,6 +369,15 @@
     </Compile>
     <Compile Include="View\ReportsWindow.xaml.cs">
       <DependentUpon>ReportsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HRJobDescriptionUC.xaml.cs">
+      <DependentUpon>HRJobDescriptionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsUserGroupRoleUC.xaml.cs">
+      <DependentUpon>SettingsUserGroupRoleUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="View\BranchAddMiniWindow.xaml">
       <SubType>Designer</SubType>
@@ -495,6 +519,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\HRJobDescriptionAddMiniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HRJobDescriptionEditMiniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HRViewUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -553,6 +585,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ReportsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HRJobDescriptionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsUserGroupRoleUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

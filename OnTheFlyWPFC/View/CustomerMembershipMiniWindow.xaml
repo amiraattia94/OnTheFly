@@ -78,9 +78,9 @@
                                 <ComboBox Name="cmbVendors" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbVendors_Loaded" />
                             </Border>
 
-                            
 
-                            
+
+
 
 
                             <Border Height="40" Margin="55,20,55,0">
@@ -132,7 +132,7 @@
                                     <GridView>
                                         <GridViewColumn Header="رقم العضوية" Width="100" DisplayMemberBinding="{Binding membershipID}"/>
                                         <GridViewColumn Header="الخدمة" Width="90" DisplayMemberBinding="{Binding vendorCategory}"/>
-                                        <GridViewColumn Header="البائع" Width="90" DisplayMemberBinding="{Binding vendorname}"/>                            
+                                        <GridViewColumn Header="البائع" Width="90" DisplayMemberBinding="{Binding vendorname}"/>
                                         <GridViewColumn  Width="30" >
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>

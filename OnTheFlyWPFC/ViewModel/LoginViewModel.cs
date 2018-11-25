@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using OnTheFlyWPFC.Model.DTO;
 using OnTheFlyWPFC.Model.Service;

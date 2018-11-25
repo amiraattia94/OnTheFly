@@ -28,21 +28,25 @@ namespace OnTheFlyWPFC.View
 
         UserControl usc = null;
 
-        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e) {
+        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
         }
 
-        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e) {
+        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
         }
 
-        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
             usc = null;
             MainUC.Children.Clear();
 
-            switch (((ListViewItem)((ListView)sender).SelectedItem).Name) {
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
                 case "CustomerView":
                     usc = new CustomerViewUC();
                     lblMenuename.Content = "عرض الزبون";
@@ -53,45 +57,54 @@ namespace OnTheFlyWPFC.View
             }
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e) {
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
 
-        private void btnCloseForm_Click(object sender, RoutedEventArgs e) {
+        private void btnCloseForm_Click(object sender, RoutedEventArgs e)
+        {
             Close();
         }
 
-        private void btnMaxForm_Click(object sender, RoutedEventArgs e) {
-            if (WindowState != WindowState.Maximized) {
+        private void btnMaxForm_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState != WindowState.Maximized)
+            {
                 WindowState = WindowState.Maximized;
             }
-            else {
+            else
+            {
                 WindowState = WindowState.Normal;
             }
 
 
         }
 
-        private void btnMinForm_Click(object sender, RoutedEventArgs e) {
+        private void btnMinForm_Click(object sender, RoutedEventArgs e)
+        {
             WindowState = WindowState.Minimized;
         }
 
-        private void btnMain_Click(object sender, RoutedEventArgs e) {
+        private void btnMain_Click(object sender, RoutedEventArgs e)
+        {
             var newwindow = new MainWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnPOS_Click(object sender, RoutedEventArgs e) {
+        private void btnPOS_Click(object sender, RoutedEventArgs e)
+        {
             var newwindow = new POSWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnBranch_Click(object sender, RoutedEventArgs e) {
+        private void btnBranch_Click(object sender, RoutedEventArgs e)
+        {
             var newwindow = new BranchWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
@@ -99,42 +112,48 @@ namespace OnTheFlyWPFC.View
         }
 
 
-        private void btnCustomer_Click(object sender, RoutedEventArgs e) {
+        private void btnCustomer_Click(object sender, RoutedEventArgs e)
+        {
             var newwindow = new CustomerWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnHR_Click(object sender, RoutedEventArgs e) {
+        private void btnHR_Click(object sender, RoutedEventArgs e)
+        {
             var newwindow = new HRWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnCustody_Click(object sender, RoutedEventArgs e) {
+        private void btnCustody_Click(object sender, RoutedEventArgs e)
+        {
             var newwindow = new CustodyWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnFinance_Click(object sender, RoutedEventArgs e) {
+        private void btnFinance_Click(object sender, RoutedEventArgs e)
+        {
             var newwindow = new FinanceWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnDelivery_Click(object sender, RoutedEventArgs e) {
+        private void btnDelivery_Click(object sender, RoutedEventArgs e)
+        {
             var newwindow = new DeliveryWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
         }
 
-        private void btnReports_Click(object sender, RoutedEventArgs e) {
+        private void btnReports_Click(object sender, RoutedEventArgs e)
+        {
             var newwindow = new ReportsWindow();
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
