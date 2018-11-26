@@ -49,23 +49,23 @@ namespace OnTheFlyWPFC.View
 
         }
 
-        private void cmbcustomerCities_Loaded(object sender, RoutedEventArgs e)
-        {
-            cityViewModel.GetAllCities();
+        //private void cmbcustomerCities_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    cityViewModel.GetAllCities();
 
-            cmbcustomerCities.ItemsSource = cityViewModel.CityName;
-            cmbcustomerCities.DisplayMemberPath = "name";
+        //    cmbcustomerCities.ItemsSource = cityViewModel.CityName;
+        //    cmbcustomerCities.DisplayMemberPath = "name";
 
-            foreach (CityDTO city in cmbcustomerCities.Items)
-            {
-                if (city.name == customerViewModel.customer.city)
-                {
-                    cmbcustomerCities.SelectedValue = city;
-                    break;
-                }
-            }
+        //    foreach (CityDTO city in cmbcustomerCities.Items)
+        //    {
+        //        if (city.name == customerViewModel.customer.city)
+        //        {
+        //            cmbcustomerCities.SelectedValue = city;
+        //            break;
+        //        }
+        //    }
 
-        }
+        //}
 
         private void btnCloseForm_Click(object sender, RoutedEventArgs e)
         {

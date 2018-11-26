@@ -91,70 +91,70 @@ namespace OnTheFlyWPFC.Model.Service
 
         }
 
-        async public Task<bool> EditCustomerByID(int CustomerID, string CustomerName, string CustomerPhone1, string CustomerPhone2, string cityCode, string CustomerAddress, decimal CustomerCredit)
-        {
-            try
-            {
-                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
-                {
-                    var Result = con.CustomerTBLs.SingleOrDefault(w => w.customerID == CustomerID);
-                    if (Result != null)
-                    {
+        //async public Task<bool> EditCustomerByID(int CustomerID, string CustomerName, string CustomerPhone1, string CustomerPhone2, string cityCode, string CustomerAddress, decimal CustomerCredit)
+        //{
+        //    try
+        //    {
+        //        using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+        //        {
+        //            var Result = con.CustomerTBLs.SingleOrDefault(w => w.customerID == CustomerID);
+        //            if (Result != null)
+        //            {
 
-                        try
-                        {
-                            Result.name = CustomerName;
-                            Result.phone1 = CustomerPhone1;
-                            Result.phone2 = CustomerPhone2;
-                            Result.cityID = cityCode;
-                            Result.address = CustomerAddress;
-                            Result.credit = CustomerCredit;
+        //                try
+        //                {
+        //                    Result.name = CustomerName;
+        //                    Result.phone1 = CustomerPhone1;
+        //                    Result.phone2 = CustomerPhone2;
+        //                    Result.cityID = cityCode;
+        //                    Result.address = CustomerAddress;
+        //                    Result.credit = CustomerCredit;
 
-                            await con.SaveChangesAsync();
-                            return true;
-                        }
-                        catch
-                        {
+        //                    await con.SaveChangesAsync();
+        //                    return true;
+        //                }
+        //                catch
+        //                {
 
-                        }
-                        return false;
-                    }
-                }
-            }
-            catch (Exception)
-            {
+        //                }
+        //                return false;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
 
-            }
-            return false;
-        }
+        //    }
+        //    return false;
+        //}
 
-        async public Task<bool> DeleteCustomerByID(int CustomerID)
-        {
-            await Task.FromResult(true);
+        //async public Task<bool> DeleteCustomerByID(int CustomerID)
+        //{
+        //    await Task.FromResult(true);
 
-            try
-            {
-                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
-                {
-                    var result = con.CustomerTBLs.SingleOrDefault(w => w.customerID == CustomerID);
+        //    try
+        //    {
+        //        using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+        //        {
+        //            var result = con.CustomerTBLs.SingleOrDefault(w => w.customerID == CustomerID);
 
-                    if (result != null)
-                    {
-                        con.CustomerTBLs.Remove(result);
-                        await con.SaveChangesAsync();
-                        return true;
-                    };
+        //            if (result != null)
+        //            {
+        //                con.CustomerTBLs.Remove(result);
+        //                await con.SaveChangesAsync();
+        //                return true;
+        //            };
 
-                }
-            }
-            catch
-            {
+        //        }
+        //    }
+        //    catch
+        //    {
 
-            }
+        //    }
 
-            return false;
+        //    return false;
 
-        }
+        //}
 
         async public Task<ObservableCollection<CustomerDTO>> GetAllCustomers()
         {

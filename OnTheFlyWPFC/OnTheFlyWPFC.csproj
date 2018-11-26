@@ -224,6 +224,9 @@
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\VendorViewModel.cs" />
+    <Compile Include="View\BranchAddMiniWindow.xaml.cs">
+      <DependentUpon>BranchAddMiniWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\BranchSummaryUC.xaml.cs">
       <DependentUpon>BranchSummaryUC.xaml</DependentUpon>
     </Compile>
@@ -256,6 +259,9 @@
     </Compile>
     <Compile Include="View\CustomerEditMiniWindow.xaml.cs">
       <DependentUpon>CustomerEditMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomerMembershipMiniWindow.xaml.cs">
+      <DependentUpon>CustomerMembershipMiniWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CustomerViewUC.xaml.cs">
       <DependentUpon>CustomerViewUC.xaml</DependentUpon>
@@ -353,6 +359,10 @@
     <Compile Include="View\ReportsWindow.xaml.cs">
       <DependentUpon>ReportsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\BranchAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\BranchSummaryUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -396,6 +406,10 @@
     <Page Include="View\CustomerEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomerMembershipMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\CustomerViewUC.xaml">
       <SubType>Designer</SubType>

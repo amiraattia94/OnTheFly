@@ -76,19 +76,19 @@ namespace OnTheFlyWPFC.View
             }
         }
 
-        private void cmbCustomerCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void cmbCustomerCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
 
-            if (cmbCustomerCity.SelectedIndex != -1)
-            {
-                var selectedcity = (CityDTO)cmbCustomerCity.SelectedItem;
-                customerViewModel.GetCustomerByCity(selectedcity.cityCode);
-                lstviewCustomers.ItemsSource = customerViewModel.ViewCustomers;
-                lstviewCustomers.Items.Refresh();
+        //    if (cmbCustomerCity.SelectedIndex != -1)
+        //    {
+        //        var selectedcity = (CityDTO)cmbCustomerCity.SelectedItem;
+        //        customerViewModel.GetCustomerByCity(selectedcity.cityCode);
+        //        lstviewCustomers.ItemsSource = customerViewModel.ViewCustomers;
+        //        lstviewCustomers.Items.Refresh();
 
-                txtSearchCustomerName.Text = "";
-            }
-        }
+        //        txtSearchCustomerName.Text = "";
+        //    }
+        //}
 
         private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
         {
