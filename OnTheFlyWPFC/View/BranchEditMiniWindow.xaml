@@ -25,7 +25,7 @@
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
                     </Grid.Effect>
-                 
+
                     <UniformGrid FlowDirection="LeftToRight">
                         <StackPanel Orientation="Horizontal">
                             <Button Name="btnCloseForm"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Height="65" FontWeight="Light" BorderBrush="{x:Null}" Click="btnCloseForm_Click">
@@ -44,78 +44,78 @@
                     </Grid.RowDefinitions>
 
 
-                   
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="65"/>
-                                <RowDefinition Height="178*"/>
-                            </Grid.RowDefinitions>
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="178*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
                             <ColumnDefinition Width="150*"/>
                             <ColumnDefinition Width="30"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Content="تعديل الفرع" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="تعديل الفرع" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
-                            <StackPanel Name="StkEditBranch" Grid.Row="1" Grid.Column="1" Loaded="StkEditBranch_Loaded">
-                                <Border Height="40" Margin="0,0,0,15">
+                        <StackPanel Name="StkEditBranch" Grid.Row="1" Grid.Column="1" Loaded="StkEditBranch_Loaded">
+                            <Border Height="40" Margin="0,0,0,15">
                                 <TextBox Name="txtBranchName" Text="{Binding branch_name}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </Border>
-                                
-                                <Border  Height="40" Margin="0,0,0,15" >
+                            </Border>
+
+                            <Border  Height="40" Margin="0,0,0,15" >
 
 
                                 <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" FontSize="16" Foreground="#768295"/>
-                                </Border>
-                                <Border Height="40" Margin="0,0,0,15">
+                            </Border>
+                            <Border Height="40" Margin="0,0,0,15">
                                 <TextBox Name="txtBranchAddress" Text="{Binding address}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </Border>
+                            </Border>
 
-                                <Border Height="40" Margin="0,0,0,15">
+                            <Border Height="40" Margin="0,0,0,15">
                                 <ComboBox Name="cmbBranchStatus" VerticalAlignment="Stretch" Loaded="cmbBranchStatus_Loaded" FontSize="16" Foreground="#768295">
-                                        <ComboBoxItem Content="مفعل">
-                                            
-                                        </ComboBoxItem>
-                                        <ComboBoxItem Content="غير مفعل">
-                                            
-                                        </ComboBoxItem>
-                                    </ComboBox>
+                                    <ComboBoxItem Content="مفعل">
+
+                                    </ComboBoxItem>
+                                    <ComboBoxItem Content="غير مفعل">
+
+                                    </ComboBoxItem>
+                                </ComboBox>
+                            </Border>
+
+
+
+
+                            <Border Height="40" Margin="55,20,55,0">
+                                <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="0,0,0,0" >
+                                    <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="Button_Click">
+                                        <UniformGrid FlowDirection="RightToLeft">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="تعديل الفرع" Margin="0,0,0,0"  />
+
+                                            </StackPanel>
+                                        </UniformGrid>
+                                    </Button>
                                 </Border>
+                            </Border>
 
+                        </StackPanel>
 
+                        <StackPanel Grid.Row="1" Grid.Column="3" >
+                            <Border Height="40" Margin="0,0,0,15">
 
+                            </Border>
+                            <Border Height="40" Margin="0,0,0,15">
 
-                                <Border Height="40" Margin="55,20,55,0">
-                                    <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="0,0,0,0" >
-                                        <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="Button_Click">
-                                            <UniformGrid FlowDirection="RightToLeft">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="تعديل الفرع" Margin="0,0,0,0"  />
+                            </Border>
+                            <Border Height="40" Margin="0,0,0,15">
 
-                                                </StackPanel>
-                                            </UniformGrid>
-                                        </Button>
-                                    </Border>
-                                </Border>
+                            </Border>
+                            <Border Height="40" Margin="0,0,0,15"/>
 
-                            </StackPanel>
+                        </StackPanel>
 
-                            <StackPanel Grid.Row="1" Grid.Column="3" >
-                                <Border Height="40" Margin="0,0,0,15">
-
-                                </Border>
-                                <Border Height="40" Margin="0,0,0,15">
-
-                                </Border>
-                                <Border Height="40" Margin="0,0,0,15">
-
-                                </Border>
-                                <Border Height="40" Margin="0,0,0,15"/>
-
-                            </StackPanel>
-
-                        </Grid>
+                    </Grid>
 
 
 

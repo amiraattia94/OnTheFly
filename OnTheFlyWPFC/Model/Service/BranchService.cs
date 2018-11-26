@@ -6,13 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnTheFlyWPFC.Model.Service {
-    public class BranchService {
+namespace OnTheFlyWPFC.Model.Service
+{
+    public class BranchService
+    {
 
-        async public Task<bool> AddBranch(string branchname, string cityCode, string branchAddress, bool branchstatus) {
-            try {
-                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                    con.CompanyBranchTBLs.Add(new CompanyBranchTBL() {
+        async public Task<bool> AddBranch(string branchname, string cityCode, string branchAddress, bool branchstatus)
+        {
+            try
+            {
+                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+                {
+                    con.CompanyBranchTBLs.Add(new CompanyBranchTBL()
+                    {
                         branch_name = branchname,
                         cityID = cityCode,
                         address = branchAddress,
@@ -23,19 +29,25 @@ namespace OnTheFlyWPFC.Model.Service {
                     return true;
                 }
             }
-            catch (Exception) {
+            catch (Exception)
+            {
 
             }
             return false;
         }
 
-        async public Task<bool> EditBranchByID(int branchID, string branchname, string cityCode, string branchAddress, bool branchstatus) {
-            try {
-                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+        async public Task<bool> EditBranchByID(int branchID, string branchname, string cityCode, string branchAddress, bool branchstatus)
+        {
+            try
+            {
+                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+                {
                     var Result = con.CompanyBranchTBLs.SingleOrDefault(w => w.branchID == branchID);
-                    if(Result != null) {
+                    if (Result != null)
+                    {
 
-                        try {
+                        try
+                        {
                             Result.branch_name = branchname;
                             Result.cityID = cityCode;
                             Result.address = branchAddress;
@@ -44,25 +56,30 @@ namespace OnTheFlyWPFC.Model.Service {
                             await con.SaveChangesAsync();
                             return true;
                         }
-                        catch {
+                        catch
+                        {
 
                         }
                         return false;
                     }
                 }
             }
-            catch (Exception) {
+            catch (Exception)
+            {
 
             }
             return false;
         }
 
 
-        async public Task<ObservableCollection<BranchDTO>> GetAllBranch() {
+        async public Task<ObservableCollection<BranchDTO>> GetAllBranch()
+        {
             await Task.FromResult(true);
 
-            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                var result = con.CompanyBranchTBLs.Select(s => new BranchDTO() {
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+                var result = con.CompanyBranchTBLs.Select(s => new BranchDTO()
+                {
                     branchID = s.branchID,
                     branch_name = s.branch_name,
                     address = s.address,
@@ -72,18 +89,22 @@ namespace OnTheFlyWPFC.Model.Service {
 
                 return new ObservableCollection<BranchDTO>(result);
             }
-            
+
         }
 
-        async public Task<BranchDTO> GetBranchByID(int BranchID) {
+        async public Task<BranchDTO> GetBranchByID(int BranchID)
+        {
             await Task.FromResult(true);
 
-            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
                 var result = con.CompanyBranchTBLs.SingleOrDefault(w => w.branchID == BranchID);
 
-                if(result != null) {
-                    return new BranchDTO() {
-                        branchID=result.branchID,
+                if (result != null)
+                {
+                    return new BranchDTO()
+                    {
+                        branchID = result.branchID,
                         branch_name = result.branch_name,
                         address = result.address,
                         status = result.status,
@@ -92,13 +113,14 @@ namespace OnTheFlyWPFC.Model.Service {
                     };
                 };
 
-                return new BranchDTO() {
-                    branchID=0,
+                return new BranchDTO()
+                {
+                    branchID = 0,
                     branch_name = "0",
                     address = "0",
                     status = false,
                     cityID = "0"
-                    
+
                 };
 
 
@@ -107,11 +129,14 @@ namespace OnTheFlyWPFC.Model.Service {
 
         }
 
-        async public Task<ObservableCollection<BranchDTO>> GetBranchByState(bool BranchState) {
+        async public Task<ObservableCollection<BranchDTO>> GetBranchByState(bool BranchState)
+        {
             await Task.FromResult(true);
 
-            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                var result = con.CompanyBranchTBLs.Where(w => w.status == BranchState).Select(s => new BranchDTO() {
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+                var result = con.CompanyBranchTBLs.Where(w => w.status == BranchState).Select(s => new BranchDTO()
+                {
                     branchID = s.branchID,
                     branch_name = s.branch_name,
                     address = s.address,
@@ -119,35 +144,12 @@ namespace OnTheFlyWPFC.Model.Service {
                     cityID = s.LibyanCitiesTBL.name
                 }).ToList();
 
-                if (result != null) {
+                if (result != null)
+                {
                     return new ObservableCollection<BranchDTO>(result);
                 }
-                else {
-                    return new ObservableCollection<BranchDTO>();
-                }
-                
-
-                 
-            }
-
-        }
-
-        async public Task<ObservableCollection<BranchDTO>> GetBranchByCity(string City) {
-            await Task.FromResult(true);
-
-            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                var result = con.CompanyBranchTBLs.Where(w => w.cityID == City).Select(s => new BranchDTO() {
-                    branchID = s.branchID,
-                    branch_name = s.branch_name,
-                    address = s.address,
-                    status = s.status,
-                    cityID = s.LibyanCitiesTBL.name
-                }).ToList();
-
-                if (result != null) {
-                    return new ObservableCollection<BranchDTO>(result);
-                }
-                else {
+                else
+                {
                     return new ObservableCollection<BranchDTO>();
                 }
 
@@ -157,11 +159,44 @@ namespace OnTheFlyWPFC.Model.Service {
 
         }
 
-        async public Task<ObservableCollection<BranchDTO>> GetBranchByName(string BranchName) {
+        async public Task<ObservableCollection<BranchDTO>> GetBranchByCity(string City)
+        {
             await Task.FromResult(true);
-            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
 
-                var result = con.CompanyBranchTBLs.Where(w => w.branch_name.StartsWith(BranchName)).Select(s => new BranchDTO() {
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+                var result = con.CompanyBranchTBLs.Where(w => w.cityID == City).Select(s => new BranchDTO()
+                {
+                    branchID = s.branchID,
+                    branch_name = s.branch_name,
+                    address = s.address,
+                    status = s.status,
+                    cityID = s.LibyanCitiesTBL.name
+                }).ToList();
+
+                if (result != null)
+                {
+                    return new ObservableCollection<BranchDTO>(result);
+                }
+                else
+                {
+                    return new ObservableCollection<BranchDTO>();
+                }
+
+
+
+            }
+
+        }
+
+        async public Task<ObservableCollection<BranchDTO>> GetBranchByName(string BranchName)
+        {
+            await Task.FromResult(true);
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+
+                var result = con.CompanyBranchTBLs.Where(w => w.branch_name.StartsWith(BranchName)).Select(s => new BranchDTO()
+                {
                     branchID = s.branchID,
                     branch_name = s.branch_name,
                     address = s.address,
@@ -182,11 +217,14 @@ namespace OnTheFlyWPFC.Model.Service {
         async public Task<bool> DeleteBranchByID(int BranchID) {
         await Task.FromResult(true);
 
-            try {
-                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+            try
+            {
+                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+                {
                     var result = con.CompanyBranchTBLs.SingleOrDefault(w => w.branchID == BranchID);
 
-                    if (result != null) {
+                    if (result != null)
+                    {
                         con.CompanyBranchTBLs.Remove(result);
                         await con.SaveChangesAsync();
                         return true;
@@ -194,7 +232,8 @@ namespace OnTheFlyWPFC.Model.Service {
 
                 }
             }
-            catch {
+            catch
+            {
 
             }
 

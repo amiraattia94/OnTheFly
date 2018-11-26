@@ -49,22 +49,44 @@ namespace OnTheFlyWPFC.View
 
         }
 
-        private void btnCloseForm_Click(object sender, RoutedEventArgs e) {
+        private void cmbcustomerCities_Loaded(object sender, RoutedEventArgs e)
+        {
+            cityViewModel.GetAllCities();
+
+            cmbcustomerCities.ItemsSource = cityViewModel.CityName;
+            cmbcustomerCities.DisplayMemberPath = "name";
+
+            foreach (CityDTO city in cmbcustomerCities.Items)
+            {
+                if (city.name == customerViewModel.customer.city)
+                {
+                    cmbcustomerCities.SelectedValue = city;
+                    break;
+                }
+            }
+
+        }
+
+        private void btnCloseForm_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e) {
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
 
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-        
 
 
-        private async void Button_Click(object sender, RoutedEventArgs e) {
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
             var city = (CityDTO)cmbcustomerCities.SelectedValue;
 
-            if (await customerViewModel.EditCustomer(HelperClass.Customer,txtCustomerName.Text,txtCustomerPhone1.Text,txtCustomerPhone2.Text,city.cityCode,txtCustomerAddress.Text, decimal.Parse(txtCustomerCredit.Text))) {
+            if (await customerViewModel.EditCustomer(HelperClass.Customer, txtCustomerName.Text, txtCustomerPhone1.Text, txtCustomerPhone2.Text, city.cityCode, txtCustomerAddress.Text, decimal.Parse(txtCustomerCredit.Text)))
+            {
                 MessageBox.Show("تم الحفظ");
 
                 UpdateMainList.DynamicInvoke();
@@ -74,7 +96,8 @@ namespace OnTheFlyWPFC.View
 
         }
 
-        private void StkCustomerEdit_Loaded(object sender, RoutedEventArgs e) {
+        private void StkCustomerEdit_Loaded(object sender, RoutedEventArgs e)
+        {
             customerViewModel.GetCustomerByID(HelperClass.Customer);
             stkCustomerEdit.DataContext = customerViewModel.customer;
         }

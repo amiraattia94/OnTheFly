@@ -344,10 +344,10 @@
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
                     <ComboBox Name="cmbSearchType" FontFamily="Noto Kufi Arabic" FontSize="12" Foreground="#8C9AB6" Margin="20,0" HorizontalAlignment="Left" Width="100" Height="30">
                         <ComboBoxItem Content="الاسم">
-                           
+
                         </ComboBoxItem>
                         <ComboBoxItem Content="العضوية">
-                            
+
                         </ComboBoxItem>
                     </ComboBox>
 
@@ -377,7 +377,7 @@
                                                         <materialDesign:PackIcon Kind="CardMembership" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
                                                         <TextBlock Name="txtMembershipCount" Text="{Binding membershipCount}" Foreground="Gray" FontSize="15" Loaded="TxtMembershipCount_Loaded" />
                                                     </StackPanel>
-                                                    
+
                                                 </Button>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>

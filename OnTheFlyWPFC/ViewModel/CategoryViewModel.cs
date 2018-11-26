@@ -14,7 +14,8 @@ namespace OnTheFlyWPFC.ViewModel
         CategoryService categoryService;
         public ObservableCollection<CategoryDTO> allCategories { get; set; }
 
-        public CategoryViewModel() {
+        public CategoryViewModel()
+        {
             categoryService = new CategoryService();
             allCategories = new ObservableCollection<CategoryDTO>();
 
@@ -22,7 +23,8 @@ namespace OnTheFlyWPFC.ViewModel
         }
 
 
-        async public void GetAllCategories() {
+        async public void GetAllCategories()
+        {
             allCategories = await categoryService.GetAllCategory();
         }
 

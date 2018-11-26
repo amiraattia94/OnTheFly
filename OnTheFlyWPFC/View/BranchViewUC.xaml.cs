@@ -29,7 +29,8 @@ namespace OnTheFlyWPFC.View
         public delegate void RefreshList();
         public event RefreshList RefreshListEvent;
 
-        private void RefreshListView() {
+        private void RefreshListView()
+        {
             branchViewModel.GetAllBranches();
             lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
             lstViewBraches.Items.Refresh();
@@ -43,25 +44,28 @@ namespace OnTheFlyWPFC.View
             InitializeComponent();
         }
 
-        private void lstViewBraches_Loaded(object sender, RoutedEventArgs e) {
+        private void lstViewBraches_Loaded(object sender, RoutedEventArgs e)
+        {
             branchViewModel.GetAllBranches();
             lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
 
         }
 
-        private async void DeleteBranch(object sender, RoutedEventArgs e) {
+        private async void DeleteBranch(object sender, RoutedEventArgs e)
+        {
             Button button = sender as Button;
             var a = button.CommandParameter as BranchDTO;
-            HelperClass.BranchID =  a.branchID;
+            HelperClass.BranchID = a.branchID;
 
             if (await branchViewModel.DeleteBranchByID(a.branchID))
                 MessageBox.Show("تم المسح بنجاح");
             RefreshListView();
 
-            
+
         }
 
-        private void EditBranch(object sender, RoutedEventArgs e) {
+        private void EditBranch(object sender, RoutedEventArgs e)
+        {
             Button button = sender as Button;
             var a = button.CommandParameter as BranchDTO;
             HelperClass.BranchID = a.branchID;
@@ -72,24 +76,39 @@ namespace OnTheFlyWPFC.View
             newwindow.UpdateMainList = RefreshListEvent;
 
             newwindow.Show();
-            
-            
+
+
         }
 
-        private void cmbBranchCity_Loaded(object sender, RoutedEventArgs e) {
+        private void cmbBranchCity_Loaded(object sender, RoutedEventArgs e)
+        {
             cityViewModel.GetAllCities();
             cmbBranchCity.ItemsSource = cityViewModel.CityName;
             cmbBranchCity.DisplayMemberPath = "name";
 
-            foreach (CityDTO city in cmbBranchCity.Items) {
-                if (city.name == branchViewModel.EditBranch.cityID) {
+            foreach (CityDTO city in cmbBranchCity.Items)
+            {
+                if (city.name == branchViewModel.EditBranch.cityID)
+                {
                     cmbBranchCity.SelectedValue = city;
                     break;
                 }
             }
         }
 
-        private void cmbBranchCity_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        private void cmbBranchCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (cmbBranchCity.SelectedIndex != -1)
+            {
+                var selectedcity = (CityDTO)cmbBranchCity.SelectedItem;
+                branchViewModel.GetBranchByCity(selectedcity.cityCode);
+                lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
+                lstViewBraches.Items.Refresh();
+                cmbBranchState.SelectedIndex = -1;
+                txtSearchBranshName.Text = "";
+            }
+
 
             if(cmbBranchCity.SelectedIndex != -1) {
                 var selectedcity = (CityDTO)cmbBranchCity.SelectedItem;
@@ -103,8 +122,10 @@ namespace OnTheFlyWPFC.View
 
         }
 
-        private void cmbBranchState_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if(cmbBranchState.SelectedIndex != -1) {
+        private void cmbBranchState_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbBranchState.SelectedIndex != -1)
+            {
                 bool SelectedState = false;
                 if (cmbBranchState.SelectedIndex == 0)
                     SelectedState = true;
@@ -123,12 +144,12 @@ namespace OnTheFlyWPFC.View
         private void btnAddBranch_Click(object sender, RoutedEventArgs e)
         {
             var newwindow = new BranchAddMiniWindow();
-          
-            
+
+
             RefreshListEvent += new RefreshList(RefreshListView);
             newwindow.UpdateMainList = RefreshListEvent;
-         
-           newwindow.ShowDialog();
+
+            newwindow.ShowDialog();
         }
 
         private void BtnSearchBranch_Click(object sender, RoutedEventArgs e)
@@ -136,7 +157,8 @@ namespace OnTheFlyWPFC.View
 
         }
 
-        private void TxtSearchBranshName_TextChanged(object sender, TextChangedEventArgs e) {
+        private void TxtSearchBranshName_TextChanged(object sender, TextChangedEventArgs e)
+        {
             branchViewModel.GetBranchByName(txtSearchBranshName.Text);
             lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
             lstViewBraches.Items.Refresh();

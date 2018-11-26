@@ -15,11 +15,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace OnTheFlyWPFC.View {
+namespace OnTheFlyWPFC.View
+{
     /// <summary>
     /// Interaction logic for CustomerMembershipMiniWindow.xaml
     /// </summary>
-    public partial class CustomerMembershipMiniWindow : Window {
+    public partial class CustomerMembershipMiniWindow : Window
+    {
 
         public Delegate UpdateMainList;
         CustomerViewModel customerViewModel;
@@ -27,7 +29,8 @@ namespace OnTheFlyWPFC.View {
         VendorViewModel vendorViewModel;
         private bool saveButton = true;
 
-        public CustomerMembershipMiniWindow() {
+        public CustomerMembershipMiniWindow()
+        {
             InitializeComponent();
 
             customerViewModel = new CustomerViewModel();
@@ -37,23 +40,27 @@ namespace OnTheFlyWPFC.View {
             cmbVendors.IsEnabled = false;
         }
 
-        private void btnCloseForm_Click(object sender, RoutedEventArgs e) {
+        private void btnCloseForm_Click(object sender, RoutedEventArgs e)
+        {
             UpdateMainList.DynamicInvoke();
             this.Close();
         }
 
-        private void lstMembership_Loaded(object sender, RoutedEventArgs e) {
+        private void lstMembership_Loaded(object sender, RoutedEventArgs e)
+        {
             customerViewModel.GetMembershipByCustomerID(HelperClass.Customer);
             lstMembership.ItemsSource = customerViewModel.ViewMembership;
         }
 
-        private void RefreshList() {
+        private void RefreshList()
+        {
             customerViewModel.GetMembershipByCustomerID(HelperClass.Customer);
             lstMembership.ItemsSource = customerViewModel.ViewMembership;
             lstMembership.Items.Refresh();
         }
 
-        private void addNewMembership_Click(object sender, RoutedEventArgs e) {
+        private void addNewMembership_Click(object sender, RoutedEventArgs e)
+        {
             lblMembership.Content = "اضافة عضوية";
             txtMembershipID.Text = "ادخل رقم العضوية";
             txtMembershipID.IsEnabled = true;
@@ -65,7 +72,8 @@ namespace OnTheFlyWPFC.View {
 
         }
 
-        private void EditMembership(object sender, RoutedEventArgs e) {
+        private void EditMembership(object sender, RoutedEventArgs e)
+        {
             Button button = sender as Button;
             var a = button.CommandParameter as MembershipDTO;
 
@@ -82,7 +90,8 @@ namespace OnTheFlyWPFC.View {
 
         }
 
-        async private void DeleteMembership(object sender, RoutedEventArgs e) {
+        async private void DeleteMembership(object sender, RoutedEventArgs e)
+        {
             Button button = sender as Button;
             var a = button.CommandParameter as MembershipDTO;
 
@@ -91,44 +100,52 @@ namespace OnTheFlyWPFC.View {
             RefreshList();
         }
 
-        private void cmbServiceCategory_Loaded(object sender, RoutedEventArgs e) {
+        private void cmbServiceCategory_Loaded(object sender, RoutedEventArgs e)
+        {
             categoryViewModel.GetAllCategories();
             cmbServiceCategory.ItemsSource = categoryViewModel.allCategories;
             cmbServiceCategory.SelectedValuePath = "CategoryID";
             cmbServiceCategory.DisplayMemberPath = "CategoryName";
         }
 
-        private void cmbServiceCategory_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if(cmbServiceCategory.SelectedIndex == -1) {
+        private void cmbServiceCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbServiceCategory.SelectedIndex == -1)
+            {
                 cmbVendors.IsEnabled = false;
             }
-            else {
+            else
+            {
                 cmbVendors.IsEnabled = true;
-                if(cmbServiceCategory.SelectedValue != null) {
+                if (cmbServiceCategory.SelectedValue != null)
+                {
                     vendorViewModel.GetVendors((int)cmbServiceCategory.SelectedValue);
                     cmbVendors.ItemsSource = vendorViewModel.vendors;
                     cmbVendors.SelectedValuePath = "VendorID";
                     cmbVendors.DisplayMemberPath = "VendorName";
                 }
-                
 
             }
 
         }
 
-        private void cmbVendors_Loaded(object sender, RoutedEventArgs e) {
+        private void cmbVendors_Loaded(object sender, RoutedEventArgs e)
+        {
             cmbVendors.ItemsSource = vendorViewModel.vendors;
             cmbVendors.SelectedValuePath = "VendorID";
             cmbVendors.DisplayMemberPath = "VendorName";
 
         }
 
-        async private void BtnSaveOrEdit_Click(object sender, RoutedEventArgs e) {
-            if (!saveButton ) {
-                if(await customerViewModel.EditMembershipByID(txtMembershipID.Text, (int)cmbVendors.SelectedValue))
+        async private void BtnSaveOrEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (!saveButton)
+            {
+                if (await customerViewModel.EditMembershipByID(txtMembershipID.Text, (int)cmbVendors.SelectedValue))
                     MessageBox.Show("تم الحفظ");
             }
-            else {
+            else
+            {
                 if (await customerViewModel.AddMembership(txtMembershipID.Text, HelperClass.Customer, (int)cmbVendors.SelectedValue))
                     MessageBox.Show("تم الحفظ");
             }
@@ -136,10 +153,11 @@ namespace OnTheFlyWPFC.View {
             UpdateMainList.DynamicInvoke();
         }
 
-        private void StkCustomerEdit_Loaded(object sender, RoutedEventArgs e) {
+        private void StkCustomerEdit_Loaded(object sender, RoutedEventArgs e)
+        {
 
         }
 
-       
+
     }
 }
