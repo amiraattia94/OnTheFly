@@ -406,7 +406,6 @@ C:\Users\User\Documents\Natsuki Backup\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyW
 C:\Users\User\Documents\Natsuki Backup\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\User\Documents\Natsuki Backup\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
 C:\Users\User\Documents\Natsuki Backup\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustomerMembershipMiniWindow.g.cs
-C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchAddMiniWindow.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchSummaryUC.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchViewUC.g.cs
@@ -491,6 +490,7 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Mode
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Gdi.xml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Wpf.xml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Runtime.Wpf.xml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\App.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchAddMiniWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchSummaryUC.baml
