@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="OnTheFlyDBModelStoreContainer" CdmEntityContainer="OnTheFlyDBEntities">
-    <EntitySetMapping Name="CarsTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.CarsTBL">
-        <MappingFragment StoreEntitySet="CarsTBL">
-          <ScalarProperty Name="carID" ColumnName="carID" />
-          <ScalarProperty Name="plate_number" ColumnName="plate_number" />
-          <ScalarProperty Name="made_company" ColumnName="made_company" />
-          <ScalarProperty Name="edition_name" ColumnName="edition_name" />
-          <ScalarProperty Name="branchID" ColumnName="branchID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CategoriesTBLs">
       <EntityTypeMapping TypeName="OnTheFlyDBModel.CategoriesTBL">
         <MappingFragment StoreEntitySet="CategoriesTBL">
@@ -187,9 +176,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="userGroupRoleTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.userGroupRoleTBL">
-        <MappingFragment StoreEntitySet="userGroupRoleTBL">
+    <EntitySetMapping Name="UserGroupRoleTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.UserGroupRoleTBL">
+        <MappingFragment StoreEntitySet="UserGroupRoleTBL">
           <ScalarProperty Name="groupID" ColumnName="groupID" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="view_POS" ColumnName="view_POS" />
@@ -221,7 +210,14 @@
           <ScalarProperty Name="add_service" ColumnName="add_service" />
           <ScalarProperty Name="delete_service" ColumnName="delete_service" />
           <ScalarProperty Name="admin_rights" ColumnName="admin_rights" />
-          <ScalarProperty Name="roleID" ColumnName="roleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userGroupTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.userGroupTBL">
+        <MappingFragment StoreEntitySet="userGroupTBL">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="groupID" ColumnName="groupID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -232,6 +228,28 @@
           <ScalarProperty Name="user_name" ColumnName="user_name" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.VehicleTBL">
+        <MappingFragment StoreEntitySet="VehicleTBL">
+          <ScalarProperty Name="vehicleID" ColumnName="vehicleID" />
+          <ScalarProperty Name="typeID" ColumnName="typeID" />
+          <ScalarProperty Name="plate_number" ColumnName="plate_number" />
+          <ScalarProperty Name="made_company" ColumnName="made_company" />
+          <ScalarProperty Name="made_year" ColumnName="made_year" />
+          <ScalarProperty Name="edition_name" ColumnName="edition_name" />
+          <ScalarProperty Name="branchID" ColumnName="branchID" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleTypeTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.VehicleTypeTBL">
+        <MappingFragment StoreEntitySet="VehicleTypeTBL">
+          <ScalarProperty Name="vehicleTID" ColumnName="vehicleTID" />
+          <ScalarProperty Name="vehicleTName" ColumnName="vehicleTName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -255,9 +273,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VendorTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.VendorTBL">
-        <MappingFragment StoreEntitySet="VendorTBL">
+    <EntitySetMapping Name="vendorTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.vendorTBL">
+        <MappingFragment StoreEntitySet="vendorTBL">
           <ScalarProperty Name="vendorID" ColumnName="vendorID" />
           <ScalarProperty Name="categoryID" ColumnName="categoryID" />
           <ScalarProperty Name="active" ColumnName="active" />
@@ -274,7 +292,7 @@
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="UserGroupsTBL" TypeName="OnTheFlyDBModel.UserGroupsTBL" StoreEntitySet="UserGroupsTBL">
-      <EndProperty Name="userGroupRoleTBL">
+      <EndProperty Name="UserGroupRoleTBL">
         <ScalarProperty Name="groupID" ColumnName="groupID" />
       </EndProperty>
       <EndProperty Name="UserTBL">

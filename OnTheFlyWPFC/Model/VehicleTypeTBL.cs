@@ -12,21 +12,18 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class CarsTBL
+    public partial class VehicleTypeTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CarsTBL()
+        public VehicleTypeTBL()
         {
-            this.DeliveryTBLs = new HashSet<DeliveryTBL>();
+            this.VehicleTBLs = new HashSet<VehicleTBL>();
         }
     
-        public int carID { get; set; }
-        public string plate_number { get; set; }
-        public string made_company { get; set; }
-        public string edition_name { get; set; }
-        public Nullable<int> branchID { get; set; }
+        public int vehicleTID { get; set; }
+        public string vehicleTName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DeliveryTBL> DeliveryTBLs { get; set; }
+        public virtual ICollection<VehicleTBL> VehicleTBLs { get; set; }
     }
 }

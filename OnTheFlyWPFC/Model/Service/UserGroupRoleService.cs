@@ -16,7 +16,7 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                List<UserGroupRoleDTO> result = con.userGroupRoleTBLs.Select(s => new UserGroupRoleDTO()
+                List<UserGroupRoleDTO> result = con.UserGroupRoleTBLs.Select(s => new UserGroupRoleDTO()
                 {
 
                     name = s.name,
