@@ -114,43 +114,54 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\CarsTBL.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\CategoriesTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CompanyBranchTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\custodyTBL.cs">
+    <Compile Include="Model\CustodyTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\customerTBL.cs">
+    <Compile Include="Model\CustomerTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\deliveryStatusTBL.cs">
+    <Compile Include="Model\DeliveryStatusTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\deliveryTBL.cs">
+    <Compile Include="Model\DeliveryTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DTO\BranchDTO.cs" />
+    <Compile Include="Model\DTO\CarDTO.cs" />
+    <Compile Include="Model\DTO\CarTypeDTO.cs" />
+    <Compile Include="Model\DTO\CategoryDTO.cs" />
     <Compile Include="Model\DTO\CityDTO.cs" />
     <Compile Include="Model\DTO\CustomerDTO.cs" />
+    <Compile Include="Model\DTO\EmployeeDTO.cs" />
+    <Compile Include="Model\DTO\FinanceDTO.cs" />
+    <Compile Include="Model\DTO\InvoiceDTO.cs" />
+    <Compile Include="Model\DTO\JobsDTO.cs" />
+    <Compile Include="Model\DTO\MembershipDTO.cs" />
+    <Compile Include="Model\DTO\UserDTO.cs" />
+    <Compile Include="Model\DTO\UserGroupRoleDTO.cs" />
+    <Compile Include="Model\DTO\VendorDTO.cs" />
     <Compile Include="Model\EmployeeTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FinanceTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\invoiceTBL.cs">
+    <Compile Include="Model\InvoiceTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\JobsTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LibyanCitiesTBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MembershipTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Model1.Context.cs">
@@ -168,35 +179,51 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\serviceTBL.cs">
+    <Compile Include="Model\PayrollTBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Service\BranchService.cs" />
+    <Compile Include="Model\Service\CarService.cs" />
+    <Compile Include="Model\Service\CategoryService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
     <Compile Include="Model\Service\CustomerService.cs" />
     <Compile Include="Model\Service\HelperClass.cs" />
     <Compile Include="Model\Service\UserService.cs" />
+    <Compile Include="Model\Service\VendorService.cs" />
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\userGroupRoleTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\userTBL.cs">
+    <Compile Include="Model\UserTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\vendorBranchTBL.cs">
+    <Compile Include="Model\VehicleTBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\VehicleTypeTBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\VendorBranchTBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\VendorServicesTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\vendorTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BranchViewModel.cs" />
+    <Compile Include="ViewModel\CarViewModel.cs" />
+    <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\CityViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
-    <Compile Include="View\BranchAddUC.xaml.cs">
-      <DependentUpon>BranchAddUC.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\VendorViewModel.cs" />
     <Compile Include="View\BranchSummaryUC.xaml.cs">
       <DependentUpon>BranchSummaryUC.xaml</DependentUpon>
     </Compile>
@@ -326,10 +353,6 @@
     <Compile Include="View\ReportsWindow.xaml.cs">
       <DependentUpon>ReportsWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\BranchAddUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\BranchSummaryUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
