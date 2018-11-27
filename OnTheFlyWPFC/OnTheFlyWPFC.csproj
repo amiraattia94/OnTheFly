@@ -182,7 +182,7 @@
     <Compile Include="Model\PayrollTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ServiceTBL.cs">
+    <Compile Include="Model\serviceTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Service\BranchService.cs" />
@@ -190,6 +190,7 @@
     <Compile Include="Model\Service\CategoryService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
     <Compile Include="Model\Service\CustomerService.cs" />
+    <Compile Include="Model\Service\DeliveryServicesService.cs" />
     <Compile Include="Model\Service\HelperClass.cs" />
     <Compile Include="Model\Service\UserService.cs" />
     <Compile Include="Model\Service\VendorService.cs" />

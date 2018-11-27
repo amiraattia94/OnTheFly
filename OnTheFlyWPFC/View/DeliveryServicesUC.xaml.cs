@@ -29,5 +29,41 @@ namespace OnTheFlyWPFC.View
         {
 
         }
+
+        private void Edit_Service(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void Delete_Service(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void cmbServiceType_Loaded(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void cmbServiceType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+        }
+
+        private void cmbServiceState_Loaded(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void cmbServiceState_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+        }
+
+        private void lstServiceView_Loaded(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void AddService(object sender, RoutedEventArgs e) {
+
+        }
     }
 }

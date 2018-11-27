@@ -38,7 +38,7 @@ namespace OnTheFlyWPFC.Model
         public virtual DbSet<LibyanCitiesTBL> LibyanCitiesTBLs { get; set; }
         public virtual DbSet<MembershipTBL> MembershipTBLs { get; set; }
         public virtual DbSet<PayrollTBL> PayrollTBLs { get; set; }
-        public virtual DbSet<ServiceTBL> ServiceTBLs { get; set; }
+        public virtual DbSet<serviceTBL> serviceTBLs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<userGroupRoleTBL> userGroupRoleTBLs { get; set; }
         public virtual DbSet<UserTBL> UserTBLs { get; set; }
