@@ -10,6 +10,7 @@ namespace OnTheFlyWPFC.Model.Service {
         public static int JobID;
         public static int Customer;
         public static int CarID;
+        public static int userID;
 
         public static bool TrueOrFalse(string status) {
 

@@ -215,23 +215,33 @@ namespace OnTheFlyWPFC.Model.Service
         
             
         }
-        /*
-        async public Task<ObservableCollection<UserGroupsDTO>> GetAllUserGroup()
+
+        async public Task<ObservableCollection<UserDTO>> GetUserByName(string username)
         {
             await Task.FromResult(true);
-
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.userGroupTBLs.Select(s => new UserGroupsDTO()
+
+                var result = con.UserTBLs.Where(w => w.user_name.StartsWith(username)).Select(s => new UserDTO()
                 {
                     userID = s.userID,
-                    groupID = s.groupID
-
+                    username = s.user_name,
+                    password = s.password,
+                    EmployeeID = s.employeeID
                 }).ToList();
 
-                return new ObservableCollection<UserGroupsDTO>(result);
+                if (result != null)
+                {
+                    return new ObservableCollection<UserDTO>(result);
+                }
+                else
+                {
+                    return new ObservableCollection<UserDTO>();
+                }
             }
+
         }
-        */
+
+
     }
 }

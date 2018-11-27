@@ -193,6 +193,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Service\BranchService.cs" />
+    <Compile Include="Model\Service\EmployeeService.cs" />
     <Compile Include="Model\Service\VehicleService.cs" />
     <Compile Include="Model\Service\CategoryService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
@@ -234,9 +235,11 @@
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\CityViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="ViewModel\JobsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\UserGroupRoleViewModel.cs" />
+    <Compile Include="ViewModel\UsersViewModel.cs" />
     <Compile Include="ViewModel\VehicleViewModel.cs" />
     <Compile Include="ViewModel\VendorViewModel.cs" />
     <Compile Include="View\BranchAddMiniWindow.xaml.cs">
@@ -385,6 +388,9 @@
     </Compile>
     <Compile Include="View\SettingsUserGroupRoleUC.xaml.cs">
       <DependentUpon>SettingsUserGroupRoleUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsUsersUC.xaml.cs">
+      <DependentUpon>SettingsUsersUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
@@ -603,6 +609,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SettingsUserGroupRoleUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsUsersUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

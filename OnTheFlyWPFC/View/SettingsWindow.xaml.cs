@@ -49,7 +49,7 @@ namespace OnTheFlyWPFC.View
                 switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
                 {
                     case "ItemUsers":
-                        usc = new MainHomeUC();
+                        usc = new SettingsUsersUC();
 
                         MainUC.Children.Add(usc);
                         break;

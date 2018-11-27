@@ -406,6 +406,7 @@ C:\Users\User\Documents\Natsuki Backup\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyW
 C:\Users\User\Documents\Natsuki Backup\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\User\Documents\Natsuki Backup\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
 C:\Users\User\Documents\Natsuki Backup\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustomerMembershipMiniWindow.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchAddMiniWindow.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchSummaryUC.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchViewUC.g.cs
@@ -457,6 +458,7 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSWindow.g.
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\ReportsWindow.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionUC.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserGroupRoleUC.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUsersUC.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsWindow.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\App.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_Content.g.cs
@@ -490,7 +492,6 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Mode
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Gdi.xml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Wpf.xml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Runtime.Wpf.xml
-C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\App.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchAddMiniWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchSummaryUC.baml
@@ -543,6 +544,7 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSWindow.ba
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\ReportsWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionUC.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserGroupRoleUC.baml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUsersUC.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.g.resources
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.Properties.Resources.resources
