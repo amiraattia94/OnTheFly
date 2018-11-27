@@ -30,6 +30,8 @@ namespace OnTheFlyWPFC.Model
         public Nullable<decimal> halfTripPrice { get; set; }
     
         public virtual CategoriesTBL CategoriesTBL { get; set; }
+        public virtual LibyanCitiesTBL LibyanCitiesTBL { get; set; }
+        public virtual LibyanCitiesTBL LibyanCitiesTBL1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceTBL> InvoiceTBLs { get; set; }
     }

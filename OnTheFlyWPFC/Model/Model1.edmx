@@ -163,8 +163,8 @@
           <Property Name="name" Type="nvarchar" MaxLength="50" />
           <Property Name="categoryID" Type="int" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="customerLocation" Type="nvarchar" MaxLength="50" />
-          <Property Name="vendorLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="customerLocation" Type="varchar" MaxLength="2" />
+          <Property Name="vendorLocation" Type="varchar" MaxLength="2" />
           <Property Name="fullTripPrice" Type="money" />
           <Property Name="halfTripPrice" Type="money" />
         </EntityType>
@@ -508,6 +508,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_serviceTBL_LibyanCitiesTBL">
+          <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+          <End Role="serviceTBL" Type="Self.serviceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LibyanCitiesTBL">
+              <PropertyRef Name="city_code" />
+            </Principal>
+            <Dependent Role="serviceTBL">
+              <PropertyRef Name="customerLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_serviceTBL_LibyanCitiesTBL1">
+          <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+          <End Role="serviceTBL" Type="Self.serviceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LibyanCitiesTBL">
+              <PropertyRef Name="city_code" />
+            </Principal>
+            <Dependent Role="serviceTBL">
+              <PropertyRef Name="vendorLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_userGroupsTBL_userGroupRoleTBL1">
           <End Role="userGroupRoleTBL" Type="Self.userGroupRoleTBL" Multiplicity="1" />
           <End Role="UserGroupsTBL" Type="Self.UserGroupsTBL" Multiplicity="*" />
@@ -717,6 +741,14 @@
             <End Role="CategoriesTBL" EntitySet="CategoriesTBL" />
             <End Role="serviceTBL" EntitySet="serviceTBL" />
           </AssociationSet>
+          <AssociationSet Name="FK_serviceTBL_LibyanCitiesTBL" Association="Self.FK_serviceTBL_LibyanCitiesTBL">
+            <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBL" />
+            <End Role="serviceTBL" EntitySet="serviceTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_serviceTBL_LibyanCitiesTBL1" Association="Self.FK_serviceTBL_LibyanCitiesTBL1">
+            <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBL" />
+            <End Role="serviceTBL" EntitySet="serviceTBL" />
+          </AssociationSet>
           <AssociationSet Name="FK_userGroupsTBL_userGroupRoleTBL1" Association="Self.FK_userGroupsTBL_userGroupRoleTBL1">
             <End Role="userGroupRoleTBL" EntitySet="userGroupRoleTBL" />
             <End Role="UserGroupsTBL" EntitySet="UserGroupsTBL" />
@@ -905,6 +937,8 @@
           <NavigationProperty Name="CompanyBranchTBLs" Relationship="Self.FK_CompanyBranchTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="CompanyBranchTBL" />
           <NavigationProperty Name="CustomerTBLs" Relationship="Self.FK_customerTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="CustomerTBL" />
           <NavigationProperty Name="EmployeeTBLs" Relationship="Self.FK_EmployeeTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="EmployeeTBL" />
+          <NavigationProperty Name="serviceTBLs" Relationship="Self.FK_serviceTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="serviceTBL" />
+          <NavigationProperty Name="serviceTBLs1" Relationship="Self.FK_serviceTBL_LibyanCitiesTBL1" FromRole="LibyanCitiesTBL" ToRole="serviceTBL" />
           <NavigationProperty Name="VendorBranchTBLs" Relationship="Self.FK_vendorBranchTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="VendorBranchTBL" />
         </EntityType>
         <EntityType Name="MembershipTBL">
@@ -945,11 +979,13 @@
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="categoryID" Type="Int32" />
           <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="customerLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="vendorLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="customerLocation" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="vendorLocation" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="fullTripPrice" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="halfTripPrice" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="CategoriesTBL" Relationship="Self.FK_serviceTBL_CategoriesTBL" FromRole="serviceTBL" ToRole="CategoriesTBL" />
+          <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_serviceTBL_LibyanCitiesTBL" FromRole="serviceTBL" ToRole="LibyanCitiesTBL" />
+          <NavigationProperty Name="LibyanCitiesTBL1" Relationship="Self.FK_serviceTBL_LibyanCitiesTBL1" FromRole="serviceTBL" ToRole="LibyanCitiesTBL" />
           <NavigationProperty Name="InvoiceTBLs" Relationship="Self.ServicesInvoice" FromRole="serviceTBL" ToRole="InvoiceTBL" />
         </EntityType>
         <EntityType Name="sysdiagram">
@@ -1298,6 +1334,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_serviceTBL_LibyanCitiesTBL">
+          <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+          <End Role="serviceTBL" Type="Self.serviceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LibyanCitiesTBL">
+              <PropertyRef Name="city_code" />
+            </Principal>
+            <Dependent Role="serviceTBL">
+              <PropertyRef Name="customerLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_serviceTBL_LibyanCitiesTBL1">
+          <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+          <End Role="serviceTBL" Type="Self.serviceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LibyanCitiesTBL">
+              <PropertyRef Name="city_code" />
+            </Principal>
+            <Dependent Role="serviceTBL">
+              <PropertyRef Name="vendorLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_vendorBranchTBL_LibyanCitiesTBL">
           <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
           <End Role="VendorBranchTBL" Type="Self.VendorBranchTBL" Multiplicity="*" />
@@ -1464,6 +1524,14 @@
           <AssociationSet Name="FK_userTBL_EmployeeTBL" Association="Self.FK_userTBL_EmployeeTBL">
             <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
             <End Role="UserTBL" EntitySet="UserTBLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_serviceTBL_LibyanCitiesTBL" Association="Self.FK_serviceTBL_LibyanCitiesTBL">
+            <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
+            <End Role="serviceTBL" EntitySet="serviceTBLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_serviceTBL_LibyanCitiesTBL1" Association="Self.FK_serviceTBL_LibyanCitiesTBL1">
+            <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
+            <End Role="serviceTBL" EntitySet="serviceTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_vendorBranchTBL_LibyanCitiesTBL" Association="Self.FK_vendorBranchTBL_LibyanCitiesTBL">
             <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
