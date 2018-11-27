@@ -45,6 +45,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryPricesTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryPricesTBL">
+        <MappingFragment StoreEntitySet="DeliveryPricesTBL">
+          <ScalarProperty Name="deliveryPricesID" ColumnName="deliveryPricesID" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="customerLocation" ColumnName="customerLocation" />
+          <ScalarProperty Name="vendorLocation" ColumnName="vendorLocation" />
+          <ScalarProperty Name="fullTripPrice" ColumnName="fullTripPrice" />
+          <ScalarProperty Name="halfTripPrice" ColumnName="halfTripPrice" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="DeliveryStatusTBLs">
       <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryStatusTBL">
         <MappingFragment StoreEntitySet="DeliveryStatusTBL">

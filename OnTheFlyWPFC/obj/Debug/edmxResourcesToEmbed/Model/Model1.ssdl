@@ -40,6 +40,18 @@
     <Property Name="add_date" Type="date" />
     <Property Name="credit" Type="money" />
   </EntityType>
+  <EntityType Name="DeliveryPricesTBL">
+    <Key>
+      <PropertyRef Name="deliveryPricesID" />
+    </Key>
+    <Property Name="deliveryPricesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryID" Type="int" />
+    <Property Name="customerLocation" Type="varchar" MaxLength="2" />
+    <Property Name="vendorLocation" Type="varchar" MaxLength="2" />
+    <Property Name="fullTripPrice" Type="money" />
+    <Property Name="halfTripPrice" Type="money" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
   <EntityType Name="DeliveryStatusTBL">
     <Key>
       <PropertyRef Name="statusID" />
@@ -302,6 +314,42 @@
       </Principal>
       <Dependent Role="CustomerTBL">
         <PropertyRef Name="cityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeliveryPricesTBL_CategoriesTBL">
+    <End Role="CategoriesTBL" Type="Self.CategoriesTBL" Multiplicity="0..1" />
+    <End Role="DeliveryPricesTBL" Type="Self.DeliveryPricesTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriesTBL">
+        <PropertyRef Name="categoryID" />
+      </Principal>
+      <Dependent Role="DeliveryPricesTBL">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeliveryPricesTBL_LibyanCitiesTBL">
+    <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+    <End Role="DeliveryPricesTBL" Type="Self.DeliveryPricesTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibyanCitiesTBL">
+        <PropertyRef Name="city_code" />
+      </Principal>
+      <Dependent Role="DeliveryPricesTBL">
+        <PropertyRef Name="customerLocation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeliveryPricesTBL_LibyanCitiesTBL1">
+    <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+    <End Role="DeliveryPricesTBL" Type="Self.DeliveryPricesTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibyanCitiesTBL">
+        <PropertyRef Name="city_code" />
+      </Principal>
+      <Dependent Role="DeliveryPricesTBL">
+        <PropertyRef Name="vendorLocation" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -610,6 +658,7 @@
     <EntitySet Name="CompanyBranchTBL" EntityType="Self.CompanyBranchTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustodyTBL" EntityType="Self.CustodyTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerTBL" EntityType="Self.CustomerTBL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryPricesTBL" EntityType="Self.DeliveryPricesTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DeliveryStatusTBL" EntityType="Self.DeliveryStatusTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DeliveryTBL" EntityType="Self.DeliveryTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeeTBL" EntityType="Self.EmployeeTBL" Schema="dbo" store:Type="Tables" />
@@ -641,6 +690,18 @@
     <AssociationSet Name="FK_customerTBL_LibyanCitiesTBL" Association="Self.FK_customerTBL_LibyanCitiesTBL">
       <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBL" />
       <End Role="CustomerTBL" EntitySet="CustomerTBL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryPricesTBL_CategoriesTBL" Association="Self.FK_DeliveryPricesTBL_CategoriesTBL">
+      <End Role="CategoriesTBL" EntitySet="CategoriesTBL" />
+      <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryPricesTBL_LibyanCitiesTBL" Association="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL">
+      <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBL" />
+      <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryPricesTBL_LibyanCitiesTBL1" Association="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL1">
+      <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBL" />
+      <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBL" />
     </AssociationSet>
     <AssociationSet Name="FK_deliveryTBL_CarsTBL" Association="Self.FK_deliveryTBL_CarsTBL">
       <End Role="VehicleTBL" EntitySet="VehicleTBL" />

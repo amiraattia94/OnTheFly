@@ -14,7 +14,7 @@
 
     <Window.Resources>
         <viewmodel:Class1 x:Key="class1"/>
-        <viewmodel:CityViewModel x:Key="City"/>
+        
 
 
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />

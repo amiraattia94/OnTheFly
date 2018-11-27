@@ -129,6 +129,9 @@
     <Compile Include="Model\CustomerTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DeliveryPricesTBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DeliveryStatusTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -136,6 +139,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DTO\BranchDTO.cs" />
+    <Compile Include="Model\DTO\DeliveryPriceDTO.cs" />
     <Compile Include="Model\DTO\VehicleDTO.cs" />
     <Compile Include="Model\DTO\VehicleTypeDTO.cs" />
     <Compile Include="Model\DTO\CategoryDTO.cs" />
@@ -193,6 +197,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Service\BranchService.cs" />
+    <Compile Include="Model\Service\DeliveryPricesService.cs" />
     <Compile Include="Model\Service\VehicleService.cs" />
     <Compile Include="Model\Service\CategoryService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
@@ -234,6 +239,7 @@
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\CityViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\DeliveryPricesViewModel.cs" />
     <Compile Include="ViewModel\JobsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\UserGroupRoleViewModel.cs" />
@@ -302,14 +308,14 @@
     <Compile Include="View\DeliveryDestinationUC.xaml.cs">
       <DependentUpon>DeliveryDestinationUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryServiceAddMiniWindow.xaml.cs">
-      <DependentUpon>DeliveryServiceAddMiniWindow.xaml</DependentUpon>
+    <Compile Include="View\DeliveryPricesAddMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryPricesAddMiniWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryServiceEditMiniWindow.xaml.cs">
-      <DependentUpon>DeliveryServiceEditMiniWindow.xaml</DependentUpon>
+    <Compile Include="View\DeliveryPricesEditMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryPricesEditMiniWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryServicesUC.xaml.cs">
-      <DependentUpon>DeliveryServicesUC.xaml</DependentUpon>
+    <Compile Include="View\DeliveryPricesUC.xaml.cs">
+      <DependentUpon>DeliveryPricesUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DeliverySummaryUC.xaml.cs">
       <DependentUpon>DeliverySummaryUC.xaml</DependentUpon>
@@ -473,15 +479,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryServiceAddMiniWindow.xaml">
+    <Page Include="View\DeliveryPricesAddMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryServiceEditMiniWindow.xaml">
+    <Page Include="View\DeliveryPricesEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryServicesUC.xaml">
+    <Page Include="View\DeliveryPricesUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

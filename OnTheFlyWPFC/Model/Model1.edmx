@@ -45,6 +45,18 @@
           <Property Name="add_date" Type="date" />
           <Property Name="credit" Type="money" />
         </EntityType>
+        <EntityType Name="DeliveryPricesTBL">
+          <Key>
+            <PropertyRef Name="deliveryPricesID" />
+          </Key>
+          <Property Name="deliveryPricesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryID" Type="int" />
+          <Property Name="customerLocation" Type="varchar" MaxLength="2" />
+          <Property Name="vendorLocation" Type="varchar" MaxLength="2" />
+          <Property Name="fullTripPrice" Type="money" />
+          <Property Name="halfTripPrice" Type="money" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
         <EntityType Name="DeliveryStatusTBL">
           <Key>
             <PropertyRef Name="statusID" />
@@ -307,6 +319,42 @@
             </Principal>
             <Dependent Role="CustomerTBL">
               <PropertyRef Name="cityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryPricesTBL_CategoriesTBL">
+          <End Role="CategoriesTBL" Type="Self.CategoriesTBL" Multiplicity="0..1" />
+          <End Role="DeliveryPricesTBL" Type="Self.DeliveryPricesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesTBL">
+              <PropertyRef Name="categoryID" />
+            </Principal>
+            <Dependent Role="DeliveryPricesTBL">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryPricesTBL_LibyanCitiesTBL">
+          <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+          <End Role="DeliveryPricesTBL" Type="Self.DeliveryPricesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LibyanCitiesTBL">
+              <PropertyRef Name="city_code" />
+            </Principal>
+            <Dependent Role="DeliveryPricesTBL">
+              <PropertyRef Name="customerLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryPricesTBL_LibyanCitiesTBL1">
+          <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+          <End Role="DeliveryPricesTBL" Type="Self.DeliveryPricesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LibyanCitiesTBL">
+              <PropertyRef Name="city_code" />
+            </Principal>
+            <Dependent Role="DeliveryPricesTBL">
+              <PropertyRef Name="vendorLocation" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -615,6 +663,7 @@
           <EntitySet Name="CompanyBranchTBL" EntityType="Self.CompanyBranchTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustodyTBL" EntityType="Self.CustodyTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerTBL" EntityType="Self.CustomerTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryPricesTBL" EntityType="Self.DeliveryPricesTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryStatusTBL" EntityType="Self.DeliveryStatusTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryTBL" EntityType="Self.DeliveryTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeTBL" EntityType="Self.EmployeeTBL" Schema="dbo" store:Type="Tables" />
@@ -646,6 +695,18 @@
           <AssociationSet Name="FK_customerTBL_LibyanCitiesTBL" Association="Self.FK_customerTBL_LibyanCitiesTBL">
             <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBL" />
             <End Role="CustomerTBL" EntitySet="CustomerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryPricesTBL_CategoriesTBL" Association="Self.FK_DeliveryPricesTBL_CategoriesTBL">
+            <End Role="CategoriesTBL" EntitySet="CategoriesTBL" />
+            <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryPricesTBL_LibyanCitiesTBL" Association="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL">
+            <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBL" />
+            <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryPricesTBL_LibyanCitiesTBL1" Association="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL1">
+            <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBL" />
+            <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_CarsTBL" Association="Self.FK_deliveryTBL_CarsTBL">
             <End Role="VehicleTBL" EntitySet="VehicleTBL" />
@@ -759,6 +820,7 @@
           </Key>
           <Property Name="categoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="category_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="DeliveryPricesTBLs" Relationship="Self.FK_DeliveryPricesTBL_CategoriesTBL" FromRole="CategoriesTBL" ToRole="DeliveryPricesTBL" />
           <NavigationProperty Name="ServiceTBLs" Relationship="Self.FK_serviceTBL_CategoriesTBL" FromRole="CategoriesTBL" ToRole="ServiceTBL" />
           <NavigationProperty Name="vendorTBLs" Relationship="Self.FK_vendorTBL_CategoriesTBL" FromRole="CategoriesTBL" ToRole="vendorTBL" />
         </EntityType>
@@ -803,6 +865,21 @@
           <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_customerTBL_LibyanCitiesTBL" FromRole="CustomerTBL" ToRole="LibyanCitiesTBL" />
           <NavigationProperty Name="invoiceTBLs" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="CustomerTBL" ToRole="invoiceTBL" />
           <NavigationProperty Name="MembershipTBLs" Relationship="Self.FK_MembershipTBL_customerTBL" FromRole="CustomerTBL" ToRole="MembershipTBL" />
+        </EntityType>
+        <EntityType Name="DeliveryPricesTBL">
+          <Key>
+            <PropertyRef Name="deliveryPricesID" />
+          </Key>
+          <Property Name="deliveryPricesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryID" Type="Int32" />
+          <Property Name="customerLocation" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="vendorLocation" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="fullTripPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="halfTripPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="status" Type="Boolean" />
+          <NavigationProperty Name="CategoriesTBL" Relationship="Self.FK_DeliveryPricesTBL_CategoriesTBL" FromRole="DeliveryPricesTBL" ToRole="CategoriesTBL" />
+          <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL" FromRole="DeliveryPricesTBL" ToRole="LibyanCitiesTBL" />
+          <NavigationProperty Name="LibyanCitiesTBL1" Relationship="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL1" FromRole="DeliveryPricesTBL" ToRole="LibyanCitiesTBL" />
         </EntityType>
         <EntityType Name="DeliveryStatusTBL">
           <Key>
@@ -897,6 +974,8 @@
           <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="CompanyBranchTBLs" Relationship="Self.FK_CompanyBranchTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="CompanyBranchTBL" />
           <NavigationProperty Name="CustomerTBLs" Relationship="Self.FK_customerTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="CustomerTBL" />
+          <NavigationProperty Name="DeliveryPricesTBLs" Relationship="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="DeliveryPricesTBL" />
+          <NavigationProperty Name="DeliveryPricesTBLs1" Relationship="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL1" FromRole="LibyanCitiesTBL" ToRole="DeliveryPricesTBL" />
           <NavigationProperty Name="EmployeeTBLs" Relationship="Self.FK_EmployeeTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="EmployeeTBL" />
           <NavigationProperty Name="VendorBranchTBLs" Relationship="Self.FK_vendorBranchTBL_LibyanCitiesTBL" FromRole="LibyanCitiesTBL" ToRole="VendorBranchTBL" />
         </EntityType>
@@ -1068,6 +1147,18 @@
           <NavigationProperty Name="VendorBranchTBLs" Relationship="Self.FK_vendorBranchTBL_vendorTBL" FromRole="vendorTBL" ToRole="VendorBranchTBL" />
           <NavigationProperty Name="VendorServicesTBLs" Relationship="Self.FK_vendorServicesTBL_vendorTBL" FromRole="vendorTBL" ToRole="VendorServicesTBL" />
         </EntityType>
+        <Association Name="FK_DeliveryPricesTBL_CategoriesTBL">
+          <End Role="CategoriesTBL" Type="Self.CategoriesTBL" Multiplicity="0..1" />
+          <End Role="DeliveryPricesTBL" Type="Self.DeliveryPricesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesTBL">
+              <PropertyRef Name="categoryID" />
+            </Principal>
+            <Dependent Role="DeliveryPricesTBL">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_serviceTBL_CategoriesTBL">
           <End Role="CategoriesTBL" Type="Self.CategoriesTBL" Multiplicity="0..1" />
           <End Role="ServiceTBL" Type="Self.ServiceTBL" Multiplicity="*" />
@@ -1197,6 +1288,30 @@
             </Principal>
             <Dependent Role="MembershipTBL">
               <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryPricesTBL_LibyanCitiesTBL">
+          <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+          <End Role="DeliveryPricesTBL" Type="Self.DeliveryPricesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LibyanCitiesTBL">
+              <PropertyRef Name="city_code" />
+            </Principal>
+            <Dependent Role="DeliveryPricesTBL">
+              <PropertyRef Name="customerLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryPricesTBL_LibyanCitiesTBL1">
+          <End Role="LibyanCitiesTBL" Type="Self.LibyanCitiesTBL" Multiplicity="0..1" />
+          <End Role="DeliveryPricesTBL" Type="Self.DeliveryPricesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LibyanCitiesTBL">
+              <PropertyRef Name="city_code" />
+            </Principal>
+            <Dependent Role="DeliveryPricesTBL">
+              <PropertyRef Name="vendorLocation" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1389,6 +1504,7 @@
           <EntitySet Name="CompanyBranchTBLs" EntityType="Self.CompanyBranchTBL" />
           <EntitySet Name="CustodyTBLs" EntityType="Self.CustodyTBL" />
           <EntitySet Name="CustomerTBLs" EntityType="Self.CustomerTBL" />
+          <EntitySet Name="DeliveryPricesTBLs" EntityType="Self.DeliveryPricesTBL" />
           <EntitySet Name="DeliveryStatusTBLs" EntityType="Self.DeliveryStatusTBL" />
           <EntitySet Name="DeliveryTBLs" EntityType="Self.DeliveryTBL" />
           <EntitySet Name="EmployeeTBLs" EntityType="Self.EmployeeTBL" />
@@ -1408,6 +1524,10 @@
           <EntitySet Name="VendorBranchTBLs" EntityType="Self.VendorBranchTBL" />
           <EntitySet Name="VendorServicesTBLs" EntityType="Self.VendorServicesTBL" />
           <EntitySet Name="vendorTBLs" EntityType="Self.vendorTBL" />
+          <AssociationSet Name="FK_DeliveryPricesTBL_CategoriesTBL" Association="Self.FK_DeliveryPricesTBL_CategoriesTBL">
+            <End Role="CategoriesTBL" EntitySet="CategoriesTBLs" />
+            <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBLs" />
+          </AssociationSet>
           <AssociationSet Name="FK_serviceTBL_CategoriesTBL" Association="Self.FK_serviceTBL_CategoriesTBL">
             <End Role="CategoriesTBL" EntitySet="CategoriesTBLs" />
             <End Role="ServiceTBL" EntitySet="ServiceTBLs" />
@@ -1451,6 +1571,14 @@
           <AssociationSet Name="FK_MembershipTBL_customerTBL" Association="Self.FK_MembershipTBL_customerTBL">
             <End Role="CustomerTBL" EntitySet="CustomerTBLs" />
             <End Role="MembershipTBL" EntitySet="MembershipTBLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryPricesTBL_LibyanCitiesTBL" Association="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL">
+            <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
+            <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryPricesTBL_LibyanCitiesTBL1" Association="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL1">
+            <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
+            <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_deliveryStatusTBL" Association="Self.FK_deliveryTBL_deliveryStatusTBL">
             <End Role="DeliveryStatusTBL" EntitySet="DeliveryStatusTBLs" />
@@ -1564,6 +1692,19 @@
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="add_date" ColumnName="add_date" />
                 <ScalarProperty Name="credit" ColumnName="credit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryPricesTBLs">
+            <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryPricesTBL">
+              <MappingFragment StoreEntitySet="DeliveryPricesTBL">
+                <ScalarProperty Name="deliveryPricesID" ColumnName="deliveryPricesID" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="customerLocation" ColumnName="customerLocation" />
+                <ScalarProperty Name="vendorLocation" ColumnName="vendorLocation" />
+                <ScalarProperty Name="fullTripPrice" ColumnName="fullTripPrice" />
+                <ScalarProperty Name="halfTripPrice" ColumnName="halfTripPrice" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
