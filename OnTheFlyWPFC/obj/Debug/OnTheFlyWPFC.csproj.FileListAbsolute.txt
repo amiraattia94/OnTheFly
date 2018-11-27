@@ -26,7 +26,6 @@ C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Ren
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Rendering.Wpf.xml
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\SharpVectors.Runtime.Wpf.xml
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
-C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchAddUC.g.cs
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchSummaryUC.g.cs
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchViewUC.g.cs
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchViewUsersUC.g.cs
@@ -77,7 +76,6 @@ C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\GeneratedInterna
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_MarkupCompile.cache
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC_MarkupCompile.lref
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\App.baml
-C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchAddUC.baml
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchSummaryUC.baml
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchViewUC.baml
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchViewUsersUC.baml
@@ -551,3 +549,19 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.cspr
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchAddMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustomerMembershipMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionAddMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionEditMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\LoginWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionUC.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserGroupRoleUC.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchAddMiniWindow.baml
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustomerMembershipMiniWindow.baml
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionAddMiniWindow.baml
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionEditMiniWindow.baml
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\LoginWindow.baml
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionUC.baml
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserGroupRoleUC.baml
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsWindow.baml

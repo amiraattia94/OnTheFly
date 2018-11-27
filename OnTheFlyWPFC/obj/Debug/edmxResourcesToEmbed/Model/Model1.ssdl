@@ -204,14 +204,6 @@
     <Property Name="delete_service" Type="bit" Nullable="false" />
     <Property Name="admin_rights" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserGroupsTBL">
-    <Key>
-      <PropertyRef Name="userID" />
-      <PropertyRef Name="groupID" />
-    </Key>
-    <Property Name="userID" Type="int" Nullable="false" />
-    <Property Name="groupID" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="userGroupTBL">
     <Key>
       <PropertyRef Name="userID" />
@@ -505,30 +497,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_userGroupsTBL_userGroupRoleTBL">
-    <End Role="UserGroupRoleTBL" Type="Self.UserGroupRoleTBL" Multiplicity="1" />
-    <End Role="UserGroupsTBL" Type="Self.UserGroupsTBL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserGroupRoleTBL">
-        <PropertyRef Name="groupID" />
-      </Principal>
-      <Dependent Role="UserGroupsTBL">
-        <PropertyRef Name="groupID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_userGroupsTBL_userTBL">
-    <End Role="UserTBL" Type="Self.UserTBL" Multiplicity="1" />
-    <End Role="UserGroupsTBL" Type="Self.UserGroupsTBL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserTBL">
-        <PropertyRef Name="userID" />
-      </Principal>
-      <Dependent Role="UserGroupsTBL">
-        <PropertyRef Name="userID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_userGroupTBL_userGroupRoleTBL">
     <End Role="UserGroupRoleTBL" Type="Self.UserGroupRoleTBL" Multiplicity="1" />
     <End Role="userGroupTBL" Type="Self.userGroupTBL" Multiplicity="*" />
@@ -655,7 +623,6 @@
     <EntitySet Name="ServiceTBL" EntityType="Self.ServiceTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserGroupRoleTBL" EntityType="Self.UserGroupRoleTBL" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserGroupsTBL" EntityType="Self.UserGroupsTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="userGroupTBL" EntityType="Self.userGroupTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserTBL" EntityType="Self.UserTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VehicleTBL" EntityType="Self.VehicleTBL" Schema="dbo" store:Type="Tables" />
@@ -738,14 +705,6 @@
     <AssociationSet Name="FK_serviceTBL_CategoriesTBL" Association="Self.FK_serviceTBL_CategoriesTBL">
       <End Role="CategoriesTBL" EntitySet="CategoriesTBL" />
       <End Role="ServiceTBL" EntitySet="ServiceTBL" />
-    </AssociationSet>
-    <AssociationSet Name="FK_userGroupsTBL_userGroupRoleTBL" Association="Self.FK_userGroupsTBL_userGroupRoleTBL">
-      <End Role="UserGroupRoleTBL" EntitySet="UserGroupRoleTBL" />
-      <End Role="UserGroupsTBL" EntitySet="UserGroupsTBL" />
-    </AssociationSet>
-    <AssociationSet Name="FK_userGroupsTBL_userTBL" Association="Self.FK_userGroupsTBL_userTBL">
-      <End Role="UserTBL" EntitySet="UserTBL" />
-      <End Role="UserGroupsTBL" EntitySet="UserGroupsTBL" />
     </AssociationSet>
     <AssociationSet Name="FK_userGroupTBL_userGroupRoleTBL" Association="Self.FK_userGroupTBL_userGroupRoleTBL">
       <End Role="UserGroupRoleTBL" EntitySet="UserGroupRoleTBL" />

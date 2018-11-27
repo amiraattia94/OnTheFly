@@ -291,13 +291,5 @@
         <ScalarProperty Name="serviceID" ColumnName="serviceID" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="UserGroupsTBL" TypeName="OnTheFlyDBModel.UserGroupsTBL" StoreEntitySet="UserGroupsTBL">
-      <EndProperty Name="UserGroupRoleTBL">
-        <ScalarProperty Name="groupID" ColumnName="groupID" />
-      </EndProperty>
-      <EndProperty Name="UserTBL">
-        <ScalarProperty Name="userID" ColumnName="userID" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -234,7 +234,6 @@
     <Property Name="delete_service" Type="Boolean" Nullable="false" />
     <Property Name="admin_rights" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="userGroupTBLs" Relationship="Self.FK_userGroupTBL_userGroupRoleTBL" FromRole="UserGroupRoleTBL" ToRole="userGroupTBL" />
-    <NavigationProperty Name="UserTBLs" Relationship="Self.UserGroupsTBL" FromRole="UserGroupRoleTBL" ToRole="UserTBL" />
   </EntityType>
   <EntityType Name="userGroupTBL">
     <Key>
@@ -256,7 +255,6 @@
     <Property Name="employeeID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_userTBL_EmployeeTBL" FromRole="UserTBL" ToRole="EmployeeTBL" />
     <NavigationProperty Name="userGroupTBLs" Relationship="Self.FK_userGroupTBL_userTBL" FromRole="UserTBL" ToRole="userGroupTBL" />
-    <NavigationProperty Name="UserGroupRoleTBLs" Relationship="Self.UserGroupsTBL" FromRole="UserTBL" ToRole="UserGroupRoleTBL" />
   </EntityType>
   <EntityType Name="VehicleTBL">
     <Key>
@@ -633,10 +631,6 @@
     <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
     <End Role="ServiceTBL" Type="Self.ServiceTBL" Multiplicity="*" />
   </Association>
-  <Association Name="UserGroupsTBL">
-    <End Role="UserGroupRoleTBL" Type="Self.UserGroupRoleTBL" Multiplicity="*" />
-    <End Role="UserTBL" Type="Self.UserTBL" Multiplicity="*" />
-  </Association>
   <EntityContainer Name="OnTheFlyDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CategoriesTBLs" EntityType="Self.CategoriesTBL" />
     <EntitySet Name="CompanyBranchTBLs" EntityType="Self.CompanyBranchTBL" />
@@ -768,10 +762,6 @@
     <AssociationSet Name="ServicesInvoice" Association="Self.ServicesInvoice">
       <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
       <End Role="ServiceTBL" EntitySet="ServiceTBLs" />
-    </AssociationSet>
-    <AssociationSet Name="UserGroupsTBL" Association="Self.UserGroupsTBL">
-      <End Role="UserGroupRoleTBL" EntitySet="UserGroupRoleTBLs" />
-      <End Role="UserTBL" EntitySet="UserTBLs" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
