@@ -712,3 +712,5 @@ C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryV
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\DevComponents.DotNetBar2.dll
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\DevComponents.DotNetBar2.xml
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsMiniWindow.g.cs
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsMiniWindow.baml

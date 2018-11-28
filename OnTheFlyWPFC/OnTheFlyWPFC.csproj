@@ -283,6 +283,9 @@
     <Compile Include="View\CustomerEditMiniWindow.xaml.cs">
       <DependentUpon>CustomerEditMiniWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DeliveryVendorsMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryVendorsMiniWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CustomerMembershipMiniWindow.xaml.cs">
       <DependentUpon>CustomerMembershipMiniWindow.xaml</DependentUpon>
     </Compile>
@@ -444,6 +447,10 @@
     <Page Include="View\CustomerEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeliveryVendorsMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\CustomerMembershipMiniWindow.xaml">
       <SubType>Designer</SubType>

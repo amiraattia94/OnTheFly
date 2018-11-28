@@ -159,6 +159,8 @@ namespace OnTheFlyWPFC.View
 
         }
 
+        private void StkBranchEditorAdd_Loaded(object sender, RoutedEventArgs e) {
 
+        }
     }
 }
