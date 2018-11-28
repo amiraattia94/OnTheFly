@@ -63,9 +63,20 @@ namespace OnTheFlyWPFC.Model.Service
 
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+
+                    var resultbranches = con.VendorBranchTBLs.Where(w => w.vendorID == vendorID).Select(s => new VendorBranchsDTO() {
+                        vendorBranchID = s.vendor_branchID,
+                    }).ToList();
+
                     var result = con.vendorTBLs.SingleOrDefault(w => w.vendorID == vendorID);
 
-                    if (result != null) {
+                    if (result != null && resultbranches != null) {
+                        for (int i = 0; i < resultbranches.Count(); i++) {
+                            var id = resultbranches[i].vendorBranchID;
+                            var temp = con.VendorBranchTBLs.SingleOrDefault(w => w.vendor_branchID == id);
+                            con.VendorBranchTBLs.Remove(temp);
+                        }
+
                         con.vendorTBLs.Remove(result);
                         await con.SaveChangesAsync();
                         return true;
@@ -271,8 +282,7 @@ namespace OnTheFlyWPFC.Model.Service
             await Task.FromResult(true);
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                var result = con.VendorBranchTBLs.Where(w => w.vendor_branchID == BranchByID).Select(s => new VendorBranchsDTO() {
-
+                var result = con.VendorBranchTBLs.Where(w => w.vendorID == BranchByID).Select(s => new VendorBranchsDTO() {
                     vendorBranchID = s.vendor_branchID,
                     vendorID = s.vendorID,
                     name = s.name,

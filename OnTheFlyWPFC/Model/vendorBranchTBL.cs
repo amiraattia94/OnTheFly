@@ -15,7 +15,7 @@ namespace OnTheFlyWPFC.Model
     public partial class VendorBranchTBL
     {
         public int vendor_branchID { get; set; }
-        public int vendorID { get; set; }
+        public Nullable<int> vendorID { get; set; }
         public string cityID { get; set; }
         public string address { get; set; }
         public Nullable<bool> active { get; set; }

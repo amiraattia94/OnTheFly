@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace OnTheFlyWPFC.Model.DTO {
     class VendorBranchsDTO {
 
-        public int vendorID { get; set; }
+        public int? vendorID { get; set; }
         public int vendorBranchID { get; set; }
         public string name { get; set; }
         public string cityCode { get; set; }

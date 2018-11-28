@@ -98,7 +98,16 @@ namespace OnTheFlyWPFC.View
         }
 
         private void VendorBranches_click(object sender, RoutedEventArgs e) {
+            Button button = sender as Button;
+            var a = button.CommandParameter as VendorDTO;
+            HelperClass.vendorID = (int)a.VendorID;
 
+            var newwindow = new DeliveryVendorsMiniWindow();
+
+            RefreshListEvent += new RefreshList(RefreshListView);
+            newwindow.UpdateMainList = RefreshListEvent;
+
+            newwindow.ShowDialog();
         }
 
         private void Add(object sender, RoutedEventArgs e) {
@@ -111,7 +120,7 @@ namespace OnTheFlyWPFC.View
         private void EditVendor(object sender, RoutedEventArgs e) {
             Button button = sender as Button;
             var a = button.CommandParameter as VendorDTO;
-            HelperClass.vendorID = a.VendorID;
+            HelperClass.vendorID = (int)a.VendorID;
 
             var newwindow = new DeliveryVendorsEditMiniWindow();
 
@@ -124,8 +133,9 @@ namespace OnTheFlyWPFC.View
         async private void DeleteVendor(object sender, RoutedEventArgs e) {
             Button button = sender as Button;
             var a = button.CommandParameter as VendorDTO;
-            HelperClass.vendorID = a.VendorID;
-            if (await vendorViewModel.DeleteVendorByID(a.VendorID))
+            HelperClass.vendorID = (int)a.VendorID;
+
+            if (await vendorViewModel.DeleteVendorByID((int)a.VendorID))
                 MessageBox.Show("تم المسح بنجاح");
             RefreshListView();
 

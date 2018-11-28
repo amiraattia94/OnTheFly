@@ -12,6 +12,7 @@ namespace OnTheFlyWPFC.Model.Service {
         public static int CarID;
         public static int DeliveryPriceID;
         public static int vendorID;
+        public static int vendorBranchID;
 
 
 

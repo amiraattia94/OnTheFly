@@ -65,7 +65,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Name="lblVendorBranch" Content="اضافة فرع" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
-                        <StackPanel Grid.Row="1" Grid.Column="1" Name="stkVendorEdit" Loaded="stkVendorEdit_Loaded">
+                        <StackPanel Grid.Row="1" Grid.Column="1" Name="stkVendorEdit">
                             <Border  Height="40" Margin="0,0,0,15" >
                                 <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" FontSize="16" Foreground="#768295" />
                             </Border>
@@ -135,15 +135,15 @@
                         <Label Content="الفروع" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
                         <StackPanel Grid.Row="1" Grid.Column="1" Name="stkmembershipList" >
-                            <ListView Name="lstMembership"  Margin="0,0,0,0" Height="330" Loaded="lstMembership_Loaded">
+                            <ListView Name="lstVendorBranches"  Margin="0,0,0,0" Height="330" Loaded="lstVendorBranches_Loaded">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="المدينة" Width="100" DisplayMemberBinding="{Binding membershipID}"/>
-                                        <GridViewColumn Header="الاسم" Width="90" DisplayMemberBinding="{Binding vendorCategory}"/>
-                                        <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding vendorname}"/>
-                                        <GridViewColumn Header="هاتف 1" Width="90" DisplayMemberBinding="{Binding vendorname}"/>
-                                        <GridViewColumn Header="هاتف 2" Width="90" DisplayMemberBinding="{Binding vendorname}"/>
-                                        <GridViewColumn Header="الحالة" Width="90" DisplayMemberBinding="{Binding vendorname}"/>
+                                        <GridViewColumn Header="المدينة" Width="100" DisplayMemberBinding="{Binding cityName}"/>
+                                        <GridViewColumn Header="الاسم" Width="90" DisplayMemberBinding="{Binding name}"/>
+                                        <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding address}"/>
+                                        <GridViewColumn Header="هاتف 1" Width="90" DisplayMemberBinding="{Binding phone1}"/>
+                                        <GridViewColumn Header="هاتف 2" Width="90" DisplayMemberBinding="{Binding phone2}"/>
+                                        <GridViewColumn Header="الحالة" Width="90" DisplayMemberBinding="{Binding state}"/>
                                         <GridViewColumn  Width="30" >
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>

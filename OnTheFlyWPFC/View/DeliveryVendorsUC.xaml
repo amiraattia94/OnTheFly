@@ -368,7 +368,7 @@
                                                 <Button Click="VendorBranches_click" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  >
                                                     <StackPanel Orientation="Horizontal">
                                                         <materialDesign:PackIcon Kind="CardMembership" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
-                                                        <TextBlock Name="txtVendorBranchCount" Text="{Binding membershipCount}" Foreground="Gray" FontSize="15" Loaded="TxtVendorBranchCount_Loaded" />
+                                                        <TextBlock Name="txtVendorBranchCount" Text="{Binding VendorBranchCount}" Foreground="Gray" FontSize="15" Loaded="TxtVendorBranchCount_Loaded" />
                                                     </StackPanel>
 
                                                 </Button>

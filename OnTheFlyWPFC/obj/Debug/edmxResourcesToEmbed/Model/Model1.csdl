@@ -302,8 +302,8 @@
     <Key>
       <PropertyRef Name="vendor_branchID" />
     </Key>
-    <Property Name="vendor_branchID" Type="Int32" Nullable="false" />
-    <Property Name="vendorID" Type="Int32" Nullable="false" />
+    <Property Name="vendor_branchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vendorID" Type="Int32" />
     <Property Name="cityID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
     <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="active" Type="Boolean" />
@@ -660,7 +660,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_vendorBranchTBL_vendorTBL">
-    <End Role="vendorTBL" Type="Self.vendorTBL" Multiplicity="1" />
+    <End Role="vendorTBL" Type="Self.vendorTBL" Multiplicity="0..1" />
     <End Role="VendorBranchTBL" Type="Self.VendorBranchTBL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="vendorTBL">
