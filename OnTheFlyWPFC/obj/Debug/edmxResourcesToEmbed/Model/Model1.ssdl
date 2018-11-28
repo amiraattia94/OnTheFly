@@ -96,7 +96,7 @@
     <Property Name="FinancePositive" Type="bit" Nullable="false" />
     <Property Name="FinanceValue" Type="money" Nullable="false" />
     <Property Name="FinanceReason" Type="nvarchar(max)" />
-    <Property Name="FinanceEmployee" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FinanceEmployee" Type="int" Nullable="false" />
     <Property Name="FinanceAddDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="invoiceTBL">
@@ -263,6 +263,8 @@
     <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="active" Type="bit" />
     <Property Name="name" Type="nvarchar" MaxLength="30" />
+    <Property Name="phone1" Type="varchar" MaxLength="10" />
+    <Property Name="phone2" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="VendorServicesTBL">
     <Key>

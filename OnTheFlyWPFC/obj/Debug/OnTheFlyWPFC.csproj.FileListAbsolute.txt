@@ -714,3 +714,10 @@ C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\DevComponents.
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\DevComponents.DotNetBar2.xml
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsMiniWindow.g.cs
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsMiniWindow.baml
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsAddMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsEditMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsUC.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryPricesAddMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryPricesEditMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryPricesUC.g.cs

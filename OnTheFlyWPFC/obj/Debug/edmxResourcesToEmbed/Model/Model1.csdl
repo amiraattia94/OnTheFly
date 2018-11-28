@@ -123,7 +123,7 @@
     <Property Name="FinancePositive" Type="Boolean" Nullable="false" />
     <Property Name="FinanceValue" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <Property Name="FinanceReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="FinanceEmployee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FinanceEmployee" Type="Int32" Nullable="false" />
     <Property Name="FinanceAddDate" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="invoiceTBL">
@@ -308,6 +308,8 @@
     <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="active" Type="Boolean" />
     <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="phone1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="phone2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_vendorBranchTBL_LibyanCitiesTBL" FromRole="VendorBranchTBL" ToRole="LibyanCitiesTBL" />
     <NavigationProperty Name="vendorTBL" Relationship="Self.FK_vendorBranchTBL_vendorTBL" FromRole="VendorBranchTBL" ToRole="vendorTBL" />
   </EntityType>

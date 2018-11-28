@@ -20,6 +20,8 @@ namespace OnTheFlyWPFC.Model
         public string address { get; set; }
         public Nullable<bool> active { get; set; }
         public string name { get; set; }
+        public string phone1 { get; set; }
+        public string phone2 { get; set; }
     
         public virtual LibyanCitiesTBL LibyanCitiesTBL { get; set; }
         public virtual vendorTBL vendorTBL { get; set; }

@@ -15,8 +15,10 @@ namespace OnTheFlyWPFC.ViewModel
         VendorService vendorService;
 
         public ObservableCollection<VendorDTO> vendors { get; set; }
+        public ObservableCollection<VendorBranchsDTO> vendorBranches { get; set; }
 
         public VendorDTO vendor { get; set; }
+        public VendorBranchsDTO vendorBranche { get; set; }
 
         public VendorViewModel()
         {
@@ -24,6 +26,9 @@ namespace OnTheFlyWPFC.ViewModel
             vendorService = new VendorService();
             vendors = new ObservableCollection<VendorDTO>();
             vendor = new VendorDTO();
+
+            vendorBranches = new ObservableCollection<VendorBranchsDTO>();
+
         }
 
         async public Task<bool> AddVendor(int categoryID, string name, bool status) {
@@ -61,5 +66,26 @@ namespace OnTheFlyWPFC.ViewModel
         async public void GetVendorByState(bool state) {
             vendors = await vendorService.GetVendorByState(state);
         }
+
+        async public Task<bool> AddVendorBranch(int vendorID, string name, string citycode, string address, string phone1, string phone2, bool state) {
+            return await vendorService.AddVendorBranch(vendorID, name, citycode, address, phone1, phone2, state);
+        }
+
+        async public Task<bool> EditVendorBranchByID(int vendorBranchID, string name, string citycode, string address, string phone1, string phone2, bool state) {
+            return await vendorService.EditVendorBranchByID(vendorBranchID, name, citycode, address, phone1, phone2, state);
+        }
+
+        async public Task<bool> DeleteVendorBranchByID(int vendorBranchID) {
+            return await vendorService.DeleteVendorBranchByID(vendorBranchID);
+        }
+
+        async public void GetAllVendorBranchByID(int BranchByID) {
+            vendorBranches = await vendorService.GetAllVendorBranchByID( BranchByID);
+        }
+
+        async public void GetVendorBranchshipByID(int vendorBranshID) {
+            vendorBranche = await vendorService.GetVendorBranchshipByID( vendorBranshID);
+        }
+
     }
 }

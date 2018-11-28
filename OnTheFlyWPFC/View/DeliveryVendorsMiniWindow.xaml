@@ -70,21 +70,27 @@
                                 <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" FontSize="16" Foreground="#768295" />
                             </Border>
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtMembershipID" Text="ادخل رقم العضوية"  FontSize="16" Foreground="#768295" VerticalAlignment="Stretch"/>
+                                <TextBox Name="txtname" Text="ادخل الاسم"  FontSize="16" Foreground="#768295" VerticalAlignment="Stretch"/>
                             </Border>
-
                             <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbServiceCategory"  VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbServiceCategory_Loaded" SelectionChanged="cmbServiceCategory_SelectionChanged" />
+                                <TextBox Name="txtaddress" Text="ادخل العنوان"  FontSize="16" Foreground="#768295" VerticalAlignment="Stretch"/>
                             </Border>
-
                             <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbVendors" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbVendors_Loaded" />
+                                <TextBox Name="txtphone1" Text="ادخل رقم الهاتف"  FontSize="16" Foreground="#768295" VerticalAlignment="Stretch"/>
                             </Border>
-
-
-
-
-
+                            <Border Height="40" Margin="0,0,0,15">
+                                <TextBox Name="txtphone2" Text="ادخل رقم الهاتف"  FontSize="16" Foreground="#768295" VerticalAlignment="Stretch"/>
+                            </Border>
+                            <Border Height="40" Margin="0,0,0,15">
+                                <ComboBox Name="cmbBranchStatus" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295">
+                                    <ComboBoxItem Content="مفعل">
+                                    
+                                    </ComboBoxItem>
+                                    <ComboBoxItem Content="غير مفعل">
+                                     
+                                    </ComboBoxItem>
+                                </ComboBox>
+                            </Border>
 
                             <Border Height="40" Margin="55,20,55,0">
                                 <Border Name="borderSaveOrEdit" Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
@@ -132,13 +138,16 @@
                             <ListView Name="lstMembership"  Margin="0,0,0,0" Height="330" Loaded="lstMembership_Loaded">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="رقم العضوية" Width="100" DisplayMemberBinding="{Binding membershipID}"/>
-                                        <GridViewColumn Header="الخدمة" Width="90" DisplayMemberBinding="{Binding vendorCategory}"/>
-                                        <GridViewColumn Header="البائع" Width="90" DisplayMemberBinding="{Binding vendorname}"/>
+                                        <GridViewColumn Header="المدينة" Width="100" DisplayMemberBinding="{Binding membershipID}"/>
+                                        <GridViewColumn Header="الاسم" Width="90" DisplayMemberBinding="{Binding vendorCategory}"/>
+                                        <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding vendorname}"/>
+                                        <GridViewColumn Header="هاتف 1" Width="90" DisplayMemberBinding="{Binding vendorname}"/>
+                                        <GridViewColumn Header="هاتف 2" Width="90" DisplayMemberBinding="{Binding vendorname}"/>
+                                        <GridViewColumn Header="الحالة" Width="90" DisplayMemberBinding="{Binding vendorname}"/>
                                         <GridViewColumn  Width="30" >
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <Button Click="EditMembership" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  >
+                                                    <Button Click="EditVendorBranch" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  >
                                                         <materialDesign:PackIcon Kind="Edit" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
                                                     </Button>
                                                 </DataTemplate>
@@ -147,7 +156,7 @@
                                         <GridViewColumn  Width="30">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <Button Click="DeleteMembership" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
+                                                    <Button Click="DeleteVendorBranch" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
                                                         <materialDesign:PackIcon Kind="Delete" FontSize="15" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
                                                     </Button>
                                                 </DataTemplate>
@@ -158,7 +167,7 @@
                             </ListView>
                             <Border Height="40" Margin="20,20,250,0">
                                 <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                    <Button Name="addNewMembership" Click="addNewMembership_Click" Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                    <Button Name="addNewMembership" Click="addNewVendorBranch_Click" Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                         <UniformGrid FlowDirection="RightToLeft">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock FontSize="15" Foreground="White" HorizontalAlignment="Center" FontFamily="Noto Kufi Arabic" Text="اضافة" Margin="0,0,0,0"  />
