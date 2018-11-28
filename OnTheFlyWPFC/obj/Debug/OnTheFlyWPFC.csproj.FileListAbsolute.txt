@@ -565,7 +565,6 @@ C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\LoginWindow
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionUC.baml
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserGroupRoleUC.baml
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsWindow.baml
-C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchAddMiniWindow.g.cs
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchSummaryUC.g.cs
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\BranchViewUC.g.cs
@@ -584,9 +583,6 @@ C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustomerW
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCarAddMiniWindow.g.cs
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCarEditMiniWindow.g.cs
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCarUC.g.cs
-C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryDestinationAddMiniWindow.g.cs
-C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryDestinationEditMiniWindow.g.cs
-C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryDestinationUC.g.cs
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryPricesAddMiniWindow.g.cs
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryPricesEditMiniWindow.g.cs
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryPricesUC.g.cs
@@ -669,9 +665,6 @@ C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\CustomerW
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCarAddMiniWindow.baml
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCarEditMiniWindow.baml
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCarUC.baml
-C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryDestinationAddMiniWindow.baml
-C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryDestinationEditMiniWindow.baml
-C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryDestinationUC.baml
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryPricesAddMiniWindow.baml
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryPricesEditMiniWindow.baml
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryPricesUC.baml
@@ -710,3 +703,12 @@ C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.c
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CopyComplete
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsAddMiniWindow.g.cs
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsEditMiniWindow.g.cs
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsUC.g.cs
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsAddMiniWindow.baml
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsEditMiniWindow.baml
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryVendorsUC.baml
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\DevComponents.DotNetBar2.dll
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\bin\Debug\DevComponents.DotNetBar2.xml

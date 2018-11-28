@@ -56,6 +56,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.18, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -156,6 +157,7 @@
     <Compile Include="Model\DTO\UserDTO.cs" />
     <Compile Include="Model\DTO\UserGroupRoleDTO.cs" />
     <Compile Include="Model\DTO\UserGroupsDTO.cs" />
+    <Compile Include="Model\DTO\VendorBranchsDTO.cs" />
     <Compile Include="Model\DTO\VendorDTO.cs" />
     <Compile Include="Model\EmployeeTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -299,14 +301,14 @@
     <Compile Include="View\DeliveryCarUC.xaml.cs">
       <DependentUpon>DeliveryCarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryDestinationAddMiniWindow.xaml.cs">
-      <DependentUpon>DeliveryDestinationAddMiniWindow.xaml</DependentUpon>
+    <Compile Include="View\DeliveryVendorsAddMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryVendorsAddMiniWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryDestinationEditMiniWindow.xaml.cs">
-      <DependentUpon>DeliveryDestinationEditMiniWindow.xaml</DependentUpon>
+    <Compile Include="View\DeliveryVendorsEditMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryVendorsEditMiniWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryDestinationUC.xaml.cs">
-      <DependentUpon>DeliveryDestinationUC.xaml</DependentUpon>
+    <Compile Include="View\DeliveryVendorsUC.xaml.cs">
+      <DependentUpon>DeliveryVendorsUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DeliveryPricesAddMiniWindow.xaml.cs">
       <DependentUpon>DeliveryPricesAddMiniWindow.xaml</DependentUpon>
@@ -467,15 +469,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryDestinationAddMiniWindow.xaml">
+    <Page Include="View\DeliveryVendorsAddMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryDestinationEditMiniWindow.xaml">
+    <Page Include="View\DeliveryVendorsEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryDestinationUC.xaml">
+    <Page Include="View\DeliveryVendorsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
