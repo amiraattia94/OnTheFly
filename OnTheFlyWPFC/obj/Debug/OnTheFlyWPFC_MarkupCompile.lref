@@ -12,6 +12,8 @@ FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CustodyViewUC.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CustodyWindow.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CustomerAddMiniWindow.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CustomerEditMiniWindow.xaml;;
+FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryCategoryAddMiniWindow.xaml;;
+FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryCategoryEditMiniWindow.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryVendorsMiniWindow.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CustomerMembershipMiniWindow.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CustomerViewUC.xaml;;
@@ -21,6 +23,7 @@ FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryCarEditMiniW
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryCarUC.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryVendorsAddMiniWindow.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryVendorsEditMiniWindow.xaml;;
+FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryCategoryUC.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryVendorsUC.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryPricesAddMiniWindow.xaml;;
 FC:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\DeliveryPricesEditMiniWindow.xaml;;

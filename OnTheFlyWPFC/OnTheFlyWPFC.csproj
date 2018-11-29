@@ -283,6 +283,12 @@
     <Compile Include="View\CustomerEditMiniWindow.xaml.cs">
       <DependentUpon>CustomerEditMiniWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DeliveryCategoryAddMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryCategoryAddMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeliveryCategoryEditMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryCategoryEditMiniWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DeliveryVendorsMiniWindow.xaml.cs">
       <DependentUpon>DeliveryVendorsMiniWindow.xaml</DependentUpon>
     </Compile>
@@ -309,6 +315,9 @@
     </Compile>
     <Compile Include="View\DeliveryVendorsEditMiniWindow.xaml.cs">
       <DependentUpon>DeliveryVendorsEditMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeliveryCategoryUC.xaml.cs">
+      <DependentUpon>DeliveryCategoryUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DeliveryVendorsUC.xaml.cs">
       <DependentUpon>DeliveryVendorsUC.xaml</DependentUpon>
@@ -448,6 +457,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\DeliveryCategoryAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryCategoryEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\DeliveryVendorsMiniWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -483,6 +500,10 @@
     <Page Include="View\DeliveryVendorsEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeliveryCategoryUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\DeliveryVendorsUC.xaml">
       <SubType>Designer</SubType>

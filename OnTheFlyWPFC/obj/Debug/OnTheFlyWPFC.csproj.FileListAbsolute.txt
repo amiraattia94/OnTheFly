@@ -716,3 +716,9 @@ C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csp
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryAddMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryEditMiniWindow.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryUC.g.cs
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryAddMiniWindow.baml
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryEditMiniWindow.baml
+C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryUC.baml

@@ -69,6 +69,11 @@ namespace OnTheFlyWPFC.View
                     lblMenuename.Content = "الملخص";
                     MainUC.Children.Add(usc);
                     break;
+                case "DeliveryCateory":
+                    usc = new DeliveryCategoryUC();
+                    lblMenuename.Content = "تصنيفات";
+                    MainUC.Children.Add(usc);
+                    break;
                 
                 default:
                     break;
