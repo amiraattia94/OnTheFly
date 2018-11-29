@@ -200,6 +200,7 @@
     </Compile>
     <Compile Include="Model\Service\BranchService.cs" />
     <Compile Include="Model\Service\DeliveryPricesService.cs" />
+    <Compile Include="Model\Service\InvoiceService.cs" />
     <Compile Include="Model\Service\VehicleService.cs" />
     <Compile Include="Model\Service\CategoryService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="ViewModel\CityViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\DeliveryPricesViewModel.cs" />
+    <Compile Include="ViewModel\InvoiceViewModel.cs" />
     <Compile Include="ViewModel\JobsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\UserGroupRoleViewModel.cs" />

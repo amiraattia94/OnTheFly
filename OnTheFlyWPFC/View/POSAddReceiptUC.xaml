@@ -337,7 +337,7 @@
 
                 <StackPanel Orientation="Horizontal" Margin="0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1">
                     <Label Content="رقم الفاتورة :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
-                    <Label Content="000002" FontFamily="Myriad Pro"  FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
+                    <Label Name="lblNewInvoice" Loaded="LblNewInvoice_Loaded" Content="{Binding invoiceNewID}" FontFamily="Myriad Pro"  FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.RowSpan="1" Margin="0">
                     <Label Content="التاريخ " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
@@ -363,18 +363,13 @@
 
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Height="auto">
                         <Border Height="40" Margin="0,0,0,15">
-                            <StackPanel Orientation="Vertical">
-                                <Label Content="التاريخ " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
-
-                                <ComboBox VerticalAlignment="Stretch"/>
-                            </StackPanel>
-
+                            <TextBox Text="تكلفة رحلة كاملة" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                         </Border>
                         <Border Height="40" Margin="0,0,0,15">
-                            <TextBlock VerticalAlignment="Stretch"/>
+                            <TextBox Text="تكلفة رحلة كاملة" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                         </Border>
                         <Border Height="40" Margin="0,0,0,15">
-                            <TextBlock VerticalAlignment="Stretch"/>
+                            <TextBox Text="تكلفة رحلة كاملة" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                         </Border>
                         <Border Height="40" Margin="0,0,0,15">
                             <ComboBox VerticalAlignment="Stretch"/>
@@ -402,8 +397,8 @@
                             <Button Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                 <UniformGrid FlowDirection="RightToLeft">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة" Margin="0,0,5,0" VerticalAlignment="Center"  />
-                                        <materialDesign:PackIcon Kind="Plus" Height="15" Width="15"  Margin="5,0,0,0" VerticalAlignment="Center" />
+                                        <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="بحث" Margin="0,0,5,0" VerticalAlignment="Center"  />
+                                        <materialDesign:PackIcon Kind="Search" Height="15" Width="15"  Margin="5,0,0,0" VerticalAlignment="Center" />
                                     </StackPanel>
                                 </UniformGrid>
                             </Button>

@@ -722,3 +722,9 @@ C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCat
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryAddMiniWindow.baml
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryEditMiniWindow.baml
 C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryUC.baml
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryAddMiniWindow.g.cs
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryEditMiniWindow.g.cs
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryUC.g.cs
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryAddMiniWindow.baml
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryEditMiniWindow.baml
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryUC.baml
