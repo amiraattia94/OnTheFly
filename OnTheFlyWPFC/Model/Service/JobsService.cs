@@ -18,6 +18,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 List<JobsDTO> result = con.JobsTBLs.Select(s => new JobsDTO()
                 {
+                    jobID= s.jobID,
                     job_name = s.job_name,
                     basic_salary = (Double)s.basic_salary,
                     working_days_per_month = s.working_days_per_month?? 0

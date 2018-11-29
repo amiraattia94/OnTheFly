@@ -60,6 +60,11 @@ namespace OnTheFlyWPFC.ViewModel
             ViewEmployees = await employeeService.GetEmployeeByName(employeeName);
         }
 
+        async public void GetEmployeeByActive(bool active)
+        {
+            ViewEmployees = await employeeService.GetEmployeeByActive(active);
+        }
+
         async public void GetEmployeeByAddress(string address)
         {
             ViewEmployees = await employeeService.GetEmployeeByAddress(address);

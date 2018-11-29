@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OnTheFlyWPFC.Model.DTO;
+using OnTheFlyWPFC.Model.Service;
+using OnTheFlyWPFC.ViewModel;
 
 namespace OnTheFlyWPFC.View
 {
@@ -19,9 +22,18 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class HREmployeeAddMiniWindow : Window
     {
+        public Delegate UpdateMainList;
+        EmployeeViewModel _employeeViewModel;
+        BranchViewModel branchViewModel;
+        JobsViewModel jobViewModel;
+        CityViewModel cityViewModel;
         public HREmployeeAddMiniWindow()
         {
             InitializeComponent();
+            branchViewModel = new BranchViewModel();
+            jobViewModel = new JobsViewModel();
+            cityViewModel = new CityViewModel();
+            _employeeViewModel = new EmployeeViewModel();
         }
 
         private void BtnCloseForm_Click(object sender, RoutedEventArgs e) {
@@ -31,6 +43,43 @@ namespace OnTheFlyWPFC.View
         private void Border_MouseDown(object sender, MouseButtonEventArgs e) {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+        }
+
+        private void cmbEmployeeBranch_Loaded(object sender, RoutedEventArgs e)
+        {
+            branchViewModel.GetAllBranches();
+            cmbEmployeeBranch.ItemsSource = branchViewModel.ViewBranch;
+            cmbEmployeeBranch.DisplayMemberPath = "branch_name";
+        }
+
+        private void cmbEmployeeJob_Loaded(object sender, RoutedEventArgs e)
+        {
+            jobViewModel.getAllJobs();
+            cmbEmployeeJob.ItemsSource = jobViewModel.ViewJob;
+            cmbEmployeeJob.DisplayMemberPath = "job_name";
+        }
+
+        private void cmbEmployeeCity_Loaded(object sender, RoutedEventArgs e)
+        {
+            cityViewModel.GetAllCities();
+            cmbEmployeeCity.ItemsSource = cityViewModel.CityName;
+            cmbEmployeeCity.DisplayMemberPath = "name";
+        }
+
+        private async void btnAddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            _employeeViewModel = new EmployeeViewModel();
+            var city = (CityDTO)cmbEmployeeCity.SelectedValue;
+           
+            var job = (JobsDTO)cmbEmployeeJob.SelectedValue;
+            var branch = (BranchDTO)cmbEmployeeBranch.SelectedValue;
+            if (await _employeeViewModel.AddEmployee(txtEmployeeName.Text,txtPhone1.Text,txtPhone2.Text,txtAddress.Text,true,job.jobID,city.cityCode, datePickerStartDate.DisplayDate, DateTime.Now,branch.branchID))
+            {
+                MessageBox.Show("تم الحفظ");
+                UpdateMainList.DynamicInvoke();
+                this.Close();
+
+            }
         }
     }
 }

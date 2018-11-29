@@ -46,6 +46,11 @@ namespace OnTheFlyWPFC.ViewModel
             viewUser = await _userService.GetAllUser();
         }
 
+        async public void GetUserByID(int userID)
+        {
+            editUser = await _userService.GetUserByID(userID);
+        }
+
         async public void GetUserByName(string username)
         {
             viewUser = await _userService.GetUserByName(username);

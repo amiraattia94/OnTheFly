@@ -11,6 +11,8 @@ namespace OnTheFlyWPFC.Model.Service {
         public static int Customer;
         public static int CarID;
         public static int userID;
+        public static int employeeID;
+
 
         public static bool TrueOrFalse(string status) {
 

@@ -10,9 +10,9 @@ namespace OnTheFlyWPFC.Model.DTO
     {
         public int financeID { get; set; }
         public bool financePositive { get; set; }
-        public float financeValue { get; set; }
+        public decimal financeValue { get; set; }
         public string financeReason { get; set; }
-        public string financeEmployee { get; set; }
+        public int financeEmployee { get; set; }
         public DateTime financeAddDate { get; set; }
     }
 }

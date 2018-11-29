@@ -9,10 +9,10 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        Height="660" Width="400" ResizeMode="NoResize" >
+        Height="710" Width="400" ResizeMode="NoResize" >
 
     <UniformGrid FlowDirection="RightToLeft">
-        <Border BorderThickness="0" Background="White" CornerRadius="8" Height="610" Width="350" >
+        <Border BorderThickness="0" Background="White" CornerRadius="8" Height="660" Width="350" >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" ShadowDepth="1" Color="#FFACACAC"/>
             </Border.Effect>
@@ -64,35 +64,55 @@
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Text="اسم الموظف" Name="txtEmployeeName" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Text="رقم الهاتف 1" Name="txtPhone1" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Text="رقم الهاتف 2" Name="txtPhone2" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
 
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Text="العنوان" Name="txtAddress" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </Border>
-                                
-                                <Border Height="40" Margin="0,0,0,15">
-                                <TextBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                            <Border Height="40" Margin="0,0,0,15">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="المدينة" Width="100"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <ComboBox Name="cmbEmployeeCity" Loaded="cmbEmployeeCity_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="#768295"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Height="40" Margin="0,0,0,15">
+                                <StackPanel Orientation="Horizontal">
+
+                                    <Label Content="تاريخ المباشرة" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <DatePicker Grid.Column = "1"
+                                     Grid.Row = "2"
+                                     VerticalAlignment="Stretch" Width="180" HorizontalAlignment="Left" FontSize="16" Foreground="#768295"
+                                     Language = "ar-LY"
+                                     Name="datePickerStartDate"
+                                     SelectedDate = "{Binding BirthDate, Mode=TwoWay}" />
+                                </StackPanel>
                                 </Border>
 
                                 <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </Border>
-                                
-                                <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="الوظيفة" Width="100" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <ComboBox Name="cmbEmployeeJob" Loaded="cmbEmployeeJob_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="#768295"/>
+                                </StackPanel>
                                 </Border>
 
+                            <Border Height="40" Margin="0,0,0,15">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="الفرع" Width="100" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <ComboBox Name="cmbEmployeeBranch" Loaded="cmbEmployeeBranch_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="#768295"/>
+                                </StackPanel>
+                            </Border>
 
-                                <Border Height="40" Margin="70,20,70,0">
+
+                            <Border Height="40" Margin="70,20,70,0">
                                     <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                    <Button Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                    <Button Name="btnAddEmployee" Background="Transparent" Height="40" Click="btnAddEmployee_Click" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                             <UniformGrid FlowDirection="RightToLeft">
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock FontSize="16" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة موظف " Margin="0,0,0,0"  />

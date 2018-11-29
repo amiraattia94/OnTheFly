@@ -54,7 +54,7 @@ namespace OnTheFlyWPFC.View
             var a = button.CommandParameter as UserDTO;
             HelperClass.userID = a.userID;
 
-            var newwindow = new  BranchEditMiniWindow();
+            var newwindow = new  SettingsUserEditMiniWindow();
 
             RefreshListEvent += new RefreshList(RefreshListView);
             newwindow.UpdateMainList = RefreshListEvent;
@@ -90,7 +90,7 @@ namespace OnTheFlyWPFC.View
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new BranchAddMiniWindow();
+            var newwindow = new SettingsUserAddMiniWindow();
             RefreshListEvent += new RefreshList(RefreshListView);
             newwindow.UpdateMainList = RefreshListEvent;
             newwindow.ShowDialog();

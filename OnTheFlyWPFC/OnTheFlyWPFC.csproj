@@ -129,6 +129,9 @@
     <Compile Include="Model\CustomerTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DeliveryPricesTBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DeliveryStatusTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -194,6 +197,7 @@
     </Compile>
     <Compile Include="Model\Service\BranchService.cs" />
     <Compile Include="Model\Service\EmployeeService.cs" />
+    <Compile Include="Model\Service\FinanceService.cs" />
     <Compile Include="Model\Service\VehicleService.cs" />
     <Compile Include="Model\Service\CategoryService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
@@ -236,6 +240,7 @@
     <Compile Include="ViewModel\CityViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\FinanceViewModel.cs" />
     <Compile Include="ViewModel\JobsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\UserGroupRoleViewModel.cs" />
@@ -385,6 +390,12 @@
     </Compile>
     <Compile Include="View\HRJobDescriptionUC.xaml.cs">
       <DependentUpon>HRJobDescriptionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsUserAddMiniWindow.xaml.cs">
+      <DependentUpon>SettingsUserAddMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsUserEditMiniWindow.xaml.cs">
+      <DependentUpon>SettingsUserEditMiniWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SettingsUserGroupRoleUC.xaml.cs">
       <DependentUpon>SettingsUserGroupRoleUC.xaml</DependentUpon>
@@ -605,6 +616,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HRJobDescriptionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsUserAddMiniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsUserEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
