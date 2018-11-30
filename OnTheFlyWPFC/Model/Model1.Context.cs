@@ -30,6 +30,7 @@ namespace OnTheFlyWPFC.Model
         public virtual DbSet<CustodyTBL> CustodyTBLs { get; set; }
         public virtual DbSet<CustomerTBL> CustomerTBLs { get; set; }
         public virtual DbSet<DeliveryPricesTBL> DeliveryPricesTBLs { get; set; }
+        public virtual DbSet<DeliveryServiceTBL> DeliveryServiceTBLs { get; set; }
         public virtual DbSet<DeliveryStatusTBL> DeliveryStatusTBLs { get; set; }
         public virtual DbSet<DeliveryTBL> DeliveryTBLs { get; set; }
         public virtual DbSet<EmployeeTBL> EmployeeTBLs { get; set; }

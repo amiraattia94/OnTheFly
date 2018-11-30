@@ -198,5 +198,24 @@ namespace OnTheFlyWPFC.Model.Service {
         }
 
 
+
+        async public Task<decimal?> GetDeliveryPrice(int category, string vendorLocation , string customerLocation, bool isfulltrip) {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.DeliveryPricesTBLs.SingleOrDefault(w => w.categoryID == category && w.vendorLocation == vendorLocation && w.customerLocation == customerLocation);
+
+                if (result != null) {
+                    if (isfulltrip) {
+                        return result.fullTripPrice;
+                    }
+                    else {
+                        return result.halfTripPrice;
+                    }
+                };
+             return 0;
+            }
+
+        }
     }
 }

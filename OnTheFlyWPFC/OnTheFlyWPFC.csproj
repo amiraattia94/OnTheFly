@@ -133,6 +133,9 @@
     <Compile Include="Model\DeliveryPricesTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DeliveryServiceTBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DeliveryStatusTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -141,6 +144,7 @@
     </Compile>
     <Compile Include="Model\DTO\BranchDTO.cs" />
     <Compile Include="Model\DTO\DeliveryPriceDTO.cs" />
+    <Compile Include="Model\DTO\DeliveryServiceDTO.cs" />
     <Compile Include="Model\DTO\VehicleDTO.cs" />
     <Compile Include="Model\DTO\VehicleTypeDTO.cs" />
     <Compile Include="Model\DTO\CategoryDTO.cs" />
@@ -384,11 +388,17 @@
     <Compile Include="View\POSAddReceiptUC.xaml.cs">
       <DependentUpon>POSAddReceiptUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\POSEditServiceMiniWindow.xaml.cs">
+      <DependentUpon>POSEditServiceMiniWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\POSAddServiceMiniWindow.xaml.cs">
       <DependentUpon>POSAddServiceMiniWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\POSReceiptSumUC.xaml.cs">
       <DependentUpon>POSReceiptSumUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POSAddReceipetSearchCustomerMiniWindow.xaml.cs">
+      <DependentUpon>POSAddReceipetSearchCustomerMiniWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\POSSummaryUC.xaml.cs">
       <DependentUpon>POSSummaryUC.xaml</DependentUpon>
@@ -612,11 +622,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\POSEditServiceMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\POSAddServiceMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\POSReceiptSumUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\POSAddReceipetSearchCustomerMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

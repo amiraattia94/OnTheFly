@@ -205,7 +205,6 @@ namespace OnTheFlyWPFC.Model.Service
 
         }
 
-
         async public Task<bool> AddVendorBranch(int vendorID, string name, string citycode , string address , string phone1, string phone2, bool state) {
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {

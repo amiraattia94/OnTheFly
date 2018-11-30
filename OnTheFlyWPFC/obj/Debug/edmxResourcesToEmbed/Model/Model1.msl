@@ -58,6 +58,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryServiceTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryServiceTBL">
+        <MappingFragment StoreEntitySet="DeliveryServiceTBL">
+          <ScalarProperty Name="deliveryServiceID" ColumnName="deliveryServiceID" />
+          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="vendorBranchID" ColumnName="vendorBranchID" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="isFullTrip" ColumnName="isFullTrip" />
+          <ScalarProperty Name="productPrice" ColumnName="productPrice" />
+          <ScalarProperty Name="deliveryPrice" ColumnName="deliveryPrice" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="availabilityDay" ColumnName="availabilityDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="DeliveryStatusTBLs">
       <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryStatusTBL">
         <MappingFragment StoreEntitySet="DeliveryStatusTBL">
@@ -118,6 +134,7 @@
           <ScalarProperty Name="customerID" ColumnName="customerID" />
           <ScalarProperty Name="time" ColumnName="time" />
           <ScalarProperty Name="branchID" ColumnName="branchID" />
+          <ScalarProperty Name="issued" ColumnName="issued" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

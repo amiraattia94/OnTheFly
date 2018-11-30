@@ -54,5 +54,10 @@ namespace OnTheFlyWPFC.ViewModel {
         }
 
 
+
+
+        async public Task<decimal?> GetDeliveryPrice(int category, string vendorLocation, string customerLocation, bool isfulltrip) {
+            return await DeliveryPricesService.GetDeliveryPrice(category, vendorLocation, customerLocation, isfulltrip);
+        }
     }
 }

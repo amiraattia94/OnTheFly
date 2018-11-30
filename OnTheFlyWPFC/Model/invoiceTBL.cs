@@ -17,20 +17,24 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public invoiceTBL()
         {
+            this.DeliveryServiceTBLs = new HashSet<DeliveryServiceTBL>();
             this.DeliveryTBLs = new HashSet<DeliveryTBL>();
             this.ServiceTBLs = new HashSet<ServiceTBL>();
         }
     
         public int invoiceID { get; set; }
-        public int issuerID { get; set; }
+        public Nullable<int> issuerID { get; set; }
         public Nullable<int> custodyID { get; set; }
-        public int customerID { get; set; }
+        public Nullable<int> customerID { get; set; }
         public System.DateTime time { get; set; }
         public Nullable<int> branchID { get; set; }
+        public bool issued { get; set; }
     
         public virtual CompanyBranchTBL CompanyBranchTBL { get; set; }
         public virtual CustodyTBL CustodyTBL { get; set; }
         public virtual CustomerTBL CustomerTBL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeliveryServiceTBL> DeliveryServiceTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeliveryTBL> DeliveryTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

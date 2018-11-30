@@ -18,6 +18,7 @@ namespace OnTheFlyWPFC.Model
         public CategoriesTBL()
         {
             this.DeliveryPricesTBLs = new HashSet<DeliveryPricesTBL>();
+            this.DeliveryServiceTBLs = new HashSet<DeliveryServiceTBL>();
             this.ServiceTBLs = new HashSet<ServiceTBL>();
             this.vendorTBLs = new HashSet<vendorTBL>();
         }
@@ -27,6 +28,8 @@ namespace OnTheFlyWPFC.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeliveryPricesTBL> DeliveryPricesTBLs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeliveryServiceTBL> DeliveryServiceTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiceTBL> ServiceTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

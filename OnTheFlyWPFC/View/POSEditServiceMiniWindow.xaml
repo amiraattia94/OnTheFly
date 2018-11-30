@@ -1,0 +1,175 @@
+﻿<Window x:Class="OnTheFlyWPFC.View.POSEditServiceMiniWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnTheFlyWPFC.View"
+        mc:Ignorable="d"
+        Title="POSServiceADDMiniWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="Transparent" WindowStyle="None" 
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen"
+        Height="750" Width="500" ResizeMode="NoResize" >
+   
+
+    <UniformGrid FlowDirection="RightToLeft">
+        <Border BorderThickness="0" Background="White" CornerRadius="8" Height="650" Width="400" MouseDown="Border_MouseDown" >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1" Color="#FFACACAC"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="63"/>
+                    
+                      
+                    <RowDefinition Height="178*"/>
+                    <RowDefinition Height="40"/>
+
+                    <RowDefinition Height="30"/>
+                   
+                    
+                </Grid.RowDefinitions>
+                <Grid Height="63" VerticalAlignment="Top" Grid.Row="0">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
+                    </Grid.Effect>
+
+                    <UniformGrid FlowDirection="LeftToRight">
+                        <StackPanel Orientation="Horizontal">
+                            <Button  Name="btnCloseForm"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnCloseForm_Click" Height="63">
+                                <UniformGrid FlowDirection="RightToLeft">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Close" Width="20" Height="20" Foreground="#8C9AB6"/>
+                                    </StackPanel>
+                                </UniformGrid>
+                            </Button>
+                        </StackPanel>
+                    </UniformGrid>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="107*"/>
+                        <ColumnDefinition Width="13*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+
+                    <Border Background="Transparent"  Grid.ColumnSpan="2">
+                       
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="178*"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="175*"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="109*"/>
+                                <ColumnDefinition Width="30"/>
+                                
+                            </Grid.ColumnDefinitions>
+                            <Label Content="اضافة خدمة توصيل" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Column="1" Height="44" Margin="0,8"/>
+
+                            <StackPanel Grid.Row="1" Grid.Column="1" >
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox Name="cmbServiceType" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbServiceType_Loaded" SelectionChanged="CmbServiceType_SelectionChanged"/>
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox Name="cmbVendors" Loaded="CmbVendors_Loaded" SelectionChanged="CmbVendors_SelectionChanged" VerticalAlignment="Stretch"/>
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox Name="cmbBranches" Loaded="CmbBranches_Loaded" SelectionChanged="CmbBranches_SelectionChanged" VerticalAlignment="Stretch"/>
+                                </Border>
+
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox Name="cmbTrip" Loaded="CmbTrip_Loaded" SelectionChanged="CmbTrip_SelectionChanged" VerticalAlignment="Stretch">
+                                        <ComboBoxItem Content="رحلة كاملة">
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Content="نصف رحلة">
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                </Border>
+
+                                <!--<Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox VerticalAlignment="Stretch"/>
+                                </Border>-->
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox Name="cmbPaid" Loaded="CmbPaid_Loaded" SelectionChanged="CmbPaid_SelectionChanged" VerticalAlignment="Stretch">
+                                        <ComboBoxItem Content="مدفوع">
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Content="غير مدفوع">
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                </Border>
+
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <Label Content="تاريخ توفير المنتج" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
+                                </Border>
+
+
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="القيمة :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
+                                        <Label Name="lblTotalPrice" Content="0" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                </Border>
+
+
+                               
+
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="1" Grid.Column="3" >
+                                <Border Height="40" Margin="0,0,0,15">
+
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <TextBlock Name="txtDeliveryPrice"/>
+                                </Border>
+                                <!--<Border Height="40" Margin="0,0,0,15">
+
+                                </Border>-->
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <TextBox Name="txtPaidPrice" TextChanged="TxtPaidPrice_TextChanged" Text="0" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" />
+
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <Label Content="2017/10/10" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
+
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+                <Grid Grid.Row="2" >
+                    <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="120,0,120,0" >
+                        <Button Click="AddService_click" Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                            <UniformGrid FlowDirection="RightToLeft">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="15" Foreground="White" VerticalAlignment="Center" FontFamily="Noto Kufi Arabic" Text="اضافة الخدمة" Margin="0,0,0,0"  />
+                                </StackPanel>
+                            </UniformGrid>
+                        </Button>
+                    </Border>
+                </Grid>
+
+            </Grid>
+
+
+        </Border>
+    </UniformGrid>
+</Window>
