@@ -459,7 +459,7 @@
                                     <TextBox Name="txtDeliveryNumber" Text="رقم التوصيل" Foreground="#768295" FontSize="16" Height="40" VerticalAlignment="Top" MinWidth="30" Width="200"/>
                                 </Border>-->  
                                 
-                                <Border Height="40"  Margin="0,20,0,0" HorizontalAlignment="Center" >
+                                <Border Name="btnAddService" Height="40"  Margin="0,20,0,0" HorizontalAlignment="Center" >
                                     <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="0,0,0,0" >
                                         <Button Height="40" Name="ADDService" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="ADDService_Click">
                                             <UniformGrid FlowDirection="RightToLeft">
@@ -517,10 +517,15 @@
                                     <Label Name="lblCustomerCredit" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
 
                                 </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="الرصيد الباقي : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                                    <Label Name="lblCustomerCreditAfter" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+
+                                </StackPanel>
                                 <StackPanel Orientation="Vertical">
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="طريقة الدفع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                                        <ComboBox MinWidth="50" Margin="10,0,10,0">
+                                        <ComboBox Name="cmbPayment" SelectionChanged="CmbPayment_SelectionChanged" MinWidth="50" Margin="10,0,10,0">
                                             <ComboBoxItem Content="رصيد">
                                                 
                                             </ComboBoxItem>
@@ -531,12 +536,13 @@
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center">
-                                <Border Height="40" Margin="0,0,30,0">
+                            <StackPanel Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <!--<Border Height="40" Margin="0,0,30,0">
                                     <TextBox Name="txtCustodyNumber" Text="رقم العهدة" Foreground="#768295" FontSize="16" Height="40" VerticalAlignment="Top" MinWidth="70" />
-                                </Border>
-                                <Border Height="40" BorderBrush="Transparent" CornerRadius="20"   Background="#2C99F5" Margin="0,20,0,0" HorizontalAlignment="Center" >
-                                    <Button Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                </Border>-->
+
+                                <Border Name="btnCustody" Height="40" BorderBrush="Transparent" CornerRadius="20"   Background="#2C99F5" Margin="0,20,0,0" HorizontalAlignment="Center" >
+                                    <Button Click="AddCostody" Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                         <UniformGrid FlowDirection="RightToLeft">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة" Margin="0,0,5,0"  />
@@ -545,11 +551,15 @@
                                         </UniformGrid>
                                     </Button>
                                 </Border>
+
+
                             </StackPanel>
+
                             <StackPanel>
                                 <Border  Margin="0,70,0,0" HorizontalAlignment="Center" >
+                                    
                                     <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                        <Button Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                        <Button Click="addInvoice_Click" Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                             <UniformGrid FlowDirection="RightToLeft">
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="حفظ و طباعة " VerticalAlignment="Center" Margin="0,0,5,0"  />

@@ -133,8 +133,8 @@
           <ScalarProperty Name="custodyID" ColumnName="custodyID" />
           <ScalarProperty Name="customerID" ColumnName="customerID" />
           <ScalarProperty Name="time" ColumnName="time" />
-          <ScalarProperty Name="branchID" ColumnName="branchID" />
           <ScalarProperty Name="issued" ColumnName="issued" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -166,9 +166,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PayrollTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.PayrollTBL">
-        <MappingFragment StoreEntitySet="PayrollTBL">
+    <EntitySetMapping Name="payrollTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.payrollTBL">
+        <MappingFragment StoreEntitySet="payrollTBL">
           <ScalarProperty Name="payrollID" ColumnName="payrollID" />
           <ScalarProperty Name="employeeID" ColumnName="employeeID" />
           <ScalarProperty Name="number_of_worked_days" ColumnName="number_of_worked_days" />
@@ -182,6 +182,7 @@
           <ScalarProperty Name="gross_salary" ColumnName="gross_salary" />
           <ScalarProperty Name="payroll_month" ColumnName="payroll_month" />
           <ScalarProperty Name="payroll_year" ColumnName="payroll_year" />
+          <ScalarProperty Name="paid" ColumnName="paid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

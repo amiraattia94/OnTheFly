@@ -31,6 +31,23 @@ namespace OnTheFlyWPFC.Model.Service {
             
         }
 
+        //async public Task<int> AddInvoice(int issuerID,int custodyID,int customerID) {
+        //    await Task.FromResult(true);
+        //    using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+        //        con.invoiceTBLs.Add(new invoiceTBL() {
+
+        //            invoiceID = await GetInvoiceID(),
+        //            issuerID = issuerID,
+        //            custodyID = custodyID,
+        //            customerID = customerID,
+        //            time = DateTime.Now,
+
+                    
+
+        //        });
+        //    }
+        //}
+
         async public Task<int> GetInvoiceID() {
             await Task.FromResult(true);
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
@@ -38,7 +55,7 @@ namespace OnTheFlyWPFC.Model.Service {
                 try {
                     var result = con.invoiceTBLs.OrderByDescending(w => w.invoiceID).First();
                     if (result != null) {
-                        if(result.issued == false) {
+                        if (result.issued == false) {
                             return result.invoiceID;
                         }
                         else {
@@ -49,7 +66,7 @@ namespace OnTheFlyWPFC.Model.Service {
                     };
                 }
                 catch (Exception) {
-                    
+
                 }
                 return r;
             }

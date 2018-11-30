@@ -40,11 +40,10 @@ namespace OnTheFlyWPFC.View
 
             invoiceViewModel.AddNewInvoice();
             invoiceViewModel.GetNewInvoiceID();
-            ADDService.IsEnabled = false;
+            btnAddService.Visibility = System.Windows.Visibility.Hidden;
+            btnCustody.Visibility = System.Windows.Visibility.Hidden;
+
         }
-
-
-        
 
         private void LblNewInvoice_Loaded(object sender, RoutedEventArgs e) {
             lblNewInvoice.Content = invoiceViewModel.invoiceNewID.ToString("D8");
@@ -82,8 +81,9 @@ namespace OnTheFlyWPFC.View
             RefreshCustomerInfo();
 
             if (HelperClass.POSSelectedCustomerID != 0)
-                ADDService.IsEnabled = true;
-                
+                btnAddService.Visibility = System.Windows.Visibility.Visible;
+
+
 
         }
 
@@ -96,6 +96,7 @@ namespace OnTheFlyWPFC.View
             txtCustomerAddress.Text = customerViewModel.customer.address;
             txtCities.Text = customerViewModel.customer.city;
             lblCustomerCredit.Content = customerViewModel.customer.credit;
+            lblCustomerCreditAfter.Content = customerViewModel.customer.credit - decimal.Parse(lblTotalAfter.Content.ToString());
 
             //invoiceViewModel.DeleteAllDeliveryServiceByinvoice(invoiceViewModel.invoiceNewID);
 
@@ -115,7 +116,6 @@ namespace OnTheFlyWPFC.View
             invoiceViewModel.DeleteAllDeliveryServiceByinvoice(invoiceViewModel.invoiceNewID);
             invoiceViewModel.GetAllDeliveryServices();
             lstViewDeliveryServices.ItemsSource = invoiceViewModel.allDeliveryService;
-
         }
 
         private void Edit_Service(object sender, RoutedEventArgs e) {
@@ -125,12 +125,9 @@ namespace OnTheFlyWPFC.View
             HelperClass.POSInvoiceID = invoiceViewModel.invoiceNewID;
 
             var newwindow = new POSEditServiceMiniWindow();
-
             RefreshListEvent += new RefreshList(RefreshDeliveryServiceList);
             newwindow.UpdateMainList = RefreshListEvent;
-
             newwindow.ShowDialog();
-
         }
 
         private void RefreshDeliveryServiceList() {
@@ -153,46 +150,54 @@ namespace OnTheFlyWPFC.View
         }
 
         private void ADDService_Click(object sender, RoutedEventArgs e) {
-            
             HelperClass.POSInvoiceID = invoiceViewModel.invoiceNewID;
-
             var newwindow = new POSAddServiceMiniWindow();
             RefreshListEvent += new RefreshList(RefreshDeliveryServiceList);
             newwindow.UpdateMainList = RefreshListEvent;
-
             newwindow.ShowDialog();
-
-
         }
 
         private void RefreshInvoicePriceList() {
             invoiceViewModel.GetTotalPriceByInvoiceID(HelperClass.POSInvoiceID);
             invoiceViewModel.GetTotalDeliveryPriceByInvoiceID(HelperClass.POSInvoiceID);
-
-
             lblTotalPrice.Content = invoiceViewModel.totalPrice;
             lblTotalDeliveryPrice.Content = invoiceViewModel.deliveryPrice;
 
             if (string.IsNullOrEmpty(txtDiscount.Text)) {
                 decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
                 decimal total = discountpercent * (decimal)invoiceViewModel.totalPrice;
-                lblTotalAfter.Content = total;
+                lblTotalAfter.Content = (decimal)invoiceViewModel.totalPrice - total;
+
+
+                if (cmbPayment.SelectedIndex != 1) {
+                    lblCustomerCreditAfter.Content = customerViewModel.customer.credit - (decimal)invoiceViewModel.totalPrice - total;
+
+                }
             }
             else {
-                lblTotalAfter.Content = lblTotalPrice.Content;
+                if (lblTotalPrice.Content == null) {
+                    lblTotalAfter.Content = 0;
+
+                    lblCustomerCreditAfter.Content = customerViewModel.customer.credit;
+                }
+                else {
+                    lblTotalAfter.Content = invoiceViewModel.totalPrice;
+
+
+                    if (cmbPayment.SelectedIndex != 1) {
+                        lblCustomerCreditAfter.Content = customerViewModel.customer.credit - invoiceViewModel.totalPrice;
+                    }
+                    
+                }
             }
+                
 
             if (invoiceViewModel.totalPrice == null) {
-
                 lblTotalPrice.Content = "0";
                 lblTotalDeliveryPrice.Content = "0";
                 lblTotalAfter.Content = "0";
                 txtDiscount.Text = "0";
             }
-
-            
-
-
         }
 
         private void TxtDiscount_TextChanged(object sender, TextChangedEventArgs e) {
@@ -202,10 +207,42 @@ namespace OnTheFlyWPFC.View
                         decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
                         decimal totalDiscount = discountpercent * (decimal)invoiceViewModel.totalPrice;
                         lblTotalAfter.Content = (decimal)invoiceViewModel.totalPrice - totalDiscount;
+
+                        if(cmbPayment.SelectedIndex != 1) {
+                            lblCustomerCreditAfter.Content = customerViewModel.customer.credit - (decimal)invoiceViewModel.totalPrice - totalDiscount;
+
+                        }
                     }
 
                 }
             }
+        }
+
+        private void AddCostody(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void CmbPayment_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if(cmbPayment.SelectedIndex != -1) {
+                if(cmbPayment.SelectedIndex == 0){
+                    btnCustody.Visibility = System.Windows.Visibility.Hidden;
+                    RefreshInvoicePriceList();
+
+                }
+                else if(cmbPayment.SelectedIndex == 1) {
+                    btnCustody.Visibility = System.Windows.Visibility.Visible;
+                    lblCustomerCreditAfter.Content =  customerViewModel.customer.credit;
+                }
+            }
+        }
+
+        async private void addInvoice_Click(object sender, RoutedEventArgs e) {
+            //if (await invoiceViewModel.AddNewInvoice(HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), (decimal)deliveryPrice, true, DateTime.Now)) {
+            //    MessageBox.Show("تم الحفظ");
+            //    UpdateMainList.DynamicInvoke();
+            //    this.Close();
+
+            //}
         }
     }
 }

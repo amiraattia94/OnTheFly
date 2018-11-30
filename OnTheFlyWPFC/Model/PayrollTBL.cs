@@ -12,7 +12,7 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class PayrollTBL
+    public partial class payrollTBL
     {
         public int payrollID { get; set; }
         public int employeeID { get; set; }
@@ -27,6 +27,7 @@ namespace OnTheFlyWPFC.Model
         public decimal gross_salary { get; set; }
         public int payroll_month { get; set; }
         public int payroll_year { get; set; }
+        public bool paid { get; set; }
     
         public virtual EmployeeTBL EmployeeTBL { get; set; }
     }
