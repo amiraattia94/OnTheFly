@@ -30,6 +30,7 @@ namespace OnTheFlyWPFC.View
         public delegate void RefreshList();
         public event RefreshList RefreshListEvent;
 
+        
         public POSAddReceiptUC()
         {
             InitializeComponent();
@@ -75,6 +76,10 @@ namespace OnTheFlyWPFC.View
             newwindow.UpdateMainList = RefreshListEvent;
 
             newwindow.ShowDialog();
+            invoiceViewModel.DeleteAllDeliveryServiceByinvoice(invoiceViewModel.invoiceNewID);
+
+            RefreshDeliveryServiceList();
+            RefreshCustomerInfo();
 
             if (HelperClass.POSSelectedCustomerID != 0)
                 ADDService.IsEnabled = true;
@@ -90,6 +95,12 @@ namespace OnTheFlyWPFC.View
             txtCustomerPhone2.Text = customerViewModel.customer.phone2;
             txtCustomerAddress.Text = customerViewModel.customer.address;
             txtCities.Text = customerViewModel.customer.city;
+            lblCustomerCredit.Content = customerViewModel.customer.credit;
+
+            //invoiceViewModel.DeleteAllDeliveryServiceByinvoice(invoiceViewModel.invoiceNewID);
+
+            RefreshInvoicePriceList();
+
             //foreach (CityDTO city in cmbCities.Items) {
             //    if (city.name == customerViewModel.customer.city) {
             //        cmbCities.SelectedValue = city.cityCode;
@@ -113,7 +124,7 @@ namespace OnTheFlyWPFC.View
             HelperClass.POSSelectedDeliveryServiceID = a.deliverServiceID;
             HelperClass.POSInvoiceID = invoiceViewModel.invoiceNewID;
 
-            var newwindow = new DeliveryPricesEditMiniWindow();
+            var newwindow = new POSEditServiceMiniWindow();
 
             RefreshListEvent += new RefreshList(RefreshDeliveryServiceList);
             newwindow.UpdateMainList = RefreshListEvent;
@@ -126,6 +137,8 @@ namespace OnTheFlyWPFC.View
             invoiceViewModel.GetAllDeliveryServices();
             lstViewDeliveryServices.ItemsSource = invoiceViewModel.allDeliveryService;
             lstViewDeliveryServices.Items.Refresh();
+
+            RefreshInvoicePriceList();
         }
 
         async private void Delete_Service(object sender, RoutedEventArgs e) {
@@ -149,7 +162,50 @@ namespace OnTheFlyWPFC.View
 
             newwindow.ShowDialog();
 
+
         }
 
+        private void RefreshInvoicePriceList() {
+            invoiceViewModel.GetTotalPriceByInvoiceID(HelperClass.POSInvoiceID);
+            invoiceViewModel.GetTotalDeliveryPriceByInvoiceID(HelperClass.POSInvoiceID);
+
+
+            lblTotalPrice.Content = invoiceViewModel.totalPrice;
+            lblTotalDeliveryPrice.Content = invoiceViewModel.deliveryPrice;
+
+            if (string.IsNullOrEmpty(txtDiscount.Text)) {
+                decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
+                decimal total = discountpercent * (decimal)invoiceViewModel.totalPrice;
+                lblTotalAfter.Content = total;
+            }
+            else {
+                lblTotalAfter.Content = lblTotalPrice.Content;
+            }
+
+            if (invoiceViewModel.totalPrice == null) {
+
+                lblTotalPrice.Content = "0";
+                lblTotalDeliveryPrice.Content = "0";
+                lblTotalAfter.Content = "0";
+                txtDiscount.Text = "0";
+            }
+
+            
+
+
+        }
+
+        private void TxtDiscount_TextChanged(object sender, TextChangedEventArgs e) {
+            if(invoiceViewModel != null) {
+                if (!string.IsNullOrEmpty(txtDiscount.Text)) {
+                    if (txtDiscount.Text != "") {
+                        decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
+                        decimal totalDiscount = discountpercent * (decimal)invoiceViewModel.totalPrice;
+                        lblTotalAfter.Content = (decimal)invoiceViewModel.totalPrice - totalDiscount;
+                    }
+
+                }
+            }
+        }
     }
 }

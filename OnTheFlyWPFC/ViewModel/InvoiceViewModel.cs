@@ -19,6 +19,10 @@ namespace OnTheFlyWPFC.ViewModel {
         public ObservableCollection<DeliveryServiceDTO> allDeliveryService { get; set; }
         public DeliveryServiceDTO deliveryService { get; set; }
 
+        public decimal? totalPrice { get; set; }
+        public decimal? productPrice { get; set; }
+        public decimal? deliveryPrice { get; set; }
+
         public InvoiceViewModel() {
 
             invoiceService = new InvoiceService();
@@ -38,6 +42,12 @@ namespace OnTheFlyWPFC.ViewModel {
             invoiceNewID = await invoiceService.GetInvoiceID();
         }
 
+        async public void GetTotalPriceByInvoiceID(int invoiceID) {
+            totalPrice = await invoiceService.GetTotalPriceByInvoiceID(invoiceID);
+        }
+        async public void GetTotalDeliveryPriceByInvoiceID(int invoiceID) {
+            deliveryPrice = await invoiceService.GetTotalDeliveryPriceByInvoiceID(invoiceID);
+        }
 
 
         async public Task<bool> AddDeliveryService(int invoiceID, int categoreID, int vendorBranchID, int customerID, bool isFullTrip, decimal productPrice, decimal deliveryPrice, bool status, DateTime avilable) {

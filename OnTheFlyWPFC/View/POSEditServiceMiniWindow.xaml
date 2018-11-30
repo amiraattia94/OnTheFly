@@ -115,7 +115,7 @@
                                 <Border Height="40" Margin="0,0,0,15">
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="القيمة :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
-                                        <Label Name="lblTotalPrice" Content="0" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
+                                        <Label Name="lblTotalPrice" Loaded="LblTotalPrice_Loaded" Content="0" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
                                     </StackPanel>
 
                                 </Border>
@@ -136,13 +136,13 @@
 
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBlock Name="txtDeliveryPrice"/>
+                                    <TextBlock Name="txtDeliveryPrice" Loaded="TxtDeliveryPrice_Loaded"/>
                                 </Border>
                                 <!--<Border Height="40" Margin="0,0,0,15">
 
                                 </Border>-->
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox Name="txtPaidPrice" TextChanged="TxtPaidPrice_TextChanged" Text="0" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" />
+                                    <TextBox Name="txtPaidPrice" TextChanged="TxtPaidPrice_TextChanged" Loaded="TxtPaidPrice_Loaded" Text="0" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" />
 
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">

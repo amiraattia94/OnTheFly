@@ -55,6 +55,37 @@ namespace OnTheFlyWPFC.Model.Service {
             }
         }
 
+        async public Task<decimal?> GetTotalPriceByInvoiceID(int invoiceID) {
+            await Task.FromResult(true);
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                decimal? result;
+                try {
+
+                    return result = con.DeliveryServiceTBLs.Where(w => w.invoiceID == invoiceID).Select(s=>s.deliveryPrice + s.productPrice).Sum();
+                    
+                }
+                catch (Exception) {
+
+                }
+                return result = 0;
+            }
+        }
+
+        async public Task<decimal?> GetTotalDeliveryPriceByInvoiceID(int invoiceID) {
+            await Task.FromResult(true);
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                decimal? result;
+                try {
+
+                    return result = con.DeliveryServiceTBLs.Where(w => w.invoiceID == invoiceID).Select(s => s.deliveryPrice).Sum();
+
+                }
+                catch (Exception) {
+
+                }
+                return result = 0;
+            }
+        }
 
         async public Task<bool> AddDeliveryService(int invoiceID, int categoreID, int vendorBranchID, int customerID, bool isFullTrip, decimal productPrice, decimal deliveryPrice ,bool status,DateTime avilable) {
             try {

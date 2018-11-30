@@ -500,27 +500,34 @@
                                 <StackPanel Grid.Column="0" Margin="0,0,0,0" >
                                     <Label Content="المبلغ الاجمالي :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
                                     <Label Content="قيمة التوصيل :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
-                                    <Label Content="تخفيض :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
+                                    <Label Content="نسبة تخفيض" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
                                     <Label Content="الاجمالي :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
 
                                 </StackPanel>
                                 <StackPanel HorizontalAlignment="Center" Margin="0,0,0,0">
-                                    <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
-                                    <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
-                                    <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
-                                    <Label Content="5000" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                                    <Label Name="lblTotalPrice" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                                    <Label Name="lblTotalDeliveryPrice" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                                    <TextBox Name="txtDiscount" Text="0" TextChanged="TxtDiscount_TextChanged"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                                    <Label Name="lblTotalAfter" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="الرصيد المتوفر : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                                    <Label Content="500" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                                    <Label Name="lblCustomerCredit" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
 
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical">
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="طريقة الدفع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                                        <ComboBox MinWidth="50" Margin="10,0,10,0"></ComboBox>
+                                        <ComboBox MinWidth="50" Margin="10,0,10,0">
+                                            <ComboBoxItem Content="رصيد">
+                                                
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="عهدة">
+                                                
+                                            </ComboBoxItem>
+                                        </ComboBox>
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>

@@ -46,6 +46,8 @@ namespace OnTheFlyWPFC.View
             invoiceViewModel = new InvoiceViewModel();
             vendorViewModel = new VendorViewModel();
 
+            invoiceViewModel.GetDeliveryServiceByID(HelperClass.POSSelectedDeliveryServiceID);
+
             cmbVendors.IsEnabled = false;
             cmbBranches.IsEnabled = false;
             cmbTrip.IsEnabled = false;
@@ -68,15 +70,19 @@ namespace OnTheFlyWPFC.View
             cmbServiceType.ItemsSource = categoryViewModel.allCategories;
             cmbServiceType.SelectedValuePath = "CategoryID";
             cmbServiceType.DisplayMemberPath = "CategoryName";
+
+            cmbServiceType.SelectedValue = invoiceViewModel.deliveryService.CategoryID;
         }
 
         private void CmbServiceType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (cmbServiceType.SelectedIndex != -1) {
                 cmbVendors.IsEnabled = true;
-                vendorViewModel.GetVendorByCategoryID((int)cmbServiceType.SelectedValue);
+                vendorViewModel.GetVendorByCategoryID(invoiceViewModel.deliveryService.CategoryID);
                 cmbVendors.ItemsSource = vendorViewModel.vendors;
                 cmbVendors.SelectedValuePath = "VendorID";
                 cmbVendors.DisplayMemberPath = "VendorName";
+
+                cmbVendors.SelectedValue = invoiceViewModel.deliveryService.VendorID;
             }
                 
         }
@@ -90,10 +96,13 @@ namespace OnTheFlyWPFC.View
         private void CmbVendors_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (cmbVendors.SelectedIndex != -1) {
                 cmbBranches.IsEnabled = true;
-                vendorViewModel.GetAllVendorBranchByID((int)cmbVendors.SelectedValue);
+                vendorViewModel.GetAllVendorBranchByID(invoiceViewModel.deliveryService.VendorID);
                 cmbBranches.ItemsSource = vendorViewModel.vendorBranches;
                 cmbBranches.SelectedValuePath = "vendorBranchID"; 
                 cmbBranches.DisplayMemberPath = "name";
+
+                cmbBranches.SelectedValue = invoiceViewModel.deliveryService.VendorBranchID;
+
             }
         }
 
@@ -110,6 +119,13 @@ namespace OnTheFlyWPFC.View
         }
 
         private void CmbTrip_Loaded(object sender, RoutedEventArgs e) {
+            if (invoiceViewModel.deliveryService.isFulTrip) {
+                cmbTrip.SelectedIndex = 0;
+            }
+            else {
+                cmbTrip.SelectedIndex = 1;
+
+            }
 
         }
 
@@ -144,19 +160,31 @@ namespace OnTheFlyWPFC.View
             }
         }
 
+
         private void TxtPaidPrice_TextChanged(object sender, TextChangedEventArgs e) {
             if(txtPaidPrice.Text != "")
                 lblTotalPrice.Content = deliveryPrice + decimal.Parse(txtPaidPrice.Text);
         }
 
         private void CmbPaid_Loaded(object sender, RoutedEventArgs e) {
-
+            if(invoiceViewModel.deliveryService.productPrice == 0) {
+                cmbPaid.SelectedIndex = 0;
+                txtPaidPrice.IsEnabled = false;
+                txtPaidPrice.Text = "0";
+            }
+            else if (invoiceViewModel.deliveryService.productPrice != 0) {
+                cmbPaid.SelectedIndex = 1;
+                txtPaidPrice.IsEnabled = true;
+                txtPaidPrice.Text = invoiceViewModel.deliveryService.productPrice.ToString();
+            }
         }
 
         private void CmbPaid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
             if(cmbPaid.SelectedIndex != -1) {
                 if(cmbPaid.SelectedIndex == 0) {
                     txtPaidPrice.IsEnabled = false;
+                    txtPaidPrice.Text = "0";
                 }
                 else if(cmbPaid.SelectedIndex == 1) {
                     txtPaidPrice.IsEnabled = true;
@@ -177,7 +205,7 @@ namespace OnTheFlyWPFC.View
 
 
 
-            if (await invoiceViewModel.AddDeliveryService(HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), (decimal)deliveryPrice, true, DateTime.Now)
+            if (await invoiceViewModel.EditDeliveryService(HelperClass.POSSelectedDeliveryServiceID, HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), (decimal)deliveryPrice, true, DateTime.Now)
 )           {
                 MessageBox.Show("تم الحفظ");
                 UpdateMainList.DynamicInvoke();
@@ -187,6 +215,20 @@ namespace OnTheFlyWPFC.View
 
         }
 
+        private void TxtDeliveryPrice_Loaded(object sender, RoutedEventArgs e) {
+            deliveryPrice = invoiceViewModel.deliveryService.deliveryPrice;
+            txtDeliveryPrice.Text = deliveryPrice.ToString();
 
+        }
+
+        private void TxtPaidPrice_Loaded(object sender, RoutedEventArgs e) {
+
+            txtPaidPrice.Text = invoiceViewModel.deliveryService.productPrice.ToString();
+
+        }
+
+        private void LblTotalPrice_Loaded(object sender, RoutedEventArgs e) {
+            lblTotalPrice.Content = deliveryPrice + invoiceViewModel.deliveryService.productPrice;
+        }
     }
 }

@@ -730,3 +730,5 @@ C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryC
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\DeliveryCategoryUC.baml
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSAddReceipetSearchCustomerMiniWindow.g.cs
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSAddReceipetSearchCustomerMiniWindow.baml
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSEditServiceMiniWindow.g.cs
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSEditServiceMiniWindow.baml
