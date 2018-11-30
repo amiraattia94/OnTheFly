@@ -134,6 +134,8 @@ namespace OnTheFlyWPFC.Model.Service
 
         }
 
+
+
         async public Task<EmployeeDTO> GetEmployeeByID(int employeeID)
         {
             await Task.FromResult(true);
@@ -240,6 +242,41 @@ namespace OnTheFlyWPFC.Model.Service
                 }
             }
         }
+
+        async public Task<ObservableCollection<EmployeeDTO>> GetEmployeeByIDs(int[] employeeIDs)
+        {
+            await Task.FromResult(true);
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+
+                var result = con.EmployeeTBLs.Where(w => employeeIDs.Contains(w.employeeID)  ).Select(s => new EmployeeDTO()
+                {
+                    employeeID = s.employeeID,
+                    name = s.name,
+                    phone1 = s.phone1,
+                    phone2 = s.phone2,
+                    address = s.address,
+                    active = s.active,
+                    jobID = s.jobID,
+                    cityID = s.cityID,
+                    start_date = s.start_date,
+                    end_date = s.end_date,
+                    branchID = s.branchID
+
+                }).ToList();
+
+
+                if (result != null)
+                {
+                    return new ObservableCollection<EmployeeDTO>(result);
+                }
+                else
+                {
+                    return new ObservableCollection<EmployeeDTO>();
+                }
+            }
+        }
+
 
         async public Task<ObservableCollection<EmployeeDTO>> GetEmployeeByActive(bool active)
         {

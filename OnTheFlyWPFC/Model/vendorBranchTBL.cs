@@ -14,13 +14,23 @@ namespace OnTheFlyWPFC.Model
     
     public partial class VendorBranchTBL
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public VendorBranchTBL()
+        {
+            this.DeliveryServiceTBLs = new HashSet<DeliveryServiceTBL>();
+        }
+    
         public int vendor_branchID { get; set; }
-        public int vendorID { get; set; }
+        public Nullable<int> vendorID { get; set; }
         public string cityID { get; set; }
         public string address { get; set; }
         public Nullable<bool> active { get; set; }
         public string name { get; set; }
+        public string phone1 { get; set; }
+        public string phone2 { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeliveryServiceTBL> DeliveryServiceTBLs { get; set; }
         public virtual LibyanCitiesTBL LibyanCitiesTBL { get; set; }
         public virtual vendorTBL vendorTBL { get; set; }
     }

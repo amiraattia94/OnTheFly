@@ -20,7 +20,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     jobID= s.jobID,
                     job_name = s.job_name,
-                    basic_salary = (Double)s.basic_salary,
+                    basic_salary = (decimal)s.basic_salary,
                     working_days_per_month = s.working_days_per_month?? 0
 
                 }).ToList();
@@ -28,7 +28,7 @@ namespace OnTheFlyWPFC.Model.Service
                 return new ObservableCollection<JobsDTO>(result);
             }
         }
-        async public Task<bool> AddJob(string jobname, double basic_salary, int working_days_per_month)
+        async public Task<bool> AddJob(string jobname, decimal basic_salary, int working_days_per_month)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace OnTheFlyWPFC.Model.Service
             }
 
         }
-        async public Task<bool> EditJobByID(int jobID, string job_name, int basic_salary, int working_hours_per_month)
+        async public Task<bool> EditJobByID(int jobID, string job_name, decimal basic_salary, int working_hours_per_month)
         {
             try
             {

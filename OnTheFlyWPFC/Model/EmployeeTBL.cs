@@ -19,7 +19,7 @@ namespace OnTheFlyWPFC.Model
         {
             this.CustodyTBLs = new HashSet<CustodyTBL>();
             this.DeliveryTBLs = new HashSet<DeliveryTBL>();
-            this.PayrollTBLs = new HashSet<PayrollTBL>();
+            this.payrollTBLs = new HashSet<payrollTBL>();
             this.UserTBLs = new HashSet<UserTBL>();
         }
     
@@ -43,7 +43,7 @@ namespace OnTheFlyWPFC.Model
         public virtual JobsTBL JobsTBL { get; set; }
         public virtual LibyanCitiesTBL LibyanCitiesTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PayrollTBL> PayrollTBLs { get; set; }
+        public virtual ICollection<payrollTBL> payrollTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserTBL> UserTBLs { get; set; }
     }

@@ -48,6 +48,11 @@ namespace OnTheFlyWPFC.View
 
                     MainUC.Children.Add(usc);
                     break;
+                case "FinancePayroll":
+                    usc = new FinancePayrollUC();
+
+                    MainUC.Children.Add(usc);
+                    break;
                 case "FinanceIncome":
                     usc = new FinanceIncomeUC();
 

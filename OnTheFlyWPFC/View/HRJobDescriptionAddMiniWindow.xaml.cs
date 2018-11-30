@@ -34,7 +34,7 @@ namespace OnTheFlyWPFC.View
         {
             _jobsViewModel = new JobsViewModel();
             
-            if (await _jobsViewModel.AddJob(txtJobName.Text, double.Parse(txtBasicSalary.Text), int.Parse(txtWorkingHoursPerMonth.Text)))
+            if (await _jobsViewModel.AddJob(txtJobName.Text, decimal.Parse(txtBasicSalary.Text), int.Parse(txtWorkingHoursPerMonth.Text)))
             {
                 MessageBox.Show("تم الحفظ");
             }

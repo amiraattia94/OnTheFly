@@ -22,7 +22,7 @@ namespace OnTheFlyWPFC.Model
     
         public int jobID { get; set; }
         public string job_name { get; set; }
-        public Nullable<double> basic_salary { get; set; }
+        public Nullable<decimal> basic_salary { get; set; }
         public Nullable<int> working_days_per_month { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

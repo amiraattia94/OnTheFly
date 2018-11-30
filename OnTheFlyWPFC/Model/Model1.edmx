@@ -57,6 +57,21 @@
           <Property Name="halfTripPrice" Type="money" />
           <Property Name="status" Type="bit" />
         </EntityType>
+        <EntityType Name="DeliveryServiceTBL">
+          <Key>
+            <PropertyRef Name="deliveryServiceID" />
+          </Key>
+          <Property Name="deliveryServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="invoiceID" Type="int" Nullable="false" />
+          <Property Name="categoryID" Type="int" Nullable="false" />
+          <Property Name="vendorBranchID" Type="int" Nullable="false" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="isFullTrip" Type="bit" Nullable="false" />
+          <Property Name="productPrice" Type="money" />
+          <Property Name="deliveryPrice" Type="money" Nullable="false" />
+          <Property Name="status" Type="bit" />
+          <Property Name="availabilityDay" Type="date" />
+        </EntityType>
         <EntityType Name="DeliveryStatusTBL">
           <Key>
             <PropertyRef Name="statusID" />
@@ -109,11 +124,12 @@
             <PropertyRef Name="invoiceID" />
           </Key>
           <Property Name="invoiceID" Type="int" Nullable="false" />
-          <Property Name="issuerID" Type="int" Nullable="false" />
+          <Property Name="issuerID" Type="int" />
           <Property Name="custodyID" Type="int" />
-          <Property Name="customerID" Type="int" Nullable="false" />
+          <Property Name="customerID" Type="int" />
           <Property Name="time" Type="datetime" Nullable="false" />
           <Property Name="branchID" Type="int" />
+          <Property Name="issued" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="JobsTBL">
           <Key>
@@ -140,7 +156,7 @@
           <Property Name="customerID" Type="int" Nullable="false" />
           <Property Name="vendorID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="PayrollTBL">
+        <EntityType Name="payrollTBL">
           <Key>
             <PropertyRef Name="payrollID" />
           </Key>
@@ -157,6 +173,7 @@
           <Property Name="gross_salary" Type="money" Nullable="false" />
           <Property Name="payroll_month" Type="int" Nullable="false" />
           <Property Name="payroll_year" Type="int" Nullable="false" />
+          <Property Name="paid" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ServicesInvoice">
           <Key>
@@ -262,12 +279,14 @@
           <Key>
             <PropertyRef Name="vendor_branchID" />
           </Key>
-          <Property Name="vendor_branchID" Type="int" Nullable="false" />
-          <Property Name="vendorID" Type="int" Nullable="false" />
+          <Property Name="vendor_branchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vendorID" Type="int" />
           <Property Name="cityID" Type="varchar" MaxLength="2" />
           <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="active" Type="bit" />
           <Property Name="name" Type="nvarchar" MaxLength="30" />
+          <Property Name="phone1" Type="varchar" MaxLength="10" />
+          <Property Name="phone2" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="VendorServicesTBL">
           <Key>
@@ -355,6 +374,54 @@
             </Principal>
             <Dependent Role="DeliveryPricesTBL">
               <PropertyRef Name="vendorLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryServiceTBL_CategoriesTBL">
+          <End Role="CategoriesTBL" Type="Self.CategoriesTBL" Multiplicity="1" />
+          <End Role="DeliveryServiceTBL" Type="Self.DeliveryServiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesTBL">
+              <PropertyRef Name="categoryID" />
+            </Principal>
+            <Dependent Role="DeliveryServiceTBL">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryServiceTBL_customerTBL">
+          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
+          <End Role="DeliveryServiceTBL" Type="Self.DeliveryServiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTBL">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="DeliveryServiceTBL">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryServiceTBL_invoiceTBL">
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="1" />
+          <End Role="DeliveryServiceTBL" Type="Self.DeliveryServiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoiceTBL">
+              <PropertyRef Name="invoiceID" />
+            </Principal>
+            <Dependent Role="DeliveryServiceTBL">
+              <PropertyRef Name="invoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryServiceTBL_VendorBranchTBL">
+          <End Role="VendorBranchTBL" Type="Self.VendorBranchTBL" Multiplicity="1" />
+          <End Role="DeliveryServiceTBL" Type="Self.DeliveryServiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VendorBranchTBL">
+              <PropertyRef Name="vendor_branchID" />
+            </Principal>
+            <Dependent Role="DeliveryServiceTBL">
+              <PropertyRef Name="vendorBranchID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -467,7 +534,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_invoiceTBL_customerTBL">
-          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="1" />
+          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
           <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CustomerTBL">
@@ -504,12 +571,12 @@
         </Association>
         <Association Name="FK_payrollTBL_EmployeeTBL">
           <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="1" />
-          <End Role="PayrollTBL" Type="Self.PayrollTBL" Multiplicity="*" />
+          <End Role="payrollTBL" Type="Self.payrollTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmployeeTBL">
               <PropertyRef Name="employeeID" />
             </Principal>
-            <Dependent Role="PayrollTBL">
+            <Dependent Role="payrollTBL">
               <PropertyRef Name="employeeID" />
             </Dependent>
           </ReferentialConstraint>
@@ -623,7 +690,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_vendorBranchTBL_vendorTBL">
-          <End Role="vendorTBL" Type="Self.vendorTBL" Multiplicity="1" />
+          <End Role="vendorTBL" Type="Self.vendorTBL" Multiplicity="0..1" />
           <End Role="VendorBranchTBL" Type="Self.VendorBranchTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vendorTBL">
@@ -664,6 +731,7 @@
           <EntitySet Name="CustodyTBL" EntityType="Self.CustodyTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerTBL" EntityType="Self.CustomerTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryPricesTBL" EntityType="Self.DeliveryPricesTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryServiceTBL" EntityType="Self.DeliveryServiceTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryStatusTBL" EntityType="Self.DeliveryStatusTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryTBL" EntityType="Self.DeliveryTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeTBL" EntityType="Self.EmployeeTBL" Schema="dbo" store:Type="Tables" />
@@ -672,7 +740,7 @@
           <EntitySet Name="JobsTBL" EntityType="Self.JobsTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LibyanCitiesTBL" EntityType="Self.LibyanCitiesTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MembershipTBL" EntityType="Self.MembershipTBL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PayrollTBL" EntityType="Self.PayrollTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payrollTBL" EntityType="Self.payrollTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServicesInvoice" EntityType="Self.ServicesInvoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServiceTBL" EntityType="Self.ServiceTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -707,6 +775,22 @@
           <AssociationSet Name="FK_DeliveryPricesTBL_LibyanCitiesTBL1" Association="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL1">
             <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBL" />
             <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryServiceTBL_CategoriesTBL" Association="Self.FK_DeliveryServiceTBL_CategoriesTBL">
+            <End Role="CategoriesTBL" EntitySet="CategoriesTBL" />
+            <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryServiceTBL_customerTBL" Association="Self.FK_DeliveryServiceTBL_customerTBL">
+            <End Role="CustomerTBL" EntitySet="CustomerTBL" />
+            <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryServiceTBL_invoiceTBL" Association="Self.FK_DeliveryServiceTBL_invoiceTBL">
+            <End Role="invoiceTBL" EntitySet="invoiceTBL" />
+            <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryServiceTBL_VendorBranchTBL" Association="Self.FK_DeliveryServiceTBL_VendorBranchTBL">
+            <End Role="VendorBranchTBL" EntitySet="VendorBranchTBL" />
+            <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_CarsTBL" Association="Self.FK_deliveryTBL_CarsTBL">
             <End Role="VehicleTBL" EntitySet="VehicleTBL" />
@@ -758,7 +842,7 @@
           </AssociationSet>
           <AssociationSet Name="FK_payrollTBL_EmployeeTBL" Association="Self.FK_payrollTBL_EmployeeTBL">
             <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
-            <End Role="PayrollTBL" EntitySet="PayrollTBL" />
+            <End Role="payrollTBL" EntitySet="payrollTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_servicesInvoice_invoiceTBL" Association="Self.FK_servicesInvoice_invoiceTBL">
             <End Role="invoiceTBL" EntitySet="invoiceTBL" />
@@ -821,6 +905,7 @@
           <Property Name="categoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="category_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="DeliveryPricesTBLs" Relationship="Self.FK_DeliveryPricesTBL_CategoriesTBL" FromRole="CategoriesTBL" ToRole="DeliveryPricesTBL" />
+          <NavigationProperty Name="DeliveryServiceTBLs" Relationship="Self.FK_DeliveryServiceTBL_CategoriesTBL" FromRole="CategoriesTBL" ToRole="DeliveryServiceTBL" />
           <NavigationProperty Name="ServiceTBLs" Relationship="Self.FK_serviceTBL_CategoriesTBL" FromRole="CategoriesTBL" ToRole="ServiceTBL" />
           <NavigationProperty Name="vendorTBLs" Relationship="Self.FK_vendorTBL_CategoriesTBL" FromRole="CategoriesTBL" ToRole="vendorTBL" />
         </EntityType>
@@ -863,6 +948,7 @@
           <Property Name="add_date" Type="DateTime" Precision="0" />
           <Property Name="credit" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_customerTBL_LibyanCitiesTBL" FromRole="CustomerTBL" ToRole="LibyanCitiesTBL" />
+          <NavigationProperty Name="DeliveryServiceTBLs" Relationship="Self.FK_DeliveryServiceTBL_customerTBL" FromRole="CustomerTBL" ToRole="DeliveryServiceTBL" />
           <NavigationProperty Name="invoiceTBLs" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="CustomerTBL" ToRole="invoiceTBL" />
           <NavigationProperty Name="MembershipTBLs" Relationship="Self.FK_MembershipTBL_customerTBL" FromRole="CustomerTBL" ToRole="MembershipTBL" />
         </EntityType>
@@ -880,6 +966,25 @@
           <NavigationProperty Name="CategoriesTBL" Relationship="Self.FK_DeliveryPricesTBL_CategoriesTBL" FromRole="DeliveryPricesTBL" ToRole="CategoriesTBL" />
           <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL" FromRole="DeliveryPricesTBL" ToRole="LibyanCitiesTBL" />
           <NavigationProperty Name="LibyanCitiesTBL1" Relationship="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL1" FromRole="DeliveryPricesTBL" ToRole="LibyanCitiesTBL" />
+        </EntityType>
+        <EntityType Name="DeliveryServiceTBL">
+          <Key>
+            <PropertyRef Name="deliveryServiceID" />
+          </Key>
+          <Property Name="deliveryServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invoiceID" Type="Int32" Nullable="false" />
+          <Property Name="categoryID" Type="Int32" Nullable="false" />
+          <Property Name="vendorBranchID" Type="Int32" Nullable="false" />
+          <Property Name="customerID" Type="Int32" />
+          <Property Name="isFullTrip" Type="Boolean" Nullable="false" />
+          <Property Name="productPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="deliveryPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="status" Type="Boolean" />
+          <Property Name="availabilityDay" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CategoriesTBL" Relationship="Self.FK_DeliveryServiceTBL_CategoriesTBL" FromRole="DeliveryServiceTBL" ToRole="CategoriesTBL" />
+          <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_DeliveryServiceTBL_customerTBL" FromRole="DeliveryServiceTBL" ToRole="CustomerTBL" />
+          <NavigationProperty Name="invoiceTBL" Relationship="Self.FK_DeliveryServiceTBL_invoiceTBL" FromRole="DeliveryServiceTBL" ToRole="invoiceTBL" />
+          <NavigationProperty Name="VendorBranchTBL" Relationship="Self.FK_DeliveryServiceTBL_VendorBranchTBL" FromRole="DeliveryServiceTBL" ToRole="VendorBranchTBL" />
         </EntityType>
         <EntityType Name="DeliveryStatusTBL">
           <Key>
@@ -926,7 +1031,7 @@
           <NavigationProperty Name="DeliveryTBLs" Relationship="Self.FK_deliveryTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="DeliveryTBL" />
           <NavigationProperty Name="JobsTBL" Relationship="Self.FK_EmployeeTBL_JobsTBL" FromRole="EmployeeTBL" ToRole="JobsTBL" />
           <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_EmployeeTBL_LibyanCitiesTBL" FromRole="EmployeeTBL" ToRole="LibyanCitiesTBL" />
-          <NavigationProperty Name="PayrollTBLs" Relationship="Self.FK_payrollTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="PayrollTBL" />
+          <NavigationProperty Name="payrollTBLs" Relationship="Self.FK_payrollTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="payrollTBL" />
           <NavigationProperty Name="UserTBLs" Relationship="Self.FK_userTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="UserTBL" />
         </EntityType>
         <EntityType Name="FinanceTBL">
@@ -945,14 +1050,16 @@
             <PropertyRef Name="invoiceID" />
           </Key>
           <Property Name="invoiceID" Type="Int32" Nullable="false" />
-          <Property Name="issuerID" Type="Int32" Nullable="false" />
+          <Property Name="issuerID" Type="Int32" />
           <Property Name="custodyID" Type="Int32" />
-          <Property Name="customerID" Type="Int32" Nullable="false" />
+          <Property Name="customerID" Type="Int32" />
           <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="branchID" Type="Int32" />
+          <Property Name="issued" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="CompanyBranchTBL" Relationship="Self.FK_invoiceTBL_CompanyBranchTBL" FromRole="invoiceTBL" ToRole="CompanyBranchTBL" />
           <NavigationProperty Name="CustodyTBL" Relationship="Self.FK_invoiceTBL_custodyTBL" FromRole="invoiceTBL" ToRole="CustodyTBL" />
           <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="invoiceTBL" ToRole="CustomerTBL" />
+          <NavigationProperty Name="DeliveryServiceTBLs" Relationship="Self.FK_DeliveryServiceTBL_invoiceTBL" FromRole="invoiceTBL" ToRole="DeliveryServiceTBL" />
           <NavigationProperty Name="DeliveryTBLs" Relationship="Self.FK_deliveryTBL_invoiceTBL" FromRole="invoiceTBL" ToRole="DeliveryTBL" />
           <NavigationProperty Name="ServiceTBLs" Relationship="Self.ServicesInvoice" FromRole="invoiceTBL" ToRole="ServiceTBL" />
         </EntityType>
@@ -990,7 +1097,7 @@
           <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_MembershipTBL_customerTBL" FromRole="MembershipTBL" ToRole="CustomerTBL" />
           <NavigationProperty Name="vendorTBL" Relationship="Self.FK_MembershipTBL_vendorTBL1" FromRole="MembershipTBL" ToRole="vendorTBL" />
         </EntityType>
-        <EntityType Name="PayrollTBL">
+        <EntityType Name="payrollTBL">
           <Key>
             <PropertyRef Name="payrollID" />
           </Key>
@@ -1007,7 +1114,8 @@
           <Property Name="gross_salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="payroll_month" Type="Int32" Nullable="false" />
           <Property Name="payroll_year" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_payrollTBL_EmployeeTBL" FromRole="PayrollTBL" ToRole="EmployeeTBL" />
+          <Property Name="paid" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_payrollTBL_EmployeeTBL" FromRole="payrollTBL" ToRole="EmployeeTBL" />
         </EntityType>
         <EntityType Name="ServiceTBL">
           <Key>
@@ -1116,12 +1224,15 @@
           <Key>
             <PropertyRef Name="vendor_branchID" />
           </Key>
-          <Property Name="vendor_branchID" Type="Int32" Nullable="false" />
-          <Property Name="vendorID" Type="Int32" Nullable="false" />
+          <Property Name="vendor_branchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vendorID" Type="Int32" />
           <Property Name="cityID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="active" Type="Boolean" />
           <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="phone1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="phone2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DeliveryServiceTBLs" Relationship="Self.FK_DeliveryServiceTBL_VendorBranchTBL" FromRole="VendorBranchTBL" ToRole="DeliveryServiceTBL" />
           <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_vendorBranchTBL_LibyanCitiesTBL" FromRole="VendorBranchTBL" ToRole="LibyanCitiesTBL" />
           <NavigationProperty Name="vendorTBL" Relationship="Self.FK_vendorBranchTBL_vendorTBL" FromRole="VendorBranchTBL" ToRole="vendorTBL" />
         </EntityType>
@@ -1155,6 +1266,18 @@
               <PropertyRef Name="categoryID" />
             </Principal>
             <Dependent Role="DeliveryPricesTBL">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryServiceTBL_CategoriesTBL">
+          <End Role="CategoriesTBL" Type="Self.CategoriesTBL" Multiplicity="1" />
+          <End Role="DeliveryServiceTBL" Type="Self.DeliveryServiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesTBL">
+              <PropertyRef Name="categoryID" />
+            </Principal>
+            <Dependent Role="DeliveryServiceTBL">
               <PropertyRef Name="categoryID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1267,8 +1390,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DeliveryServiceTBL_customerTBL">
+          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
+          <End Role="DeliveryServiceTBL" Type="Self.DeliveryServiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTBL">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="DeliveryServiceTBL">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_invoiceTBL_customerTBL">
-          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="1" />
+          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
           <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CustomerTBL">
@@ -1312,6 +1447,30 @@
             </Principal>
             <Dependent Role="DeliveryPricesTBL">
               <PropertyRef Name="vendorLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryServiceTBL_invoiceTBL">
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="1" />
+          <End Role="DeliveryServiceTBL" Type="Self.DeliveryServiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoiceTBL">
+              <PropertyRef Name="invoiceID" />
+            </Principal>
+            <Dependent Role="DeliveryServiceTBL">
+              <PropertyRef Name="invoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryServiceTBL_VendorBranchTBL">
+          <End Role="VendorBranchTBL" Type="Self.VendorBranchTBL" Multiplicity="1" />
+          <End Role="DeliveryServiceTBL" Type="Self.DeliveryServiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VendorBranchTBL">
+              <PropertyRef Name="vendor_branchID" />
+            </Principal>
+            <Dependent Role="DeliveryServiceTBL">
+              <PropertyRef Name="vendorBranchID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1389,12 +1548,12 @@
         </Association>
         <Association Name="FK_payrollTBL_EmployeeTBL">
           <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="1" />
-          <End Role="PayrollTBL" Type="Self.PayrollTBL" Multiplicity="*" />
+          <End Role="payrollTBL" Type="Self.payrollTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmployeeTBL">
               <PropertyRef Name="employeeID" />
             </Principal>
-            <Dependent Role="PayrollTBL">
+            <Dependent Role="payrollTBL">
               <PropertyRef Name="employeeID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1472,7 +1631,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_vendorBranchTBL_vendorTBL">
-          <End Role="vendorTBL" Type="Self.vendorTBL" Multiplicity="1" />
+          <End Role="vendorTBL" Type="Self.vendorTBL" Multiplicity="0..1" />
           <End Role="VendorBranchTBL" Type="Self.VendorBranchTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vendorTBL">
@@ -1505,6 +1664,7 @@
           <EntitySet Name="CustodyTBLs" EntityType="Self.CustodyTBL" />
           <EntitySet Name="CustomerTBLs" EntityType="Self.CustomerTBL" />
           <EntitySet Name="DeliveryPricesTBLs" EntityType="Self.DeliveryPricesTBL" />
+          <EntitySet Name="DeliveryServiceTBLs" EntityType="Self.DeliveryServiceTBL" />
           <EntitySet Name="DeliveryStatusTBLs" EntityType="Self.DeliveryStatusTBL" />
           <EntitySet Name="DeliveryTBLs" EntityType="Self.DeliveryTBL" />
           <EntitySet Name="EmployeeTBLs" EntityType="Self.EmployeeTBL" />
@@ -1513,7 +1673,7 @@
           <EntitySet Name="JobsTBLs" EntityType="Self.JobsTBL" />
           <EntitySet Name="LibyanCitiesTBLs" EntityType="Self.LibyanCitiesTBL" />
           <EntitySet Name="MembershipTBLs" EntityType="Self.MembershipTBL" />
-          <EntitySet Name="PayrollTBLs" EntityType="Self.PayrollTBL" />
+          <EntitySet Name="payrollTBLs" EntityType="Self.payrollTBL" />
           <EntitySet Name="ServiceTBLs" EntityType="Self.ServiceTBL" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="UserGroupRoleTBLs" EntityType="Self.UserGroupRoleTBL" />
@@ -1527,6 +1687,10 @@
           <AssociationSet Name="FK_DeliveryPricesTBL_CategoriesTBL" Association="Self.FK_DeliveryPricesTBL_CategoriesTBL">
             <End Role="CategoriesTBL" EntitySet="CategoriesTBLs" />
             <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryServiceTBL_CategoriesTBL" Association="Self.FK_DeliveryServiceTBL_CategoriesTBL">
+            <End Role="CategoriesTBL" EntitySet="CategoriesTBLs" />
+            <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_serviceTBL_CategoriesTBL" Association="Self.FK_serviceTBL_CategoriesTBL">
             <End Role="CategoriesTBL" EntitySet="CategoriesTBLs" />
@@ -1564,6 +1728,10 @@
             <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
             <End Role="CustomerTBL" EntitySet="CustomerTBLs" />
           </AssociationSet>
+          <AssociationSet Name="FK_DeliveryServiceTBL_customerTBL" Association="Self.FK_DeliveryServiceTBL_customerTBL">
+            <End Role="CustomerTBL" EntitySet="CustomerTBLs" />
+            <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBLs" />
+          </AssociationSet>
           <AssociationSet Name="FK_invoiceTBL_customerTBL" Association="Self.FK_invoiceTBL_customerTBL">
             <End Role="CustomerTBL" EntitySet="CustomerTBLs" />
             <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
@@ -1579,6 +1747,14 @@
           <AssociationSet Name="FK_DeliveryPricesTBL_LibyanCitiesTBL1" Association="Self.FK_DeliveryPricesTBL_LibyanCitiesTBL1">
             <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
             <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryServiceTBL_invoiceTBL" Association="Self.FK_DeliveryServiceTBL_invoiceTBL">
+            <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
+            <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryServiceTBL_VendorBranchTBL" Association="Self.FK_DeliveryServiceTBL_VendorBranchTBL">
+            <End Role="VendorBranchTBL" EntitySet="VendorBranchTBLs" />
+            <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_deliveryStatusTBL" Association="Self.FK_deliveryTBL_deliveryStatusTBL">
             <End Role="DeliveryStatusTBL" EntitySet="DeliveryStatusTBLs" />
@@ -1606,7 +1782,7 @@
           </AssociationSet>
           <AssociationSet Name="FK_payrollTBL_EmployeeTBL" Association="Self.FK_payrollTBL_EmployeeTBL">
             <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
-            <End Role="PayrollTBL" EntitySet="PayrollTBLs" />
+            <End Role="payrollTBL" EntitySet="payrollTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_userTBL_EmployeeTBL" Association="Self.FK_userTBL_EmployeeTBL">
             <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
@@ -1708,6 +1884,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryServiceTBLs">
+            <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryServiceTBL">
+              <MappingFragment StoreEntitySet="DeliveryServiceTBL">
+                <ScalarProperty Name="deliveryServiceID" ColumnName="deliveryServiceID" />
+                <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="vendorBranchID" ColumnName="vendorBranchID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="isFullTrip" ColumnName="isFullTrip" />
+                <ScalarProperty Name="productPrice" ColumnName="productPrice" />
+                <ScalarProperty Name="deliveryPrice" ColumnName="deliveryPrice" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="availabilityDay" ColumnName="availabilityDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="DeliveryStatusTBLs">
             <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryStatusTBL">
               <MappingFragment StoreEntitySet="DeliveryStatusTBL">
@@ -1768,6 +1960,7 @@
                 <ScalarProperty Name="customerID" ColumnName="customerID" />
                 <ScalarProperty Name="time" ColumnName="time" />
                 <ScalarProperty Name="branchID" ColumnName="branchID" />
+                <ScalarProperty Name="issued" ColumnName="issued" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1799,9 +1992,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PayrollTBLs">
-            <EntityTypeMapping TypeName="OnTheFlyDBModel.PayrollTBL">
-              <MappingFragment StoreEntitySet="PayrollTBL">
+          <EntitySetMapping Name="payrollTBLs">
+            <EntityTypeMapping TypeName="OnTheFlyDBModel.payrollTBL">
+              <MappingFragment StoreEntitySet="payrollTBL">
                 <ScalarProperty Name="payrollID" ColumnName="payrollID" />
                 <ScalarProperty Name="employeeID" ColumnName="employeeID" />
                 <ScalarProperty Name="number_of_worked_days" ColumnName="number_of_worked_days" />
@@ -1815,6 +2008,7 @@
                 <ScalarProperty Name="gross_salary" ColumnName="gross_salary" />
                 <ScalarProperty Name="payroll_month" ColumnName="payroll_month" />
                 <ScalarProperty Name="payroll_year" ColumnName="payroll_year" />
+                <ScalarProperty Name="paid" ColumnName="paid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1925,6 +2119,8 @@
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="active" ColumnName="active" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phone1" ColumnName="phone1" />
+                <ScalarProperty Name="phone2" ColumnName="phone2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

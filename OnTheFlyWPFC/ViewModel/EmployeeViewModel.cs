@@ -50,6 +50,11 @@ namespace OnTheFlyWPFC.ViewModel
             ViewEmployees = await employeeService.GetAllEmployees();
         }
 
+        async public void GetEmployeeByIDs(int[] employeeIDs)
+        {
+            ViewEmployees = await employeeService.GetEmployeeByIDs(employeeIDs);
+        }
+
         async public void GetEmployeeByCity(string cityCode)
         {
             ViewEmployees = await employeeService.GetEmployeeByCity(cityCode);
