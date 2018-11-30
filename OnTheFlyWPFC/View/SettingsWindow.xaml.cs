@@ -22,7 +22,7 @@ namespace OnTheFlyWPFC.View
         public SettingsWindow()
         {
             InitializeComponent();
-            usc = new MainHomeUC();
+            usc = new SettingsUsersUC();
             MainUC.Children.Add(usc);
         }
         

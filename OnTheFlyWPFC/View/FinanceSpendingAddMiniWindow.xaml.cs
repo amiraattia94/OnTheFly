@@ -11,44 +11,40 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using OnTheFlyWPFC.Model.DTO;
 using OnTheFlyWPFC.ViewModel;
 using OnTheFlyWPFC.Model.Service;
-
 
 namespace OnTheFlyWPFC.View
 {
     /// <summary>
-    /// Interaction logic for FinanceIncomeAddMiniWindow.xaml
+    /// Interaction logic for FinanceSpendingAddMiniWindow.xaml
     /// </summary>
-    public partial class FinanceIncomeAddMiniWindow : Window
+    public partial class FinanceSpendingAddMiniWindow : Window
     {
         public Delegate UpdateMainList;
         FinanceViewModel FinanceViewModel;
 
-        public FinanceIncomeAddMiniWindow()
+        public FinanceSpendingAddMiniWindow()
         {
             InitializeComponent();
             FinanceViewModel = new FinanceViewModel();
-
         }
 
-        private void BtnCloseForm_Click(object sender, RoutedEventArgs e) {
+        private void BtnCloseForm_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
-
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e) {
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-
         private async void btnAddFinance_Click(object sender, RoutedEventArgs e)
         {
-            if (await FinanceViewModel.AddFinance(true, decimal.Parse(txtFinanceValue.Text), txtFinanceReason.Text, HelperClass.systemUserID, DateTime.Now))
+            if (await FinanceViewModel.AddFinance(false, decimal.Parse(txtFinanceValue.Text), txtFinanceReason.Text, HelperClass.systemUserID, DateTime.Now))
 
             {
                 MessageBox.Show("تم الحفظ");
-
                 UpdateMainList.DynamicInvoke();
                 this.Close();
             }

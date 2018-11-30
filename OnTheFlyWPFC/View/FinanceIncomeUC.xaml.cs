@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OnTheFlyWPFC.Model.DTO;
+using OnTheFlyWPFC.Model.Service;
+using OnTheFlyWPFC.ViewModel;
+
 
 namespace OnTheFlyWPFC.View
 {
@@ -20,9 +24,33 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class FinanceIncomeUC : UserControl
     {
+        FinanceViewModel financeViewModel;
+        public delegate void RefreshList();
+        public event RefreshList RefreshListEvent;
+        private void RefreshListView()
+        {
+            financeViewModel.GetAllFinances();
+            lstViewFinance.ItemsSource = financeViewModel.viewFinances;
+            lstViewFinance.Items.Refresh();
+        }
         public FinanceIncomeUC()
         {
+            financeViewModel = new FinanceViewModel();
             InitializeComponent();
+        }
+
+        private void lstViewFinance_Loaded(object sender, RoutedEventArgs e)
+        {
+            financeViewModel.GetAllPosativeFinance();
+            lstViewFinance.ItemsSource = financeViewModel.viewFinances;
+        }
+
+        private void btnAddFinance_Click(object sender, RoutedEventArgs e)
+        {
+            var newwindow = new FinanceIncomeAddMiniWindow();
+            RefreshListEvent += new RefreshList(RefreshListView);
+            newwindow.UpdateMainList = RefreshListEvent;
+            newwindow.ShowDialog();
         }
     }
 }

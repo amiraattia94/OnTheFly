@@ -10,7 +10,7 @@ namespace OnTheFlyWPFC.Model.Service
 {
     public class FinanceService
     {
-        async public Task<bool> AddFinance(bool financePosative, decimal financeValue, string financeReason, string cityCode, string CustomerAddress, int financeEmployee , DateTime financeAddDate)
+        async public Task<bool> AddFinance(bool financePosative, decimal financeValue, string financeReason,int financeEmployee , DateTime financeAddDate)
         {
             try
             {
