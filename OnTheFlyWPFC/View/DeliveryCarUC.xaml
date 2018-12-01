@@ -354,13 +354,13 @@
                         <ListView Name="lstCarView" Loaded="LstCarView_Loaded"  Margin="0,0,0,0" Height="400" >
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="رقم اللوحة" Width="100" DisplayMemberBinding="{Binding Plate}"/>
-                                    <GridViewColumn Header="نوع السيارة" Width="100" DisplayMemberBinding="{Binding CarType}"/>
-                                    <GridViewColumn Header="الشركة" Width="90" DisplayMemberBinding="{Binding Company}"/>
-                                    <GridViewColumn Header="الموديل" Width="90" DisplayMemberBinding="{Binding Model}"/>
-                                    <GridViewColumn Header="سنة الصنع" Width="90" DisplayMemberBinding="{Binding Year}"/>
+                                    <GridViewColumn Header="رقم اللوحة" Width="100" DisplayMemberBinding="{Binding plate_number}"/>
+                                    <GridViewColumn Header="نوع السيارة" Width="100" DisplayMemberBinding="{Binding vehicleType}"/>
+                                    <GridViewColumn Header="الشركة" Width="90" DisplayMemberBinding="{Binding made_company}"/>
+                                    <GridViewColumn Header="الموديل" Width="90" DisplayMemberBinding="{Binding edition_name}"/>
+                                    <GridViewColumn Header="سنة الصنع" Width="90" DisplayMemberBinding="{Binding made_year}"/>
                                     <GridViewColumn Header="الفرع" Width="90" DisplayMemberBinding="{Binding Bransh}"/>
-                                    <GridViewColumn Header="الحالة" Width="150" DisplayMemberBinding="{Binding State}"/>
+                                    <GridViewColumn Header="الحالة" Width="150" DisplayMemberBinding="{Binding state}"/>
 
 
                                     <GridViewColumn  Width="25" >

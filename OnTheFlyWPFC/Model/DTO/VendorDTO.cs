@@ -8,9 +8,13 @@ namespace OnTheFlyWPFC.Model.DTO
 {
     class VendorDTO
     {
-        public int VendorID { get; set; }
-        public int VendorCategoryID { get; set; }
+        public int? VendorID { get; set; }
         public string VendorName { get; set; }
+        public int? VendorCategoryID { get; set; }
+        public string VendorCategoryName { get; set; }
         public bool VendorStatus { get; set; }
+        public int VendorBranchCount { get; set; }
+
+
     }
 }

@@ -56,6 +56,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.18, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -143,6 +144,8 @@
     </Compile>
     <Compile Include="Model\DTO\BranchDTO.cs" />
     <Compile Include="Model\DTO\PayrollDTO.cs" />
+    <Compile Include="Model\DTO\DeliveryPriceDTO.cs" />
+    <Compile Include="Model\DTO\DeliveryServiceDTO.cs" />
     <Compile Include="Model\DTO\VehicleDTO.cs" />
     <Compile Include="Model\DTO\VehicleTypeDTO.cs" />
     <Compile Include="Model\DTO\CategoryDTO.cs" />
@@ -159,6 +162,7 @@
     <Compile Include="Model\DTO\UserDTO.cs" />
     <Compile Include="Model\DTO\UserGroupRoleDTO.cs" />
     <Compile Include="Model\DTO\UserGroupsDTO.cs" />
+    <Compile Include="Model\DTO\VendorBranchsDTO.cs" />
     <Compile Include="Model\DTO\VendorDTO.cs" />
     <Compile Include="Model\EmployeeTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -200,9 +204,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Service\BranchService.cs" />
+
     <Compile Include="Model\Service\EmployeeService.cs" />
     <Compile Include="Model\Service\FinanceService.cs" />
     <Compile Include="Model\Service\PayrollService.cs" />
+    <Compile Include="Model\Service\DeliveryPricesService.cs" />
+    <Compile Include="Model\Service\InvoiceService.cs" />
     <Compile Include="Model\Service\VehicleService.cs" />
     <Compile Include="Model\Service\CategoryService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
@@ -246,6 +253,8 @@
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="ViewModel\FinanceViewModel.cs" />
+    <Compile Include="ViewModel\DeliveryPricesViewModel.cs" />
+    <Compile Include="ViewModel\InvoiceViewModel.cs" />
     <Compile Include="ViewModel\JobsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PayrollViewModel.cs" />
@@ -289,6 +298,15 @@
     <Compile Include="View\CustomerEditMiniWindow.xaml.cs">
       <DependentUpon>CustomerEditMiniWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DeliveryCategoryAddMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryCategoryAddMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeliveryCategoryEditMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryCategoryEditMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeliveryVendorsMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryVendorsMiniWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CustomerMembershipMiniWindow.xaml.cs">
       <DependentUpon>CustomerMembershipMiniWindow.xaml</DependentUpon>
     </Compile>
@@ -307,23 +325,26 @@
     <Compile Include="View\DeliveryCarUC.xaml.cs">
       <DependentUpon>DeliveryCarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryDestinationAddMiniWindow.xaml.cs">
-      <DependentUpon>DeliveryDestinationAddMiniWindow.xaml</DependentUpon>
+    <Compile Include="View\DeliveryVendorsAddMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryVendorsAddMiniWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryDestinationEditMiniWindow.xaml.cs">
-      <DependentUpon>DeliveryDestinationEditMiniWindow.xaml</DependentUpon>
+    <Compile Include="View\DeliveryVendorsEditMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryVendorsEditMiniWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryDestinationUC.xaml.cs">
-      <DependentUpon>DeliveryDestinationUC.xaml</DependentUpon>
+    <Compile Include="View\DeliveryCategoryUC.xaml.cs">
+      <DependentUpon>DeliveryCategoryUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryServiceAddMiniWindow.xaml.cs">
-      <DependentUpon>DeliveryServiceAddMiniWindow.xaml</DependentUpon>
+    <Compile Include="View\DeliveryVendorsUC.xaml.cs">
+      <DependentUpon>DeliveryVendorsUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryServiceEditMiniWindow.xaml.cs">
-      <DependentUpon>DeliveryServiceEditMiniWindow.xaml</DependentUpon>
+    <Compile Include="View\DeliveryPricesAddMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryPricesAddMiniWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliveryServicesUC.xaml.cs">
-      <DependentUpon>DeliveryServicesUC.xaml</DependentUpon>
+    <Compile Include="View\DeliveryPricesEditMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryPricesEditMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeliveryPricesUC.xaml.cs">
+      <DependentUpon>DeliveryPricesUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DeliverySummaryUC.xaml.cs">
       <DependentUpon>DeliverySummaryUC.xaml</DependentUpon>
@@ -388,11 +409,17 @@
     <Compile Include="View\POSAddReceiptUC.xaml.cs">
       <DependentUpon>POSAddReceiptUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\POSEditServiceMiniWindow.xaml.cs">
+      <DependentUpon>POSEditServiceMiniWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\POSAddServiceMiniWindow.xaml.cs">
       <DependentUpon>POSAddServiceMiniWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\POSReceiptSumUC.xaml.cs">
       <DependentUpon>POSReceiptSumUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POSAddReceipetSearchCustomerMiniWindow.xaml.cs">
+      <DependentUpon>POSAddReceipetSearchCustomerMiniWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\POSSummaryUC.xaml.cs">
       <DependentUpon>POSSummaryUC.xaml</DependentUpon>
@@ -472,6 +499,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\DeliveryCategoryAddMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryCategoryEditMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryVendorsMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\CustomerMembershipMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -496,27 +535,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryDestinationAddMiniWindow.xaml">
+    <Page Include="View\DeliveryVendorsAddMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryDestinationEditMiniWindow.xaml">
+    <Page Include="View\DeliveryVendorsEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryDestinationUC.xaml">
+    <Page Include="View\DeliveryCategoryUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DeliveryVendorsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryServiceAddMiniWindow.xaml">
+    <Page Include="View\DeliveryPricesAddMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryServiceEditMiniWindow.xaml">
+    <Page Include="View\DeliveryPricesEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliveryServicesUC.xaml">
+    <Page Include="View\DeliveryPricesUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -625,11 +668,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\POSEditServiceMiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\POSAddServiceMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\POSReceiptSumUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\POSAddReceipetSearchCustomerMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -692,11 +743,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App.Config" />
     <EntityDeploy Include="Model\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Model\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>

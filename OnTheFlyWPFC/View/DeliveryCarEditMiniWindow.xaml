@@ -64,17 +64,17 @@
                                 <ComboBox Name="cmbCarType" Loaded="CmbCarType_Loaded" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                             </Border>
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtPlateNumber" Text="{Binding Plate}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Name="txtPlateNumber" Text="{Binding plate_number}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                             </Border>
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtCompany" Text="{Binding Company}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Name="txtCompany" Text="{Binding made_company}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                             </Border>
 
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtModel" Text="{Binding Model}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Name="txtModel" Text="{Binding edition_name}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                             </Border>
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtYear" Text="{Binding Year}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Name="txtYear" Text="{Binding made_year}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                             </Border>
                             <Border Height="40" Margin="0,0,0,15">
                                 <ComboBox Name="cmbBranchs" VerticalAlignment="Stretch" Loaded="cmbBranchS_Loaded" FontSize="16" Foreground="#768295" />

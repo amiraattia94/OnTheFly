@@ -117,6 +117,7 @@ namespace OnTheFlyWPFC.Model.Service
                     phone2 = s.phone2,
                     address = s.address,
                     city = s.LibyanCitiesTBL.name,
+                    cityCode = s.LibyanCitiesTBL.city_code,
                     adddate = s.add_date.ToString(),
                     credit = s.credit,
                     membershipCount = s.MembershipTBLs.Where(w => w.customerID == s.customerID).Count()
@@ -144,6 +145,7 @@ namespace OnTheFlyWPFC.Model.Service
                         phone1 = result.phone1,
                         phone2 = result.phone2,
                         city = result.LibyanCitiesTBL.name,
+                        cityCode = result.LibyanCitiesTBL.city_code,
                         credit = result.credit,
                         membershipCount = result.MembershipTBLs.Where(w => w.customerID == customerID).Count()
 
@@ -182,6 +184,7 @@ namespace OnTheFlyWPFC.Model.Service
                     phone2 = s.phone2,
                     credit = s.credit,
                     city = s.LibyanCitiesTBL.name,
+                    cityCode = s.LibyanCitiesTBL.city_code,
                     membershipCount = s.MembershipTBLs.Where(w => w.customerID == s.customerID).Count()
                 }).ToList();
 
@@ -242,6 +245,7 @@ namespace OnTheFlyWPFC.Model.Service
                     phone2 = s.phone2,
                     credit = s.credit,
                     city = s.LibyanCitiesTBL.name,
+                    cityCode = s.LibyanCitiesTBL.city_code,
                     membershipCount = s.MembershipTBLs.Where(w => w.customerID == s.customerID).Count()
                 }).ToList();
 

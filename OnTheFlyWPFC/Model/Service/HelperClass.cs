@@ -18,6 +18,14 @@ namespace OnTheFlyWPFC.Model.Service {
         public static decimal overtimeDayPrice = 0;
         public static decimal lateHourPrice = 0;
         public static decimal AbsentDayPrice = 0;
+        public static int DeliveryPriceID;
+        public static int vendorID;
+        public static int vendorBranchID;
+        public static int categoryID;
+        public static int POSSelectedCustomerID;
+        public static int POSSelectedDeliveryServiceID;
+        public static int POSInvoiceID;
+
 
 
 

@@ -28,15 +28,14 @@ namespace OnTheFlyWPFC.Model
         public Nullable<int> customerID { get; set; }
         public System.DateTime time { get; set; }
         public Nullable<int> branchID { get; set; }
-        public bool issued { get; set; }
-    
-        public virtual CompanyBranchTBL CompanyBranchTBL { get; set; }
+        public Nullable<decimal> discount { get; set; }
         public virtual CustodyTBL CustodyTBL { get; set; }
         public virtual CustomerTBL CustomerTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeliveryServiceTBL> DeliveryServiceTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeliveryTBL> DeliveryTBLs { get; set; }
+        public virtual UserTBL UserTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiceTBL> ServiceTBLs { get; set; }
     }

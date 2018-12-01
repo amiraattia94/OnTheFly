@@ -14,6 +14,7 @@ namespace OnTheFlyWPFC.Model.DTO
         public string phone1 { get; set; }
         public string phone2 { get; set; }
         public string city { get; set; }
+        public string cityCode { get; set; }
         public string address { get; set; }
         public string adddate { get; set; }
         public decimal? credit { get; set; }

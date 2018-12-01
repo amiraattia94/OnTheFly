@@ -50,10 +50,10 @@ namespace OnTheFlyWPFC.View
         {
             vehicleViewModel.GetAllVehicleType();
             cmbCarType.ItemsSource = vehicleViewModel.viewVehicleType;
-            cmbCarType.DisplayMemberPath = "CarTName";
-            cmbCarType.SelectedValuePath = "CarTID";
+            cmbCarType.DisplayMemberPath = "vehicleTName";
+            cmbCarType.SelectedValuePath = "vehileTID";
 
-            cmbCarType.SelectedValue = vehicleViewModel.vehicle.vehicleType;
+            cmbCarType.SelectedValue = vehicleViewModel.vehicle.typeID;
             //foreach (CarTypeDTO cartype in cmbCarType.Items) {
             //    if (cartype.CarTID == carViewModel.car.CarID) {
             //        cmbCarType.SelectedValue = cartype.CarTID;

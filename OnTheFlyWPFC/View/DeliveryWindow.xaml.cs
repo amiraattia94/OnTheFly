@@ -50,12 +50,12 @@ namespace OnTheFlyWPFC.View
                     MainUC.Children.Add(usc);
                     break;
                 case "DeliveryService":
-                    usc = new DeliveryServicesUC();
-                    lblMenuename.Content = "خدمات التوصيل";
+                    usc = new DeliveryPricesUC();
+                    lblMenuename.Content = "اسعار التوصيل";
                     MainUC.Children.Add(usc);
                     break;
                 case "DeliveryDestination":
-                    usc = new DeliveryDestinationUC();
+                    usc = new DeliveryVendorsUC();
                     lblMenuename.Content = "وجهات التوصيل";
                     MainUC.Children.Add(usc);
                     break;
@@ -67,6 +67,11 @@ namespace OnTheFlyWPFC.View
                 case "DeliverySummary":
                     usc = new DeliverySummaryUC();
                     lblMenuename.Content = "الملخص";
+                    MainUC.Children.Add(usc);
+                    break;
+                case "DeliveryCateory":
+                    usc = new DeliveryCategoryUC();
+                    lblMenuename.Content = "تصنيفات";
                     MainUC.Children.Add(usc);
                     break;
                 
