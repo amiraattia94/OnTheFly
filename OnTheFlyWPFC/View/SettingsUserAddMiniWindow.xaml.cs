@@ -39,7 +39,7 @@ namespace OnTheFlyWPFC.View
 
         private async void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-            usersViewModel = new UsersViewModel();
+            //usersViewModel = new UsersViewModel();
             var employee = (EmployeeDTO)cmbUserEmployee.SelectedValue;
 
 

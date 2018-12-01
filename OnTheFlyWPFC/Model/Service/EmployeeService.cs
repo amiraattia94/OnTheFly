@@ -53,6 +53,7 @@ namespace OnTheFlyWPFC.Model.Service
 
                         try
                         {
+                            Result.employeeID = employeeID;
                             Result.name = name;
                             Result.phone1 = phone1;
                             Result.phone2 = phone2;
@@ -89,6 +90,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 var result = con.EmployeeTBLs.Select(s => new EmployeeDTO()
                 {
+                    employeeID= s.employeeID,
                     name = s.name,
                     phone1 =s.phone1,
                     phone2 = s.phone2,
@@ -148,6 +150,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     return new EmployeeDTO()
                     {
+                        employeeID = result.employeeID,
                         name = result.name,
                         phone1 = result.phone1,
                         phone2 = result.phone2,
@@ -163,6 +166,7 @@ namespace OnTheFlyWPFC.Model.Service
 
                 return new EmployeeDTO()
                 {
+                    employeeID=0,
                     name = "",
                     phone1 = "",
                     phone2 = "",
@@ -185,6 +189,7 @@ namespace OnTheFlyWPFC.Model.Service
 
                 var result = con.EmployeeTBLs.Where(w => w.name.StartsWith(employeeName)).Select(s => new EmployeeDTO()
                 {
+                    employeeID = s.employeeID,
                     name = s.name,
                     phone1 = s.phone1,
                     phone2 = s.phone2,
@@ -356,6 +361,7 @@ namespace OnTheFlyWPFC.Model.Service
 
                 var result = con.EmployeeTBLs.Where(w => w.address.StartsWith(address)).Select(s => new EmployeeDTO()
                 {
+                    employeeID= s.employeeID,
                     name = s.name,
                     phone1 = s.phone1,
                     phone2 = s.phone2,

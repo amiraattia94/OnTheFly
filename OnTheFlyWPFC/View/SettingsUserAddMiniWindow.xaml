@@ -317,7 +317,7 @@
     </Window.Resources>
 
     <UniformGrid FlowDirection="RightToLeft">
-        <Border BorderThickness="0" Background="White" CornerRadius="8" Height="380" Width="300"  >
+        <Border BorderThickness="0" Background="White" CornerRadius="8" Height="380" Width="300" MouseDown="Border_MouseDown" >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" ShadowDepth="1" Color="#FFACACAC"/>
             </Border.Effect>
