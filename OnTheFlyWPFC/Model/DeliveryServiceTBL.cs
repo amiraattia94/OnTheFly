@@ -27,7 +27,7 @@ namespace OnTheFlyWPFC.Model
     
         public virtual CategoriesTBL CategoriesTBL { get; set; }
         public virtual CustomerTBL CustomerTBL { get; set; }
-        public virtual invoiceTBL invoiceTBL { get; set; }
+        public virtual InvoiceTBL InvoiceTBL { get; set; }
         public virtual VendorBranchTBL VendorBranchTBL { get; set; }
     }
 }

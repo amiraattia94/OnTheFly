@@ -58,11 +58,7 @@ namespace OnTheFlyWPFC.View
 
                         MainUC.Children.Add(usc);
                         break;
-                    case "ItemJobDscription":
-                        usc = new HRJobDescriptionUC();
-
-                        MainUC.Children.Add(usc);
-                        break;
+                    
 
                 default:
                         break;
@@ -174,8 +170,12 @@ namespace OnTheFlyWPFC.View
 
             private void btnSetting_Click(object sender, RoutedEventArgs e)
             {
+            var newwindow = new SettingsWindow();
+            newwindow.WindowState = this.WindowState;
+            newwindow.Show();
+            this.Close();
 
-            }
+        }
 
             private void btnLogout_Click(object sender, RoutedEventArgs e)
             {

@@ -13,7 +13,7 @@ namespace OnTheFlyWPFC.Model.Service {
             await Task.FromResult(true);
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                    con.invoiceTBLs.Add(new invoiceTBL() {
+                    con.InvoiceTBLs.Add(new InvoiceTBL() {
 
                         invoiceID = await GetInvoiceID(),
                         time = DateTime.Now,
@@ -53,7 +53,7 @@ namespace OnTheFlyWPFC.Model.Service {
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
                 int r = 0;
                 try {
-                    var result = con.invoiceTBLs.OrderByDescending(w => w.invoiceID).First();
+                    var result = con.InvoiceTBLs.OrderByDescending(w => w.invoiceID).First();
                     if (result != null) {
                         if (result.issued == false) {
                             return result.invoiceID;
@@ -215,8 +215,8 @@ namespace OnTheFlyWPFC.Model.Service {
                     deliverServiceID = s.deliveryServiceID,
                     CategoryID = s.categoryID,
                     CategoryName = s.CategoriesTBL.category_name,
-                    VendorID = s.VendorBranchTBL.vendorTBL.vendorID,
-                    VendorName = s.VendorBranchTBL.vendorTBL.name,
+                    VendorID = s.VendorBranchTBL.VendorTBL.vendorID,
+                    VendorName = s.VendorBranchTBL.VendorTBL.name,
                     VendorBranchID = s.vendorBranchID,
                     VendorCityCode = s.VendorBranchTBL.cityID,
                     VendorCityname = s.VendorBranchTBL.LibyanCitiesTBL.name,
@@ -246,8 +246,8 @@ namespace OnTheFlyWPFC.Model.Service {
                         deliverServiceID = result.deliveryServiceID,
                         CategoryID = result.categoryID,
                         CategoryName = result.CategoriesTBL.category_name,
-                        VendorID = result.VendorBranchTBL.vendorTBL.vendorID,
-                        VendorName = result.VendorBranchTBL.vendorTBL.name,
+                        VendorID = result.VendorBranchTBL.VendorTBL.vendorID,
+                        VendorName = result.VendorBranchTBL.VendorTBL.name,
                         VendorBranchID = result.vendorBranchID,
                         VendorCityCode = result.VendorBranchTBL.cityID,
                         VendorCityname = result.VendorBranchTBL.LibyanCitiesTBL.name,

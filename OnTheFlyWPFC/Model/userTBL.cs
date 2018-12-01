@@ -17,8 +17,8 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UserTBL()
         {
-            this.invoiceTBLs = new HashSet<invoiceTBL>();
-            this.userGroupTBLs = new HashSet<userGroupTBL>();
+            this.InvoiceTBLs = new HashSet<InvoiceTBL>();
+            this.UserGroupTBLs = new HashSet<UserGroupTBL>();
         }
     
         public int userID { get; set; }
@@ -28,10 +28,8 @@ namespace OnTheFlyWPFC.Model
     
         public virtual EmployeeTBL EmployeeTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-        public virtual ICollection<invoiceTBL> invoiceTBLs { get; set; }
+        public virtual ICollection<InvoiceTBL> InvoiceTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-        public virtual ICollection<userGroupTBL> userGroupTBLs { get; set; }
+        public virtual ICollection<UserGroupTBL> UserGroupTBLs { get; set; }
     }
 }

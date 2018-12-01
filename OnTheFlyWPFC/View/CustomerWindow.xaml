@@ -478,7 +478,13 @@
                                 </StackPanel>
                             </UniformGrid>
                         </Button>
+                        <materialDesign:PopupBox PlacementMode="BottomAndAlignCentres" Foreground="White" Margin="0,0,0,0">
+                            <StackPanel>
+                                <Button Content="الإعدادات" Name="btnSettings" Click="btnSetting_Click"/>
+                                <Button Content="تسجيل الخروج" Name="btnLogout" Click="btnLogout_Click"/>
+                            </StackPanel>
 
+                        </materialDesign:PopupBox>
                     </StackPanel>
                 </UniformGrid>
 

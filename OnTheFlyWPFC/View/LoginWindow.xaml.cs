@@ -20,15 +20,17 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class LoginWindow : Window
     {
+        UsersViewModel userViewModel;
         public LoginWindow()
         {
+            userViewModel = new UsersViewModel();
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string username, password, error_message;
-            bool result;
+            bool user_exist;
             if (string.IsNullOrWhiteSpace(usernametxt.Text) || string.IsNullOrWhiteSpace(passwordtxt.Text))
             {
                 error_message = get_message();
@@ -36,8 +38,8 @@ namespace OnTheFlyWPFC.View
             }
             password = passwordtxt.Text;
             username = usernametxt.Text;
-            LoginViewModel user = new LoginViewModel();           
-            if (user.UserExists == true) 
+            user_exist = await userViewModel.GetUserExists(usernametxt.Text, passwordtxt.Text);
+            if (user_exist == true) 
                 {
                     var tempW = new MainWindow();
                     tempW.Show();

@@ -382,9 +382,9 @@ namespace OnTheFlyWPFC.Model.Service
                     vendorID = s.vendorID,
                     customerID = s.customerID,
                     name = s.CustomerTBL.name,
-                    vendorname = s.vendorTBL.name,
-                    vendorCategory = s.vendorTBL.CategoriesTBL.category_name,
-                    vendorCategoryID = s.vendorTBL.CategoriesTBL.categoryID
+                    vendorname = s.VendorTBL.name,
+                    vendorCategory = s.VendorTBL.CategoriesTBL.category_name,
+                    vendorCategoryID = s.VendorTBL.CategoriesTBL.categoryID
 
                 }).ToList();
 
@@ -417,9 +417,9 @@ namespace OnTheFlyWPFC.Model.Service
                         customerID = result.customerID,
                         vendorID = result.vendorID,
                         name = result.CustomerTBL.name,
-                        vendorname = result.vendorTBL.name,
-                        vendorCategory = result.vendorTBL.CategoriesTBL.category_name,
-                        vendorCategoryID = result.vendorTBL.CategoriesTBL.categoryID
+                        vendorname = result.VendorTBL.name,
+                        vendorCategory = result.VendorTBL.CategoriesTBL.category_name,
+                        vendorCategoryID = result.VendorTBL.CategoriesTBL.categoryID
                     };
                 };
                 return new MembershipDTO() { };

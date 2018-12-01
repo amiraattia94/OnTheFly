@@ -12,13 +12,13 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class payrollTBL
+    public partial class PayrollTBL
     {
         public int payrollID { get; set; }
         public int employeeID { get; set; }
-        public Nullable<int> number_of_worked_days { get; set; }
+        public Nullable<int> extra_work_days { get; set; }
         public Nullable<decimal> bonus { get; set; }
-        public Nullable<decimal> overtime_pay { get; set; }
+        public Nullable<int> extra_work_hours { get; set; }
         public Nullable<decimal> cash_advance { get; set; }
         public Nullable<int> late_hours { get; set; }
         public Nullable<int> absent_days { get; set; }

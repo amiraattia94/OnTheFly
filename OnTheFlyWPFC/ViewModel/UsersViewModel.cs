@@ -56,5 +56,10 @@ namespace OnTheFlyWPFC.ViewModel
             viewUser = await _userService.GetUserByName(username);
         }
 
+        async public Task<bool> GetUserExists(string user_name, string password)
+        {
+            return await _userService.GetUserExists(user_name,password);
+        }
+
     }
 }

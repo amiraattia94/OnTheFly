@@ -20,6 +20,6 @@ namespace OnTheFlyWPFC.Model
         public int vendorID { get; set; }
     
         public virtual CustomerTBL CustomerTBL { get; set; }
-        public virtual vendorTBL vendorTBL { get; set; }
+        public virtual VendorTBL VendorTBL { get; set; }
     }
 }

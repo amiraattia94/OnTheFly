@@ -32,6 +32,6 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeliveryServiceTBL> DeliveryServiceTBLs { get; set; }
         public virtual LibyanCitiesTBL LibyanCitiesTBL { get; set; }
-        public virtual vendorTBL vendorTBL { get; set; }
+        public virtual VendorTBL VendorTBL { get; set; }
     }
 }

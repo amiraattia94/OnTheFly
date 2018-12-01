@@ -4,25 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using System.Linq;
 using OnTheFlyWPFC.Model.DTO;
 
 namespace OnTheFlyWPFC.Model.Service
 {
     public class PayrollService
     {
-        async public Task<bool> AddPayroll(int employeeID, int number_of_worked_days, decimal bonus, decimal overtime_pay, decimal cash_advance, int late_hours, int absent_days, decimal total_deduction, decimal total_addition , decimal gross_salary, int payroll_month, int payroll_year, bool paid )
+        async public Task<bool> AddPayroll(int employeeID, int extra_work_days, decimal bonus, int extra_work_hours, decimal cash_advance, int late_hours, int absent_days, decimal total_deduction, decimal total_addition , decimal gross_salary, int payroll_month, int payroll_year, bool paid )
         {
             try
             {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
                 {
-                    con.payrollTBLs.Add(new payrollTBL()
+                    con.PayrollTBLs.Add(new PayrollTBL()
                     {
                         employeeID = employeeID,
-                        number_of_worked_days = number_of_worked_days,
+                        extra_work_days = extra_work_days,
                         bonus = bonus,
-                        overtime_pay = overtime_pay,
+                        extra_work_hours = extra_work_hours,
                         cash_advance = cash_advance,
                         late_hours = late_hours,
                         absent_days= absent_days,
@@ -44,22 +43,22 @@ namespace OnTheFlyWPFC.Model.Service
             return false;
         }
 
-        async public Task<bool> EditPayrollByID(int payrollID, int employeeID, int number_of_worked_days, decimal bonus, decimal overtime_pay, decimal cash_advance, int late_hours, int absent_days, decimal total_deduction, decimal total_addition, decimal gross_salary, int payroll_month, int payroll_year, bool paid)
+        async public Task<bool> EditPayrollByID(int payrollID, int employeeID, int extra_work_days, decimal bonus, int extra_work_hours, decimal cash_advance, int late_hours, int absent_days, decimal total_deduction, decimal total_addition, decimal gross_salary, int payroll_month, int payroll_year, bool paid)
         {
             try
             {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
                 {
-                    var result = con.payrollTBLs.SingleOrDefault(w => w.payrollID == payrollID);
+                    var result = con.PayrollTBLs.SingleOrDefault(w => w.payrollID == payrollID);
                     if (result != null)
                     {
 
                         try
                         {
                             result.employeeID = employeeID;
-                            result.number_of_worked_days = number_of_worked_days;
+                            result.extra_work_days = extra_work_days;
                             result.bonus = bonus;
-                            result.overtime_pay = overtime_pay;
+                            result.extra_work_hours = extra_work_hours;
                             result.cash_advance = cash_advance;
                             result.late_hours = late_hours;
                             result.absent_days = absent_days;
@@ -93,12 +92,12 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.payrollTBLs.Select(s => new PayrollDTO()
+                var result = con.PayrollTBLs.Select(s => new PayrollDTO()
                 {
                     employeeID = s.employeeID,
-                    number_of_worked_days = s.number_of_worked_days,
+                    extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    overtime_pay = s.overtime_pay,
+                    extra_work_hours = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,
@@ -121,16 +120,16 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.payrollTBLs.SingleOrDefault(w => w.payrollID == payrollID);
+                var result = con.PayrollTBLs.SingleOrDefault(w => w.payrollID == payrollID);
 
                 if (result != null)
                 {
                     return new PayrollDTO()
                     {
                         employeeID = result.employeeID,
-                        number_of_worked_days = result.number_of_worked_days,
+                        extra_work_days = result.extra_work_days,
                         bonus = result.bonus,
-                        overtime_pay = result.overtime_pay,
+                        extra_work_hours = result.extra_work_hours,
                         cash_advance = result.cash_advance,
                         late_hours = result.late_hours,
                         absent_days = result.absent_days,
@@ -147,9 +146,9 @@ namespace OnTheFlyWPFC.Model.Service
                 return new PayrollDTO()
                 {
                     employeeID = 0,
-                    number_of_worked_days = 0,
+                    extra_work_days = 0,
                     bonus = 0,
-                    overtime_pay = 0,
+                    extra_work_hours = 0,
                     cash_advance = 0,
                     late_hours = 0,
                     absent_days = 0,
@@ -169,12 +168,12 @@ namespace OnTheFlyWPFC.Model.Service
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
 
-                var result = con.payrollTBLs.Where(w => w.employeeID == employeeID).Select(s => new PayrollDTO()
+                var result = con.PayrollTBLs.Where(w => w.employeeID == employeeID).Select(s => new PayrollDTO()
                 {
                     employeeID = s.employeeID,
-                    number_of_worked_days = s.number_of_worked_days,
+                    extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    overtime_pay = s.overtime_pay,
+                    extra_work_hours = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,
@@ -204,12 +203,12 @@ namespace OnTheFlyWPFC.Model.Service
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
 
-                var result = con.payrollTBLs.Where(w => employeeIDs.Contains(w.employeeID)).Select(s => new PayrollDTO()
+                var result = con.PayrollTBLs.Where(w => employeeIDs.Contains(w.employeeID)).Select(s => new PayrollDTO()
                 {
                     employeeID = s.employeeID,
-                    number_of_worked_days = s.number_of_worked_days,
+                    extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    overtime_pay = s.overtime_pay,
+                    extra_work_hours = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,
@@ -240,12 +239,12 @@ namespace OnTheFlyWPFC.Model.Service
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
 
-                var result = con.payrollTBLs.Where(w => w.paid == paid).Select(s => new PayrollDTO()
+                var result = con.PayrollTBLs.Where(w => w.paid == paid).Select(s => new PayrollDTO()
                 {
                     employeeID = s.employeeID,
-                    number_of_worked_days = s.number_of_worked_days,
+                    extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    overtime_pay = s.overtime_pay,
+                    extra_work_hours = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,
@@ -276,12 +275,12 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.payrollTBLs.Where(w => w.payroll_month == month && w.payroll_year == year).Select(s => new PayrollDTO()
+                var result = con.PayrollTBLs.Where(w => w.payroll_month == month && w.payroll_year == year).Select(s => new PayrollDTO()
                 {
                     employeeID = s.employeeID,
-                    number_of_worked_days = s.number_of_worked_days,
+                    extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    overtime_pay = s.overtime_pay,
+                    extra_work_hours = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,
@@ -314,12 +313,12 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.payrollTBLs.Where(w => w.payroll_month == month).Select(s => new PayrollDTO()
+                var result = con.PayrollTBLs.Where(w => w.payroll_month == month).Select(s => new PayrollDTO()
                 {
                     employeeID = s.employeeID,
-                    number_of_worked_days = s.number_of_worked_days,
+                    extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    overtime_pay = s.overtime_pay,
+                    extra_work_hours = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,
@@ -352,12 +351,12 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.payrollTBLs.Where(w => w.payroll_year == year).Select(s => new PayrollDTO()
+                var result = con.PayrollTBLs.Where(w => w.payroll_year == year).Select(s => new PayrollDTO()
                 {
                     employeeID = s.employeeID,
-                    number_of_worked_days = s.number_of_worked_days,
+                    extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    overtime_pay = s.overtime_pay,
+                    extra_work_hours = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,
@@ -390,12 +389,12 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.payrollTBLs.Where(w => w.bonus == bonus).Select(s => new PayrollDTO()
+                var result = con.PayrollTBLs.Where(w => w.bonus == bonus).Select(s => new PayrollDTO()
                 {
                     employeeID = s.employeeID,
-                    number_of_worked_days = s.number_of_worked_days,
+                    extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    overtime_pay = s.overtime_pay,
+                    extra_work_hours = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,
@@ -428,12 +427,12 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.payrollTBLs.Where(w => w.cash_advance == cash_advance).Select(s => new PayrollDTO()
+                var result = con.PayrollTBLs.Where(w => w.cash_advance == cash_advance).Select(s => new PayrollDTO()
                 {
                     employeeID = s.employeeID,
-                    number_of_worked_days = s.number_of_worked_days,
+                    extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    overtime_pay = s.overtime_pay,
+                    extra_work_hours = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,
@@ -466,12 +465,12 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.payrollTBLs.Where(w => w.absent_days == absent_days).Select(s => new PayrollDTO()
+                var result = con.PayrollTBLs.Where(w => w.absent_days == absent_days).Select(s => new PayrollDTO()
                 {
                     employeeID = s.employeeID,
-                    number_of_worked_days = s.number_of_worked_days,
+                    extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    overtime_pay = s.overtime_pay,
+                    extra_work_hours = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,

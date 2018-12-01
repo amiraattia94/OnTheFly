@@ -12,7 +12,7 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class userGroupTBL
+    public partial class UserGroupTBL
     {
         public int userID { get; set; }
         public int groupID { get; set; }

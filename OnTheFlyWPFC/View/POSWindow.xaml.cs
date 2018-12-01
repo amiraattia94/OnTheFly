@@ -161,6 +161,31 @@ namespace OnTheFlyWPFC.View
         private void POSAddReceipt_Selected(object sender, RoutedEventArgs e) {
 
         }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.DialogResult dialog = System.Windows.Forms.MessageBox.Show("هل انت متأكد من رغبتك بتسجيل الخروج", "تسجيل الخروج", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (dialog == System.Windows.Forms.DialogResult.Yes)
+            {
+
+                var newwindow = new LoginWindow();
+
+                newwindow.Show();
+                this.Close();
+            }
+            else if (dialog == System.Windows.Forms.DialogResult.No)
+            {
+
+            }
+        }
+
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
+        {
+            var newwindow = new SettingsWindow();
+            newwindow.WindowState = this.WindowState;
+            newwindow.Show();
+            this.Close();
+        }
     }
 }
 

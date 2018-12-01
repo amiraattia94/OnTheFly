@@ -26,6 +26,6 @@ namespace OnTheFlyWPFC.Model
         public virtual DeliveryStatusTBL DeliveryStatusTBL { get; set; }
         public virtual VehicleTBL VehicleTBL { get; set; }
         public virtual EmployeeTBL EmployeeTBL { get; set; }
-        public virtual invoiceTBL invoiceTBL { get; set; }
+        public virtual InvoiceTBL InvoiceTBL { get; set; }
     }
 }

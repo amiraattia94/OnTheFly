@@ -13,7 +13,7 @@ namespace OnTheFlyWPFC.Model.Service
         async public Task<bool> AddVendor(int categoryID, string name, bool status) {
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                    con.vendorTBLs.Add(new vendorTBL() {
+                    con.VendorTBLs.Add(new VendorTBL() {
                         
                         categoryID = categoryID,
                         name = name,
@@ -33,7 +33,7 @@ namespace OnTheFlyWPFC.Model.Service
         async public Task<bool> EditVendorByID(int vendorID, int categoryID, string name, bool status) {
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                    var Result = con.vendorTBLs.SingleOrDefault(w => w.vendorID == vendorID);
+                    var Result = con.VendorTBLs.SingleOrDefault(w => w.vendorID == vendorID);
                     if (Result != null) {
 
                         try {
@@ -68,7 +68,7 @@ namespace OnTheFlyWPFC.Model.Service
                         vendorBranchID = s.vendor_branchID,
                     }).ToList();
 
-                    var result = con.vendorTBLs.SingleOrDefault(w => w.vendorID == vendorID);
+                    var result = con.VendorTBLs.SingleOrDefault(w => w.vendorID == vendorID);
 
                     if (result != null && resultbranches != null) {
                         for (int i = 0; i < resultbranches.Count(); i++) {
@@ -77,7 +77,7 @@ namespace OnTheFlyWPFC.Model.Service
                             con.VendorBranchTBLs.Remove(temp);
                         }
 
-                        con.vendorTBLs.Remove(result);
+                        con.VendorTBLs.Remove(result);
                         await con.SaveChangesAsync();
                         return true;
                     };
@@ -96,7 +96,7 @@ namespace OnTheFlyWPFC.Model.Service
             await Task.FromResult(true);
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                var result = con.vendorTBLs.Select(s => new VendorDTO() {
+                var result = con.VendorTBLs.Select(s => new VendorDTO() {
                     VendorID = s.vendorID,
                     VendorName = s.name,
                     VendorCategoryID = s.categoryID,
@@ -114,7 +114,7 @@ namespace OnTheFlyWPFC.Model.Service
             await Task.FromResult(true);
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                var result = con.vendorTBLs.SingleOrDefault(w => w.vendorID == vendorID);
+                var result = con.VendorTBLs.SingleOrDefault(w => w.vendorID == vendorID);
 
                 if (result != null) {
                     return new VendorDTO() {
@@ -142,7 +142,7 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                List<VendorDTO> result = con.vendorTBLs.Where(w => w.categoryID == categoryID).Select(s => new VendorDTO()
+                List<VendorDTO> result = con.VendorTBLs.Where(w => w.categoryID == categoryID).Select(s => new VendorDTO()
                 {
                     VendorID = s.vendorID,
                     VendorName = s.name,
@@ -163,7 +163,7 @@ namespace OnTheFlyWPFC.Model.Service
             await Task.FromResult(true);
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
 
-                var result = con.vendorTBLs.Where(w => w.name.StartsWith(vendorName)).Select(s => new VendorDTO() {
+                var result = con.VendorTBLs.Where(w => w.name.StartsWith(vendorName)).Select(s => new VendorDTO() {
                     VendorID = s.vendorID,
                     VendorName = s.name,
                     VendorCategoryID = s.categoryID,
@@ -186,7 +186,7 @@ namespace OnTheFlyWPFC.Model.Service
             await Task.FromResult(true);
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
 
-                var result = con.vendorTBLs.Where(w => w.active == state).Select(s => new VendorDTO() {
+                var result = con.VendorTBLs.Where(w => w.active == state).Select(s => new VendorDTO() {
                     VendorID = s.vendorID,
                     VendorName = s.name,
                     VendorCategoryID = s.categoryID,

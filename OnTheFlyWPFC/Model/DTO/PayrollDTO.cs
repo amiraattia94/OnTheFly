@@ -10,9 +10,9 @@ namespace OnTheFlyWPFC.Model.DTO
     {
         public int payrollID { get; set; }
         public int employeeID { get; set; }
-        public int? number_of_worked_days { get; set; }
+        public int? extra_work_days { get; set; }
         public decimal? bonus { get; set; }
-        public decimal? overtime_pay { get; set; }
+        public int? extra_work_hours { get; set; }
         public decimal? cash_advance { get; set; }
         public int? late_hours { get; set; }
         public int? absent_days { get; set; }

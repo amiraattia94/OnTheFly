@@ -17,7 +17,7 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UserGroupRoleTBL()
         {
-            this.userGroupTBLs = new HashSet<userGroupTBL>();
+            this.UserGroupTBLs = new HashSet<UserGroupTBL>();
         }
     
         public int groupID { get; set; }
@@ -53,6 +53,6 @@ namespace OnTheFlyWPFC.Model
         public bool admin_rights { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<userGroupTBL> userGroupTBLs { get; set; }
+        public virtual ICollection<UserGroupTBL> UserGroupTBLs { get; set; }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="300"
+        Title="Login" Height="480" Width="300"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
     <Border Background="#FFEFF3FA" BorderThickness="0" CornerRadius="10" MouseDown="Border_MouseDown">
@@ -20,6 +20,7 @@
                 </Button>
                 <Label x:Name="lblLogin" Content="تسجيل الدخول" Foreground="#8C9AB6" FontFamily="Noto Kufi Arabic" FontSize="23.5" HorizontalAlignment="Center" Padding="0,30,0,30"/>
                 <Separator></Separator>
+                <Label Content="           username:kurt     password: kurtCobain "/>
                 <TextBox Name="usernametxt" Text="Username" TextAlignment="Center" HorizontalAlignment="Center" MinWidth="300" FontFamily="Noto Kufi Arabic" FontSize="18" Margin="30,30,30,30" Foreground="#768295"  VerticalAlignment="Center" />
                 <TextBox Name="passwordtxt" Text="Password" TextAlignment="Center" HorizontalAlignment="Center" MinWidth="300" FontFamily="Noto Kufi Arabic" FontSize="18" Margin="30,0,30,30" Foreground="#768295"  VerticalAlignment="Center" />
                 <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Background="#2C99F5" Margin="40,30,40,0" >

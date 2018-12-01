@@ -20,7 +20,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
                 {
-                    con.userGroupTBLs.Add(new userGroupTBL()
+                    con.UserGroupTBLs.Add(new UserGroupTBL()
                     {
                         userID = userID,
                         groupID = groupID
@@ -44,7 +44,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
                 {
-                    var Result = con.userGroupTBLs.SingleOrDefault(w => w.userID == userID && w.groupID == groupID);
+                    var Result = con.UserGroupTBLs.SingleOrDefault(w => w.userID == userID && w.groupID == groupID);
                     if (Result != null)
                     {
 
@@ -79,11 +79,11 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
                 {
-                    var result = con.userGroupTBLs.SingleOrDefault(w => w.userID == userID && w.groupID == groupID);
+                    var result = con.UserGroupTBLs.SingleOrDefault(w => w.userID == userID && w.groupID == groupID);
 
                     if (result != null)
                     {
-                        con.userGroupTBLs.Remove(result);
+                        con.UserGroupTBLs.Remove(result);
                         await con.SaveChangesAsync();
                         return true;
                     };
@@ -106,7 +106,7 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.userGroupTBLs.Select(s => new UserGroupsDTO()
+                var result = con.UserGroupTBLs.Select(s => new UserGroupsDTO()
                 {
                     userID = s.userID,
                     groupID = s.groupID,
@@ -125,7 +125,7 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.userGroupTBLs.Where(w => w.userID == userID).Select(s => new UserGroupsDTO()
+                var result = con.UserGroupTBLs.Where(w => w.userID == userID).Select(s => new UserGroupsDTO()
                 {
                     userID = s.userID,
                     groupID = s.groupID,
@@ -155,7 +155,7 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.userGroupTBLs.Where(w => w.groupID == groupID).Select(s => new UserGroupsDTO()
+                var result = con.UserGroupTBLs.Where(w => w.groupID == groupID).Select(s => new UserGroupsDTO()
                 {
                     userID = s.userID,
                     groupID = s.groupID,

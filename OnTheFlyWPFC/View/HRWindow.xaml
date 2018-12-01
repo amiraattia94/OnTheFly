@@ -478,7 +478,13 @@
                                 </StackPanel>
                             </UniformGrid>
                         </Button>
+                        <materialDesign:PopupBox PlacementMode="BottomAndAlignCentres" Foreground="White" Margin="0,0,0,0">
+                            <StackPanel>
+                                <Button Content="الإعدادات" Name="btnSettings" Click="btnSetting_Click"/>
+                                <Button Content="تسجيل الخروج" Name="btnLogout" Click="btnLogout_Click"/>
+                            </StackPanel>
 
+                        </materialDesign:PopupBox>
                     </StackPanel>
                 </UniformGrid>
 
@@ -513,6 +519,12 @@
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="UserSupervisor" Height="25" Width="25" Margin="10"/>
                                 <TextBlock Text="عرض الموظفين" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="ItemJobDscription" Height="60" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Work" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="الوظائف" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
 
