@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OnTheFlyWPFC.Model.DTO;
+using OnTheFlyWPFC.ViewModel;
 
 namespace OnTheFlyWPFC.Model.Service {
     public static class HelperClass {
@@ -14,10 +16,10 @@ namespace OnTheFlyWPFC.Model.Service {
         public static int employeeID;
         public static int systemUserID;
         public static int payrollID;
-        public static decimal overtimeHourPrice = 0;
-        public static decimal overtimeDayPrice = 0;
-        public static decimal lateHourPrice = 0;
-        public static decimal AbsentDayPrice = 0;
+        public static decimal overtimeHourPrice;
+        public static decimal overtimeDayPrice;
+        public static decimal lateHourPrice;
+        public static decimal AbsentDayPrice;
         public static int DeliveryPriceID;
         public static int vendorID;
         public static int vendorBranchID;
@@ -27,7 +29,31 @@ namespace OnTheFlyWPFC.Model.Service {
         public static int POSInvoiceID;
 
 
-
+        public static void assignPayrolls()
+        {
+            SettingsViewModel settingsViewModel;
+            settingsViewModel = new SettingsViewModel();
+            settingsViewModel.GetAllSettings();
+            foreach (SettingsDTO setting in settingsViewModel.viewSettings){
+                switch (setting.settingID){
+                    case 1:
+                        HelperClass.overtimeHourPrice = setting.value_money??0;
+                        break;
+                    case 2:
+                        HelperClass.overtimeDayPrice    = setting.value_money ?? 0;
+                        break;
+                    case 3:
+                        HelperClass.AbsentDayPrice = setting.value_money ?? 0;
+                        break;
+                    case 4:
+                        HelperClass.lateHourPrice = setting.value_money ?? 0;
+                        break;
+                    default:
+                        break;
+                }
+            }
+           
+        }
 
         public static bool TrueOrFalse(string status) {
 

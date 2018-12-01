@@ -87,7 +87,11 @@ namespace OnTheFlyWPFC.View
 
         private void EditPayroll(object sender, RoutedEventArgs e)
         {
-            var newwindow = new FinanceIncomeAddMiniWindow();
+            Button button = sender as Button;
+            var a = button.CommandParameter as PayrollDTO;
+            HelperClass.payrollID = a.payrollID;
+
+            var newwindow = new FinancePayrollEditMiniWindow();
             RefreshListEvent += new RefreshList(RefreshListView);
             newwindow.UpdateMainList = RefreshListEvent;
             newwindow.ShowDialog();

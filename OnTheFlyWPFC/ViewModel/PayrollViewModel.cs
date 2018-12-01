@@ -31,7 +31,7 @@ namespace OnTheFlyWPFC.ViewModel
             return await payrollService.AddPayroll( employeeID, extra_work_days,  bonus, extra_work_hours,  cash_advance,  late_hours,  absent_days,  total_deduction,  total_addition,  gross_salary,  payroll_month,  payroll_year,  paid);
         }
 
-        async public Task<bool> EditPayroll(int payrollID, int employeeID, int extra_work_days, decimal bonus, int extra_work_hours, decimal cash_advance, int late_hours, int absent_days, decimal total_deduction, decimal total_addition, decimal gross_salary, int payroll_month, int payroll_year, bool paid)
+        async public Task<bool> EditPayrollByID(int payrollID, int employeeID, int extra_work_days, decimal bonus, int extra_work_hours, decimal cash_advance, int late_hours, int absent_days, decimal total_deduction, decimal total_addition, decimal gross_salary, int payroll_month, int payroll_year, bool paid)
         {
             return await payrollService.EditPayrollByID(payrollID, employeeID, extra_work_days, bonus, extra_work_hours, cash_advance, late_hours, absent_days, total_deduction, total_addition, gross_salary, payroll_month, payroll_year, paid);
         }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OnTheFlyWPFC.Model.Service;
 
 namespace OnTheFlyWPFC.View
 {
@@ -60,6 +61,11 @@ namespace OnTheFlyWPFC.View
                     break;
                 case "FinanceSpending":
                     usc = new FinanceSpendingUC();
+
+                    MainUC.Children.Add(usc);
+                    break;
+                case "FinancePreferences":
+                    usc = new FinancePreferencesUC();
 
                     MainUC.Children.Add(usc);
                     break;
@@ -179,6 +185,11 @@ namespace OnTheFlyWPFC.View
             newwindow.WindowState = this.WindowState;
             newwindow.Show();
             this.Close();
+        }
+
+        private void load_payrolls(object sender, RoutedEventArgs e)
+        {
+            HelperClass.assignPayrolls();
         }
     }
 }

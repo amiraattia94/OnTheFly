@@ -12,7 +12,7 @@
         Height="710" Width="400" ResizeMode="NoResize" >
 
     <UniformGrid FlowDirection="RightToLeft">
-        <Border BorderThickness="0" Background="White" MouseDown="Border_MouseDown" CornerRadius="8" Height="660" Width="350" >
+        <Border BorderThickness="0" Background="White" MouseDown="Border_MouseDown" CornerRadius="8" Height="660" Width="380" >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" ShadowDepth="1" Color="#FFACACAC"/>
             </Border.Effect>
@@ -62,39 +62,57 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="تعديل مرتب" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
-                        <StackPanel Name="StkEditPayroll" Loaded="StkEditPayroll_Loaded" Grid.Row="1" Grid.Column="1" >
+                        <StackPanel Name="StkEditPayroll" Grid.Row="1" Grid.Column="1"  Loaded="StkEditPayroll_Loaded" >
                             <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="اسم الموظف" Width="100"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
-                                    <ComboBox Name="cmbEmployeeName" Loaded="cmbEmployeeName_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="#768295"/>
+                                    <Label Content="اسم الموظف" Width="120"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <ComboBox Name="cmbEmployeeName" Loaded="cmbEmployeeName_Loaded" VerticalAlignment="Stretch" Width="170"  FontSize="16" Foreground="#768295"/>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Height="40" Margin="0,0,0,15">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="ايام اضافية" Width="90"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <TextBox  Text="{Binding extra_work_days}" Width="40" Name="txtNumberOfWorkedDays"  Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                    <Label Content="ساعات اضافية" Width="110"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <TextBox Text="{Binding extra_work_hours}" Width="40" Name="txtNumberOfWorkedHours"  Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </StackPanel>
                             </Border>
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="{Binding number_of_worked_days}" Name="txtNumberOfWorkedDays" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                            </Border>
-
-                            <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBox  Text="{Binding bonus}" Width="130" Margin="0,0,15,0" Name="txtBonus" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                    <TextBox Text="{Binding cash_advance}" Width="130" Margin="15,0,0,0" Name="txtCashAdvance" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                    <Label Content="زيادة" Width="120"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <TextBox Text="{Binding bonus}" Width="200"  Name="txtBonus" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </StackPanel>
                             </Border>
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="{Binding overtime_pay}" Name="txtOvertimePay" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="عدد ايام الغياب" Width="120"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <TextBox  Text="{Binding absent_days}"  Name="txtAbsentDays"  Width="30" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                    <Label Content="اساعات التأخير" Width="110"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <TextBox Text="{Binding late_hours}"  Name="txtLateHours" Width="40" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Height="40" Margin="0,0,0,15">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="سلفة نقدية" Width="120"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <TextBox Text="{Binding cash_advance}" Width="200"  Name="txtCashAdvance" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                </StackPanel>
+                            </Border>
+                            <!---
+                             <Border Height="40" Margin="0,0,0,15">
+                                <TextBox Text="قيمة العمل الاضافي" Name="txtOvertimePay" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                             </Border>
 
+                            -->
 
-                            <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="{Binding late_hours}" Name="txtLateHours" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="{Binding absent_days}" Name="txtAbsentDays" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                            </Border>
+
 
                             <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBox Text="{Binding payroll_month}" Width="130" Margin="0,0,15,0" Name="txtMonth" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                    <TextBox Text="{Binding payroll_year}" Width="130" Margin="15,0,0,0" Name="txtYear" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                    <Label Content="الشهر" Width="70"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <TextBox Text="{Binding payroll_month}" Width="40" Margin="0,0,15,0" Name="txtMonth" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                    <Label Content="السنة" Width="70"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <TextBox Text="{Binding payroll_year}" Width="40" Margin="15,0,0,0" Name="txtYear" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                                 </StackPanel>
                             </Border>
 

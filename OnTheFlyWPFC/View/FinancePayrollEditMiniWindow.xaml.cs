@@ -25,11 +25,13 @@ namespace OnTheFlyWPFC.View
         public Delegate UpdateMainList;
         EmployeeViewModel employeeViewModel;
         PayrollViewModel payrollViewModel;
+        JobsViewModel jobsViewModel;
         bool SelectedState = false;
         public FinancePayrollEditMiniWindow()
         {
             employeeViewModel = new EmployeeViewModel();
             payrollViewModel = new PayrollViewModel();
+            jobsViewModel = new JobsViewModel();
             InitializeComponent();
         }
 
@@ -74,9 +76,35 @@ namespace OnTheFlyWPFC.View
             }
         }
 
-        private void btnEditPayroll_Click(object sender, RoutedEventArgs e)
+        private async void btnEditPayroll_Click(object sender, RoutedEventArgs e)
         {
+            employeeViewModel = new EmployeeViewModel();
+            var employee = (EmployeeDTO)cmbEmployeeName.SelectedValue;
+            payrollViewModel = new PayrollViewModel();
+            jobsViewModel = new JobsViewModel();
+            decimal total_addition, total_deduction, salary, bonus, cash_advance;
+            int overtime_days, overtime_hours, absent_days, late_hours;
+            bonus = cash_advance = 0;
+            overtime_days = overtime_hours = absent_days = late_hours = 0;
+            payrollViewModel = new PayrollViewModel();
+            overtime_days = String.IsNullOrWhiteSpace(txtNumberOfWorkedDays.Text) ? 0 : int.Parse(txtNumberOfWorkedDays.Text);
+            overtime_hours = String.IsNullOrWhiteSpace(txtNumberOfWorkedHours.Text) ? 0 : int.Parse(txtNumberOfWorkedHours.Text);
+            absent_days = String.IsNullOrWhiteSpace(txtAbsentDays.Text) ? 0 : int.Parse(txtAbsentDays.Text);
+            late_hours = String.IsNullOrWhiteSpace(txtLateHours.Text) ? 0 : int.Parse(txtLateHours.Text);
+            bonus = String.IsNullOrWhiteSpace(txtBonus.Text) ? 0 : decimal.Parse(txtBonus.Text);
+            cash_advance = String.IsNullOrWhiteSpace(txtCashAdvance.Text) ? 0 : decimal.Parse(txtCashAdvance.Text);
+            total_addition = HelperClass.calculateTotalAddition(bonus, overtime_days, overtime_hours);
+            total_deduction = HelperClass.calculateTotalDeduction(cash_advance, absent_days, late_hours);
+            jobsViewModel.GetJobByID(employee.jobID);
+            salary = HelperClass.calculateTotalSalary(jobsViewModel.EditJob.basic_salary, total_addition, total_deduction);
 
+            if (await payrollViewModel.EditPayrollByID(HelperClass.payrollID,employee.employeeID, overtime_days, bonus, 0, cash_advance, late_hours, absent_days, total_deduction, total_addition, salary, int.Parse(txtMonth.Text), int.Parse(txtYear.Text), SelectedState))
+            {
+                MessageBox.Show("تم الحفظ");
+
+                UpdateMainList.DynamicInvoke();
+                this.Close();
+            }
         }
 
         private void cmbPayrollPaid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -96,5 +124,6 @@ namespace OnTheFlyWPFC.View
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
+
     }
 }

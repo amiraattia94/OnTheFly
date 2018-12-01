@@ -146,6 +146,7 @@
     <Compile Include="Model\DTO\PayrollDTO.cs" />
     <Compile Include="Model\DTO\DeliveryPriceDTO.cs" />
     <Compile Include="Model\DTO\DeliveryServiceDTO.cs" />
+    <Compile Include="Model\DTO\SettingsDTO.cs" />
     <Compile Include="Model\DTO\VehicleDTO.cs" />
     <Compile Include="Model\DTO\VehicleTypeDTO.cs" />
     <Compile Include="Model\DTO\CategoryDTO.cs" />
@@ -209,6 +210,7 @@
     <Compile Include="Model\Service\PayrollService.cs" />
     <Compile Include="Model\Service\DeliveryPricesService.cs" />
     <Compile Include="Model\Service\InvoiceService.cs" />
+    <Compile Include="Model\Service\SettingsService.cs" />
     <Compile Include="Model\Service\VehicleService.cs" />
     <Compile Include="Model\Service\CategoryService.cs" />
     <Compile Include="Model\Service\CityService.cs" />
@@ -260,6 +262,7 @@
     <Compile Include="ViewModel\JobsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PayrollViewModel.cs" />
+    <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="ViewModel\UserGroupRoleViewModel.cs" />
     <Compile Include="ViewModel\UsersViewModel.cs" />
     <Compile Include="ViewModel\VehicleViewModel.cs" />
@@ -374,6 +377,9 @@
     </Compile>
     <Compile Include="View\FinancePayrollUC.xaml.cs">
       <DependentUpon>FinancePayrollUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FinancePreferencesUC.xaml.cs">
+      <DependentUpon>FinancePreferencesUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FinanceSpendingAddMiniWindow.xaml.cs">
       <DependentUpon>FinanceSpendingAddMiniWindow.xaml</DependentUpon>
@@ -598,6 +604,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FinancePayrollUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FinancePreferencesUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

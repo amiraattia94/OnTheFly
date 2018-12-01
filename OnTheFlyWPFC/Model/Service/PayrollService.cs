@@ -94,6 +94,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 var result = con.PayrollTBLs.Select(s => new PayrollDTO()
                 {
+                    payrollID = s.payrollID,
                     employeeID = s.employeeID,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
@@ -126,6 +127,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     return new PayrollDTO()
                     {
+                        payrollID = result.payrollID,
                         employeeID = result.employeeID,
                         extra_work_days = result.extra_work_days,
                         bonus = result.bonus,
@@ -170,6 +172,7 @@ namespace OnTheFlyWPFC.Model.Service
 
                 var result = con.PayrollTBLs.Where(w => w.employeeID == employeeID).Select(s => new PayrollDTO()
                 {
+                    payrollID = s.payrollID,
                     employeeID = s.employeeID,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
@@ -205,6 +208,7 @@ namespace OnTheFlyWPFC.Model.Service
 
                 var result = con.PayrollTBLs.Where(w => employeeIDs.Contains(w.employeeID)).Select(s => new PayrollDTO()
                 {
+                    payrollID = s.payrollID,
                     employeeID = s.employeeID,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
@@ -241,6 +245,7 @@ namespace OnTheFlyWPFC.Model.Service
 
                 var result = con.PayrollTBLs.Where(w => w.paid == paid).Select(s => new PayrollDTO()
                 {
+                    payrollID = s.payrollID,
                     employeeID = s.employeeID,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
@@ -277,6 +282,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 var result = con.PayrollTBLs.Where(w => w.payroll_month == month && w.payroll_year == year).Select(s => new PayrollDTO()
                 {
+                    payrollID = s.payrollID,
                     employeeID = s.employeeID,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
@@ -315,6 +321,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 var result = con.PayrollTBLs.Where(w => w.payroll_month == month).Select(s => new PayrollDTO()
                 {
+                    payrollID = s.payrollID,
                     employeeID = s.employeeID,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
@@ -353,6 +360,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 var result = con.PayrollTBLs.Where(w => w.payroll_year == year).Select(s => new PayrollDTO()
                 {
+                    payrollID = s.payrollID,
                     employeeID = s.employeeID,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
@@ -391,6 +399,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 var result = con.PayrollTBLs.Where(w => w.bonus == bonus).Select(s => new PayrollDTO()
                 {
+                    payrollID = s.payrollID,
                     employeeID = s.employeeID,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
@@ -429,6 +438,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 var result = con.PayrollTBLs.Where(w => w.cash_advance == cash_advance).Select(s => new PayrollDTO()
                 {
+                    payrollID = s.payrollID,
                     employeeID = s.employeeID,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
@@ -467,6 +477,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 var result = con.PayrollTBLs.Where(w => w.absent_days == absent_days).Select(s => new PayrollDTO()
                 {
+                    payrollID = s.payrollID,
                     employeeID = s.employeeID,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
