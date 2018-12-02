@@ -27,15 +27,15 @@ namespace OnTheFlyWPFC.Model
     
         public virtual DbSet<CategoriesTBL> CategoriesTBLs { get; set; }
         public virtual DbSet<CompanyBranchTBL> CompanyBranchTBLs { get; set; }
-        public virtual DbSet<CustodyTBL> CustodyTBLs { get; set; }
+        public virtual DbSet<custodyTBL> custodyTBLs { get; set; }
         public virtual DbSet<CustomerTBL> CustomerTBLs { get; set; }
         public virtual DbSet<DeliveryPricesTBL> DeliveryPricesTBLs { get; set; }
         public virtual DbSet<DeliveryServiceTBL> DeliveryServiceTBLs { get; set; }
         public virtual DbSet<DeliveryStatusTBL> DeliveryStatusTBLs { get; set; }
-        public virtual DbSet<DeliveryTBL> DeliveryTBLs { get; set; }
+        public virtual DbSet<deliveryTBL> deliveryTBLs { get; set; }
         public virtual DbSet<EmployeeTBL> EmployeeTBLs { get; set; }
         public virtual DbSet<FinanceTBL> FinanceTBLs { get; set; }
-        public virtual DbSet<InvoiceTBL> InvoiceTBLs { get; set; }
+        public virtual DbSet<invoiceTBL> invoiceTBLs { get; set; }
         public virtual DbSet<JobsTBL> JobsTBLs { get; set; }
         public virtual DbSet<LibyanCitiesTBL> LibyanCitiesTBLs { get; set; }
         public virtual DbSet<MembershipTBL> MembershipTBLs { get; set; }

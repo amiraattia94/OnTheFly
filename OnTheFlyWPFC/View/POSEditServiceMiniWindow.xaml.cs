@@ -47,6 +47,8 @@ namespace OnTheFlyWPFC.View
             vendorViewModel = new VendorViewModel();
 
             invoiceViewModel.GetDeliveryServiceByID(HelperClass.POSSelectedDeliveryServiceID);
+            datePickerStartDate.SelectedDate = invoiceViewModel.deliveryService.dateAvailable;
+
 
             cmbVendors.IsEnabled = false;
             cmbBranches.IsEnabled = false;
@@ -203,9 +205,10 @@ namespace OnTheFlyWPFC.View
 
 
 
+            datePickerStartDate.SelectedDate = invoiceViewModel.deliveryService.dateAvailable;
 
 
-            if (await invoiceViewModel.EditDeliveryService(HelperClass.POSSelectedDeliveryServiceID, HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), (decimal)deliveryPrice, true, DateTime.Now)
+            if (await invoiceViewModel.EditDeliveryService(HelperClass.POSSelectedDeliveryServiceID, HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), (decimal)deliveryPrice, true, (DateTime)datePickerStartDate.SelectedDate)
 )           {
                 MessageBox.Show("تم الحفظ");
                 UpdateMainList.DynamicInvoke();
@@ -229,6 +232,11 @@ namespace OnTheFlyWPFC.View
 
         private void LblTotalPrice_Loaded(object sender, RoutedEventArgs e) {
             lblTotalPrice.Content = deliveryPrice + invoiceViewModel.deliveryService.productPrice;
+        }
+
+        private void DatePickerStartDate_Loaded(object sender, RoutedEventArgs e) {
+            datePickerStartDate.SelectedDate = invoiceViewModel.deliveryService.dateAvailable;
+            datePickerStartDate.SelectedDate = invoiceViewModel.deliveryService.dateAvailable;
         }
     }
 }

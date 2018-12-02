@@ -10,7 +10,7 @@
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="750" Width="500" ResizeMode="NoResize" >
-   
+
 
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="8" Height="650" Width="400" MouseDown="Border_MouseDown" >
@@ -20,14 +20,14 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="63"/>
-                    
-                      
+
+
                     <RowDefinition Height="178*"/>
                     <RowDefinition Height="40"/>
 
                     <RowDefinition Height="30"/>
-                   
-                    
+
+
                 </Grid.RowDefinitions>
                 <Grid Height="63" VerticalAlignment="Top" Grid.Row="0">
                     <Grid.Effect>
@@ -57,7 +57,7 @@
 
 
                     <Border Background="Transparent"  Grid.ColumnSpan="2">
-                       
+
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="60"/>
@@ -71,7 +71,7 @@
                                 <ColumnDefinition Width="20"/>
                                 <ColumnDefinition Width="109*"/>
                                 <ColumnDefinition Width="30"/>
-                                
+
                             </Grid.ColumnDefinitions>
                             <Label Content="اضافة خدمة توصيل" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Column="1" Height="44" Margin="0,8"/>
 
@@ -121,7 +121,7 @@
                                 </Border>
 
 
-                               
+
 
                             </StackPanel>
 
@@ -146,7 +146,12 @@
 
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <Label Content="2017/10/10" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
+                                    <DatePicker Grid.Column = "1"
+                                     Grid.Row = "2"
+                                     VerticalAlignment="Stretch" Width="auto" FontSize="16" Foreground="#768295"
+                                     Language = "ar-LY"
+                                     Name="datePickerStartDate"  Loaded="DatePickerStartDate_Loaded" 
+                                     HorizontalAlignment="Stretch" />
 
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">

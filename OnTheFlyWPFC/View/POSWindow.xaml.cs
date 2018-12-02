@@ -19,6 +19,8 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class POSWindow : Window
     {
+        public delegate void RefreshUC();
+        public event RefreshUC RefreshUCEvent;
 
 
         public POSWindow()
@@ -29,6 +31,7 @@ namespace OnTheFlyWPFC.View
         }
 
         UserControl usc = null;
+        POSAddReceiptUC uscA = null;
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e) {
             ButtonCloseMenu.Visibility = Visibility.Visible;
@@ -46,8 +49,11 @@ namespace OnTheFlyWPFC.View
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name) {
                 case "POSAddReceipt":
-                    usc = new POSAddReceiptUC();
-                    MainUC.Children.Add(usc);
+                    uscA = new POSAddReceiptUC();
+                    MainUC.Children.Add(uscA);
+                    RefreshUCEvent += new RefreshUC(RefreshListView);
+                    uscA.UpdateMainUC = RefreshUCEvent;
+
                     lblMenuename.Content = "نقطة البيع";
                     break;
                 case "viewReceipt":
@@ -68,6 +74,13 @@ namespace OnTheFlyWPFC.View
                 default:
                     break;
             }
+        }
+
+        private void RefreshListView() {
+            
+            uscA = new POSAddReceiptUC();
+            MainUC.Children.Add(uscA);
+
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e) {

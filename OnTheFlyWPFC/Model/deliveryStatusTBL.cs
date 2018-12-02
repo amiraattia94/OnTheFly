@@ -17,13 +17,13 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DeliveryStatusTBL()
         {
-            this.DeliveryTBLs = new HashSet<DeliveryTBL>();
+            this.deliveryTBLs = new HashSet<deliveryTBL>();
         }
     
         public int statusID { get; set; }
         public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DeliveryTBL> DeliveryTBLs { get; set; }
+        public virtual ICollection<deliveryTBL> deliveryTBLs { get; set; }
     }
 }

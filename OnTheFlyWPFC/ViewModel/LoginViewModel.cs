@@ -13,6 +13,7 @@ namespace OnTheFlyWPFC.ViewModel
     public class LoginViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler propertyChanged = PropertyChanged;
@@ -67,6 +68,8 @@ namespace OnTheFlyWPFC.ViewModel
 
 
 
+
+
         public LoginViewModel()
         {
             _userName = new ObservableCollection<UserDTO>();
@@ -85,11 +88,23 @@ namespace OnTheFlyWPFC.ViewModel
                 UN.Add(user.username);
             }
         }
+
+
         async public  void GetUserExists(string username, string password)
         {
             var result = await _userService.GetUserExists(username,password);
             
             UserExists = result;
+        }
+
+        async public void GetLoginUserData(string username, string password) {
+            var a = await _userService.GetLoginUserData( username, password);
+
+            HelperClass.LoginUserID = a.userID;
+            HelperClass.LoginUserName = a.username;
+            HelperClass.LoginEmployeeID = a.EmployeeID;
+            HelperClass.LoginEmployeeName = a.EmployeeName;
+            
         }
     }
 }

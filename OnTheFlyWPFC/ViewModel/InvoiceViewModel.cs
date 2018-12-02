@@ -17,7 +17,12 @@ namespace OnTheFlyWPFC.ViewModel {
         public int invoiceNewID { get; set; }
 
         public ObservableCollection<DeliveryServiceDTO> allDeliveryService { get; set; }
+        public ObservableCollection<DeliveryDTO> allDelivery { get; set; }
+        public ObservableCollection<CustodyDTO> allCustody { get; set; }
+
         public DeliveryServiceDTO deliveryService { get; set; }
+        public DeliveryDTO Delivery { get; set; }
+        public CustodyDTO Custody { get; set; }
 
         public decimal? totalPrice { get; set; }
         public decimal? productPrice { get; set; }
@@ -25,17 +30,23 @@ namespace OnTheFlyWPFC.ViewModel {
 
         public InvoiceViewModel() {
 
-            invoiceService = new InvoiceService();
             invoice = new InvoiceDTO();
-            
+            invoiceService = new InvoiceService();
+
+            allDeliveryService = new ObservableCollection<DeliveryServiceDTO>();
+            allDelivery = new ObservableCollection<DeliveryDTO>();
+            allCustody = new ObservableCollection<CustodyDTO>();
+
+            deliveryService = new DeliveryServiceDTO();
+            Delivery = new DeliveryDTO();
+            Custody = new CustodyDTO();
+
+
+
         }
 
-        public void AddNewInvoice() {
-           invoiceService.AddNewInvoice();
-        }
-
-        public void DeleteAllDeliveryServiceByinvoice(int invoiceID) {
-            invoiceService.DeleteAllDeliveryServiceByinvoice(invoiceID);
+        async public Task<bool> AddInvoice(int issuerID, int customerID, decimal discount,int deliveryID, int? custodyID = null) {
+           return await invoiceService.AddInvoice(issuerID, customerID, discount, deliveryID, custodyID);
         }
 
         async public void GetNewInvoiceID() {
@@ -45,9 +56,19 @@ namespace OnTheFlyWPFC.ViewModel {
         async public void GetTotalPriceByInvoiceID(int invoiceID) {
             totalPrice = await invoiceService.GetTotalPriceByInvoiceID(invoiceID);
         }
+
         async public void GetTotalDeliveryPriceByInvoiceID(int invoiceID) {
             deliveryPrice = await invoiceService.GetTotalDeliveryPriceByInvoiceID(invoiceID);
         }
+
+        async public Task<DateTime?> GetLastDeliveryItemDateByInvoiceID(int invoiceID) {
+            return await invoiceService.GetLastDeliveryItemDateByInvoiceID(invoiceID);
+        }
+
+        async public Task<DateTime?> GetFirstDeliveryItemDateByInvoiceID(int invoiceID) {
+            return await invoiceService.GetFirstDeliveryItemDateByInvoiceID(invoiceID);
+        }
+
 
 
         async public Task<bool> AddDeliveryService(int invoiceID, int categoreID, int vendorBranchID, int customerID, bool isFullTrip, decimal productPrice, decimal deliveryPrice, bool status, DateTime avilable) {
@@ -59,7 +80,11 @@ namespace OnTheFlyWPFC.ViewModel {
         }
 
         async public Task<bool> DeleteDeliveryServiceByID(int deliveryServiceID) {
-            return await invoiceService.DeleteDeliveryServiceByID( deliveryServiceID);
+            return await invoiceService.DeleteDeliveryServiceByID(deliveryServiceID);
+        }
+
+        public void DeleteAllDeliveryServiceByinvoice(int invoiceID) {
+            invoiceService.DeleteAllDeliveryServiceByinvoice(invoiceID);
         }
 
         async public void GetAllDeliveryServices() {
@@ -68,6 +93,54 @@ namespace OnTheFlyWPFC.ViewModel {
 
         async public void GetDeliveryServiceByID(int deliveryServiceID) {
             deliveryService = await invoiceService.GetDeliveryServiceByID(deliveryServiceID);
+        }
+
+
+
+        async public Task<bool> AddDelivery(int? carID, int driverID, DateTime? startday, DateTime? enddate, int status, DateTime? firstItemDate, DateTime? lastItemDate) {
+            return await invoiceService.AddDelivery( carID,  driverID,   startday,   enddate,  status,  firstItemDate,  lastItemDate);
+        }
+
+        async public Task<int> AddDeliveryInt(int? carID, int driverID, DateTime? startday, DateTime? enddate, int status, DateTime? firstItemDate, DateTime? lastItemDate) {
+            return await invoiceService.AddDeliveryInt(carID, driverID, startday, enddate, status, firstItemDate, lastItemDate);
+        }
+
+        async public Task<bool> EditDelivery(int deliveryID, DateTime? startday, DateTime? enddate, int status, DateTime? firstItemDate, DateTime? lastItemDate) {
+            return await invoiceService.EditDelivery( deliveryID, startday,  enddate,  status,  firstItemDate,  lastItemDate);
+        }
+
+        async public void GetAllDelivery(int deliveryID) {
+            allDelivery = await invoiceService.GetAllDelivery( deliveryID);
+        }
+
+        async public void GetDeliveryByID(int deliveryID) {
+            Delivery = await invoiceService.GetDeliveryByID( deliveryID);
+        }
+
+
+
+        async public Task<bool> AddCustody(int OwnerID, decimal ammount, bool status, int invoiceID) {
+            return await invoiceService.AddCustody( OwnerID,  ammount,  status,  invoiceID);
+        }
+
+        async public Task<int> AddCustodyInt(int OwnerID, decimal ammount, bool status, int invoiceID) {
+            return await invoiceService.AddCustodyInt(OwnerID, ammount, status, invoiceID);
+        }
+
+        async public Task<bool> EditCustody(int custodyID, bool status) {
+            return await invoiceService.EditCustody( custodyID,  status);
+        }
+
+        async public Task<bool> DeleteCustody(int custodyID) {
+            return await invoiceService.DeleteCustody(custodyID);
+        }
+
+        async public void GetAllCustody() {
+            allCustody = await invoiceService.GetAllCustody();
+        }
+
+        async public void GetCustodyByID(int CustodyID) {
+            Custody = await invoiceService.GetCustodyByID(CustodyID);
         }
 
     }

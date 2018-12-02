@@ -22,7 +22,7 @@
           <Property Name="status" Type="bit" Nullable="false" />
           <Property Name="cityID" Type="varchar" MaxLength="2" />
         </EntityType>
-        <EntityType Name="CustodyTBL">
+        <EntityType Name="custodyTBL">
           <Key>
             <PropertyRef Name="custodyID" />
           </Key>
@@ -30,7 +30,7 @@
           <Property Name="ownerID" Type="int" Nullable="false" />
           <Property Name="amount" Type="money" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="deliveryID" Type="int" />
+          <Property Name="invoiceID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CustomerTBL">
           <Key>
@@ -79,18 +79,19 @@
           <Property Name="statusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <EntityType Name="DeliveryTBL">
+        <EntityType Name="deliveryTBL">
           <Key>
             <PropertyRef Name="deliveryID" />
           </Key>
           <Property Name="deliveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="full_delivery" Type="bit" />
-          <Property Name="carID" Type="int" Nullable="false" />
+          <Property Name="carID" Type="int" />
           <Property Name="driverID" Type="int" Nullable="false" />
-          <Property Name="invoiceID" Type="int" Nullable="false" />
           <Property Name="start_date" Type="datetime" />
           <Property Name="end_date" Type="datetime" />
           <Property Name="statusID" Type="int" Nullable="false" />
+          <Property Name="firstItemAvailableDate" Type="datetime" />
+          <Property Name="lastItemAvailableDate" Type="datetime" />
+          <Property Name="invoiceID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EmployeeTBL">
           <Key>
@@ -119,17 +120,19 @@
           <Property Name="FinanceEmployee" Type="int" Nullable="false" />
           <Property Name="FinanceAddDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="InvoiceTBL">
+        <EntityType Name="invoiceTBL">
           <Key>
             <PropertyRef Name="invoiceID" />
           </Key>
-          <Property Name="invoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="invoiceID" Type="int" Nullable="false" />
           <Property Name="issuerID" Type="int" />
           <Property Name="custodyID" Type="int" />
           <Property Name="customerID" Type="int" />
           <Property Name="time" Type="datetime" Nullable="false" />
           <Property Name="issued" Type="bit" Nullable="false" />
           <Property Name="discount" Type="money" />
+          <Property Name="deliveryID" Type="int" />
+          <Property Name="totalcost" Type="money" />
         </EntityType>
         <EntityType Name="JobsTBL">
           <Key>
@@ -331,13 +334,25 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
         </Association>
         <Association Name="FK_custodyTBL_EmployeeTBL">
           <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="1" />
-          <End Role="CustodyTBL" Type="Self.CustodyTBL" Multiplicity="*" />
+          <End Role="custodyTBL" Type="Self.custodyTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmployeeTBL">
               <PropertyRef Name="employeeID" />
             </Principal>
-            <Dependent Role="CustodyTBL">
+            <Dependent Role="custodyTBL">
               <PropertyRef Name="ownerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_custodyTBL_invoiceTBL">
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="1" />
+          <End Role="custodyTBL" Type="Self.custodyTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoiceTBL">
+              <PropertyRef Name="invoiceID" />
+            </Principal>
+            <Dependent Role="custodyTBL">
+              <PropertyRef Name="invoiceID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -414,10 +429,10 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DeliveryServiceTBL_invoiceTBL">
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="1" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="1" />
           <End Role="DeliveryServiceTBL" Type="Self.DeliveryServiceTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="InvoiceTBL">
+            <Principal Role="invoiceTBL">
               <PropertyRef Name="invoiceID" />
             </Principal>
             <Dependent Role="DeliveryServiceTBL">
@@ -438,49 +453,49 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_deliveryTBL_CarsTBL">
-          <End Role="VehicleTBL" Type="Self.VehicleTBL" Multiplicity="1" />
-          <End Role="DeliveryTBL" Type="Self.DeliveryTBL" Multiplicity="*" />
+          <End Role="VehicleTBL" Type="Self.VehicleTBL" Multiplicity="0..1" />
+          <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VehicleTBL">
               <PropertyRef Name="vehicleID" />
             </Principal>
-            <Dependent Role="DeliveryTBL">
+            <Dependent Role="deliveryTBL">
               <PropertyRef Name="carID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_deliveryTBL_deliveryStatusTBL">
           <End Role="DeliveryStatusTBL" Type="Self.DeliveryStatusTBL" Multiplicity="1" />
-          <End Role="DeliveryTBL" Type="Self.DeliveryTBL" Multiplicity="*" />
+          <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DeliveryStatusTBL">
               <PropertyRef Name="statusID" />
             </Principal>
-            <Dependent Role="DeliveryTBL">
+            <Dependent Role="deliveryTBL">
               <PropertyRef Name="statusID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_deliveryTBL_EmployeeTBL">
           <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="1" />
-          <End Role="DeliveryTBL" Type="Self.DeliveryTBL" Multiplicity="*" />
+          <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmployeeTBL">
               <PropertyRef Name="employeeID" />
             </Principal>
-            <Dependent Role="DeliveryTBL">
+            <Dependent Role="deliveryTBL">
               <PropertyRef Name="driverID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_deliveryTBL_invoiceTBL">
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="1" />
-          <End Role="DeliveryTBL" Type="Self.DeliveryTBL" Multiplicity="*" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="1" />
+          <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="InvoiceTBL">
+            <Principal Role="invoiceTBL">
               <PropertyRef Name="invoiceID" />
             </Principal>
-            <Dependent Role="DeliveryTBL">
+            <Dependent Role="deliveryTBL">
               <PropertyRef Name="invoiceID" />
             </Dependent>
           </ReferentialConstraint>
@@ -522,37 +537,49 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_invoiceTBL_custodyTBL">
-          <End Role="CustodyTBL" Type="Self.CustodyTBL" Multiplicity="0..1" />
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="*" />
+          <End Role="custodyTBL" Type="Self.custodyTBL" Multiplicity="0..1" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CustodyTBL">
+            <Principal Role="custodyTBL">
               <PropertyRef Name="custodyID" />
             </Principal>
-            <Dependent Role="InvoiceTBL">
+            <Dependent Role="invoiceTBL">
               <PropertyRef Name="custodyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_invoiceTBL_customerTBL">
           <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="*" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CustomerTBL">
               <PropertyRef Name="customerID" />
             </Principal>
-            <Dependent Role="InvoiceTBL">
+            <Dependent Role="invoiceTBL">
               <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoiceTBL_deliveryTBL">
+          <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="0..1" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deliveryTBL">
+              <PropertyRef Name="deliveryID" />
+            </Principal>
+            <Dependent Role="invoiceTBL">
+              <PropertyRef Name="deliveryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_invoiceTBL_userTBL">
           <End Role="UserTBL" Type="Self.UserTBL" Multiplicity="0..1" />
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="*" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserTBL">
               <PropertyRef Name="userID" />
             </Principal>
-            <Dependent Role="InvoiceTBL">
+            <Dependent Role="invoiceTBL">
               <PropertyRef Name="issuerID" />
             </Dependent>
           </ReferentialConstraint>
@@ -594,10 +621,10 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_servicesInvoice_invoiceTBL">
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="1" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="1" />
           <End Role="ServicesInvoice" Type="Self.ServicesInvoice" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="InvoiceTBL">
+            <Principal Role="invoiceTBL">
               <PropertyRef Name="invoiceID" />
             </Principal>
             <Dependent Role="ServicesInvoice">
@@ -740,15 +767,15 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
         <EntityContainer Name="OnTheFlyDBModelStoreContainer">
           <EntitySet Name="CategoriesTBL" EntityType="Self.CategoriesTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CompanyBranchTBL" EntityType="Self.CompanyBranchTBL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CustodyTBL" EntityType="Self.CustodyTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="custodyTBL" EntityType="Self.custodyTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerTBL" EntityType="Self.CustomerTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryPricesTBL" EntityType="Self.DeliveryPricesTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryServiceTBL" EntityType="Self.DeliveryServiceTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryStatusTBL" EntityType="Self.DeliveryStatusTBL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DeliveryTBL" EntityType="Self.DeliveryTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="deliveryTBL" EntityType="Self.deliveryTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeTBL" EntityType="Self.EmployeeTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FinanceTBL" EntityType="Self.FinanceTBL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="InvoiceTBL" EntityType="Self.InvoiceTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="invoiceTBL" EntityType="Self.invoiceTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobsTBL" EntityType="Self.JobsTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LibyanCitiesTBL" EntityType="Self.LibyanCitiesTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MembershipTBL" EntityType="Self.MembershipTBL" Schema="dbo" store:Type="Tables" />
@@ -779,7 +806,11 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </AssociationSet>
           <AssociationSet Name="FK_custodyTBL_EmployeeTBL" Association="Self.FK_custodyTBL_EmployeeTBL">
             <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
-            <End Role="CustodyTBL" EntitySet="CustodyTBL" />
+            <End Role="custodyTBL" EntitySet="custodyTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_custodyTBL_invoiceTBL" Association="Self.FK_custodyTBL_invoiceTBL">
+            <End Role="invoiceTBL" EntitySet="invoiceTBL" />
+            <End Role="custodyTBL" EntitySet="custodyTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_customerTBL_LibyanCitiesTBL" Association="Self.FK_customerTBL_LibyanCitiesTBL">
             <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBL" />
@@ -806,7 +837,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
             <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_DeliveryServiceTBL_invoiceTBL" Association="Self.FK_DeliveryServiceTBL_invoiceTBL">
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBL" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBL" />
             <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_DeliveryServiceTBL_VendorBranchTBL" Association="Self.FK_DeliveryServiceTBL_VendorBranchTBL">
@@ -815,19 +846,19 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_CarsTBL" Association="Self.FK_deliveryTBL_CarsTBL">
             <End Role="VehicleTBL" EntitySet="VehicleTBL" />
-            <End Role="DeliveryTBL" EntitySet="DeliveryTBL" />
+            <End Role="deliveryTBL" EntitySet="deliveryTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_deliveryStatusTBL" Association="Self.FK_deliveryTBL_deliveryStatusTBL">
             <End Role="DeliveryStatusTBL" EntitySet="DeliveryStatusTBL" />
-            <End Role="DeliveryTBL" EntitySet="DeliveryTBL" />
+            <End Role="deliveryTBL" EntitySet="deliveryTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_EmployeeTBL" Association="Self.FK_deliveryTBL_EmployeeTBL">
             <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
-            <End Role="DeliveryTBL" EntitySet="DeliveryTBL" />
+            <End Role="deliveryTBL" EntitySet="deliveryTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_invoiceTBL" Association="Self.FK_deliveryTBL_invoiceTBL">
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBL" />
-            <End Role="DeliveryTBL" EntitySet="DeliveryTBL" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBL" />
+            <End Role="deliveryTBL" EntitySet="deliveryTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeeTBL_CompanyBranchTBL1" Association="Self.FK_EmployeeTBL_CompanyBranchTBL1">
             <End Role="CompanyBranchTBL" EntitySet="CompanyBranchTBL" />
@@ -842,16 +873,20 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
             <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_invoiceTBL_custodyTBL" Association="Self.FK_invoiceTBL_custodyTBL">
-            <End Role="CustodyTBL" EntitySet="CustodyTBL" />
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBL" />
+            <End Role="custodyTBL" EntitySet="custodyTBL" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_invoiceTBL_customerTBL" Association="Self.FK_invoiceTBL_customerTBL">
             <End Role="CustomerTBL" EntitySet="CustomerTBL" />
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBL" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoiceTBL_deliveryTBL" Association="Self.FK_invoiceTBL_deliveryTBL">
+            <End Role="deliveryTBL" EntitySet="deliveryTBL" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_invoiceTBL_userTBL" Association="Self.FK_invoiceTBL_userTBL">
             <End Role="UserTBL" EntitySet="UserTBL" />
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBL" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_MembershipTBL_customerTBL" Association="Self.FK_MembershipTBL_customerTBL">
             <End Role="CustomerTBL" EntitySet="CustomerTBL" />
@@ -866,7 +901,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
             <End Role="PayrollTBL" EntitySet="PayrollTBL" />
           </AssociationSet>
           <AssociationSet Name="FK_servicesInvoice_invoiceTBL" Association="Self.FK_servicesInvoice_invoiceTBL">
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBL" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBL" />
             <End Role="ServicesInvoice" EntitySet="ServicesInvoice" />
           </AssociationSet>
           <AssociationSet Name="FK_servicesInvoice_serviceTBL" Association="Self.FK_servicesInvoice_serviceTBL">
@@ -943,7 +978,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <NavigationProperty Name="EmployeeTBLs" Relationship="Self.FK_EmployeeTBL_CompanyBranchTBL1" FromRole="CompanyBranchTBL" ToRole="EmployeeTBL" />
           <NavigationProperty Name="VehicleTBLs" Relationship="Self.FK_VehicleTBL_CompanyBranchTBL" FromRole="CompanyBranchTBL" ToRole="VehicleTBL" />
         </EntityType>
-        <EntityType Name="CustodyTBL">
+        <EntityType Name="custodyTBL">
           <Key>
             <PropertyRef Name="custodyID" />
           </Key>
@@ -951,9 +986,10 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="ownerID" Type="Int32" Nullable="false" />
           <Property Name="amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="deliveryID" Type="Int32" />
-          <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_custodyTBL_EmployeeTBL" FromRole="CustodyTBL" ToRole="EmployeeTBL" />
-          <NavigationProperty Name="InvoiceTBLs" Relationship="Self.FK_invoiceTBL_custodyTBL" FromRole="CustodyTBL" ToRole="InvoiceTBL" />
+          <Property Name="invoiceID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_custodyTBL_EmployeeTBL" FromRole="custodyTBL" ToRole="EmployeeTBL" />
+          <NavigationProperty Name="invoiceTBL" Relationship="Self.FK_custodyTBL_invoiceTBL" FromRole="custodyTBL" ToRole="invoiceTBL" />
+          <NavigationProperty Name="invoiceTBLs" Relationship="Self.FK_invoiceTBL_custodyTBL" FromRole="custodyTBL" ToRole="invoiceTBL" />
         </EntityType>
         <EntityType Name="CustomerTBL">
           <Key>
@@ -969,7 +1005,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="credit" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_customerTBL_LibyanCitiesTBL" FromRole="CustomerTBL" ToRole="LibyanCitiesTBL" />
           <NavigationProperty Name="DeliveryServiceTBLs" Relationship="Self.FK_DeliveryServiceTBL_customerTBL" FromRole="CustomerTBL" ToRole="DeliveryServiceTBL" />
-          <NavigationProperty Name="InvoiceTBLs" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="CustomerTBL" ToRole="InvoiceTBL" />
+          <NavigationProperty Name="invoiceTBLs" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="CustomerTBL" ToRole="invoiceTBL" />
           <NavigationProperty Name="MembershipTBLs" Relationship="Self.FK_MembershipTBL_customerTBL" FromRole="CustomerTBL" ToRole="MembershipTBL" />
         </EntityType>
         <EntityType Name="DeliveryPricesTBL">
@@ -1003,7 +1039,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="availabilityDay" Type="DateTime" Precision="0" />
           <NavigationProperty Name="CategoriesTBL" Relationship="Self.FK_DeliveryServiceTBL_CategoriesTBL" FromRole="DeliveryServiceTBL" ToRole="CategoriesTBL" />
           <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_DeliveryServiceTBL_customerTBL" FromRole="DeliveryServiceTBL" ToRole="CustomerTBL" />
-          <NavigationProperty Name="InvoiceTBL" Relationship="Self.FK_DeliveryServiceTBL_invoiceTBL" FromRole="DeliveryServiceTBL" ToRole="InvoiceTBL" />
+          <NavigationProperty Name="invoiceTBL" Relationship="Self.FK_DeliveryServiceTBL_invoiceTBL" FromRole="DeliveryServiceTBL" ToRole="invoiceTBL" />
           <NavigationProperty Name="VendorBranchTBL" Relationship="Self.FK_DeliveryServiceTBL_VendorBranchTBL" FromRole="DeliveryServiceTBL" ToRole="VendorBranchTBL" />
         </EntityType>
         <EntityType Name="DeliveryStatusTBL">
@@ -1012,24 +1048,26 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </Key>
           <Property Name="statusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DeliveryTBLs" Relationship="Self.FK_deliveryTBL_deliveryStatusTBL" FromRole="DeliveryStatusTBL" ToRole="DeliveryTBL" />
+          <NavigationProperty Name="deliveryTBLs" Relationship="Self.FK_deliveryTBL_deliveryStatusTBL" FromRole="DeliveryStatusTBL" ToRole="deliveryTBL" />
         </EntityType>
-        <EntityType Name="DeliveryTBL">
+        <EntityType Name="deliveryTBL">
           <Key>
             <PropertyRef Name="deliveryID" />
           </Key>
           <Property Name="deliveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="full_delivery" Type="Boolean" />
-          <Property Name="carID" Type="Int32" Nullable="false" />
+          <Property Name="carID" Type="Int32" />
           <Property Name="driverID" Type="Int32" Nullable="false" />
-          <Property Name="invoiceID" Type="Int32" Nullable="false" />
           <Property Name="start_date" Type="DateTime" Precision="3" />
           <Property Name="end_date" Type="DateTime" Precision="3" />
           <Property Name="statusID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="DeliveryStatusTBL" Relationship="Self.FK_deliveryTBL_deliveryStatusTBL" FromRole="DeliveryTBL" ToRole="DeliveryStatusTBL" />
-          <NavigationProperty Name="VehicleTBL" Relationship="Self.FK_deliveryTBL_CarsTBL" FromRole="DeliveryTBL" ToRole="VehicleTBL" />
-          <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_deliveryTBL_EmployeeTBL" FromRole="DeliveryTBL" ToRole="EmployeeTBL" />
-          <NavigationProperty Name="InvoiceTBL" Relationship="Self.FK_deliveryTBL_invoiceTBL" FromRole="DeliveryTBL" ToRole="InvoiceTBL" />
+          <Property Name="firstItemAvailableDate" Type="DateTime" Precision="3" />
+          <Property Name="lastItemAvailableDate" Type="DateTime" Precision="3" />
+          <Property Name="invoiceID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DeliveryStatusTBL" Relationship="Self.FK_deliveryTBL_deliveryStatusTBL" FromRole="deliveryTBL" ToRole="DeliveryStatusTBL" />
+          <NavigationProperty Name="VehicleTBL" Relationship="Self.FK_deliveryTBL_CarsTBL" FromRole="deliveryTBL" ToRole="VehicleTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_deliveryTBL_EmployeeTBL" FromRole="deliveryTBL" ToRole="EmployeeTBL" />
+          <NavigationProperty Name="invoiceTBL" Relationship="Self.FK_deliveryTBL_invoiceTBL" FromRole="deliveryTBL" ToRole="invoiceTBL" />
+          <NavigationProperty Name="invoiceTBLs" Relationship="Self.FK_invoiceTBL_deliveryTBL" FromRole="deliveryTBL" ToRole="invoiceTBL" />
         </EntityType>
         <EntityType Name="EmployeeTBL">
           <Key>
@@ -1047,8 +1085,8 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="end_date" Type="DateTime" Precision="0" />
           <Property Name="branchID" Type="Int32" />
           <NavigationProperty Name="CompanyBranchTBL" Relationship="Self.FK_EmployeeTBL_CompanyBranchTBL1" FromRole="EmployeeTBL" ToRole="CompanyBranchTBL" />
-          <NavigationProperty Name="CustodyTBLs" Relationship="Self.FK_custodyTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="CustodyTBL" />
-          <NavigationProperty Name="DeliveryTBLs" Relationship="Self.FK_deliveryTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="DeliveryTBL" />
+          <NavigationProperty Name="custodyTBLs" Relationship="Self.FK_custodyTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="custodyTBL" />
+          <NavigationProperty Name="deliveryTBLs" Relationship="Self.FK_deliveryTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="deliveryTBL" />
           <NavigationProperty Name="JobsTBL" Relationship="Self.FK_EmployeeTBL_JobsTBL" FromRole="EmployeeTBL" ToRole="JobsTBL" />
           <NavigationProperty Name="LibyanCitiesTBL" Relationship="Self.FK_EmployeeTBL_LibyanCitiesTBL" FromRole="EmployeeTBL" ToRole="LibyanCitiesTBL" />
           <NavigationProperty Name="PayrollTBLs" Relationship="Self.FK_payrollTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="PayrollTBL" />
@@ -1065,23 +1103,27 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="FinanceEmployee" Type="Int32" Nullable="false" />
           <Property Name="FinanceAddDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="InvoiceTBL">
+        <EntityType Name="invoiceTBL">
           <Key>
             <PropertyRef Name="invoiceID" />
           </Key>
-          <Property Name="invoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invoiceID" Type="Int32" Nullable="false" />
           <Property Name="issuerID" Type="Int32" />
           <Property Name="custodyID" Type="Int32" />
           <Property Name="customerID" Type="Int32" />
           <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="issued" Type="Boolean" Nullable="false" />
           <Property Name="discount" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="CustodyTBL" Relationship="Self.FK_invoiceTBL_custodyTBL" FromRole="InvoiceTBL" ToRole="CustodyTBL" />
-          <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="InvoiceTBL" ToRole="CustomerTBL" />
-          <NavigationProperty Name="DeliveryServiceTBLs" Relationship="Self.FK_DeliveryServiceTBL_invoiceTBL" FromRole="InvoiceTBL" ToRole="DeliveryServiceTBL" />
-          <NavigationProperty Name="DeliveryTBLs" Relationship="Self.FK_deliveryTBL_invoiceTBL" FromRole="InvoiceTBL" ToRole="DeliveryTBL" />
-          <NavigationProperty Name="UserTBL" Relationship="Self.FK_invoiceTBL_userTBL" FromRole="InvoiceTBL" ToRole="UserTBL" />
-          <NavigationProperty Name="ServiceTBLs" Relationship="Self.ServicesInvoice" FromRole="InvoiceTBL" ToRole="ServiceTBL" />
+          <Property Name="deliveryID" Type="Int32" />
+          <Property Name="totalcost" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="custodyTBLs" Relationship="Self.FK_custodyTBL_invoiceTBL" FromRole="invoiceTBL" ToRole="custodyTBL" />
+          <NavigationProperty Name="custodyTBL" Relationship="Self.FK_invoiceTBL_custodyTBL" FromRole="invoiceTBL" ToRole="custodyTBL" />
+          <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="invoiceTBL" ToRole="CustomerTBL" />
+          <NavigationProperty Name="DeliveryServiceTBLs" Relationship="Self.FK_DeliveryServiceTBL_invoiceTBL" FromRole="invoiceTBL" ToRole="DeliveryServiceTBL" />
+          <NavigationProperty Name="deliveryTBLs" Relationship="Self.FK_deliveryTBL_invoiceTBL" FromRole="invoiceTBL" ToRole="deliveryTBL" />
+          <NavigationProperty Name="deliveryTBL" Relationship="Self.FK_invoiceTBL_deliveryTBL" FromRole="invoiceTBL" ToRole="deliveryTBL" />
+          <NavigationProperty Name="UserTBL" Relationship="Self.FK_invoiceTBL_userTBL" FromRole="invoiceTBL" ToRole="UserTBL" />
+          <NavigationProperty Name="ServiceTBLs" Relationship="Self.ServicesInvoice" FromRole="invoiceTBL" ToRole="ServiceTBL" />
         </EntityType>
         <EntityType Name="JobsTBL">
           <Key>
@@ -1146,7 +1188,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="categoryID" Type="Int32" />
           <Property Name="active" Type="Boolean" />
           <NavigationProperty Name="CategoriesTBL" Relationship="Self.FK_serviceTBL_CategoriesTBL" FromRole="ServiceTBL" ToRole="CategoriesTBL" />
-          <NavigationProperty Name="InvoiceTBLs" Relationship="Self.ServicesInvoice" FromRole="ServiceTBL" ToRole="InvoiceTBL" />
+          <NavigationProperty Name="invoiceTBLs" Relationship="Self.ServicesInvoice" FromRole="ServiceTBL" ToRole="invoiceTBL" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1214,7 +1256,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="employeeID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_userTBL_EmployeeTBL" FromRole="UserTBL" ToRole="EmployeeTBL" />
-          <NavigationProperty Name="InvoiceTBLs" Relationship="Self.FK_invoiceTBL_userTBL" FromRole="UserTBL" ToRole="InvoiceTBL" />
+          <NavigationProperty Name="invoiceTBLs" Relationship="Self.FK_invoiceTBL_userTBL" FromRole="UserTBL" ToRole="invoiceTBL" />
           <NavigationProperty Name="UserGroupTBLs" Relationship="Self.FK_userGroupTBL_userTBL" FromRole="UserTBL" ToRole="UserGroupTBL" />
         </EntityType>
         <EntityType Name="VehicleTBL">
@@ -1230,7 +1272,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="branchID" Type="Int32" />
           <Property Name="state" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="CompanyBranchTBL" Relationship="Self.FK_VehicleTBL_CompanyBranchTBL" FromRole="VehicleTBL" ToRole="CompanyBranchTBL" />
-          <NavigationProperty Name="DeliveryTBLs" Relationship="Self.FK_deliveryTBL_CarsTBL" FromRole="VehicleTBL" ToRole="DeliveryTBL" />
+          <NavigationProperty Name="deliveryTBLs" Relationship="Self.FK_deliveryTBL_CarsTBL" FromRole="VehicleTBL" ToRole="deliveryTBL" />
           <NavigationProperty Name="VehicleTypeTBL" Relationship="Self.FK_VehicleTBL_VehicleTypeTBL" FromRole="VehicleTBL" ToRole="VehicleTypeTBL" />
         </EntityType>
         <EntityType Name="VehicleTypeTBL">
@@ -1375,24 +1417,36 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
         </Association>
         <Association Name="FK_custodyTBL_EmployeeTBL">
           <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="1" />
-          <End Role="CustodyTBL" Type="Self.CustodyTBL" Multiplicity="*" />
+          <End Role="custodyTBL" Type="Self.custodyTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmployeeTBL">
               <PropertyRef Name="employeeID" />
             </Principal>
-            <Dependent Role="CustodyTBL">
+            <Dependent Role="custodyTBL">
               <PropertyRef Name="ownerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_invoiceTBL_custodyTBL">
-          <End Role="CustodyTBL" Type="Self.CustodyTBL" Multiplicity="0..1" />
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="*" />
+        <Association Name="FK_custodyTBL_invoiceTBL">
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="1" />
+          <End Role="custodyTBL" Type="Self.custodyTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CustodyTBL">
+            <Principal Role="invoiceTBL">
+              <PropertyRef Name="invoiceID" />
+            </Principal>
+            <Dependent Role="custodyTBL">
+              <PropertyRef Name="invoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoiceTBL_custodyTBL">
+          <End Role="custodyTBL" Type="Self.custodyTBL" Multiplicity="0..1" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="custodyTBL">
               <PropertyRef Name="custodyID" />
             </Principal>
-            <Dependent Role="InvoiceTBL">
+            <Dependent Role="invoiceTBL">
               <PropertyRef Name="custodyID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1423,12 +1477,12 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
         </Association>
         <Association Name="FK_invoiceTBL_customerTBL">
           <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="*" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CustomerTBL">
               <PropertyRef Name="customerID" />
             </Principal>
-            <Dependent Role="InvoiceTBL">
+            <Dependent Role="invoiceTBL">
               <PropertyRef Name="customerID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1470,10 +1524,10 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DeliveryServiceTBL_invoiceTBL">
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="1" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="1" />
           <End Role="DeliveryServiceTBL" Type="Self.DeliveryServiceTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="InvoiceTBL">
+            <Principal Role="invoiceTBL">
               <PropertyRef Name="invoiceID" />
             </Principal>
             <Dependent Role="DeliveryServiceTBL">
@@ -1495,49 +1549,61 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
         </Association>
         <Association Name="FK_deliveryTBL_deliveryStatusTBL">
           <End Role="DeliveryStatusTBL" Type="Self.DeliveryStatusTBL" Multiplicity="1" />
-          <End Role="DeliveryTBL" Type="Self.DeliveryTBL" Multiplicity="*" />
+          <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DeliveryStatusTBL">
               <PropertyRef Name="statusID" />
             </Principal>
-            <Dependent Role="DeliveryTBL">
+            <Dependent Role="deliveryTBL">
               <PropertyRef Name="statusID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_deliveryTBL_CarsTBL">
-          <End Role="VehicleTBL" Type="Self.VehicleTBL" Multiplicity="1" />
-          <End Role="DeliveryTBL" Type="Self.DeliveryTBL" Multiplicity="*" />
+          <End Role="VehicleTBL" Type="Self.VehicleTBL" Multiplicity="0..1" />
+          <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VehicleTBL">
               <PropertyRef Name="vehicleID" />
             </Principal>
-            <Dependent Role="DeliveryTBL">
+            <Dependent Role="deliveryTBL">
               <PropertyRef Name="carID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_deliveryTBL_EmployeeTBL">
           <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="1" />
-          <End Role="DeliveryTBL" Type="Self.DeliveryTBL" Multiplicity="*" />
+          <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmployeeTBL">
               <PropertyRef Name="employeeID" />
             </Principal>
-            <Dependent Role="DeliveryTBL">
+            <Dependent Role="deliveryTBL">
               <PropertyRef Name="driverID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_deliveryTBL_invoiceTBL">
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="1" />
-          <End Role="DeliveryTBL" Type="Self.DeliveryTBL" Multiplicity="*" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="1" />
+          <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="InvoiceTBL">
+            <Principal Role="invoiceTBL">
               <PropertyRef Name="invoiceID" />
             </Principal>
-            <Dependent Role="DeliveryTBL">
+            <Dependent Role="deliveryTBL">
               <PropertyRef Name="invoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoiceTBL_deliveryTBL">
+          <End Role="deliveryTBL" Type="Self.deliveryTBL" Multiplicity="0..1" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deliveryTBL">
+              <PropertyRef Name="deliveryID" />
+            </Principal>
+            <Dependent Role="invoiceTBL">
+              <PropertyRef Name="deliveryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1591,12 +1657,12 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
         </Association>
         <Association Name="FK_invoiceTBL_userTBL">
           <End Role="UserTBL" Type="Self.UserTBL" Multiplicity="0..1" />
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="*" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserTBL">
               <PropertyRef Name="userID" />
             </Principal>
-            <Dependent Role="InvoiceTBL">
+            <Dependent Role="invoiceTBL">
               <PropertyRef Name="issuerID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1686,21 +1752,21 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="ServicesInvoice">
-          <End Role="InvoiceTBL" Type="Self.InvoiceTBL" Multiplicity="*" />
+          <End Role="invoiceTBL" Type="Self.invoiceTBL" Multiplicity="*" />
           <End Role="ServiceTBL" Type="Self.ServiceTBL" Multiplicity="*" />
         </Association>
         <EntityContainer Name="OnTheFlyDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CategoriesTBLs" EntityType="Self.CategoriesTBL" />
           <EntitySet Name="CompanyBranchTBLs" EntityType="Self.CompanyBranchTBL" />
-          <EntitySet Name="CustodyTBLs" EntityType="Self.CustodyTBL" />
+          <EntitySet Name="custodyTBLs" EntityType="Self.custodyTBL" />
           <EntitySet Name="CustomerTBLs" EntityType="Self.CustomerTBL" />
           <EntitySet Name="DeliveryPricesTBLs" EntityType="Self.DeliveryPricesTBL" />
           <EntitySet Name="DeliveryServiceTBLs" EntityType="Self.DeliveryServiceTBL" />
           <EntitySet Name="DeliveryStatusTBLs" EntityType="Self.DeliveryStatusTBL" />
-          <EntitySet Name="DeliveryTBLs" EntityType="Self.DeliveryTBL" />
+          <EntitySet Name="deliveryTBLs" EntityType="Self.deliveryTBL" />
           <EntitySet Name="EmployeeTBLs" EntityType="Self.EmployeeTBL" />
           <EntitySet Name="FinanceTBLs" EntityType="Self.FinanceTBL" />
-          <EntitySet Name="InvoiceTBLs" EntityType="Self.InvoiceTBL" />
+          <EntitySet Name="invoiceTBLs" EntityType="Self.invoiceTBL" />
           <EntitySet Name="JobsTBLs" EntityType="Self.JobsTBL" />
           <EntitySet Name="LibyanCitiesTBLs" EntityType="Self.LibyanCitiesTBL" />
           <EntitySet Name="MembershipTBLs" EntityType="Self.MembershipTBL" />
@@ -1746,11 +1812,15 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </AssociationSet>
           <AssociationSet Name="FK_custodyTBL_EmployeeTBL" Association="Self.FK_custodyTBL_EmployeeTBL">
             <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
-            <End Role="CustodyTBL" EntitySet="CustodyTBLs" />
+            <End Role="custodyTBL" EntitySet="custodyTBLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_custodyTBL_invoiceTBL" Association="Self.FK_custodyTBL_invoiceTBL">
+            <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
+            <End Role="custodyTBL" EntitySet="custodyTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_invoiceTBL_custodyTBL" Association="Self.FK_invoiceTBL_custodyTBL">
-            <End Role="CustodyTBL" EntitySet="CustodyTBLs" />
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBLs" />
+            <End Role="custodyTBL" EntitySet="custodyTBLs" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_customerTBL_LibyanCitiesTBL" Association="Self.FK_customerTBL_LibyanCitiesTBL">
             <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
@@ -1762,7 +1832,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </AssociationSet>
           <AssociationSet Name="FK_invoiceTBL_customerTBL" Association="Self.FK_invoiceTBL_customerTBL">
             <End Role="CustomerTBL" EntitySet="CustomerTBLs" />
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBLs" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_MembershipTBL_customerTBL" Association="Self.FK_MembershipTBL_customerTBL">
             <End Role="CustomerTBL" EntitySet="CustomerTBLs" />
@@ -1777,7 +1847,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
             <End Role="DeliveryPricesTBL" EntitySet="DeliveryPricesTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_DeliveryServiceTBL_invoiceTBL" Association="Self.FK_DeliveryServiceTBL_invoiceTBL">
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBLs" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
             <End Role="DeliveryServiceTBL" EntitySet="DeliveryServiceTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_DeliveryServiceTBL_VendorBranchTBL" Association="Self.FK_DeliveryServiceTBL_VendorBranchTBL">
@@ -1786,19 +1856,23 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_deliveryStatusTBL" Association="Self.FK_deliveryTBL_deliveryStatusTBL">
             <End Role="DeliveryStatusTBL" EntitySet="DeliveryStatusTBLs" />
-            <End Role="DeliveryTBL" EntitySet="DeliveryTBLs" />
+            <End Role="deliveryTBL" EntitySet="deliveryTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_CarsTBL" Association="Self.FK_deliveryTBL_CarsTBL">
             <End Role="VehicleTBL" EntitySet="VehicleTBLs" />
-            <End Role="DeliveryTBL" EntitySet="DeliveryTBLs" />
+            <End Role="deliveryTBL" EntitySet="deliveryTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_EmployeeTBL" Association="Self.FK_deliveryTBL_EmployeeTBL">
             <End Role="EmployeeTBL" EntitySet="EmployeeTBLs" />
-            <End Role="DeliveryTBL" EntitySet="DeliveryTBLs" />
+            <End Role="deliveryTBL" EntitySet="deliveryTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_deliveryTBL_invoiceTBL" Association="Self.FK_deliveryTBL_invoiceTBL">
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBLs" />
-            <End Role="DeliveryTBL" EntitySet="DeliveryTBLs" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
+            <End Role="deliveryTBL" EntitySet="deliveryTBLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoiceTBL_deliveryTBL" Association="Self.FK_invoiceTBL_deliveryTBL">
+            <End Role="deliveryTBL" EntitySet="deliveryTBLs" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeeTBL_JobsTBL" Association="Self.FK_EmployeeTBL_JobsTBL">
             <End Role="JobsTBL" EntitySet="JobsTBLs" />
@@ -1818,7 +1892,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </AssociationSet>
           <AssociationSet Name="FK_invoiceTBL_userTBL" Association="Self.FK_invoiceTBL_userTBL">
             <End Role="UserTBL" EntitySet="UserTBLs" />
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBLs" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
           </AssociationSet>
           <AssociationSet Name="FK_vendorBranchTBL_LibyanCitiesTBL" Association="Self.FK_vendorBranchTBL_LibyanCitiesTBL">
             <End Role="LibyanCitiesTBL" EntitySet="LibyanCitiesTBLs" />
@@ -1849,7 +1923,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
             <End Role="VendorServicesTBL" EntitySet="VendorServicesTBLs" />
           </AssociationSet>
           <AssociationSet Name="ServicesInvoice" Association="Self.ServicesInvoice">
-            <End Role="InvoiceTBL" EntitySet="InvoiceTBLs" />
+            <End Role="invoiceTBL" EntitySet="invoiceTBLs" />
             <End Role="ServiceTBL" EntitySet="ServiceTBLs" />
           </AssociationSet>
         </EntityContainer>
@@ -1878,14 +1952,14 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CustodyTBLs">
-            <EntityTypeMapping TypeName="OnTheFlyDBModel.CustodyTBL">
-              <MappingFragment StoreEntitySet="CustodyTBL">
+          <EntitySetMapping Name="custodyTBLs">
+            <EntityTypeMapping TypeName="OnTheFlyDBModel.custodyTBL">
+              <MappingFragment StoreEntitySet="custodyTBL">
                 <ScalarProperty Name="custodyID" ColumnName="custodyID" />
                 <ScalarProperty Name="ownerID" ColumnName="ownerID" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
                 <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="deliveryID" ColumnName="deliveryID" />
+                <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1940,17 +2014,18 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DeliveryTBLs">
-            <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryTBL">
-              <MappingFragment StoreEntitySet="DeliveryTBL">
+          <EntitySetMapping Name="deliveryTBLs">
+            <EntityTypeMapping TypeName="OnTheFlyDBModel.deliveryTBL">
+              <MappingFragment StoreEntitySet="deliveryTBL">
                 <ScalarProperty Name="deliveryID" ColumnName="deliveryID" />
-                <ScalarProperty Name="full_delivery" ColumnName="full_delivery" />
                 <ScalarProperty Name="carID" ColumnName="carID" />
                 <ScalarProperty Name="driverID" ColumnName="driverID" />
-                <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
                 <ScalarProperty Name="start_date" ColumnName="start_date" />
                 <ScalarProperty Name="end_date" ColumnName="end_date" />
                 <ScalarProperty Name="statusID" ColumnName="statusID" />
+                <ScalarProperty Name="firstItemAvailableDate" ColumnName="firstItemAvailableDate" />
+                <ScalarProperty Name="lastItemAvailableDate" ColumnName="lastItemAvailableDate" />
+                <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1983,9 +2058,9 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="InvoiceTBLs">
-            <EntityTypeMapping TypeName="OnTheFlyDBModel.InvoiceTBL">
-              <MappingFragment StoreEntitySet="InvoiceTBL">
+          <EntitySetMapping Name="invoiceTBLs">
+            <EntityTypeMapping TypeName="OnTheFlyDBModel.invoiceTBL">
+              <MappingFragment StoreEntitySet="invoiceTBL">
                 <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
                 <ScalarProperty Name="issuerID" ColumnName="issuerID" />
                 <ScalarProperty Name="custodyID" ColumnName="custodyID" />
@@ -1993,6 +2068,8 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
                 <ScalarProperty Name="time" ColumnName="time" />
                 <ScalarProperty Name="issued" ColumnName="issued" />
                 <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="deliveryID" ColumnName="deliveryID" />
+                <ScalarProperty Name="totalcost" ColumnName="totalcost" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2186,7 +2263,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="ServicesInvoice" TypeName="OnTheFlyDBModel.ServicesInvoice" StoreEntitySet="ServicesInvoice">
-            <EndProperty Name="InvoiceTBL">
+            <EndProperty Name="invoiceTBL">
               <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
             </EndProperty>
             <EndProperty Name="ServiceTBL">

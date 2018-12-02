@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OnTheFlyWPFC.Model.Service;
 using OnTheFlyWPFC.ViewModel;
 
 namespace OnTheFlyWPFC.View
@@ -21,9 +22,11 @@ namespace OnTheFlyWPFC.View
     public partial class LoginWindow : Window
     {
         UsersViewModel userViewModel;
+        LoginViewModel loginViewModel;
         public LoginWindow()
         {
             userViewModel = new UsersViewModel();
+            loginViewModel = new LoginViewModel();
             InitializeComponent();
         }
 
@@ -40,11 +43,12 @@ namespace OnTheFlyWPFC.View
             username = usernametxt.Text;
             user_exist = await userViewModel.GetUserExists(usernametxt.Text, passwordtxt.Text);
             if (user_exist == true) 
-                {
-                    var tempW = new MainWindow();
-                    tempW.Show();
-                    this.Hide();
-                }
+            {
+                loginViewModel.GetLoginUserData(usernametxt.Text, passwordtxt.Text);
+                var tempW = new MainWindow();
+                tempW.Show();
+                this.Close();
+            }
             else
             {
                 MessageBox.Show("عفواً، لقد اخطأت في اسم المستخدم او كلمة المرور ", "خطأ", MessageBoxButton.OK, MessageBoxImage.Error);

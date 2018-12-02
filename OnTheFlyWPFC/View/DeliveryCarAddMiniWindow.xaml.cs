@@ -47,8 +47,8 @@ namespace OnTheFlyWPFC.View
         {
             vehicleViewModel.GetAllVehicleType();
             cmbCarType.ItemsSource = vehicleViewModel.viewVehicleType;
-            cmbCarType.DisplayMemberPath = "CarTName";
-            cmbCarType.SelectedValuePath = "CarTID";
+            cmbCarType.DisplayMemberPath = "vehicleTName";
+            cmbCarType.SelectedValuePath = "vehileTID";
         }
 
         private void cmbBranchS_Loaded(object sender, RoutedEventArgs e)

@@ -146,8 +146,12 @@
 
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <Label Content="2017/10/10" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
-
+                                    <DatePicker Grid.Column = "1"
+                                     Grid.Row = "2"
+                                     VerticalAlignment="Stretch" Width="auto" FontSize="16" Foreground="#768295"
+                                     Language = "ar-LY"
+                                     Name="datePickerStartDate"  Loaded="DatePickerStartDate_Loaded" 
+                                     HorizontalAlignment="Stretch" />
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
                                 </Border>

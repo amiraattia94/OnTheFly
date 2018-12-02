@@ -12,20 +12,29 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class DeliveryTBL
+    public partial class deliveryTBL
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public deliveryTBL()
+        {
+            this.invoiceTBLs = new HashSet<invoiceTBL>();
+        }
+    
         public int deliveryID { get; set; }
-        public Nullable<bool> full_delivery { get; set; }
-        public int carID { get; set; }
+        public Nullable<int> carID { get; set; }
         public int driverID { get; set; }
-        public int invoiceID { get; set; }
         public Nullable<System.DateTime> start_date { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public int statusID { get; set; }
+        public Nullable<System.DateTime> firstItemAvailableDate { get; set; }
+        public Nullable<System.DateTime> lastItemAvailableDate { get; set; }
+        public int invoiceID { get; set; }
     
         public virtual DeliveryStatusTBL DeliveryStatusTBL { get; set; }
         public virtual VehicleTBL VehicleTBL { get; set; }
         public virtual EmployeeTBL EmployeeTBL { get; set; }
-        public virtual InvoiceTBL InvoiceTBL { get; set; }
+        public virtual invoiceTBL invoiceTBL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<invoiceTBL> invoiceTBLs { get; set; }
     }
 }

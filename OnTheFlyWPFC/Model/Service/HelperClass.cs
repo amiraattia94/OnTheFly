@@ -24,7 +24,18 @@ namespace OnTheFlyWPFC.Model.Service {
         public static int categoryID;
         public static int POSSelectedCustomerID;
         public static int POSSelectedDeliveryServiceID;
+        public static int? POSSelectedCustodyID;
         public static int POSInvoiceID;
+        public static int POSDeliveryID;
+
+
+        //LoginUserData
+        public static int LoginEmployeeID;
+        public static int LoginUserID;
+
+        public static string LoginUserName;
+        public static string LoginEmployeeName;
+
 
 
 
