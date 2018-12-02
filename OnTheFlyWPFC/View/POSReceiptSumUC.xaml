@@ -335,29 +335,37 @@
                 </StackPanel >
 
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
-                    <Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                    <!--<Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                     <ComboBox MinWidth="50" Margin="10,0,10,0"></ComboBox>
 
                     <Label Content="الحالة : " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                    <ComboBox MinWidth="50" Margin="10,0,10,0"></ComboBox>
+                    <ComboBox MinWidth="50" Margin="10,0,10,0"></ComboBox>-->
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
-                    <Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                    <!--<Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                     <TextBox Width="200" VerticalAlignment="Center"/>
-                    <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Height="30" Width="30" Foreground="#8C9AB6"/>
+                    <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Height="30" Width="30" Foreground="#8C9AB6"/>-->
                 </StackPanel>
 
 
                 <UniformGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Top" >
-                    <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,0,0,0" Height="447" >
+                    <ListView Name="lstViewRecipets" Loaded="LstViewRecipets_Loaded" ItemsSource="{Binding ItemsTest}"  Margin="0,0,0,0" Height="447" >
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="نوع الخدمة" Width="90" DisplayMemberBinding="{Binding A}"/>
-                                <GridViewColumn Header="قيمة" Width="60" DisplayMemberBinding="{Binding A}"/>
+                                <GridViewColumn Header="رقم الفاتورة" Width="100" DisplayMemberBinding="{Binding invoiceID}"/>
+                                <GridViewColumn Header="اصدار " Width="80" DisplayMemberBinding="{Binding dateTime}"/>
 
-                                <GridViewColumn Header="الحالة" Width="70" DisplayMemberBinding="{Binding B}"/>
-                                <GridViewColumn Header="تكلفة" Width="70" DisplayMemberBinding="{Binding C}"/>
+                                <GridViewColumn Header="الزبون" Width="70" DisplayMemberBinding="{Binding customername}"/>
+                                <GridViewColumn Header="السائق" Width="70" DisplayMemberBinding="{Binding DriverName}"/>
+
+                                <GridViewColumn Header="موظف" Width="70" DisplayMemberBinding="{Binding issuerName}"/>
+
+                                <GridViewColumn Header="الخدمات" Width="80" DisplayMemberBinding="{Binding ServiceNumber}"/>
+                                <GridViewColumn Header="العهدة" Width="70" DisplayMemberBinding="{Binding custodyID}"/>
+
+                                <GridViewColumn Header="القيمة" Width="70" DisplayMemberBinding="{Binding totalafter}"/>
+                                
                                 <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
                                 <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
                             </GridView>

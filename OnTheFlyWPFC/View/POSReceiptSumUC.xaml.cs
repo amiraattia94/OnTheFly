@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnTheFlyWPFC.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +21,18 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class POSReceiptSumUC : UserControl
     {
+        InvoiceViewModel invoiceViewModel;
         public POSReceiptSumUC()
         {
             InitializeComponent();
+            invoiceViewModel = new InvoiceViewModel();
         }
 
-       
+        private void LstViewRecipets_Loaded(object sender, RoutedEventArgs e) {
+            invoiceViewModel.GetAllInvoice();
+            lstViewRecipets.ItemsSource = invoiceViewModel.allInvoice;
+
+
+        }
     }
 }
