@@ -654,27 +654,26 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Vertical">
                                 <Label Content="نقطة البيع" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                 <!--               <CheckBox
-            Content="CheckBox"
-            HorizontalAlignment="Left"
-            Margin="10,10,0,0"
-            VerticalAlignment="Top"
-            Checked="CheckBox_Checked"
-            Unchecked="CheckBox_Unchecked"/>
+                       
                                 <CheckBox
-            Content="CheckBox"
+            Content="عرض"
             HorizontalAlignment="Left"
             Margin="10,10,0,0"
             VerticalAlignment="Top"
-            Checked="CheckBox_Checked"
-            Unchecked="CheckBox_Unchecked"/>
+                                     Foreground="Gray"
+           />
                                 <CheckBox
-            Content="CheckBox"
+            Content="إضافة"
             HorizontalAlignment="Left"
             Margin="10,10,0,0"
-            VerticalAlignment="Top"
-            Checked="CheckBox_Checked"
-            Unchecked="CheckBox_Unchecked"/>-->
+            VerticalAlignment="Top" Foreground="Gray"
+            />
+                                <CheckBox
+            Content="حذف"
+            HorizontalAlignment="Left"
+            Margin="10,10,0,0"
+            VerticalAlignment="Top" Foreground="Gray"
+            />
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
