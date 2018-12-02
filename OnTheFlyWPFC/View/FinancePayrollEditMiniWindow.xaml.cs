@@ -26,7 +26,7 @@ namespace OnTheFlyWPFC.View
         EmployeeViewModel employeeViewModel;
         PayrollViewModel payrollViewModel;
         JobsViewModel jobsViewModel;
-        bool SelectedState = false;
+        bool SelectedState = false , selectedChangesFromFalseToTrue = false, selected_state_loaded= false;
         public FinancePayrollEditMiniWindow()
         {
             employeeViewModel = new EmployeeViewModel();
@@ -51,7 +51,9 @@ namespace OnTheFlyWPFC.View
             if (payrollViewModel.payroll.paid == true)
             {
                 cmbPayrollPaid.SelectedIndex = 0;
-            } else if (payrollViewModel.payroll.paid == true)
+                selectedChangesFromFalseToTrue = false;
+                selected_state_loaded = true;
+            } else if (payrollViewModel.payroll.paid == false)
             {
                 cmbPayrollPaid.SelectedIndex = 1;
             }
@@ -105,6 +107,11 @@ namespace OnTheFlyWPFC.View
                 UpdateMainList.DynamicInvoke();
                 this.Close();
             }
+            if (SelectedState &&selectedChangesFromFalseToTrue && !selected_state_loaded)
+            {
+                payrollViewModel.GetLastPayroll();
+                HelperClass.addFinanceFromPayroll(payrollViewModel.payroll);
+            }
         }
 
         private void cmbPayrollPaid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -112,7 +119,11 @@ namespace OnTheFlyWPFC.View
             if (cmbPayrollPaid.SelectedIndex != -1)
             {
                 if (cmbPayrollPaid.SelectedIndex == 0)
+                {
                     SelectedState = true;
+                    selectedChangesFromFalseToTrue = true;
+                }
+                    
                 else if (cmbPayrollPaid.SelectedIndex == 1)
                     SelectedState = false;
 

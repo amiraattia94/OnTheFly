@@ -36,7 +36,7 @@ namespace OnTheFlyWPFC.View
         private void StkEditUser_Loaded(object sender, RoutedEventArgs e)
         {
             usersViewModel.GetUserByID(HelperClass.userID);
-            StkEditUser.DataContext = usersViewModel.editUser;
+           StkEditUser.DataContext = usersViewModel.editUser;
         }
 
         private void cmbUserEmployee_Loaded(object sender, RoutedEventArgs e)

@@ -356,6 +356,7 @@
 
 
                 <UniformGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Top">
+                    <!--
                     <StackPanel >
                         <UniformGrid  FlowDirection="RightToLeft">
                             <StackPanel Orientation="Horizontal">
@@ -372,7 +373,7 @@
                             </StackPanel>
                         </UniformGrid>
 
-                        <ListView Name="lstViewUserGroupRole"  Margin="0,0,0,0" Height="400"  Loaded="lstViewUserGroupRole_Loaded"  >
+                        <ListView Name="lstViewUserGroupRole"  Margin="0,0,0,0" Height="89"  Loaded="lstViewUserGroupRole_Loaded"  >
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
                                     <Setter Property="Padding" Value="0"/>
@@ -647,6 +648,36 @@
                     </StackPanel>
 
 
+                    -->
+
+                    <StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Vertical">
+                                <Label Content="نقطة البيع" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                 <!--               <CheckBox
+            Content="CheckBox"
+            HorizontalAlignment="Left"
+            Margin="10,10,0,0"
+            VerticalAlignment="Top"
+            Checked="CheckBox_Checked"
+            Unchecked="CheckBox_Unchecked"/>
+                                <CheckBox
+            Content="CheckBox"
+            HorizontalAlignment="Left"
+            Margin="10,10,0,0"
+            VerticalAlignment="Top"
+            Checked="CheckBox_Checked"
+            Unchecked="CheckBox_Unchecked"/>
+                                <CheckBox
+            Content="CheckBox"
+            HorizontalAlignment="Left"
+            Margin="10,10,0,0"
+            VerticalAlignment="Top"
+            Checked="CheckBox_Checked"
+            Unchecked="CheckBox_Unchecked"/>-->
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
                 </UniformGrid>
 
 

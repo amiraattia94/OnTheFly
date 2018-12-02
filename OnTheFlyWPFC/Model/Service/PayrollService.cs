@@ -200,6 +200,56 @@ namespace OnTheFlyWPFC.Model.Service
                 }
             }
         }
+
+        async public Task<PayrollDTO> GetLastPayroll()
+        {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+                var result = con.PayrollTBLs.OrderByDescending(w => w.payrollID).First();
+
+                if (result != null)
+                {
+                    return new PayrollDTO()
+                    {
+                        payrollID = result.payrollID,
+                        employeeID = result.employeeID,
+                        extra_work_days = result.extra_work_days,
+                        bonus = result.bonus,
+                        extra_work_hours = result.extra_work_hours,
+                        cash_advance = result.cash_advance,
+                        late_hours = result.late_hours,
+                        absent_days = result.absent_days,
+                        total_deduction = result.total_deduction,
+                        total_addition = result.total_addition,
+                        gross_salary = result.gross_salary,
+                        payroll_month = result.payroll_month,
+                        payroll_year = result.payroll_year,
+                        paid = result.paid
+
+                    };
+                };
+
+                return new PayrollDTO()
+                {
+                    employeeID = 0,
+                    extra_work_days = 0,
+                    bonus = 0,
+                    extra_work_hours = 0,
+                    cash_advance = 0,
+                    late_hours = 0,
+                    absent_days = 0,
+                    total_deduction = 0,
+                    total_addition = 0,
+                    gross_salary = 0,
+                    payroll_month = 0,
+                    payroll_year = 0,
+                    paid = false
+                };
+            }
+        }
+
         async public Task<ObservableCollection<PayrollDTO>> GetPayrollByEmployeeIDs(int[] employeeIDs)
         {
             await Task.FromResult(true);

@@ -171,3 +171,5 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.cspr
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUsersAddUserGroupsMiniWindow.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUsersAddUserGroupsMiniWindow.baml

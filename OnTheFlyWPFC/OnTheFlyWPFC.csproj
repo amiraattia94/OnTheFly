@@ -264,6 +264,7 @@
     <Compile Include="ViewModel\PayrollViewModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="ViewModel\UserGroupRoleViewModel.cs" />
+    <Compile Include="ViewModel\UserGroupsViewModel.cs" />
     <Compile Include="ViewModel\UsersViewModel.cs" />
     <Compile Include="ViewModel\VehicleViewModel.cs" />
     <Compile Include="ViewModel\VendorViewModel.cs" />
@@ -452,6 +453,9 @@
     </Compile>
     <Compile Include="View\SettingsUserGroupRoleUC.xaml.cs">
       <DependentUpon>SettingsUserGroupRoleUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsUsersAddUserGroupsMiniWindow.xaml.cs">
+      <DependentUpon>SettingsUsersAddUserGroupsMiniWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SettingsUsersUC.xaml.cs">
       <DependentUpon>SettingsUsersUC.xaml</DependentUpon>
@@ -725,6 +729,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SettingsUserGroupRoleUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsUsersAddUserGroupsMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

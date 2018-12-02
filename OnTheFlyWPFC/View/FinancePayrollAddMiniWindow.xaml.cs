@@ -72,6 +72,11 @@ namespace OnTheFlyWPFC.View
                 this.Close();
 
             }
+            if (SelectedState)
+            {
+                payrollViewModel.GetLastPayroll();
+                HelperClass.addFinanceFromPayroll(payrollViewModel.payroll);
+            }
         }
 
         private void cmbPayrollPaid_SelectionChanged(object sender, SelectionChangedEventArgs e)

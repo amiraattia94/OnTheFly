@@ -30,8 +30,8 @@ namespace OnTheFlyWPFC.View
         private void RefreshListView()
         {
             userGroupRoleViewModel.GetAllUserGroupRoles();
-            lstViewUserGroupRole.ItemsSource = userGroupRoleViewModel.ViewUserGroupRole;
-            lstViewUserGroupRole.Items.Refresh();
+          //  lstViewUserGroupRole.ItemsSource = userGroupRoleViewModel.ViewUserGroupRole;
+          //  lstViewUserGroupRole.Items.Refresh();
 
         }
 
@@ -44,7 +44,7 @@ namespace OnTheFlyWPFC.View
         private void lstViewUserGroupRole_Loaded(object sender, RoutedEventArgs e)
         {
             userGroupRoleViewModel.GetAllUserGroupRoles();
-            lstViewUserGroupRole.ItemsSource = userGroupRoleViewModel.ViewUserGroupRole;
+        ///    lstViewUserGroupRole.ItemsSource = userGroupRoleViewModel.ViewUserGroupRole;
         }
 
         private void btnAdduserGroupRole_Click(object sender, RoutedEventArgs e)

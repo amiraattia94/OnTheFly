@@ -46,6 +46,11 @@ namespace OnTheFlyWPFC.ViewModel
             payroll = await payrollService.GetPayrollByID(payrollID);
         }
 
+        async public void GetLastPayroll()
+        {
+            payroll = await payrollService.GetLastPayroll();
+        }
+
         async public void GetPayrollByEmployeeID(int employeeID)
         {
             viewPayrolls = await payrollService.GetPayrollByEmployeeID(employeeID);

@@ -55,6 +55,25 @@ namespace OnTheFlyWPFC.Model.Service {
            
         }
 
+        public async static void addFinanceFromPayroll(PayrollDTO payroll)
+        {
+            EmployeeViewModel employeeViewModel;
+            FinanceViewModel financeViewModel;
+            employeeViewModel = new EmployeeViewModel();
+            financeViewModel = new FinanceViewModel();
+            string finance_reason = "";
+            employeeViewModel.GetEmployeeByID(payroll.employeeID);
+            finance_reason += "تم دفع مرتب " + employeeViewModel.employee.name + " للشهر: " + payroll.payroll_month+" و السنة: " +payroll.payroll_year;
+            try
+            {
+                await financeViewModel.AddFinance(false, payroll.gross_salary, finance_reason, HelperClass.systemUserID, DateTime.Now);
+            }
+            catch
+            {
+               
+            }
+            
+        }
         public static bool TrueOrFalse(string status) {
 
             if (status == "0")
