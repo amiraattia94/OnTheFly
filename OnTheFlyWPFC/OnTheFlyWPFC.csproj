@@ -355,6 +355,9 @@
     <Compile Include="View\DeliverySummaryUC.xaml.cs">
       <DependentUpon>DeliverySummaryUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DeliveryViewEditMiniWindow.xaml.cs">
+      <DependentUpon>DeliveryViewEditMiniWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DeliveryViewUC.xaml.cs">
       <DependentUpon>DeliveryViewUC.xaml</DependentUpon>
     </Compile>
@@ -576,6 +579,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DeliverySummaryUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeliveryViewEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

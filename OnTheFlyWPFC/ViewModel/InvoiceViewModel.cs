@@ -124,6 +124,10 @@ namespace OnTheFlyWPFC.ViewModel {
             return await invoiceService.EditDelivery( deliveryID, startday,  enddate,  status,  firstItemDate,  lastItemDate);
         }
 
+        async public void GetAllDelivery() {
+            allDelivery = await invoiceService.GetAllDelivery();
+        }
+
         async public void GetAllDelivery(int deliveryID) {
             allDelivery = await invoiceService.GetAllDelivery( deliveryID);
         }
@@ -152,6 +156,14 @@ namespace OnTheFlyWPFC.ViewModel {
 
         async public void GetAllCustody() {
             allCustody = await invoiceService.GetAllCustody();
+        }
+
+        async public void GetCustodyByState(bool state) {
+            allCustody = await invoiceService.GetCustodyByState(state);
+        }
+
+        async public void GetCustodyByInvoice(int invoiceID) {
+            allCustody = await invoiceService.GetCustodyByInvoice(invoiceID);
         }
 
         async public void GetCustodyByID(int CustodyID) {

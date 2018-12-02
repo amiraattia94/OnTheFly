@@ -337,32 +337,42 @@
                 </StackPanel >
 
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
-                    <Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                    <!--<Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                     <ComboBox MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6"></ComboBox>
 
                     <Label Content="التاريخ : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                    <ComboBox MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6"></ComboBox>
+                    <ComboBox MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6">
+                        
+                    </ComboBox>-->
 
                     <Label Content="الحالة : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                    <ComboBox MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6"></ComboBox>
+                    <ComboBox MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6">
+                        <ComboBoxItem Content="مفتوحة">
+
+                        </ComboBoxItem>
+                        <ComboBoxItem Content="مقفلة">
+
+                        </ComboBoxItem>
+                    </ComboBox>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
-                    <Label Content="الفاتورة : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                    <!--<Label Content="الفاتورة : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                     <TextBox Width="200" VerticalAlignment="Center" FontSize="16" Foreground="#8C9AB6"/>
                     <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Name="btnSearchDeliveryView" Click="BtnSearchDeliveryView_Click">
                         <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Height="30" Width="30" Foreground="#8C9AB6"/>
-                    </Button>
+                    </Button>-->
                 </StackPanel>
 
 
-                <UniformGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Top" DataContext="{StaticResource ResourceKey=class1}">
-                    <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,0,0,0" Height="400" >
+                <UniformGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Top" >
+                    <ListView Name="lstdelivery" Loaded="Lstdelivery_Loaded" Margin="0,0,0,0" Height="400" >
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="رقم الفاتورة" Width="100" DisplayMemberBinding="{Binding A}"/>
-                                <GridViewColumn Header="الفرع" Width="60" DisplayMemberBinding="{Binding A}"/>
-                                <GridViewColumn Header="نوع الخدمة" Width="90" DisplayMemberBinding="{Binding A}"/>
+                                <GridViewColumn Header="رقم التوصيل" Width="100" DisplayMemberBinding="{Binding deliveryID}"/>
+                                <GridViewColumn Header="رقم الفاتورة" Width="100" DisplayMemberBinding="{Binding invoiceID}"/>
+                                <GridViewColumn Header="المدينة" Width="90" DisplayMemberBinding="{Binding customerCityname}"/>
+                                <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding customerAddress}"/>
                                 <GridViewColumn Header="الوجهة" Width="90" DisplayMemberBinding="{Binding A}"/>
 
                                 <GridViewColumn Header="السائق" Width="80" DisplayMemberBinding="{Binding A}"/>
@@ -372,8 +382,16 @@
                                 <GridViewColumn Header="الحالة" Width="70" DisplayMemberBinding="{Binding B}"/>
                                 <GridViewColumn Header="عهدة" Width="60" DisplayMemberBinding="{Binding A}"/>
                                 <GridViewColumn Header="تكلفة" Width="70" DisplayMemberBinding="{Binding C}"/>
-                                <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
-                                <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
+                                
+                                <GridViewColumn  Width="25" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Click="EditDelivery" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  >
+                                                <materialDesign:PackIcon Kind="Edit" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
