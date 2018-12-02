@@ -10,7 +10,7 @@ namespace OnTheFlyWPFC.Model.Service {
     class InvoiceService {
 
 
-        async public Task<bool> AddInvoice(int issuerID, int customerID,decimal discount, int deliveryID, int? custodyID ) {
+        async public Task<bool> AddInvoice(int issuerID, int customerID,decimal discount, int deliveryID,decimal totalcost, int? custodyID ) {
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
                     var issued = con.invoiceTBLs.OrderByDescending(w => w.invoiceID).First().issued;
@@ -26,7 +26,9 @@ namespace OnTheFlyWPFC.Model.Service {
                                 time = DateTime.Now,
                                 issued = true,
                                 discount = discount,
-                                deliveryID = deliveryID
+                                deliveryID = deliveryID,
+                                totalcost = totalcost
+
 
                             });
                             await con.SaveChangesAsync();
@@ -56,6 +58,7 @@ namespace OnTheFlyWPFC.Model.Service {
                                 Result.issued = true;
                                 Result.discount = discount;
                                 Result.deliveryID = deliveryID;
+                                Result.totalcost = totalcost;
 
                                 await con.SaveChangesAsync();
                                 return true;
@@ -95,9 +98,11 @@ namespace OnTheFlyWPFC.Model.Service {
                     DriverName = s.deliveryTBL.EmployeeTBL.name,
                     branchID = s.UserTBL.EmployeeTBL.branchID,
                     issuerID = s.issuerID,
+                    issuerName = s.UserTBL.EmployeeTBL.name,
                     ServiceNumber = s.ServiceTBLs.Count(),
                     discount = (decimal)s.discount,
                     totalafter = (decimal)s.totalcost,
+                    custodyID = s.custodyID
                     
 
                 }).ToList();
@@ -111,30 +116,33 @@ namespace OnTheFlyWPFC.Model.Service {
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
                 var s = con.invoiceTBLs.SingleOrDefault(w => w.invoiceID == invoiceID);
-
-                if (s != null) {
-                    return new InvoiceDTO() {
-                        invoiceID = s.invoiceID,
-                        dateTime = s.time,
-                        customername = s.CustomerTBL.name,
-                        phone1 = s.CustomerTBL.phone1,
-                        phone2 = s.CustomerTBL.phone2,
-                        customercityCodee = s.CustomerTBL.LibyanCitiesTBL.city_code,
-                        customerCityname = s.CustomerTBL.LibyanCitiesTBL.name,
-                        customerAddress = s.CustomerTBL.address,
-                        customerID = s.CustomerTBL.customerID,
-                        DriverID = s.deliveryTBL.driverID,
-                        DriverName = s.deliveryTBL.EmployeeTBL.name,
-                        branchID = s.UserTBL.EmployeeTBL.branchID,
-                        issuerID = s.issuerID,
-                        ServiceNumber = s.ServiceTBLs.Count(),
-                        discount = (decimal)s.discount,
-                        totalafter = (decimal)s.totalcost,
-
-
-
+                try {
+                    if (s != null) {
+                        return new InvoiceDTO() {
+                            invoiceID = s.invoiceID,
+                            dateTime = s.time,
+                            customername = s.CustomerTBL.name,
+                            phone1 = s.CustomerTBL.phone1,
+                            phone2 = s.CustomerTBL.phone2,
+                            customercityCodee = s.CustomerTBL.LibyanCitiesTBL.city_code,
+                            customerCityname = s.CustomerTBL.LibyanCitiesTBL.name,
+                            customerAddress = s.CustomerTBL.address,
+                            customerID = s.CustomerTBL.customerID,
+                            DriverID = s.deliveryTBL.driverID,
+                            DriverName = s.deliveryTBL.EmployeeTBL.name,
+                            branchID = s.UserTBL.EmployeeTBL.branchID,
+                            issuerID = s.issuerID,
+                            issuerName = s.UserTBL.EmployeeTBL.name,
+                            ServiceNumber = s.ServiceTBLs.Count(),
+                            discount = (decimal)s.discount,
+                            totalafter = (decimal)s.totalcost,
+                            custodyID = s.custodyID
+                        };
                     };
-                };
+                }
+                catch (Exception) {
+
+                }
 
                 return new InvoiceDTO() { };
 
@@ -352,6 +360,34 @@ namespace OnTheFlyWPFC.Model.Service {
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
                 var result = con.DeliveryServiceTBLs.Where(w =>w.invoiceID == HelperClass.POSInvoiceID).Select(s => new DeliveryServiceDTO() {
+                    deliverServiceID = s.deliveryServiceID,
+                    CategoryID = s.categoryID,
+                    CategoryName = s.CategoriesTBL.category_name,
+                    VendorID = s.VendorBranchTBL.VendorTBL.vendorID,
+                    VendorName = s.VendorBranchTBL.VendorTBL.name,
+                    VendorBranchID = s.vendorBranchID,
+                    VendorCityCode = s.VendorBranchTBL.cityID,
+                    VendorCityname = s.VendorBranchTBL.LibyanCitiesTBL.name,
+                    CustomerID = s.customerID,
+                    Customername = s.CustomerTBL.name,
+                    CustomerCityCode = s.CustomerTBL.cityID,
+                    isFulTrip = s.isFullTrip,
+                    productPrice = s.productPrice,
+                    deliveryPrice = s.deliveryPrice,
+                    InvoiceID = s.invoiceID,
+                    dateAvailable = s.availabilityDay,
+                    status = false
+                }).ToList();
+
+                return new ObservableCollection<DeliveryServiceDTO>(result);
+            }
+        }
+
+        async public Task<ObservableCollection<DeliveryServiceDTO>> GetAllDeliveryServicesByInvoice(int InvoiceID) {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.DeliveryServiceTBLs.Where(w => w.invoiceID == InvoiceID).Select(s => new DeliveryServiceDTO() {
                     deliverServiceID = s.deliveryServiceID,
                     CategoryID = s.categoryID,
                     CategoryName = s.CategoriesTBL.category_name,

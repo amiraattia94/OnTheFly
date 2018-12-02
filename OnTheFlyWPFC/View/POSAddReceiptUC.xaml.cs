@@ -224,20 +224,24 @@ namespace OnTheFlyWPFC.View
         }
 
         private void TxtDiscount_TextChanged(object sender, TextChangedEventArgs e) {
-            if(invoiceViewModel != null) {
-                if (!string.IsNullOrEmpty(txtDiscount.Text)) {
-                    if (txtDiscount.Text != "") {
-                        decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
-                        decimal totalDiscount = discountpercent * (decimal)invoiceViewModel.totalPrice;
-                        totalPriceAfter = (decimal)invoiceViewModel.totalPrice - totalDiscount;
-                        lblTotalAfter.Content = totalPriceAfter;
+            if (invoiceViewModel != null) {
 
-                        if(cmbPayment.SelectedIndex != 1) {
-                            lblCustomerCreditAfter.Content = customerViewModel.customer.credit - (decimal)invoiceViewModel.totalPrice - totalDiscount;
 
+                if (invoiceViewModel.totalPrice != null) {
+                    if (!string.IsNullOrEmpty(txtDiscount.Text)) {
+                        if (txtDiscount.Text != "") {
+                            decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
+                            decimal totalDiscount = discountpercent * (decimal)invoiceViewModel.totalPrice;
+                            totalPriceAfter = (decimal)invoiceViewModel.totalPrice - totalDiscount;
+                            lblTotalAfter.Content = totalPriceAfter;
+
+                            if (cmbPayment.SelectedIndex != 1) {
+                                lblCustomerCreditAfter.Content = customerViewModel.customer.credit - totalPriceAfter;
+
+                            }
                         }
-                    }
 
+                    }
                 }
             }
         }
@@ -255,6 +259,22 @@ namespace OnTheFlyWPFC.View
                 if(cmbPayment.SelectedIndex == 0){
                     btnCustody.Visibility = System.Windows.Visibility.Hidden;
                     RefreshInvoicePriceList();
+                    if (invoiceViewModel.totalPrice != null) {
+                        if (!string.IsNullOrEmpty(txtDiscount.Text)) {
+                            if (txtDiscount.Text != "") {
+                                decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
+                                decimal totalDiscount = discountpercent * (decimal)invoiceViewModel.totalPrice;
+                                totalPriceAfter = (decimal)invoiceViewModel.totalPrice - totalDiscount;
+                                lblTotalAfter.Content = totalPriceAfter;
+
+                                if (cmbPayment.SelectedIndex != 1) {
+                                    lblCustomerCreditAfter.Content = customerViewModel.customer.credit - totalPriceAfter;
+
+                                }
+                            }
+
+                        }
+                    }
 
                 }
                 else if(cmbPayment.SelectedIndex == 1) {
@@ -290,7 +310,7 @@ namespace OnTheFlyWPFC.View
             int deliveryID = await invoiceViewModel.AddDeliveryInt(carID, (int)cmbDriver.SelectedValue, DateTime.Now, enddate, 1, firstdate, lastdate);
 
 
-            if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, HelperClass.POSSelectedCustomerID, decimal.Parse(txtDiscount.Text), deliveryID, custodyID)) {
+            if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, HelperClass.POSSelectedCustomerID, decimal.Parse(txtDiscount.Text), deliveryID, totalPriceAfter, custodyID)) {
                 MessageBox.Show("تم الحفظ");
 
                 //UpdateMainUC.DynamicInvoke();

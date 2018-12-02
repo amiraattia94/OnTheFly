@@ -335,7 +335,7 @@
 
                 <StackPanel Orientation="Horizontal" Margin="0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1">
                     <Label Content="رقم الفاتورة :" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
-                    <Label Name="lblNewInvoice" Loaded="LblNewInvoice_Loaded" FontFamily="Myriad Pro"  FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
+                    <TextBox Name="lblNewInvoice" Loaded="LblNewInvoice_Loaded" TextChanged="LblNewInvoice_TextChanged" Text="00000000" FontFamily="Myriad Pro"  FontSize="18" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.RowSpan="1" Margin="0">
                     <Label Content="التاريخ :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
@@ -377,7 +377,7 @@
                         </Border>
 
                         <Border Height="40" Margin="0,0,0,15">
-                            <ComboBox Name="cmbDriver" Loaded="CmbDriver_Loaded" VerticalAlignment="Stretch"/>
+                            <TextBlock Name="cmbDriver" Loaded="CmbDriver_Loaded" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                         </Border>
 
 
@@ -394,11 +394,7 @@
 
 
 
-                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="2">
-                        <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="0,0,0,15" />
-
-
-                    </StackPanel>
+                    
                 </Grid>
                 <!--
                 <Grid Grid.Column="2" Grid.Row="3" Grid.RowSpan="1" Background="#808080" Height="250" Width="1" VerticalAlignment="Center" Margin="5,0,5,0"/>
@@ -415,24 +411,7 @@
                                     <GridViewColumn Header="القيمة" Width="70" DisplayMemberBinding="{Binding productPrice}"/>
                                     <GridViewColumn Header="تكلفة التوصيل" Width="110" DisplayMemberBinding="{Binding deliveryPrice}"/>
 
-                                    <GridViewColumn  Width="25" >
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <Button Click="Edit_Service" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  >
-                                                    <materialDesign:PackIcon Kind="Edit" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
-                                                </Button>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-                                    <GridViewColumn  Width="25">
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <Button Click="Delete_Service" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
-                                                    <materialDesign:PackIcon Kind="Delete" FontSize="15" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
-                                                </Button>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
+                                    
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -478,16 +457,16 @@
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal" >
                                 <StackPanel Grid.Column="0" Margin="0,0,0,0" >
-                                    <Label Content="المبلغ الاجمالي :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
-                                    <Label Content="قيمة التوصيل :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
-                                    <Label Content="نسبة تخفيض" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
+                                    <Label Content=" " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
+                                    <Label Content="" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
+                                    <Label Content="" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
                                     <Label Content="الاجمالي :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
 
                                 </StackPanel>
                                 <StackPanel HorizontalAlignment="Center" Margin="0,0,0,0">
-                                    <Label Name="lblTotalPrice" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
-                                    <Label Name="lblTotalDeliveryPrice" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
-                                    <TextBox Name="txtDiscount" Text="0" TextChanged="TxtDiscount_TextChanged"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                                    <Label Name="lblTotalPrice" Content=" " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                                    <Label Name="lblTotalDeliveryPrice" Content=" " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                                    <Label Name="txtDiscount" Content=" "   FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
                                     <Label Name="lblTotalAfter" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
                                 </StackPanel>
                             </StackPanel>
@@ -495,14 +474,7 @@
                                 <StackPanel Orientation="Vertical">
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="طريقة الدفع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                                        <ComboBox Name="cmbPayment" Loaded="CmbPayment_Loaded" SelectionChanged="CmbPayment_SelectionChanged" MinWidth="50" Margin="10,0,10,0">
-                                            <ComboBoxItem Content="رصيد">
-
-                                            </ComboBoxItem>
-                                            <ComboBoxItem Content="عهدة">
-
-                                            </ComboBoxItem>
-                                        </ComboBox>
+                                        <Label Name="cmbPayment" Loaded="CmbPayment_Loaded" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
@@ -520,10 +492,10 @@
                                 <Border  Margin="0,70,0,0" HorizontalAlignment="Center" >
 
                                     <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                        <Button Click="addInvoice_Click" Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                        <Button Click="PrintInvoice_Click" Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                             <UniformGrid FlowDirection="RightToLeft">
                                                 <StackPanel Orientation="Horizontal">
-                                                    <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="حفظ و طباعة " VerticalAlignment="Center" Margin="0,0,5,0"  />
+                                                    <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text=" طباعة " VerticalAlignment="Center" Margin="0,0,5,0"  />
                                                     <materialDesign:PackIcon Kind="Printer" Height="15" Width="15" Margin="0,0,0,0" VerticalAlignment="Center" />
                                                 </StackPanel>
                                             </UniformGrid>

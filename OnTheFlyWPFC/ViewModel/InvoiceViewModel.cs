@@ -13,16 +13,18 @@ namespace OnTheFlyWPFC.ViewModel {
         InvoiceService invoiceService;
         
 
-        public InvoiceDTO invoice { get; set; }
+        //public InvoiceDTO invoice { get; set; }
         public int invoiceNewID { get; set; }
 
         public ObservableCollection<DeliveryServiceDTO> allDeliveryService { get; set; }
         public ObservableCollection<DeliveryDTO> allDelivery { get; set; }
         public ObservableCollection<CustodyDTO> allCustody { get; set; }
+        public ObservableCollection<InvoiceDTO> allInvoice { get; set; }
 
         public DeliveryServiceDTO deliveryService { get; set; }
         public DeliveryDTO Delivery { get; set; }
         public CustodyDTO Custody { get; set; }
+        public InvoiceDTO Invoice { get; set; }
 
         public decimal? totalPrice { get; set; }
         public decimal? productPrice { get; set; }
@@ -30,26 +32,31 @@ namespace OnTheFlyWPFC.ViewModel {
 
         public InvoiceViewModel() {
 
-            invoice = new InvoiceDTO();
+            //invoice = new InvoiceDTO();
             invoiceService = new InvoiceService();
 
             allDeliveryService = new ObservableCollection<DeliveryServiceDTO>();
             allDelivery = new ObservableCollection<DeliveryDTO>();
             allCustody = new ObservableCollection<CustodyDTO>();
-            allCustody = new ObservableCollection<CustodyDTO>();
+            allInvoice = new ObservableCollection<InvoiceDTO>();
 
 
             deliveryService = new DeliveryServiceDTO();
             Delivery = new DeliveryDTO();
             Custody = new CustodyDTO();
+            Invoice = new InvoiceDTO();
         }
 
-        async public Task<bool> AddInvoice(int issuerID, int customerID, decimal discount,int deliveryID, int? custodyID = null) {
-           return await invoiceService.AddInvoice(issuerID, customerID, discount, deliveryID, custodyID);
+        async public Task<bool> AddInvoice(int issuerID, int customerID, decimal discount,int deliveryID,decimal totalcost, int? custodyID = null) {
+           return await invoiceService.AddInvoice(issuerID, customerID, discount, deliveryID, totalcost, custodyID);
         }
 
         async public void GetAllInvoice() {
+            allInvoice = await invoiceService.GetAllInvoice();
+        }
 
+        async public void GetInvoiceByID(int invoiceID) {
+            Invoice = await invoiceService.GetInvoiceByID(invoiceID);
         }
 
         async public void GetNewInvoiceID() {
@@ -93,6 +100,11 @@ namespace OnTheFlyWPFC.ViewModel {
         async public void GetAllDeliveryServices() {
             allDeliveryService = await invoiceService.GetAllDeliveryServices();
         }
+
+        async public void GetAllDeliveryServicesByInvoice(int invoiceID) {
+            allDeliveryService = await invoiceService.GetAllDeliveryServicesByInvoice(invoiceID);
+        }
+
 
         async public void GetDeliveryServiceByID(int deliveryServiceID) {
             deliveryService = await invoiceService.GetDeliveryServiceByID(deliveryServiceID);

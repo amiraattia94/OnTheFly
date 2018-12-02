@@ -26,12 +26,15 @@ namespace OnTheFlyWPFC.Model.DTO
         public string DriverName { get; set; }
 
         public Nullable<int> issuerID { get; set; }
+        public string issuerName { get; set; }
         public Nullable<int> branchID { get; set; }
 
         public int ServiceNumber { get; set; }
 
         public decimal discount { get; set; }
         public decimal totalafter { get; set; }
+
+        public int? custodyID { get; set; }
 
     }
 }
