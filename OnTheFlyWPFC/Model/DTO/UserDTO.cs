@@ -11,6 +11,11 @@ namespace OnTheFlyWPFC.Model.DTO
         public int userID { get; set; }
         public string username { get; set; }
         public string password { get; set; }
+
         public int EmployeeID { get; set; }
+        public string EmployeeName { get; set; }
+
+        public int? EmployeeBranchID { get; set; }
+        public string EmployeeBranchName { get; set; }
     }
 }

@@ -25,15 +25,36 @@ namespace OnTheFlyWPFC.Model.Service
                 return result;
             }
         }
-        async public Task<Boolean> GetUserExists(string username, string password)
+
+        async public Task<UserDTO> GetLoginUserData(string username, string password)
         {
             await Task.FromResult(true);
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
                 var result = con.UserTBLs.SingleOrDefault(u => u.user_name == username && u.password == password);
-                if (result != null)
-                {
+                if(result != null) {
+                    return new UserDTO() {
+                        userID = result.userID,
+                        username = result.user_name,
+                        EmployeeID = result.employeeID,
+                        EmployeeName = result.EmployeeTBL.name,
+                        EmployeeBranchID = result.EmployeeTBL.branchID,
+                        EmployeeBranchName = result.EmployeeTBL.CompanyBranchTBL.branch_name
+                    };
+                }
+                
+            }
+            return new UserDTO() { };
+
+        }
+
+        async public Task<Boolean> GetUserExists(string username, string password) {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.UserTBLs.SingleOrDefault(u => u.user_name == username && u.password == password);
+                if (result != null) {
                     username = result.user_name;
                     password = result.password;
                     return true;

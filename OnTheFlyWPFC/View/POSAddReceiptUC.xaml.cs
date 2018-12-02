@@ -26,19 +26,28 @@ namespace OnTheFlyWPFC.View
         InvoiceViewModel invoiceViewModel;
         CityViewModel cityViewModel;
         CustomerViewModel customerViewModel;
+        JobsViewModel jobsViewModel;
+        EmployeeViewModel employeeViewModel;
+
+        public Delegate UpdateMainUC;
 
         public delegate void RefreshList();
         public event RefreshList RefreshListEvent;
 
-        
+        int? custodyID = null;
+        decimal totalPriceAfter;
+
+
         public POSAddReceiptUC()
         {
             InitializeComponent();
             invoiceViewModel = new InvoiceViewModel();
             cityViewModel = new CityViewModel();
             customerViewModel = new CustomerViewModel();
+            jobsViewModel = new JobsViewModel();
+            employeeViewModel = new EmployeeViewModel();
+            //invoiceViewModel.AddNewInvoice();
 
-            invoiceViewModel.AddNewInvoice();
             invoiceViewModel.GetNewInvoiceID();
             btnAddService.Visibility = System.Windows.Visibility.Hidden;
             btnCustody.Visibility = System.Windows.Visibility.Hidden;
@@ -46,6 +55,7 @@ namespace OnTheFlyWPFC.View
         }
 
         private void LblNewInvoice_Loaded(object sender, RoutedEventArgs e) {
+            invoiceViewModel.GetNewInvoiceID();
             lblNewInvoice.Content = invoiceViewModel.invoiceNewID.ToString("D8");
         }
 
@@ -61,11 +71,21 @@ namespace OnTheFlyWPFC.View
         }
 
         private void LblEmployeeName_Loaded(object sender, RoutedEventArgs e) {
-
+            lblEmployeeName.Content = HelperClass.LoginEmployeeName;
         }
 
         private void CmbDriver_Loaded(object sender, RoutedEventArgs e) {
+            employeeViewModel.GetEmployeeByJobID(2);
 
+            cmbDriver.ItemsSource = employeeViewModel.ViewEmployees;
+            cmbDriver.DisplayMemberPath = "name";
+            cmbDriver.SelectedValuePath = "employeeID";
+
+
+            //cityViewModel.GetAllCities();
+            //cmbCities.ItemsSource = cityViewModel.CityName;
+            //cmbCities.DisplayMemberPath = "name";
+            //cmbCities.SelectedValuePath = "cityCode";
         }
 
         private void BtnCustomerSearch_Click(object sender, RoutedEventArgs e) {
@@ -166,10 +186,12 @@ namespace OnTheFlyWPFC.View
             if (string.IsNullOrEmpty(txtDiscount.Text)) {
                 decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
                 decimal total = discountpercent * (decimal)invoiceViewModel.totalPrice;
+                totalPriceAfter = (decimal)invoiceViewModel.totalPrice - total;
                 lblTotalAfter.Content = (decimal)invoiceViewModel.totalPrice - total;
 
 
                 if (cmbPayment.SelectedIndex != 1) {
+
                     lblCustomerCreditAfter.Content = customerViewModel.customer.credit - (decimal)invoiceViewModel.totalPrice - total;
 
                 }
@@ -177,12 +199,12 @@ namespace OnTheFlyWPFC.View
             else {
                 if (lblTotalPrice.Content == null) {
                     lblTotalAfter.Content = 0;
-
+                    totalPriceAfter = 0;
                     lblCustomerCreditAfter.Content = customerViewModel.customer.credit;
                 }
                 else {
                     lblTotalAfter.Content = invoiceViewModel.totalPrice;
-
+                    totalPriceAfter = (decimal)invoiceViewModel.totalPrice;
 
                     if (cmbPayment.SelectedIndex != 1) {
                         lblCustomerCreditAfter.Content = customerViewModel.customer.credit - invoiceViewModel.totalPrice;
@@ -197,29 +219,39 @@ namespace OnTheFlyWPFC.View
                 lblTotalDeliveryPrice.Content = "0";
                 lblTotalAfter.Content = "0";
                 txtDiscount.Text = "0";
+                totalPriceAfter = 0;
             }
         }
 
         private void TxtDiscount_TextChanged(object sender, TextChangedEventArgs e) {
-            if(invoiceViewModel != null) {
-                if (!string.IsNullOrEmpty(txtDiscount.Text)) {
-                    if (txtDiscount.Text != "") {
-                        decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
-                        decimal totalDiscount = discountpercent * (decimal)invoiceViewModel.totalPrice;
-                        lblTotalAfter.Content = (decimal)invoiceViewModel.totalPrice - totalDiscount;
+            if (invoiceViewModel != null) {
 
-                        if(cmbPayment.SelectedIndex != 1) {
-                            lblCustomerCreditAfter.Content = customerViewModel.customer.credit - (decimal)invoiceViewModel.totalPrice - totalDiscount;
 
+                if (invoiceViewModel.totalPrice != null) {
+                    if (!string.IsNullOrEmpty(txtDiscount.Text)) {
+                        if (txtDiscount.Text != "") {
+                            decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
+                            decimal totalDiscount = discountpercent * (decimal)invoiceViewModel.totalPrice;
+                            totalPriceAfter = (decimal)invoiceViewModel.totalPrice - totalDiscount;
+                            lblTotalAfter.Content = totalPriceAfter;
+
+                            if (cmbPayment.SelectedIndex != 1) {
+                                lblCustomerCreditAfter.Content = customerViewModel.customer.credit - totalPriceAfter;
+
+                            }
                         }
-                    }
 
+                    }
                 }
             }
         }
 
-        private void AddCostody(object sender, RoutedEventArgs e) {
+        async private void AddCostody(object sender, RoutedEventArgs e) {
 
+            custodyID = await invoiceViewModel.AddCustodyInt((int)cmbDriver.SelectedValue, totalPriceAfter, false, HelperClass.POSInvoiceID);
+            if(custodyID != 0 || custodyID != null) {
+                MessageBox.Show("تم الحفظ");
+            }
         }
 
         private void CmbPayment_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -227,6 +259,22 @@ namespace OnTheFlyWPFC.View
                 if(cmbPayment.SelectedIndex == 0){
                     btnCustody.Visibility = System.Windows.Visibility.Hidden;
                     RefreshInvoicePriceList();
+                    if (invoiceViewModel.totalPrice != null) {
+                        if (!string.IsNullOrEmpty(txtDiscount.Text)) {
+                            if (txtDiscount.Text != "") {
+                                decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
+                                decimal totalDiscount = discountpercent * (decimal)invoiceViewModel.totalPrice;
+                                totalPriceAfter = (decimal)invoiceViewModel.totalPrice - totalDiscount;
+                                lblTotalAfter.Content = totalPriceAfter;
+
+                                if (cmbPayment.SelectedIndex != 1) {
+                                    lblCustomerCreditAfter.Content = customerViewModel.customer.credit - totalPriceAfter;
+
+                                }
+                            }
+
+                        }
+                    }
 
                 }
                 else if(cmbPayment.SelectedIndex == 1) {
@@ -237,12 +285,69 @@ namespace OnTheFlyWPFC.View
         }
 
         async private void addInvoice_Click(object sender, RoutedEventArgs e) {
-            //if (await invoiceViewModel.AddNewInvoice(HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), (decimal)deliveryPrice, true, DateTime.Now)) {
-            //    MessageBox.Show("تم الحفظ");
-            //    UpdateMainList.DynamicInvoke();
-            //    this.Close();
 
+            if(cmbPayment.SelectedIndex == 0) {
+                if(custodyID != null) {
+                    if(await invoiceViewModel.DeleteCustody((int)custodyID))
+                        custodyID = null;
+                }
+            }
+            else if(cmbPayment.SelectedIndex == 1){
+                
+            }
+
+            int? carID = null;
+
+            DateTime? enddate = null;
+
+            DateTime? firstdate = await invoiceViewModel.GetFirstDeliveryItemDateByInvoiceID(HelperClass.POSInvoiceID);
+            DateTime? lastdate = await invoiceViewModel.GetLastDeliveryItemDateByInvoiceID(HelperClass.POSInvoiceID);
+
+            //if(await invoiceViewModel.AddDeliveryInt(carID,(int)cmbDriver.SelectedValue,DateTime.Now,enddate,1,firstdate,lastdate)) {
+            //    MessageBox.Show("تم الحفظ");
             //}
+
+            int deliveryID = await invoiceViewModel.AddDeliveryInt(carID, (int)cmbDriver.SelectedValue, DateTime.Now, enddate, 1, firstdate, lastdate);
+
+
+            if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, HelperClass.POSSelectedCustomerID, decimal.Parse(txtDiscount.Text), deliveryID, totalPriceAfter, custodyID)) {
+                MessageBox.Show("تم الحفظ");
+
+                //UpdateMainUC.DynamicInvoke();
+
+
+                HelperClass.POSSelectedCustomerID = 0;
+                HelperClass.POSInvoiceID = 0;
+                HelperClass.POSSelectedDeliveryServiceID = 0;
+                customerViewModel.GetCustomerByID(HelperClass.POSSelectedCustomerID);
+
+                invoiceViewModel.GetNewInvoiceID();
+                invoiceViewModel.GetNewInvoiceID();
+
+                lblNewInvoice.Content = invoiceViewModel.invoiceNewID.ToString("D8");
+
+                invoiceViewModel.GetAllDeliveryServices();
+                lstViewDeliveryServices.ItemsSource = invoiceViewModel.allDeliveryService;
+
+                txtCustomerName.Text = "اسم المستخدم";
+                txtCustomerPhone.Text = "رقم الهاتف";
+                txtCustomerPhone2.Text = "رقم الهاتف";
+                txtCities.Text = "المدينة";
+                txtCustomerAddress.Text = "العنوان";
+                lblCustomerCredit.Content = 0;
+                lblCustomerCreditAfter.Content = 0;
+
+                cmbDriver.SelectedIndex = -1;
+
+                
+                //RefreshDeliveryServiceList();
+                RefreshInvoicePriceList();
+
+            }
+        }
+
+        private void CmbPayment_Loaded(object sender, RoutedEventArgs e) {
+            cmbPayment.SelectedIndex = 0;
         }
     }
 }

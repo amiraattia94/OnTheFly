@@ -17,8 +17,8 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EmployeeTBL()
         {
-            this.CustodyTBLs = new HashSet<CustodyTBL>();
-            this.DeliveryTBLs = new HashSet<DeliveryTBL>();
+            this.custodyTBLs = new HashSet<custodyTBL>();
+            this.deliveryTBLs = new HashSet<deliveryTBL>();
             this.PayrollTBLs = new HashSet<PayrollTBL>();
             this.UserTBLs = new HashSet<UserTBL>();
         }
@@ -37,9 +37,9 @@ namespace OnTheFlyWPFC.Model
     
         public virtual CompanyBranchTBL CompanyBranchTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustodyTBL> CustodyTBLs { get; set; }
+        public virtual ICollection<custodyTBL> custodyTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DeliveryTBL> DeliveryTBLs { get; set; }
+        public virtual ICollection<deliveryTBL> deliveryTBLs { get; set; }
         public virtual JobsTBL JobsTBL { get; set; }
         public virtual LibyanCitiesTBL LibyanCitiesTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

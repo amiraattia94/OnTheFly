@@ -25,6 +25,7 @@ namespace OnTheFlyWPFC.View
     {
 
         public Delegate UpdateMainList;
+
         CityViewModel _cityViewModel;
         BranchViewModel _branchViewModel;
 

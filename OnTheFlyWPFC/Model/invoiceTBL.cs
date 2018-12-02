@@ -12,13 +12,14 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class InvoiceTBL
+    public partial class invoiceTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public InvoiceTBL()
+        public invoiceTBL()
         {
+            this.custodyTBLs = new HashSet<custodyTBL>();
             this.DeliveryServiceTBLs = new HashSet<DeliveryServiceTBL>();
-            this.DeliveryTBLs = new HashSet<DeliveryTBL>();
+            this.deliveryTBLs = new HashSet<deliveryTBL>();
             this.ServiceTBLs = new HashSet<ServiceTBL>();
         }
     
@@ -29,13 +30,18 @@ namespace OnTheFlyWPFC.Model
         public System.DateTime time { get; set; }
         public bool issued { get; set; }
         public Nullable<decimal> discount { get; set; }
+        public Nullable<int> deliveryID { get; set; }
+        public Nullable<decimal> totalcost { get; set; }
     
-        public virtual CustodyTBL CustodyTBL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<custodyTBL> custodyTBLs { get; set; }
+        public virtual custodyTBL custodyTBL { get; set; }
         public virtual CustomerTBL CustomerTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeliveryServiceTBL> DeliveryServiceTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DeliveryTBL> DeliveryTBLs { get; set; }
+        public virtual ICollection<deliveryTBL> deliveryTBLs { get; set; }
+        public virtual deliveryTBL deliveryTBL { get; set; }
         public virtual UserTBL UserTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiceTBL> ServiceTBLs { get; set; }

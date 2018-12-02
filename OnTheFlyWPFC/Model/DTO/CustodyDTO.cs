@@ -13,5 +13,14 @@ namespace OnTheFlyWPFC.Model.DTO
         public decimal amount { get; set; }
         public bool actve { get; set; }
         public int? deliveryID { get; set; }
+
+        public int? invoiceID { get; set; }
+
+        public string ownerName { get; set; }
+
+        public string giverName { get; set; }
+
+
+
     }
 }

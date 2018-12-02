@@ -17,7 +17,7 @@ namespace OnTheFlyWPFC.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VehicleTBL()
         {
-            this.DeliveryTBLs = new HashSet<DeliveryTBL>();
+            this.deliveryTBLs = new HashSet<deliveryTBL>();
         }
     
         public int vehicleID { get; set; }
@@ -31,7 +31,7 @@ namespace OnTheFlyWPFC.Model
     
         public virtual CompanyBranchTBL CompanyBranchTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DeliveryTBL> DeliveryTBLs { get; set; }
+        public virtual ICollection<deliveryTBL> deliveryTBLs { get; set; }
         public virtual VehicleTypeTBL VehicleTypeTBL { get; set; }
     }
 }

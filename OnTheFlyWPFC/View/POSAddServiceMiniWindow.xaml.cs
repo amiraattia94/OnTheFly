@@ -46,12 +46,15 @@ namespace OnTheFlyWPFC.View
             invoiceViewModel = new InvoiceViewModel();
             vendorViewModel = new VendorViewModel();
 
+
             cmbVendors.IsEnabled = false;
             cmbBranches.IsEnabled = false;
             cmbTrip.IsEnabled = false;
             cmbPaid.IsEnabled = false;
             txtPaidPrice.IsEnabled = false;
             lblTotalPrice.Content = "0";
+            datePickerStartDate.SelectedDate = DateTime.Today;
+
         }
 
         private void btnCloseForm_Click(object sender, RoutedEventArgs e) {
@@ -177,7 +180,7 @@ namespace OnTheFlyWPFC.View
 
 
 
-            if (await invoiceViewModel.AddDeliveryService(HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), (decimal)deliveryPrice, true, DateTime.Now)
+            if (await invoiceViewModel.AddDeliveryService(HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), (decimal)deliveryPrice, true, (DateTime)datePickerStartDate.SelectedDate)
 )           {
                 MessageBox.Show("تم الحفظ");
                 UpdateMainList.DynamicInvoke();
@@ -187,6 +190,8 @@ namespace OnTheFlyWPFC.View
 
         }
 
-
+        private void DatePickerStartDate_Loaded(object sender, RoutedEventArgs e) {
+            datePickerStartDate.SelectedDate = DateTime.Today;
+        }
     }
 }

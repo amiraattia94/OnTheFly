@@ -12,22 +12,23 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class CustodyTBL
+    public partial class custodyTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CustodyTBL()
+        public custodyTBL()
         {
-            this.InvoiceTBLs = new HashSet<InvoiceTBL>();
+            this.invoiceTBLs = new HashSet<invoiceTBL>();
         }
     
         public int custodyID { get; set; }
         public int ownerID { get; set; }
         public decimal amount { get; set; }
         public bool active { get; set; }
-        public Nullable<int> deliveryID { get; set; }
+        public int invoiceID { get; set; }
     
         public virtual EmployeeTBL EmployeeTBL { get; set; }
+        public virtual invoiceTBL invoiceTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoiceTBL> InvoiceTBLs { get; set; }
+        public virtual ICollection<invoiceTBL> invoiceTBLs { get; set; }
     }
 }
