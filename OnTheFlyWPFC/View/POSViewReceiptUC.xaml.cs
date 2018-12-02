@@ -25,5 +25,52 @@ namespace OnTheFlyWPFC.View
             InitializeComponent();
         }
 
+        private void LblNewInvoice_Loaded(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void LblDate_Loaded(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void CmbDriver_Loaded(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void LblEmployeeName_Loaded(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void LstViewDeliveryServices_Loaded(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void Edit_Service(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void Delete_Service(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void TxtDiscount_TextChanged(object sender, TextChangedEventArgs e) {
+
+        }
+
+        private void CmbPayment_Loaded(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void CmbPayment_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+        }
+
+        private void addInvoice_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void cmbCities_Loaded(object sender, RoutedEventArgs e) {
+
+        }
     }
 }

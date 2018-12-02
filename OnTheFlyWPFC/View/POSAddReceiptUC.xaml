@@ -10,7 +10,7 @@
              xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel">
 
     <UserControl.Resources>
-        <viewmodel:Class1 x:Key="class1"/>
+        
 
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="LightGray" />

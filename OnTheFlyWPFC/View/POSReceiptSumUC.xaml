@@ -10,8 +10,7 @@
              xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel">
 
     <UserControl.Resources>
-        <viewmodel:Class1 x:Key="class1"/>
-
+        
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="LightGray" />
         <SolidColorBrush x:Key="HoverBorderBrush" Color="#DDD" />
@@ -350,7 +349,7 @@
                 </StackPanel>
 
 
-                <UniformGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Top" DataContext="{StaticResource ResourceKey=class1}">
+                <UniformGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Top" >
                     <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,0,0,0" Height="447" >
                         <ListView.View>
                             <GridView>
