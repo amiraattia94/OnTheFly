@@ -30,17 +30,8 @@ namespace OnTheFlyWPFC.Model.DTO
 
         public int ServiceNumber { get; set; }
 
-        public decimal totalBefore { get; set; }
-        public decimal totalBeforeDelivery { get; set; }
         public decimal discount { get; set; }
         public decimal totalafter { get; set; }
-
-
-        public string paymentmethod { get; set; }
-
-
-
-
 
     }
 }

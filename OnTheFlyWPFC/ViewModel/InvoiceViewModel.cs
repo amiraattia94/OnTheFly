@@ -36,17 +36,20 @@ namespace OnTheFlyWPFC.ViewModel {
             allDeliveryService = new ObservableCollection<DeliveryServiceDTO>();
             allDelivery = new ObservableCollection<DeliveryDTO>();
             allCustody = new ObservableCollection<CustodyDTO>();
+            allCustody = new ObservableCollection<CustodyDTO>();
+
 
             deliveryService = new DeliveryServiceDTO();
             Delivery = new DeliveryDTO();
             Custody = new CustodyDTO();
-
-
-
         }
 
         async public Task<bool> AddInvoice(int issuerID, int customerID, decimal discount,int deliveryID, int? custodyID = null) {
            return await invoiceService.AddInvoice(issuerID, customerID, discount, deliveryID, custodyID);
+        }
+
+        async public void GetAllInvoice() {
+
         }
 
         async public void GetNewInvoiceID() {

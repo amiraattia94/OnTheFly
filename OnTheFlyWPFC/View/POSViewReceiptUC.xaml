@@ -492,16 +492,6 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="الرصيد المتوفر : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                                    <Label Name="lblCustomerCredit" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="الرصيد الباقي : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                                    <Label Name="lblCustomerCreditAfter" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-
-                                </StackPanel>
                                 <StackPanel Orientation="Vertical">
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="طريقة الدفع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
