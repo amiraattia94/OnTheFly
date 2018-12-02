@@ -651,32 +651,64 @@
                     -->
 
                     <StackPanel>
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical" Height="150" Width="150">
                             <StackPanel Orientation="Vertical">
                                 <Label Content="نقطة البيع" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                        
                                 <CheckBox
-            Content="عرض"
-            HorizontalAlignment="Left"
-            Margin="10,10,0,0"
-            VerticalAlignment="Top"
-                                     Foreground="Gray"
-           />
+                                        Content="عرض"
+                                        HorizontalAlignment="Left"
+                                        Margin="10,10,0,0"
+                                        VerticalAlignment="Top"
+                                    Name="chkPOSView"
+                                   
+                                                                 Foreground="Gray"
+                                       />
                                 <CheckBox
-            Content="إضافة"
-            HorizontalAlignment="Left"
-            Margin="10,10,0,0"
-            VerticalAlignment="Top" Foreground="Gray"
-            />
+                                            Content="إضافة"
+                                            HorizontalAlignment="Left"
+                                            Margin="10,10,0,0"
+                                            VerticalAlignment="Top" Foreground="Gray"
+                                    Name="chkPOSAdd"
+                                            />
                                 <CheckBox
-            Content="حذف"
-            HorizontalAlignment="Left"
-            Margin="10,10,0,0"
-            VerticalAlignment="Top" Foreground="Gray"
-            />
+                                            Content="حذف"
+                                            HorizontalAlignment="Left"
+                                            Margin="10,10,0,0"
+                                            VerticalAlignment="Top" Foreground="Gray" Name="chkPOSDelete"
+                                            />
                             </StackPanel>
                         </StackPanel>
-                    </StackPanel>
+                        <StackPanel>
+                            <StackPanel Orientation="Vertical" Height="150" Width="150">
+                                <StackPanel Orientation="Vertical">
+                                    <Label Content="نقطة البيع" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+
+                                    <CheckBox
+                                        Content="عرض"
+                                        HorizontalAlignment="Left"
+                                        Margin="10,10,0,0"
+                                        VerticalAlignment="Top"
+                                    Name="chkHRView"
+                                   
+                                                                 Foreground="Gray"
+                                       />
+                                    <CheckBox
+                                            Content="إضافة"
+                                            HorizontalAlignment="Left"
+                                            Margin="10,10,0,0"
+                                            VerticalAlignment="Top" Foreground="Gray"
+                                    Name="chkHRAdd"
+                                            />
+                                    <CheckBox
+                                            Content="حذف"
+                                            HorizontalAlignment="Left"
+                                            Margin="10,10,0,0"
+                                            VerticalAlignment="Top" Foreground="Gray" Name="chkHRDelete"
+                                            />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
                 </UniformGrid>
 
 
