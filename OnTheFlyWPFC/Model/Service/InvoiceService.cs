@@ -457,7 +457,7 @@ namespace OnTheFlyWPFC.Model.Service {
 
 
 
-        async public Task<bool> AddDelivery(int? carID, int driverID, DateTime? startday, DateTime? enddate, int status, DateTime? firstItemDate, DateTime? lastItemDate) {
+        async public Task<bool> AddDelivery(int? carID, int driverID, DateTime? startday, DateTime? enddate, int status, DateTime? firstItemDate, DateTime? lastItemDate,int invoiceID) {
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
                     var result = new deliveryTBL() {
@@ -468,6 +468,7 @@ namespace OnTheFlyWPFC.Model.Service {
                         statusID = status,
                         firstItemAvailableDate = firstItemDate,
                         lastItemAvailableDate = lastItemDate,
+                        invoiceID = invoiceID,
 
                     };
                     con.deliveryTBLs.Add(result);
@@ -481,7 +482,7 @@ namespace OnTheFlyWPFC.Model.Service {
             return false;
         }
 
-        async public Task<int> AddDeliveryInt(int? carID, int driverID, DateTime? startday,DateTime? enddate, int status,DateTime?  firstItemDate,DateTime? lastItemDate) {
+        async public Task<int> AddDeliveryInt(int? carID, int driverID, DateTime? startday,DateTime? enddate, int status,DateTime?  firstItemDate,DateTime? lastItemDate,int invoiceID) {
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
                     var result = new deliveryTBL() {
@@ -492,6 +493,7 @@ namespace OnTheFlyWPFC.Model.Service {
                         statusID = status,
                         firstItemAvailableDate = firstItemDate,
                         lastItemAvailableDate = lastItemDate,
+                        invoiceID = invoiceID,
 
                     };
                     con.deliveryTBLs.Add(result);
@@ -701,8 +703,6 @@ namespace OnTheFlyWPFC.Model.Service {
                         statusName = result.DeliveryStatusTBL.name,
                         totalCustodycost = result.invoiceTBL.custodyTBL.amount,
                         totalcost = result.invoiceTBL.totalcost,
-
-
 
                     };
                 };

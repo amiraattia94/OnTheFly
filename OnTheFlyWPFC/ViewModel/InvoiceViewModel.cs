@@ -112,12 +112,12 @@ namespace OnTheFlyWPFC.ViewModel {
 
 
 
-        async public Task<bool> AddDelivery(int? carID, int driverID, DateTime? startday, DateTime? enddate, int status, DateTime? firstItemDate, DateTime? lastItemDate) {
-            return await invoiceService.AddDelivery( carID,  driverID,   startday,   enddate,  status,  firstItemDate,  lastItemDate);
+        async public Task<bool> AddDelivery(int? carID, int driverID, DateTime? startday, DateTime? enddate, int status, DateTime? firstItemDate, DateTime? lastItemDate, int invoiceID) {
+            return await invoiceService.AddDelivery( carID,  driverID,   startday,   enddate,  status,  firstItemDate,  lastItemDate, invoiceID);
         }
 
-        async public Task<int> AddDeliveryInt(int? carID, int driverID, DateTime? startday, DateTime? enddate, int status, DateTime? firstItemDate, DateTime? lastItemDate) {
-            return await invoiceService.AddDeliveryInt(carID, driverID, startday, enddate, status, firstItemDate, lastItemDate);
+        async public Task<int> AddDeliveryInt(int? carID, int driverID, DateTime? startday, DateTime? enddate, int status, DateTime? firstItemDate, DateTime? lastItemDate,int invoiceID) {
+            return await invoiceService.AddDeliveryInt(carID, driverID, startday, enddate, status, firstItemDate, lastItemDate, invoiceID);
         }
 
         async public Task<bool> EditDelivery(int deliveryID, DateTime? startday, DateTime? enddate, int status, DateTime? firstItemDate, DateTime? lastItemDate) {

@@ -307,7 +307,7 @@ namespace OnTheFlyWPFC.View
             //    MessageBox.Show("تم الحفظ");
             //}
 
-            int deliveryID = await invoiceViewModel.AddDeliveryInt(carID, (int)cmbDriver.SelectedValue, DateTime.Now, enddate, 1, firstdate, lastdate);
+            int deliveryID = await invoiceViewModel.AddDeliveryInt(carID, (int)cmbDriver.SelectedValue, DateTime.Now, enddate, 1, firstdate, lastdate, HelperClass.POSInvoiceID);
 
 
             if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, HelperClass.POSSelectedCustomerID, decimal.Parse(txtDiscount.Text), deliveryID, totalPriceAfter, custodyID)) {
