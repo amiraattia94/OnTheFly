@@ -683,7 +683,8 @@ namespace OnTheFlyWPFC.Model.Service {
                 var result = con.deliveryTBLs.SingleOrDefault(w => w.deliveryID == deliveryID);
 
                 if (result != null) {
-                    return new DeliveryDTO() {
+                    try {
+                        return new DeliveryDTO() {
                         custodyID = result.invoiceTBL.custodyID,
                         driverID = result.driverID,
                         driverName = result.EmployeeTBL.name,
@@ -702,10 +703,17 @@ namespace OnTheFlyWPFC.Model.Service {
                         ServicesCount = result.invoiceTBL.DeliveryServiceTBLs.Count,
                         status = result.statusID,
                         statusName = result.DeliveryStatusTBL.name,
-                        totalCustodycost = result.invoiceTBL.custodyTBL.amount,
+                        totalCustodycost = result.invoiceTBL.custodyTBL.amount != null ? result.invoiceTBL.custodyTBL.amount : 0 ,
+                        
                         totalcost = result.invoiceTBL.totalcost,
 
                     };
+                    }
+                    catch (Exception) {
+
+                        
+                    }
+                    
                 };
 
                 return new DeliveryDTO() { };

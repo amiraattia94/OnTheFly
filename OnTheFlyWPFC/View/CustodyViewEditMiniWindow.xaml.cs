@@ -76,7 +76,7 @@ namespace OnTheFlyWPFC.View
                     return;
                 }
                 if (await invoiceViewModel.EditCustody(HelperClass.CustodyID, status)) {
-                    if(await financeViewModel.AddFinance(true, invoiceViewModel.Custody.amount,"اغلاق عهدة رقم "+ invoiceViewModel.Custody.custodyID,HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                    if(await financeViewModel.AddFinance(true, (decimal)invoiceViewModel.Custody.amount,"اغلاق عهدة رقم "+ invoiceViewModel.Custody.custodyID,HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
                         MessageBox.Show("تم الحفظ");
 
                         UpdateMainList.DynamicInvoke();

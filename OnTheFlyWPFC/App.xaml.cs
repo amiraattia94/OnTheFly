@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnTheFlyWPFC.View;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -11,5 +12,10 @@ namespace OnTheFlyWPFC {
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application {
+        void AppStartup(object sender, StartupEventArgs args) {
+            LoginWindow mainWindow = new LoginWindow();
+            mainWindow.Show();
+        }
+
     }
 }

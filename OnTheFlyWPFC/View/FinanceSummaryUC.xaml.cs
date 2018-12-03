@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnTheFlyWPFC.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class FinanceSummaryUC : UserControl
     {
+        FinanceViewModel financeViewModel;
         public FinanceSummaryUC()
         {
             InitializeComponent();
+
+            financeViewModel = new FinanceViewModel();
+        }
+
+        private void StkFinance_Loaded(object sender, RoutedEventArgs e) {
+
+
+            
         }
     }
 }
