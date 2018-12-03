@@ -147,6 +147,7 @@
     <Property Name="FinanceValue" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <Property Name="FinanceReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="FinanceEmployee" Type="Int32" Nullable="false" />
+    <Property Name="FinanceEmployeeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="FinanceAddDate" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="invoiceTBL">

@@ -122,6 +122,7 @@
           <ScalarProperty Name="FinanceValue" ColumnName="FinanceValue" />
           <ScalarProperty Name="FinanceReason" ColumnName="FinanceReason" />
           <ScalarProperty Name="FinanceEmployee" ColumnName="FinanceEmployee" />
+          <ScalarProperty Name="FinanceEmployeeName" ColumnName="FinanceEmployeeName" />
           <ScalarProperty Name="FinanceAddDate" ColumnName="FinanceAddDate" />
         </MappingFragment>
       </EntityTypeMapping>

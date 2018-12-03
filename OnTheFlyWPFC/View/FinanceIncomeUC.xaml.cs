@@ -51,6 +51,9 @@ namespace OnTheFlyWPFC.View
             RefreshListEvent += new RefreshList(RefreshListView);
             newwindow.UpdateMainList = RefreshListEvent;
             newwindow.ShowDialog();
+
+            financeViewModel.GetAllPosativeFinance();
+            lstViewFinance.ItemsSource = financeViewModel.viewFinances;
         }
     }
 }

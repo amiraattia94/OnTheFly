@@ -10,7 +10,7 @@ namespace OnTheFlyWPFC.Model.Service
 {
     public class FinanceService
     {
-        async public Task<bool> AddFinance(bool financePosative, decimal financeValue, string financeReason,int financeEmployee , DateTime financeAddDate)
+        async public Task<bool> AddFinance(bool financePosative, decimal financeValue, string financeReason,int financeEmployee,string financeEmployeeName, DateTime financeAddDate)
         {
             try
             {
@@ -22,7 +22,8 @@ namespace OnTheFlyWPFC.Model.Service
                         FinanceValue = financeValue,
                         FinanceReason = financeReason,
                         FinanceEmployee = financeEmployee,
-                        FinanceAddDate = financeAddDate
+                        FinanceAddDate = financeAddDate,
+                        FinanceEmployeeName = financeEmployeeName,
 
                     });
                     await con.SaveChangesAsync();
@@ -48,7 +49,9 @@ namespace OnTheFlyWPFC.Model.Service
                     financeValue = s.FinanceValue,
                     financeReason = s.FinanceReason,
                     financeEmployee = s.FinanceEmployee,
-                    financeAddDate = s.FinanceAddDate
+                    financeAddDate = s.FinanceAddDate,
+                    financeEmployeeName = s.FinanceEmployeeName,
+                    
                 }).ToList();
 
                 return new ObservableCollection<FinanceDTO>(result);
@@ -71,18 +74,19 @@ namespace OnTheFlyWPFC.Model.Service
                         financeValue = result.FinanceValue,
                         financeReason = result.FinanceReason,
                         financeEmployee = result.FinanceEmployee,
+                        financeEmployeeName = result.FinanceEmployeeName,
                         financeAddDate = result.FinanceAddDate
 
                     };
                 };
 
-                return new FinanceDTO()
-                {
+                return new FinanceDTO() {
                     financePositive = false,
                     financeValue = 0,
                     financeReason = null,
                     financeEmployee = 0,
-                    financeAddDate = DateTime.Now
+                    financeEmployeeName = "",
+                financeAddDate = DateTime.Now,
                 };
                                
             }
@@ -100,6 +104,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeValue = s.FinanceValue,
                     financeReason = s.FinanceReason,
                     financeEmployee = s.FinanceEmployee,
+                    financeEmployeeName = s.FinanceEmployeeName,
                     financeAddDate = s.FinanceAddDate
                 }).ToList();
 
@@ -127,6 +132,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeValue = s.FinanceValue,
                     financeReason = s.FinanceReason,
                     financeEmployee = s.FinanceEmployee,
+                    financeEmployeeName = s.FinanceEmployeeName,
                     financeAddDate = s.FinanceAddDate
                 }).ToList();
 
@@ -157,6 +163,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeValue = s.FinanceValue,
                     financeReason = s.FinanceReason,
                     financeEmployee = s.FinanceEmployee,
+                    financeEmployeeName = s.FinanceEmployeeName,
                     financeAddDate = s.FinanceAddDate
                 }).ToList();
 
@@ -187,6 +194,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeValue = s.FinanceValue,
                     financeReason = s.FinanceReason,
                     financeEmployee = s.FinanceEmployee,
+                    financeEmployeeName = s.FinanceEmployeeName,
                     financeAddDate = s.FinanceAddDate
                 }).ToList();
 
@@ -217,6 +225,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeValue = s.FinanceValue,
                     financeReason = s.FinanceReason,
                     financeEmployee = s.FinanceEmployee,
+                    financeEmployeeName = s.FinanceEmployeeName,
                     financeAddDate = s.FinanceAddDate
                 }).ToList();
 

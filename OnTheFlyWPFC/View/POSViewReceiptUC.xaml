@@ -459,7 +459,7 @@
                                 <StackPanel Grid.Column="0" Margin="0,0,0,0" >
                                     <Label Content=" " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
                                     <Label Content="" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
-                                    <Label Content="" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
+                                    <Label Content="نسبة التخفيض" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="left"/>
                                     <Label Content="الاجمالي :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
 
                                 </StackPanel>

@@ -79,7 +79,7 @@ namespace OnTheFlyWPFC.Model.Service {
             finance_reason += "تم دفع مرتب " + employeeViewModel.employee.name + " للشهر: " + payroll.payroll_month+" و السنة: " +payroll.payroll_year;
             try
             {
-                await financeViewModel.AddFinance(false, payroll.gross_salary, finance_reason, HelperClass.systemUserID, DateTime.Now);
+                await financeViewModel.AddFinance(false, payroll.gross_salary, finance_reason, HelperClass.systemUserID, HelperClass.LoginEmployeeName, DateTime.Now);
             }
             catch
             {

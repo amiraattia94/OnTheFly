@@ -23,6 +23,7 @@ namespace OnTheFlyWPFC.View
     {
 
         InvoiceViewModel invoiceViewModel;
+        FinanceViewModel financeViewModel;
         bool status;
 
         public Delegate UpdateMainList;
@@ -32,6 +33,7 @@ namespace OnTheFlyWPFC.View
         {
             InitializeComponent();
             invoiceViewModel = new InvoiceViewModel();
+            financeViewModel = new FinanceViewModel();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e) {
@@ -53,7 +55,7 @@ namespace OnTheFlyWPFC.View
 
             if (invoiceViewModel.Custody.actve) {
                 cmbstate.SelectedIndex = 1;
-                
+                cmbstate.IsEnabled = false;
 
             }
             else if(!invoiceViewModel.Custody.actve) {
@@ -67,12 +69,23 @@ namespace OnTheFlyWPFC.View
                 status = true;
             if (cmbstate.SelectedIndex == 0)
                 status = false;
+            if(cmbstate.SelectedIndex != 0) {
+                if (invoiceViewModel.Custody.actve) {
+                    MessageBox.Show("لا يمكن تعديل بعد اقفال العهدة");
+                    this.Close();
+                    return;
+                }
+                if (await invoiceViewModel.EditCustody(HelperClass.CustodyID, status)) {
+                    if(await financeViewModel.AddFinance(true, invoiceViewModel.Custody.amount,"اغلاق عهدة رقم "+ invoiceViewModel.Custody.custodyID,HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                        MessageBox.Show("تم الحفظ");
 
-            if(await invoiceViewModel.EditCustody(HelperClass.CustodyID, status)) {
-                MessageBox.Show("تم الحفظ");
-                UpdateMainList.DynamicInvoke();
-                this.Close();
+                        UpdateMainList.DynamicInvoke();
+                        this.Close();
+                    }
+                    
+                }
             }
+
         }
     }
 }

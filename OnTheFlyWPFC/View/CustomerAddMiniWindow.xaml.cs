@@ -1,4 +1,5 @@
 ﻿using OnTheFlyWPFC.Model.DTO;
+using OnTheFlyWPFC.Model.Service;
 using OnTheFlyWPFC.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -25,12 +26,14 @@ namespace OnTheFlyWPFC.View
         public Delegate UpdateMainList;
         CityViewModel cityViewModel;
         CustomerViewModel customerViewModel;
+        FinanceViewModel financeViewModel;
 
 
         public CustomerAddMiniWindow()
         {
             cityViewModel = new CityViewModel();
             customerViewModel = new CustomerViewModel();
+            financeViewModel = new FinanceViewModel();
             InitializeComponent();
         }
 
@@ -61,7 +64,9 @@ namespace OnTheFlyWPFC.View
 
             if (await customerViewModel.AddCustomer(txtCustomerName.Text, txtCustomerPhone1.Text, txtCustomerPhone2.Text, city.cityCode, txtCustomerAddress.Text, decimal.Parse(txtCustomerCredit.Text)))
             {
-                MessageBox.Show("تم الحفظ");
+                if( await financeViewModel.AddFinance(true, decimal.Parse(txtCustomerCredit.Text),"اضافة رصيد مع اضافة زبون  "+ txtCustomerName.Text , HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now))
+                    MessageBox.Show("تم الحفظ");
+
 
                 UpdateMainList.DynamicInvoke();
                 this.Close();

@@ -24,7 +24,7 @@ namespace OnTheFlyWPFC.View
     public partial class DeliveryViewUC : UserControl
     {
         public delegate void RefreshList();
-        public event RefreshList RefreshListEvent;
+        //public event RefreshList RefreshListEvent;
 
         InvoiceViewModel invoiceViewModel;
         DeliveryStatusViewModel deliveryStatusViewModel;
@@ -55,7 +55,7 @@ namespace OnTheFlyWPFC.View
 
             var newwindow = new DeliveryViewEditMiniWindow();
 
-            RefreshListEvent += new RefreshList(RefreshListView);
+            //RefreshListEvent += new RefreshList(RefreshListView);
             //newwindow.UpdateMainList = RefreshListEvent;
 
             newwindow.ShowDialog();

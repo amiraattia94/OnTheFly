@@ -41,7 +41,7 @@ namespace OnTheFlyWPFC.View
         }
         private async void btnAddFinance_Click(object sender, RoutedEventArgs e)
         {
-            if (await FinanceViewModel.AddFinance(false, decimal.Parse(txtFinanceValue.Text), txtFinanceReason.Text, HelperClass.systemUserID, DateTime.Now))
+            if (await FinanceViewModel.AddFinance(false, decimal.Parse(txtFinanceValue.Text), txtFinanceReason.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now))
 
             {
                 MessageBox.Show("تم الحفظ");

@@ -19,6 +19,7 @@ namespace OnTheFlyWPFC.Model
         public decimal FinanceValue { get; set; }
         public string FinanceReason { get; set; }
         public int FinanceEmployee { get; set; }
+        public string FinanceEmployeeName { get; set; }
         public System.DateTime FinanceAddDate { get; set; }
     }
 }

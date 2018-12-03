@@ -28,6 +28,7 @@ namespace OnTheFlyWPFC.View
         CustomerViewModel customerViewModel;
         JobsViewModel jobsViewModel;
         EmployeeViewModel employeeViewModel;
+        FinanceViewModel financeViewModel;
 
         public Delegate UpdateMainUC;
 
@@ -47,6 +48,7 @@ namespace OnTheFlyWPFC.View
             customerViewModel = new CustomerViewModel();
             jobsViewModel = new JobsViewModel();
             employeeViewModel = new EmployeeViewModel();
+            financeViewModel = new FinanceViewModel();
             //invoiceViewModel.AddNewInvoice();
 
             invoiceViewModel.GetNewInvoiceID();
@@ -221,8 +223,21 @@ namespace OnTheFlyWPFC.View
                 }
                 else {
                     lblTotalAfter.Content = invoiceViewModel.totalPrice;
-                    totalPriceAfter = (decimal)invoiceViewModel.totalPrice;
-                    totalDeliveryPriceAfter = (decimal)invoiceViewModel.deliveryPrice;
+                    try {
+                        totalPriceAfter = (decimal)invoiceViewModel.totalPrice;
+                    }
+                    catch (Exception) {
+
+                        
+                    }
+                    try {
+                        totalDeliveryPriceAfter = (decimal)invoiceViewModel.deliveryPrice;
+
+                    }
+                    catch (Exception) {
+
+                        
+                    }
 
                     if (cmbPayment.SelectedIndex != 1) {
                         lblCustomerCreditAfter.Content = customerViewModel.customer.credit - invoiceViewModel.totalPrice;
@@ -364,6 +379,20 @@ namespace OnTheFlyWPFC.View
             if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, HelperClass.POSSelectedCustomerID, decimal.Parse(txtDiscount.Text), (int)deliveryID, totalPriceAfter,totalDeliveryPriceAfter, custodyID)) {
                 MessageBox.Show("تم الحفظ");
 
+                if(await financeViewModel.AddFinance(false,totalPriceAfter,"فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                    //MessageBox.Show("تم الحفظ");
+                }
+
+                if (await financeViewModel.AddFinance(true, totalDeliveryPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                    //MessageBox.Show("تم الحفظ");
+                }
+
+                if(cmbPayment.SelectedIndex == 0) {
+                    if (await customerViewModel.RemoveCreditFromCustomer(HelperClass.POSSelectedCustomerID, totalPriceAfter)) {
+
+                    }
+
+                }
                 //UpdateMainUC.DynamicInvoke();
 
 
