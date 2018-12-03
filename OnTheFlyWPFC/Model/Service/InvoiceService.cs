@@ -536,37 +536,71 @@ namespace OnTheFlyWPFC.Model.Service {
 
         }
 
+        async public Task<bool> EditDelivery(int deliveryID, int status) {
+            try {
+                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                    var Result = con.deliveryTBLs.SingleOrDefault(w => w.deliveryID == deliveryID);
+                    if (Result != null) {
+
+                        try {
+                            
+                            Result.end_date = DateTime.Now;
+                            Result.statusID = status;
+
+                            await con.SaveChangesAsync();
+                            return true;
+                        }
+                        catch {
+
+                        }
+                        return false;
+                    }
+                }
+            }
+            catch (Exception) {
+
+            }
+            return false;
+
+        }
+
         async public Task<ObservableCollection<DeliveryDTO>> GetAllDelivery() {
             await Task.FromResult(true);
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                var result = con.deliveryTBLs.Select(s => new DeliveryDTO() {
-                    custodyID = s.invoiceTBL.custodyID,
-                    driverID = s.driverID,
-                    driverName = s.EmployeeTBL.name,
-                    customername = s.invoiceTBL.CustomerTBL.name,
-                    customercityCodee = s.invoiceTBL.CustomerTBL.LibyanCitiesTBL.city_code,
-                    customerCityname = s.invoiceTBL.CustomerTBL.LibyanCitiesTBL.name,
-                    customerAddress = s.invoiceTBL.CustomerTBL.address,
-                    phone1 = s.invoiceTBL.CustomerTBL.phone1,
-                    phone2 = s.invoiceTBL.CustomerTBL.phone2,
-                    deliveryID = s.deliveryID,
-                    invoiceID = s.invoiceID,
-                    start_date = s.start_date,
-                    end_date = s.end_date,
-                    firstItemdate = s.firstItemAvailableDate,
-                    lastItemDate = s.lastItemAvailableDate,
-                    ServicesCount = s.invoiceTBL.DeliveryServiceTBLs.Count,
-                    status = s.statusID,
-                    statusName = s.DeliveryStatusTBL.name,
-                    totalCustodycost = s.invoiceTBL.custodyTBL.amount,
-                    totalcost = s.invoiceTBL.totalcost,
+                try {
+                    var result = con.deliveryTBLs.Select(s => new DeliveryDTO() {
+                        custodyID = s.invoiceTBL.custodyID,
+                        driverID = s.driverID,
+                        driverName = s.EmployeeTBL.name,
+                        customername = s.invoiceTBL.CustomerTBL.name,
+                        customercityCodee = s.invoiceTBL.CustomerTBL.LibyanCitiesTBL.city_code,
+                        customerCityname = s.invoiceTBL.CustomerTBL.LibyanCitiesTBL.name,
+                        customerAddress = s.invoiceTBL.CustomerTBL.address,
+                        phone1 = s.invoiceTBL.CustomerTBL.phone1,
+                        phone2 = s.invoiceTBL.CustomerTBL.phone2,
+                        deliveryID = s.deliveryID,
+                        invoiceID = s.invoiceID,
+                        start_date = s.start_date,
+                        end_date = s.end_date,
+                        firstItemdate = s.firstItemAvailableDate,
+                        lastItemDate = s.lastItemAvailableDate,
+                        ServicesCount = s.invoiceTBL.DeliveryServiceTBLs.Count,
+                        status = s.statusID,
+                        statusName = s.DeliveryStatusTBL.name,
+                        totalCustodycost = s.invoiceTBL.custodyTBL.amount,
+                        totalcost = s.invoiceTBL.totalcost,
 
 
 
-                }).ToList();
+                    }).ToList();
 
-                return new ObservableCollection<DeliveryDTO>(result);
+                    return new ObservableCollection<DeliveryDTO>(result);
+                }
+                catch (Exception) {
+
+                }
+                return new ObservableCollection<DeliveryDTO>();
             }
         }
 
@@ -603,6 +637,41 @@ namespace OnTheFlyWPFC.Model.Service {
                 return new ObservableCollection<DeliveryDTO>(result);
             }
         }
+
+        async public Task<ObservableCollection<DeliveryDTO>> GetAllDeliveryByStatus(int Status) {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.deliveryTBLs.Where(w => w.statusID == Status).Select(s => new DeliveryDTO() {
+                    custodyID = s.invoiceTBL.custodyID,
+                    driverID = s.driverID,
+                    driverName = s.EmployeeTBL.name,
+                    customername = s.invoiceTBL.CustomerTBL.name,
+                    customercityCodee = s.invoiceTBL.CustomerTBL.LibyanCitiesTBL.city_code,
+                    customerCityname = s.invoiceTBL.CustomerTBL.LibyanCitiesTBL.name,
+                    customerAddress = s.invoiceTBL.CustomerTBL.address,
+                    phone1 = s.invoiceTBL.CustomerTBL.phone1,
+                    phone2 = s.invoiceTBL.CustomerTBL.phone2,
+                    deliveryID = s.deliveryID,
+                    invoiceID = s.invoiceID,
+                    start_date = s.start_date,
+                    end_date = s.end_date,
+                    firstItemdate = s.firstItemAvailableDate,
+                    lastItemDate = s.lastItemAvailableDate,
+                    ServicesCount = s.invoiceTBL.DeliveryServiceTBLs.Count,
+                    status = s.statusID,
+                    statusName = s.DeliveryStatusTBL.name,
+                    totalCustodycost = s.invoiceTBL.custodyTBL.amount,
+                    totalcost = s.invoiceTBL.totalcost,
+
+
+
+                }).ToList();
+
+                return new ObservableCollection<DeliveryDTO>(result);
+            }
+        }
+
 
         async public Task<DeliveryDTO> GetDeliveryByID(int deliveryID) {
             await Task.FromResult(true);

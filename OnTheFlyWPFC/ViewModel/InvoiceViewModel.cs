@@ -124,12 +124,20 @@ namespace OnTheFlyWPFC.ViewModel {
             return await invoiceService.EditDelivery( deliveryID, startday,  enddate,  status,  firstItemDate,  lastItemDate);
         }
 
+        async public Task<bool> EditDelivery(int deliveryID, int status) {
+            return await invoiceService.EditDelivery( deliveryID, status);
+        }
+
         async public void GetAllDelivery() {
             allDelivery = await invoiceService.GetAllDelivery();
         }
 
         async public void GetAllDelivery(int deliveryID) {
             allDelivery = await invoiceService.GetAllDelivery( deliveryID);
+        }
+
+        async public void GetAllDeliveryByStatus(int Status) {
+            allDelivery = await invoiceService.GetAllDeliveryByStatus(Status);
         }
 
         async public void GetDeliveryByID(int deliveryID) {

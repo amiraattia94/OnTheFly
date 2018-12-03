@@ -27,11 +27,13 @@ namespace OnTheFlyWPFC.View
         public event RefreshList RefreshListEvent;
 
         InvoiceViewModel invoiceViewModel;
+        DeliveryStatusViewModel deliveryStatusViewModel;
 
         public DeliveryViewUC()
         {
             InitializeComponent();
             invoiceViewModel = new InvoiceViewModel();
+            deliveryStatusViewModel = new DeliveryStatusViewModel();
         }
 
         private void BtnSearchDeliveryView_Click(object sender, RoutedEventArgs e)
@@ -65,6 +67,22 @@ namespace OnTheFlyWPFC.View
         private void RefreshListView() {
             invoiceViewModel.GetAllDelivery();
             lstdelivery.ItemsSource = invoiceViewModel.allDelivery;
+        }
+
+
+
+        private void CmbdeliveryStatus_Loaded(object sender, RoutedEventArgs e) {
+            deliveryStatusViewModel.GetAllDeliveryStatus();
+            cmbdeliveryStatus.ItemsSource = deliveryStatusViewModel.allDeliveryStatus;
+            cmbdeliveryStatus.DisplayMemberPath = "name";
+            cmbdeliveryStatus.SelectedValuePath = "statusID";
+        }
+
+        private void CmbdeliveryStatus_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if(cmbdeliveryStatus.SelectedIndex != -1) {
+                invoiceViewModel.GetAllDeliveryByStatus((int)cmbdeliveryStatus.SelectedValue);
+                lstdelivery.ItemsSource = invoiceViewModel.allDelivery;
+            }
         }
     }
 }
