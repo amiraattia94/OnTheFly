@@ -138,6 +138,7 @@
           <ScalarProperty Name="discount" ColumnName="discount" />
           <ScalarProperty Name="deliveryID" ColumnName="deliveryID" />
           <ScalarProperty Name="totalcost" ColumnName="totalcost" />
+          <ScalarProperty Name="totaldelivery" ColumnName="totaldelivery" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

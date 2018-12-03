@@ -10,7 +10,7 @@ namespace OnTheFlyWPFC.Model.Service {
     class InvoiceService {
 
 
-        async public Task<bool> AddInvoice(int issuerID, int customerID,decimal discount, int deliveryID,decimal totalcost, int? custodyID ) {
+        async public Task<bool> AddInvoice(int issuerID, int customerID,decimal discount, int deliveryID,decimal totalcost,decimal totaldeliveryPrice, int? custodyID ) {
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
                     var issued = con.invoiceTBLs.OrderByDescending(w => w.invoiceID).First().issued;
@@ -27,7 +27,8 @@ namespace OnTheFlyWPFC.Model.Service {
                                 issued = true,
                                 discount = discount,
                                 deliveryID = deliveryID,
-                                totalcost = totalcost
+                                totalcost = totalcost,
+                                totaldelivery = totaldeliveryPrice,
 
 
                             });

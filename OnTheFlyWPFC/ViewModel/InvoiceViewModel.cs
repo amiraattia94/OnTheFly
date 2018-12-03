@@ -47,8 +47,8 @@ namespace OnTheFlyWPFC.ViewModel {
             Invoice = new InvoiceDTO();
         }
 
-        async public Task<bool> AddInvoice(int issuerID, int customerID, decimal discount,int deliveryID,decimal totalcost, int? custodyID = null) {
-           return await invoiceService.AddInvoice(issuerID, customerID, discount, deliveryID, totalcost, custodyID);
+        async public Task<bool> AddInvoice(int issuerID, int customerID, decimal discount,int deliveryID,decimal totalcost,decimal totalDeliveryPrice ,int? custodyID = null) {
+           return await invoiceService.AddInvoice(issuerID, customerID, discount, deliveryID, totalcost, totalDeliveryPrice, custodyID);
         }
 
         async public void GetAllInvoice() {

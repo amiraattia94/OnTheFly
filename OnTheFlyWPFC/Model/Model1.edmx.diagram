@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b84835ebc96c42c7984524dc39008770" Name="Diagram1">
+      <Diagram DiagramId="726658ac30ec4df494c1e39de07ce5d1" Name="Diagram1">
         <EntityTypeShape EntityType="OnTheFlyDBModel.CategoriesTBL" Width="1.5" PointX="1.5" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.CompanyBranchTBL" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.custodyTBL" Width="1.5" PointX="10.5" PointY="17.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.CustomerTBL" Width="1.5" PointX="3" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.DeliveryPricesTBL" Width="1.5" PointX="8" PointY="20.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.DeliveryServiceTBL" Width="1.5" PointX="15" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.DeliveryServiceTBL" Width="1.5" PointX="15" PointY="17.625" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.DeliveryStatusTBL" Width="1.5" PointX="12.75" PointY="19.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.deliveryTBL" Width="1.5" PointX="15" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.deliveryTBL" Width="1.5" PointX="15" PointY="22.625" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.EmployeeTBL" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.FinanceTBL" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.invoiceTBL" Width="1.5" PointX="12.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.invoiceTBL" Width="1.5" PointX="12.75" PointY="22.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.JobsTBL" Width="1.5" PointX="3" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.LibyanCitiesTBL" Width="1.5" PointX="0.75" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.MembershipTBL" Width="1.5" PointX="5.25" PointY="22.25" IsExpanded="true" />

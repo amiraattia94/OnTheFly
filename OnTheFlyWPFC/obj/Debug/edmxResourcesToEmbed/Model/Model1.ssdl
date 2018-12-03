@@ -128,6 +128,7 @@
     <Property Name="discount" Type="money" />
     <Property Name="deliveryID" Type="int" />
     <Property Name="totalcost" Type="money" />
+    <Property Name="totaldelivery" Type="money" />
   </EntityType>
   <EntityType Name="JobsTBL">
     <Key>
