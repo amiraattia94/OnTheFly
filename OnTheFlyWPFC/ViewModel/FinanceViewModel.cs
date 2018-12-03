@@ -30,13 +30,6 @@ namespace OnTheFlyWPFC.ViewModel
             return await financeService.AddFinance( financePosative,  financeValue,  financeReason, financeEmployee,financeEmployeeName,  financeAddDate);
         }
 
-        async public Task<decimal> GetAllPosativeFinanceDecimal() {
-            return await financeService.GetAllPosativeFinanceDecimal();
-        }
-        async public Task<decimal> GetAllNegativeFinanceDecimal() {
-            return await financeService.GetAllNegativeFinanceDecimal();
-        }
-
         async public void GetAllFinances()
         {
             viewFinances = await financeService.GetAllFinances();
@@ -46,6 +39,7 @@ namespace OnTheFlyWPFC.ViewModel
         {
             finance = await financeService.GetFiananceByID(financeID);
         }
+
 
         async public void GetFinanceByReason(string reason)
         {
@@ -71,7 +65,5 @@ namespace OnTheFlyWPFC.ViewModel
         {
             viewFinances = await financeService.GetAllNegativeFinance();
         }
-
-
     }
 }

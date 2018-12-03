@@ -17,14 +17,14 @@
         <Border BorderThickness="0" Background="#FFEFF3FA" CornerRadius="7" >
             <StackPanel Orientation="Vertical">
                 <UniformGrid FlowDirection="LeftToRight">
-                    <!--<StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
                         <UniformGrid FlowDirection="RightToLeft">
                             <ComboBox MinWidth="100" Margin="0,0,40,0"></ComboBox>
 
                         </UniformGrid>
                         <Label Content=": الفترة" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Right"/>
 
-                    </StackPanel>-->
+                    </StackPanel>
                 </UniformGrid>
                 
                 <Border BorderThickness="0" Background="White" CornerRadius="7" Height="200" Width="900">
@@ -33,7 +33,7 @@
                     </Border.Effect>
 
                     <UniformGrid FlowDirection="RightToLeft">
-                        <StackPanel Name="stkFinance" Loaded="StkFinance_Loaded" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Border BorderThickness="0" Margin="30,0,30,0" Background="#FF53A8F6" CornerRadius="7" Width="150" Height="150">
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                                     <Label Name="lblMainHome_1" Content="500" Foreground="White" FontFamily="Century Gothic" FontSize="40" HorizontalAlignment="Center"></Label>

@@ -37,34 +37,6 @@ namespace OnTheFlyWPFC.Model.Service
             return false;
         }
 
-        async public Task<decimal> GetAllPosativeFinanceDecimal() {
-            await Task.FromResult(true);
-            try {
-                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                    return con.FinanceTBLs.Where(w => w.FinancePositive == true).Select(s => s.FinanceValue).Sum();
-                    
-                }
-            }
-            catch (Exception) {
-
-            }
-            return 0;
-        }
-
-        async public Task<decimal> GetAllNegativeFinanceDecimal() {
-            await Task.FromResult(true);
-            try {
-                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                    return con.FinanceTBLs.Where(w => w.FinancePositive == false).Select(s => s.FinanceValue).Sum();
-
-                }
-            }
-            catch (Exception) {
-
-            }
-            return 0;
-        }
-
         async public Task<ObservableCollection<FinanceDTO>> GetAllFinances()
         {
             await Task.FromResult(true);
