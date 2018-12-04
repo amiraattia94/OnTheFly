@@ -42,7 +42,7 @@ namespace OnTheFlyWPFC.Model
         public virtual DbSet<PayrollTBL> PayrollTBLs { get; set; }
         public virtual DbSet<ServiceTBL> ServiceTBLs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<UserGroupRoleTBL> UserGroupRoleTBLs { get; set; }
+        public virtual DbSet<userGroupRoleTBL> userGroupRoleTBLs { get; set; }
         public virtual DbSet<UserGroupTBL> UserGroupTBLs { get; set; }
         public virtual DbSet<UserTBL> UserTBLs { get; set; }
         public virtual DbSet<VehicleTBL> VehicleTBLs { get; set; }

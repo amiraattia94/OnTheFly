@@ -111,7 +111,7 @@ namespace OnTheFlyWPFC.Model.Service
                     userID = s.userID,
                     groupID = s.groupID,
                     user_name= s.UserTBL.user_name,
-                    group_name = s.UserGroupRoleTBL.name
+                    group_name = s.userGroupRoleTBL.name
                 }).ToList();
 
                 return new ObservableCollection<UserGroupsDTO>(result);
@@ -130,7 +130,7 @@ namespace OnTheFlyWPFC.Model.Service
                     userID = s.userID,
                     groupID = s.groupID,
                     user_name = s.UserTBL.user_name,
-                    group_name = s.UserGroupRoleTBL.name
+                    group_name = s.userGroupRoleTBL.name
                 }).ToList();
 
                 if (result != null)
@@ -160,7 +160,7 @@ namespace OnTheFlyWPFC.Model.Service
                     userID = s.userID,
                     groupID = s.groupID,
                     user_name = s.UserTBL.user_name,
-                    group_name = s.UserGroupRoleTBL.name
+                    group_name = s.userGroupRoleTBL.name
                 }).ToList();
 
                 if (result != null)

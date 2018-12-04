@@ -17,7 +17,7 @@ namespace OnTheFlyWPFC.Model
         public int userID { get; set; }
         public int groupID { get; set; }
     
-        public virtual UserGroupRoleTBL UserGroupRoleTBL { get; set; }
+        public virtual userGroupRoleTBL userGroupRoleTBL { get; set; }
         public virtual UserTBL UserTBL { get; set; }
     }
 }

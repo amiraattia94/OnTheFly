@@ -18,6 +18,7 @@ namespace OnTheFlyWPFC.Model
         public UserTBL()
         {
             this.invoiceTBLs = new HashSet<invoiceTBL>();
+            this.userGroupRoleTBLs = new HashSet<userGroupRoleTBL>();
             this.UserGroupTBLs = new HashSet<UserGroupTBL>();
         }
     
@@ -29,6 +30,8 @@ namespace OnTheFlyWPFC.Model
         public virtual EmployeeTBL EmployeeTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<invoiceTBL> invoiceTBLs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<userGroupRoleTBL> userGroupRoleTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserGroupTBL> UserGroupTBLs { get; set; }
     }

@@ -210,9 +210,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserGroupRoleTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.UserGroupRoleTBL">
-        <MappingFragment StoreEntitySet="UserGroupRoleTBL">
+    <EntitySetMapping Name="userGroupRoleTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.userGroupRoleTBL">
+        <MappingFragment StoreEntitySet="userGroupRoleTBL">
           <ScalarProperty Name="groupID" ColumnName="groupID" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="view_POS" ColumnName="view_POS" />
@@ -244,6 +244,7 @@
           <ScalarProperty Name="add_service" ColumnName="add_service" />
           <ScalarProperty Name="delete_service" ColumnName="delete_service" />
           <ScalarProperty Name="admin_rights" ColumnName="admin_rights" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

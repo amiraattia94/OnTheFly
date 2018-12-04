@@ -83,6 +83,7 @@ namespace OnTheFlyWPFC.Model.Service {
         async public Task<ObservableCollection<InvoiceDTO>> GetAllInvoice() {
             await Task.FromResult(true);
 
+            
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
                 var result = con.invoiceTBLs.Select(s => new InvoiceDTO() {
                     invoiceID = s.invoiceID,

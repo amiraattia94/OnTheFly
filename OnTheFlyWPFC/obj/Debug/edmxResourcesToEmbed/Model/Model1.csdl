@@ -246,7 +246,7 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="UserGroupRoleTBL">
+  <EntityType Name="userGroupRoleTBL">
     <Key>
       <PropertyRef Name="groupID" />
     </Key>
@@ -281,7 +281,9 @@
     <Property Name="add_service" Type="Boolean" Nullable="false" />
     <Property Name="delete_service" Type="Boolean" Nullable="false" />
     <Property Name="admin_rights" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="UserGroupTBLs" Relationship="Self.FK_userGroupTBL_userGroupRoleTBL" FromRole="UserGroupRoleTBL" ToRole="UserGroupTBL" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserTBL" Relationship="Self.FK_userGroupRoleTBL_userTBL" FromRole="userGroupRoleTBL" ToRole="UserTBL" />
+    <NavigationProperty Name="UserGroupTBLs" Relationship="Self.FK_userGroupTBL_userGroupRoleTBL" FromRole="userGroupRoleTBL" ToRole="UserGroupTBL" />
   </EntityType>
   <EntityType Name="UserGroupTBL">
     <Key>
@@ -290,7 +292,7 @@
     </Key>
     <Property Name="userID" Type="Int32" Nullable="false" />
     <Property Name="groupID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="UserGroupRoleTBL" Relationship="Self.FK_userGroupTBL_userGroupRoleTBL" FromRole="UserGroupTBL" ToRole="UserGroupRoleTBL" />
+    <NavigationProperty Name="userGroupRoleTBL" Relationship="Self.FK_userGroupTBL_userGroupRoleTBL" FromRole="UserGroupTBL" ToRole="userGroupRoleTBL" />
     <NavigationProperty Name="UserTBL" Relationship="Self.FK_userGroupTBL_userTBL" FromRole="UserGroupTBL" ToRole="UserTBL" />
   </EntityType>
   <EntityType Name="UserTBL">
@@ -303,6 +305,7 @@
     <Property Name="employeeID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_userTBL_EmployeeTBL" FromRole="UserTBL" ToRole="EmployeeTBL" />
     <NavigationProperty Name="invoiceTBLs" Relationship="Self.FK_invoiceTBL_userTBL" FromRole="UserTBL" ToRole="invoiceTBL" />
+    <NavigationProperty Name="userGroupRoleTBLs" Relationship="Self.FK_userGroupRoleTBL_userTBL" FromRole="UserTBL" ToRole="userGroupRoleTBL" />
     <NavigationProperty Name="UserGroupTBLs" Relationship="Self.FK_userGroupTBL_userTBL" FromRole="UserTBL" ToRole="UserGroupTBL" />
   </EntityType>
   <EntityType Name="VehicleTBL">
@@ -737,11 +740,23 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_userGroupRoleTBL_userTBL">
+    <End Role="UserTBL" Type="Self.UserTBL" Multiplicity="1" />
+    <End Role="userGroupRoleTBL" Type="Self.userGroupRoleTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTBL">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="userGroupRoleTBL">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_userGroupTBL_userGroupRoleTBL">
-    <End Role="UserGroupRoleTBL" Type="Self.UserGroupRoleTBL" Multiplicity="1" />
+    <End Role="userGroupRoleTBL" Type="Self.userGroupRoleTBL" Multiplicity="1" />
     <End Role="UserGroupTBL" Type="Self.UserGroupTBL" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserGroupRoleTBL">
+      <Principal Role="userGroupRoleTBL">
         <PropertyRef Name="groupID" />
       </Principal>
       <Dependent Role="UserGroupTBL">
@@ -819,7 +834,7 @@
     <EntitySet Name="PayrollTBLs" EntityType="Self.PayrollTBL" />
     <EntitySet Name="ServiceTBLs" EntityType="Self.ServiceTBL" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="UserGroupRoleTBLs" EntityType="Self.UserGroupRoleTBL" />
+    <EntitySet Name="userGroupRoleTBLs" EntityType="Self.userGroupRoleTBL" />
     <EntitySet Name="UserGroupTBLs" EntityType="Self.UserGroupTBL" />
     <EntitySet Name="UserTBLs" EntityType="Self.UserTBL" />
     <EntitySet Name="VehicleTBLs" EntityType="Self.VehicleTBL" />
@@ -948,8 +963,12 @@
       <End Role="VendorTBL" EntitySet="VendorTBLs" />
       <End Role="MembershipTBL" EntitySet="MembershipTBLs" />
     </AssociationSet>
+    <AssociationSet Name="FK_userGroupRoleTBL_userTBL" Association="Self.FK_userGroupRoleTBL_userTBL">
+      <End Role="UserTBL" EntitySet="UserTBLs" />
+      <End Role="userGroupRoleTBL" EntitySet="userGroupRoleTBLs" />
+    </AssociationSet>
     <AssociationSet Name="FK_userGroupTBL_userGroupRoleTBL" Association="Self.FK_userGroupTBL_userGroupRoleTBL">
-      <End Role="UserGroupRoleTBL" EntitySet="UserGroupRoleTBLs" />
+      <End Role="userGroupRoleTBL" EntitySet="userGroupRoleTBLs" />
       <End Role="UserGroupTBL" EntitySet="UserGroupTBLs" />
     </AssociationSet>
     <AssociationSet Name="FK_userGroupTBL_userTBL" Association="Self.FK_userGroupTBL_userTBL">

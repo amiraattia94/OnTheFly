@@ -212,7 +212,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="UserGroupRoleTBL">
+  <EntityType Name="userGroupRoleTBL">
     <Key>
       <PropertyRef Name="groupID" />
     </Key>
@@ -247,6 +247,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
     <Property Name="add_service" Type="bit" Nullable="false" />
     <Property Name="delete_service" Type="bit" Nullable="false" />
     <Property Name="admin_rights" Type="bit" Nullable="false" />
+    <Property Name="userID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UserGroupTBL">
     <Key>
@@ -651,11 +652,23 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_userGroupRoleTBL_userTBL">
+    <End Role="UserTBL" Type="Self.UserTBL" Multiplicity="1" />
+    <End Role="userGroupRoleTBL" Type="Self.userGroupRoleTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTBL">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="userGroupRoleTBL">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_userGroupTBL_userGroupRoleTBL">
-    <End Role="UserGroupRoleTBL" Type="Self.UserGroupRoleTBL" Multiplicity="1" />
+    <End Role="userGroupRoleTBL" Type="Self.userGroupRoleTBL" Multiplicity="1" />
     <End Role="UserGroupTBL" Type="Self.UserGroupTBL" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserGroupRoleTBL">
+      <Principal Role="userGroupRoleTBL">
         <PropertyRef Name="groupID" />
       </Principal>
       <Dependent Role="UserGroupTBL">
@@ -778,7 +791,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
     <EntitySet Name="ServicesInvoice" EntityType="Self.ServicesInvoice" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ServiceTBL" EntityType="Self.ServiceTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserGroupRoleTBL" EntityType="Self.UserGroupRoleTBL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userGroupRoleTBL" EntityType="Self.userGroupRoleTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserGroupTBL" EntityType="Self.UserGroupTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserTBL" EntityType="Self.UserTBL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VehicleTBL" EntityType="Self.VehicleTBL" Schema="dbo" store:Type="Tables" />
@@ -907,8 +920,12 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
       <End Role="CategoriesTBL" EntitySet="CategoriesTBL" />
       <End Role="ServiceTBL" EntitySet="ServiceTBL" />
     </AssociationSet>
+    <AssociationSet Name="FK_userGroupRoleTBL_userTBL" Association="Self.FK_userGroupRoleTBL_userTBL">
+      <End Role="UserTBL" EntitySet="UserTBL" />
+      <End Role="userGroupRoleTBL" EntitySet="userGroupRoleTBL" />
+    </AssociationSet>
     <AssociationSet Name="FK_userGroupTBL_userGroupRoleTBL" Association="Self.FK_userGroupTBL_userGroupRoleTBL">
-      <End Role="UserGroupRoleTBL" EntitySet="UserGroupRoleTBL" />
+      <End Role="userGroupRoleTBL" EntitySet="userGroupRoleTBL" />
       <End Role="UserGroupTBL" EntitySet="UserGroupTBL" />
     </AssociationSet>
     <AssociationSet Name="FK_userGroupTBL_userTBL" Association="Self.FK_userGroupTBL_userTBL">

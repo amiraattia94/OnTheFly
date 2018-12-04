@@ -24,29 +24,93 @@ namespace OnTheFlyWPFC.View
     public partial class SettingsUserGroupRoleUC : UserControl
     {
         UserGroupRoleViewModel userGroupRoleViewModel;
+        UsersViewModel usersViewModel;
 
-        public delegate void RefreshList();
-        public event RefreshList RefreshListEvent;
-        private void RefreshListView()
-        {
-            
-
-        }
 
         public SettingsUserGroupRoleUC()
         {
             userGroupRoleViewModel = new UserGroupRoleViewModel();
+            usersViewModel = new UsersViewModel();
             InitializeComponent();
         }
 
-        private void lstViewUserGroupRole_Loaded(object sender, RoutedEventArgs e)
+        
+
+        private void cmbUserName_Selection_changed(object sender, SelectionChangedEventArgs e)
         {
-            
+            if (cmbUserName.SelectedIndex != -1)
+            {
+                var selectedUser = (UserDTO)cmbUserName.SelectedItem;
+               
+                  //  userGroupRoleViewModel.GetUserByID(selectedUser.userID);
+                                  
+                /*
+                
+                
+                lstviewEmployees.ItemsSource = employeeViewModel.ViewEmployees;
+                lstviewEmployees.Items.Refresh();
+
+                cmbEmployeeCity.SelectedIndex = -1;
+                cmbEmployeeState.SelectedIndex = -1;
+                TxtSearchEmployeeName.Text = "";*/
+            }
         }
 
-        private void btnAdduserGroupRole_Click(object sender, RoutedEventArgs e)
+        private void cmbUserName_Loaded(object sender, RoutedEventArgs e)
         {
+            usersViewModel.GetAllUsers();
+            cmbUserName.ItemsSource = usersViewModel.viewUser;
+            cmbUserName.DisplayMemberPath = "username";
+        }
 
+        private void btnEditSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtButtonName.Text == "تعديل")
+            {
+                enableCheckboxes(true);
+                txtButtonName.Text = "حفظ";
+            }
+            else if (txtButtonName.Text == "حفظ")
+            {
+                enableCheckboxes(false);
+                txtButtonName.Text = "تعديل";
+            }
+        }
+        private void enableCheckboxes(bool enable)
+        {
+            chkPOSView.IsEnabled = enable;
+            chkPOSAdd.IsEnabled = enable;
+            chkPOSDelete.IsEnabled = enable;
+            chkHRView.IsEnabled = enable;
+            chkHRAdd.IsEnabled = enable;
+            chkHRDelete.IsEnabled = enable;
+            chkBranchView.IsEnabled = enable;
+            chkBranchAdd.IsEnabled = enable;
+            chkBranchDelete.IsEnabled = enable;
+            chkCustodyView.IsEnabled = enable;
+            chkCustodyAdd.IsEnabled = enable;
+            chkCustodyDelete.IsEnabled = enable;
+            chkFinanceView.IsEnabled = enable;
+            chkFinanceAdd.IsEnabled = enable;
+            chkFinanceDelete.IsEnabled = enable;
+            chkDeliveryView.IsEnabled = enable;
+            chkDeliveryAdd.IsEnabled = enable;
+            chkDeliveryDelete.IsEnabled = enable;
+            chkCustomerView.IsEnabled = enable;
+            chkCustomerAdd.IsEnabled = enable;
+            chkCustomerDelete.IsEnabled = enable;
+            chkVendorView.IsEnabled = enable;
+            chkVendorAdd.IsEnabled = enable;
+            chkVendorDelete.IsEnabled = enable;
+            chkServiceView.IsEnabled = enable;
+            chkServiceAdd.IsEnabled = enable;
+            chkServiceDelete.IsEnabled = enable;
+
+        }
+
+        private void stkUserGroupRoles_Loaded(object sender, RoutedEventArgs e)
+        {
+            enableCheckboxes(false);
         }
     }
 }

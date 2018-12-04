@@ -649,66 +649,107 @@
 
 
                     -->
+                    <StackPanel Orientation="Vertical" Margin="30,0,0,0" Name="stkUserGroupRoles" Loaded="stkUserGroupRoles_Loaded">
+                        <StackPanel Orientation="Horizontal"  >
+                            <Label Content="اسم المستخدم" FontFamily="Noto Kufi Arabic" VerticalAlignment="Center" FontSize="14" Foreground="#8C9AB6" />
+                            <ComboBox MinWidth="150" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Center" Foreground="#8C9AB6" Name="cmbUserName" Loaded="cmbUserName_Loaded" SelectionChanged="cmbUserName_Selection_changed"></ComboBox>
+                            <Border Height="40" Margin="90,20,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Border Height="40" Width="100" VerticalAlignment="Center" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
+                                    <Button Background="Transparent"  Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Name="btnEditSave" Click="btnEditSave_Click">
+                                        <UniformGrid FlowDirection="RightToLeft">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Name="txtButtonName" FontSize="16" Foreground="White" FontFamily="Noto Kufi Arabic" VerticalAlignment="Center" Text="تعديل" Margin="0,0,0,0"  />
+                                                
+                                            </StackPanel>
+                                        </UniformGrid>
+                                    </Button>
+                                </Border>
+                            </Border>
+                        </StackPanel>  
+                    
+                    <StackPanel Orientation="Vertical">
+                        
+                   
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical" Height="150" Width="150" Margin="20">
+                            <Label Content="نقطة البيع" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                            <CheckBox Content="عرض"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Name="chkPOSView"  Foreground="Gray"    />
+                                <CheckBox Content="إضافة" HorizontalAlignment="Left" Margin="10,10,0,0"  VerticalAlignment="Top" Foreground="Gray"    Name="chkPOSAdd" />
+                                <CheckBox Content="حذف"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkPOSDelete"  />
+                         </StackPanel>
 
-                    <StackPanel>
-                        <StackPanel Orientation="Vertical" Height="150" Width="150">
-                            <StackPanel Orientation="Vertical">
-                                <Label Content="نقطة البيع" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                       
-                                <CheckBox
-                                        Content="عرض"
-                                        HorizontalAlignment="Left"
-                                        Margin="10,10,0,0"
-                                        VerticalAlignment="Top"
-                                    Name="chkPOSView"
-                                   
-                                                                 Foreground="Gray"
-                                       />
-                                <CheckBox
-                                            Content="إضافة"
-                                            HorizontalAlignment="Left"
-                                            Margin="10,10,0,0"
-                                            VerticalAlignment="Top" Foreground="Gray"
-                                    Name="chkPOSAdd"
-                                            />
-                                <CheckBox
-                                            Content="حذف"
-                                            HorizontalAlignment="Left"
-                                            Margin="10,10,0,0"
-                                            VerticalAlignment="Top" Foreground="Gray" Name="chkPOSDelete"
-                                            />
-                            </StackPanel>
+                             <StackPanel Orientation="Vertical" Height="150" Width="150" Margin="20">
+                            <Label Content="الموارد البشرية" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                            <CheckBox   Content="عرض" HorizontalAlignment="Left"  Margin="10,10,0,0"   VerticalAlignment="Top"   Name="chkHRView" Foreground="Gray"/>
+                            <CheckBox Content="إضافة" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkHRAdd" />
+                            <CheckBox Content="حذف" HorizontalAlignment="Left"  Margin="10,10,0,0"  VerticalAlignment="Top" Foreground="Gray" Name="chkHRDelete"/>
                         </StackPanel>
-                        <StackPanel>
-                            <StackPanel Orientation="Vertical" Height="150" Width="150">
-                                <StackPanel Orientation="Vertical">
-                                    <Label Content="نقطة البيع" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
 
-                                    <CheckBox
-                                        Content="عرض"
-                                        HorizontalAlignment="Left"
-                                        Margin="10,10,0,0"
-                                        VerticalAlignment="Top"
-                                    Name="chkHRView"
-                                   
-                                                                 Foreground="Gray"
-                                       />
-                                    <CheckBox
-                                            Content="إضافة"
-                                            HorizontalAlignment="Left"
-                                            Margin="10,10,0,0"
-                                            VerticalAlignment="Top" Foreground="Gray"
-                                    Name="chkHRAdd"
-                                            />
-                                    <CheckBox
-                                            Content="حذف"
-                                            HorizontalAlignment="Left"
-                                            Margin="10,10,0,0"
-                                            VerticalAlignment="Top" Foreground="Gray" Name="chkHRDelete"
-                                            />
+                                <StackPanel Orientation="Vertical" Height="150" Width="150" Margin="20">
+                            <Label Content="الفروع" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                             <CheckBox  Content="عرض"  HorizontalAlignment="Left"   Margin="10,10,0,0"  VerticalAlignment="Top" Name="chkBranchView"  Foreground="Gray" />
+                            <CheckBox  Content="إضافة"  HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkBranchAdd"/>
+                            <CheckBox  Content="حذف" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkBranchDelete"/>
+                        </StackPanel>
+                                <StackPanel Orientation="Vertical" Height="150" Width="150" Margin="20">
+                                <Label Content="العهد" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                                <CheckBox Content="عرض"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Name="chkCustodyView"  Foreground="Gray"    />
+                                <CheckBox Content="إضافة" HorizontalAlignment="Left" Margin="10,10,0,0"  VerticalAlignment="Top" Foreground="Gray"    Name="chkCustodyAdd" />
+                                <CheckBox Content="حذف"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkCustodyDelete"  />
+                            </StackPanel>
+
+                                <StackPanel Orientation="Vertical" Height="150" Width="150" Margin="20">
+                                <Label Content="المالية" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                                <CheckBox   Content="عرض" HorizontalAlignment="Left"  Margin="10,10,0,0"   VerticalAlignment="Top"   Name="chkFinanceView" Foreground="Gray"/>
+                                <CheckBox Content="إضافة" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkFinanceAdd" />
+                                <CheckBox Content="حذف" HorizontalAlignment="Left"  Margin="10,10,0,0"  VerticalAlignment="Top" Foreground="Gray" Name="chkFinanceDelete"/>
+                            </StackPanel>
+
+                            
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            
+
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Vertical" Height="150" Width="150" Margin="20">
+                                    <Label Content="التوصيل" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                                    <CheckBox  Content="عرض"  HorizontalAlignment="Left"   Margin="10,10,0,0"  VerticalAlignment="Top" Name="chkDeliveryView"  Foreground="Gray" />
+                                    <CheckBox  Content="إضافة"  HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkDeliveryAdd"/>
+                                    <CheckBox  Content="حذف" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkDeliveryDelete"/>
                                 </StackPanel>
+                                <StackPanel Orientation="Vertical" Height="150" Width="150" Margin="20">
+                                <Label Content="الزبائن" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                                <CheckBox Content="عرض"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Name="chkCustomerView"  Foreground="Gray"    />
+                                <CheckBox Content="إضافة" HorizontalAlignment="Left" Margin="10,10,0,0"  VerticalAlignment="Top" Foreground="Gray"    Name="chkCustomerAdd" />
+                                <CheckBox Content="حذف"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkCustomerDelete"  />
                             </StackPanel>
-                        </StackPanel>
+
+                                <StackPanel Orientation="Vertical" Height="150" Width="150" Margin="20">
+                                <Label Content="المزودين" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                                <CheckBox   Content="عرض" HorizontalAlignment="Left"  Margin="10,10,0,0"   VerticalAlignment="Top"   Name="chkVendorView" Foreground="Gray"/>
+                                <CheckBox Content="إضافة" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkVendorAdd" />
+                                <CheckBox Content="حذف" HorizontalAlignment="Left"  Margin="10,10,0,0"  VerticalAlignment="Top" Foreground="Gray" Name="chkVendorDelete"/>
+                            </StackPanel>
+
+                                <StackPanel Orientation="Vertical" Height="150" Width="150" Margin="20">
+                                <Label Content="الخدمات" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                                <CheckBox  Content="عرض"  HorizontalAlignment="Left"   Margin="10,10,0,0"  VerticalAlignment="Top" Name="chkServiceView"  Foreground="Gray" />
+                                <CheckBox  Content="إضافة"  HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkServiceAdd"/>
+                                <CheckBox  Content="حذف" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkServiceDelete"/>
+                            </StackPanel>
+                                <StackPanel Orientation="Vertical" Height="150" Width="150" Margin="20">
+                                   <Label Content="التقارير" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                                    <CheckBox  Content="عرض"  HorizontalAlignment="Left"   Margin="10,0,0,0"  VerticalAlignment="Top" Name="chkViewReports"  Foreground="Gray" />
+                                    <Label Content="حقوق المسؤول" FontFamily="Noto Kufi Arabic"  FontSize="14" Foreground="#8C9AB6" Margin="0,13,0,0" HorizontalAlignment="Left"/>
+                                    <CheckBox  Content="نعم"  HorizontalAlignment="Left"  Margin="10,0,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chAdminRights"/>
+                                    
+                                </StackPanel>
+
+                            </StackPanel>
+                    </StackPanel>
+                    </StackPanel>
                 </UniformGrid>
 
 

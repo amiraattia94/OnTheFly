@@ -25,7 +25,7 @@ namespace OnTheFlyWPFC.ViewModel
         }
         async public void GetAllUserGroupRoles()
         {
-            ViewUserGroupRole = await _userGroupRoleService.GetUserGroupRole();
+            ViewUserGroupRole = await _userGroupRoleService.GetAllUserGroupRole();
         }
     }
 }

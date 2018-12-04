@@ -15,6 +15,7 @@ using OnTheFlyWPFC.Model.DTO;
 using OnTheFlyWPFC.ViewModel;
 using OnTheFlyWPFC.Model.Service;
 
+
 namespace OnTheFlyWPFC.View
 {
     /// <summary>
@@ -50,6 +51,7 @@ namespace OnTheFlyWPFC.View
 
         private async void btnAddPayroll_Click(object sender, RoutedEventArgs e)
         {
+       
             decimal total_addition, total_deduction, salary;
             int overtime_days, overtime_hours, absent_days, late_hours, bonus, cash_advance;
             overtime_days = overtime_hours = absent_days = late_hours = bonus = cash_advance = 0;
@@ -94,6 +96,19 @@ namespace OnTheFlyWPFC.View
         private void cmbPayrollPaid_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void txtNumberOfWorkedDays_Preview(object sender, TextCompositionEventArgs e)
+        {
+            {
+          
+            }
+        }
+
+        private void stkAddPayroll_Loaded(object sender, RoutedEventArgs e)
+        {
+           // payrollViewModel = new PayrollViewModel();
+            //payrollViewModel.payroll_month = 12;
         }
     }
 }

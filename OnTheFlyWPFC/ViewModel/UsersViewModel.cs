@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using OnTheFlyWPFC.Model.DTO;
 using OnTheFlyWPFC.Model.Service;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnTheFlyWPFC.ViewModel
 {
-    public class UsersViewModel
+    public class UsersViewModel 
     {
         UserService _userService;
         public ObservableCollection<UserDTO> viewUser { get; set; }

@@ -39,6 +39,7 @@ namespace OnTheFlyWPFC.Model.DTO
         public bool delete_service { get; set; }
         public bool admin_rights { get; set; }
         public bool view_report { get; set; }
+        public int userID { get; set; }
 
 
 
