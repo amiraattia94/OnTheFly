@@ -66,29 +66,80 @@
                         <Label Name="lblMembership" Content="اضافة عضوية" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
                         <StackPanel Grid.Row="1" Grid.Column="1" Name="stkCustomerEdit" Loaded="StkCustomerEdit_Loaded">
+
+
+                      
+                            <!-- Customer Name TextBox -->
+                          
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtMembershipID" Text="ادخل رقم العضوية"  FontSize="16" Foreground="#768295" VerticalAlignment="Stretch"/>
+                                <Grid>
+                                    <TextBox x:Name="txtMembershipID" Background="Transparent"   HorizontalAlignment="Center" Width="190" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="ادخل رقم العضوية"   Width="190" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtMembershipID}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+                     
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <ComboBox Name="cmbServiceCategory"  VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbServiceCategory_Loaded" SelectionChanged="cmbServiceCategory_SelectionChanged" />
+                                    <TextBlock IsHitTestVisible="False"  Text="تصنيف الخدمات"   Width="190" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbServiceCategory}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                
                             </Border>
 
-                            <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbServiceCategory"  VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbServiceCategory_Loaded" SelectionChanged="cmbServiceCategory_SelectionChanged" />
-                            </Border>
 
                             <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbVendors" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbVendors_Loaded" />
+                                <Grid>
+                                    <ComboBox Name="cmbVendors" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbVendors_Loaded" />
+                                    <TextBlock IsHitTestVisible="False"  Text="المزودين"   Width="190" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbVendors}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+
                             </Border>
+           
 
 
 
 
 
-
-                            <Border Height="40" Margin="55,20,55,0">
-                                <Border Name="borderSaveOrEdit" Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                    <Button Name="BtnSaveOrEdit"  Click="BtnSaveOrEdit_Click" Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                            <Border Height="40" Margin="30,20,30,0">
+                                <Border Name="borderSaveOrEdit" HorizontalAlignment="Center" Width="100" Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
+                                    <Button Name="BtnSaveOrEdit" HorizontalAlignment="Center" Click="BtnSaveOrEdit_Click" Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                         <UniformGrid FlowDirection="RightToLeft">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Name="txtSaveOrEdit" FontSize="15" Foreground="White" HorizontalAlignment="Center" FontFamily="Noto Kufi Arabic" Text="اضافة" Margin="0,0,0,0"  />
+                                                <TextBlock Name="txtSaveOrEdit" FontSize="15" Foreground="White" HorizontalAlignment="Center" FontFamily="Noto Kufi Arabic" Text="اضافة" Margin="0,0,5,0"  />
+                                                <materialDesign:PackIcon Kind="Add"  Height="15" Width="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,0,0" />
                                             </StackPanel>
                                         </UniformGrid>
                                     </Button>
@@ -154,12 +205,12 @@
                                     </GridView>
                                 </ListView.View>
                             </ListView>
-                            <Border Height="40" Margin="20,20,250,0">
-                                <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
+                            <Border Height="40" Margin="15,20,240,0">
+                                <Border Height="40" Width="120" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
                                     <Button Name="addNewMembership" Click="addNewMembership_Click" Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                         <UniformGrid FlowDirection="RightToLeft">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock FontSize="15" Foreground="White" HorizontalAlignment="Center" FontFamily="Noto Kufi Arabic" Text="اضافة" Margin="0,0,0,0"  />
+                                                <TextBlock FontSize="15" Foreground="White" HorizontalAlignment="Center" FontFamily="Noto Kufi Arabic" Text="اضافة عضوية" Margin="0,0,0,0"  />
                                             </StackPanel>
                                         </UniformGrid>
                                     </Button>

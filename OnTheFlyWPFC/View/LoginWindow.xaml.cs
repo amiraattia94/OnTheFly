@@ -32,19 +32,20 @@ namespace OnTheFlyWPFC.View
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+
             string username, password, error_message;
             bool user_exist;
-            if (string.IsNullOrWhiteSpace(usernametxt.Text) || string.IsNullOrWhiteSpace(passwordtxt.Text))
+            if (string.IsNullOrWhiteSpace(usernametxt.Text) || string.IsNullOrWhiteSpace(pbPassword.Password))
             {
                 error_message = get_message();
                 MessageBox.Show(error_message, "خطأ ", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            password = passwordtxt.Text;
+            password = pbPassword.Password;// passwordtxt.Text;
             username = usernametxt.Text;
-            user_exist = await userViewModel.GetUserExists(usernametxt.Text, passwordtxt.Text);
+            user_exist = await userViewModel.GetUserExists(usernametxt.Text, pbPassword.Password);
             if (user_exist == true) 
             {
-                loginViewModel.GetLoginUserData(usernametxt.Text, passwordtxt.Text);
+                loginViewModel.GetLoginUserData(usernametxt.Text, pbPassword.Password);
                 var tempW = new MainWindow();
                 tempW.Show();
                 this.Close();
@@ -54,26 +55,29 @@ namespace OnTheFlyWPFC.View
                 MessageBox.Show("عفواً، لقد اخطأت في اسم المستخدم او كلمة المرور ", "خطأ", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
+
         }
 
-       
+    
 
-        private string get_message()
-        {
-            string result = "عفواَ ، لقد نسيت تعبئة الحفول الآتية : \n";
-            if (string.IsNullOrWhiteSpace(usernametxt.Text))
-            {
-                result = result + "\tاسم المستخدم \n";
+         private string get_message()
+         {
 
-            }
-            if (string.IsNullOrWhiteSpace(passwordtxt.Text))
-            {
-                result = result + "\t كلمة المرور \n";
+             string result = "عفواَ ، لقد نسيت تعبئة الحفول الآتية : \n";
+             if (string.IsNullOrWhiteSpace(usernametxt.Text))
+             {
+                 result = result + "\tاسم المستخدم \n";
 
-            }
+             }
+             if (string.IsNullOrWhiteSpace(pbPassword.Password))
+             {
+                 result = result + "\t كلمة المرور \n";
 
-            return result;
-        }
+             }
+
+             return result;
+             
+    }
 
         private void btnCloseForm_Click(object sender, RoutedEventArgs e)
         {

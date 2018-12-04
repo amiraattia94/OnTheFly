@@ -60,20 +60,20 @@
 
                         <StackPanel Name="StkEditBranch" Grid.Row="1" Grid.Column="1" Loaded="StkEditBranch_Loaded">
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtBranchName" Text="{Binding branch_name}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Name="txtBranchName" Text="{Binding branch_name}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                             </Border>
 
                             <Border  Height="40" Margin="0,0,0,15" >
 
 
-                                <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" FontSize="16" Foreground="#768295"/>
+                                <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" FontSize="16" Foreground="DarkSlateGray"/>
                             </Border>
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtBranchAddress" Text="{Binding address}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <TextBox Name="txtBranchAddress" Text="{Binding address}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                             </Border>
 
                             <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbBranchStatus" VerticalAlignment="Stretch" Loaded="cmbBranchStatus_Loaded" FontSize="16" Foreground="#768295">
+                                <ComboBox Name="cmbBranchStatus" VerticalAlignment="Stretch" Loaded="cmbBranchStatus_Loaded" FontSize="16" Foreground="DarkSlateGray">
                                     <ComboBoxItem Content="مفعل">
 
                                     </ComboBoxItem>
@@ -91,7 +91,7 @@
                                     <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="Button_Click">
                                         <UniformGrid FlowDirection="RightToLeft">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="تعديل الفرع" Margin="0,0,0,0"  />
+                                                <TextBlock FontSize="15" Foreground="White" VerticalAlignment="Center" FontFamily="Noto Kufi Arabic" Text="تعديل الفرع" Margin="0,0,0,0"  />
 
                                             </StackPanel>
                                         </UniformGrid>

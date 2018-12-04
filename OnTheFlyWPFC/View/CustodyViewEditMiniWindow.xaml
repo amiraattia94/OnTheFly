@@ -56,28 +56,28 @@
                                <ColumnDefinition Width="150*"/>
                                <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
-                            <Label Content="تعديل عهدة" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                        <Label Content="تعديل عهدة" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="DarkSlateGray"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
                             <StackPanel Name="stkCustody" Loaded="StkCustody_Loaded" Grid.Row="1" Grid.Column="1" >
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBlock Name="txtcustodyID" Text="" VerticalAlignment="Stretch"  FontSize="16" Foreground="#768295"/>
+                                <TextBlock Name="txtcustodyID" Text="" VerticalAlignment="Stretch"  FontSize="16" Foreground="DarkSlateGray"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBlock Name="txtowner" VerticalAlignment="Stretch"  FontSize="16" Foreground="#768295"/>
+                                <TextBlock Name="txtowner" VerticalAlignment="Stretch"  FontSize="16" Foreground="DarkSlateGray"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBlock Name="txtgiver" VerticalAlignment="Stretch"  FontSize="16" Foreground="#768295"/>
+                                <TextBlock Name="txtgiver" VerticalAlignment="Stretch"  FontSize="16" Foreground="DarkSlateGray"/>
                                 </Border>
 
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBlock Name="txtinvoice" VerticalAlignment="Stretch"  FontSize="16" Foreground="#768295"/>
+                                <TextBlock Name="txtinvoice" VerticalAlignment="Stretch"  FontSize="16" Foreground="DarkSlateGray"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                <TextBlock Name="txtammount" VerticalAlignment="Stretch"  FontSize="16" Foreground="#768295"/>
+                                <TextBlock Name="txtammount" VerticalAlignment="Stretch"  FontSize="16" Foreground="DarkSlateGray"/>
                                 </Border>
                                 
                                 <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbstate" VerticalAlignment="Stretch"  FontSize="16" Foreground="#768295">
+                                <ComboBox Name="cmbstate" VerticalAlignment="Stretch"  FontSize="16" Foreground="DarkSlateGray">
                                     <ComboBoxItem Content="مفتوحة">
 
                                     </ComboBoxItem>

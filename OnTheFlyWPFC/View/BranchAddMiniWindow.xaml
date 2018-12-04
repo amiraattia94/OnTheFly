@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OnTheFlyWPFC.View"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+         xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="350"
         Background="Transparent" WindowStyle="None" 
@@ -13,7 +14,6 @@
              xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel">
 
     <Window.Resources>
-        
         
 
 
@@ -313,6 +313,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <behaviors:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
 
     </Window.Resources>
 
@@ -356,33 +358,95 @@
 
                     <StackPanel Grid.Row="1" Grid.Column="1">
                         <Label Content="اضافة فرع" FontFamily="Noto Kufi Arabic" HorizontalAlignment="Center" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1"  Height="44" Margin="0,8"/>
+                        
+                            
+                        <!-- Branch Name TextBox -->
                         <Border Height="40" Margin="0,0,0,15">
-                            <TextBox Name="txtBranchName" Text="bransh name" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" />
+                            <Grid>
+                                <TextBox x:Name="txtBranchName" Background="Transparent"   HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="اسم الفرع"  Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtBranchName}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                         </Border>
+                        <!-- City Name ComboBox -->
                         <Border  Height="40" Margin="0,0,0,15" >
+                            <Grid  >
 
+                                <TextBlock IsHitTestVisible="False"  Text="المدينة"    Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=cmbBranchCities}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" FontSize="16" Foreground="DarkSlateGray" />
+                            </Grid>
 
-                            <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" FontSize="16" Foreground="#768295" />
                         </Border>
+
+                        <!-- Branch Address TextBox -->
                         <Border Height="40" Margin="0,0,0,15">
-                            <TextBox Name="txtBranchAddress" Text="address" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                            <Grid>
+                                <TextBox x:Name="txtBranchAddress" Background="Transparent"   HorizontalAlignment="Center" Width="240"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                <TextBlock IsHitTestVisible="False"  Text="العنوان"  Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=txtBranchAddress}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
                         </Border>
 
+                        <!-- Branch State ComboBox -->
                         <Border Height="40" Margin="0,0,0,15">
-                            <ComboBox Name="cmbBranchStatus" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295">
-                                <ComboBoxItem Content="مفعل">
-                                    <ComboBoxItem.Tag>
-                                        <sys:Boolean>True</sys:Boolean>
-                                    </ComboBoxItem.Tag>
-                                </ComboBoxItem>
-                                <ComboBoxItem Content="غير مفعل">
-                                    <ComboBoxItem.Tag>
-                                        <sys:Boolean>false</sys:Boolean>
-                                    </ComboBoxItem.Tag>
-                                </ComboBoxItem>
-                            </ComboBox>
+                            <Grid>
+                                <TextBlock IsHitTestVisible="False"  Text="الحالة"  Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=cmbBranchStatus}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <ComboBox Name="cmbBranchStatus" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray">
+                                    <ComboBoxItem Content="مفعل">
+                                        <ComboBoxItem.Tag>
+                                            <sys:Boolean>True</sys:Boolean>
+                                        </ComboBoxItem.Tag>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem Content="غير مفعل">
+                                        <ComboBoxItem.Tag>
+                                            <sys:Boolean>false</sys:Boolean>
+                                        </ComboBoxItem.Tag>
+                                    </ComboBoxItem>
+                                </ComboBox>
+                            </Grid>
                         </Border>
-
 
                         <Border Height="40" Margin="0,20,0,0">
                             <Border Height="40" Width="150" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
