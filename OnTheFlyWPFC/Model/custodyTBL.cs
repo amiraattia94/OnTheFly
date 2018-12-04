@@ -22,7 +22,7 @@ namespace OnTheFlyWPFC.Model
     
         public int custodyID { get; set; }
         public int ownerID { get; set; }
-        public Nullable<decimal> amount { get; set; }
+        public decimal? amount { get; set; }
         public bool active { get; set; }
         public int invoiceID { get; set; }
     

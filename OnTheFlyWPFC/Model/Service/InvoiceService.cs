@@ -685,7 +685,7 @@ namespace OnTheFlyWPFC.Model.Service {
                 if (result != null) {
                     try {
                         return new DeliveryDTO() {
-                            custodyID = result.invoiceTBL.custodyID,
+                            custodyID = result.invoiceTBL.custodyID != null ? result.invoiceTBL.custodyID : 0,
                             driverID = result.driverID,
                             driverName = result.EmployeeTBL.name,
                             customername = result.invoiceTBL.CustomerTBL.name,
