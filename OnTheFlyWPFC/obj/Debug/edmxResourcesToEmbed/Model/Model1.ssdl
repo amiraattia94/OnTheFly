@@ -23,7 +23,7 @@
     </Key>
     <Property Name="custodyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ownerID" Type="int" Nullable="false" />
-    <Property Name="amount" Type="money" Nullable="false" />
+    <Property Name="amount" Type="money" />
     <Property Name="active" Type="bit" Nullable="false" />
     <Property Name="invoiceID" Type="int" Nullable="false" />
   </EntityType>

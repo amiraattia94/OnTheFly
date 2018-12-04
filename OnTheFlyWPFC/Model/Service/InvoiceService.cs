@@ -683,29 +683,36 @@ namespace OnTheFlyWPFC.Model.Service {
                 var result = con.deliveryTBLs.SingleOrDefault(w => w.deliveryID == deliveryID);
 
                 if (result != null) {
-                    return new DeliveryDTO() {
-                        custodyID = result.invoiceTBL.custodyID,
-                        driverID = result.driverID,
-                        driverName = result.EmployeeTBL.name,
-                        customername = result.invoiceTBL.CustomerTBL.name,
-                        customercityCodee = result.invoiceTBL.CustomerTBL.LibyanCitiesTBL.city_code,
-                        customerCityname = result.invoiceTBL.CustomerTBL.LibyanCitiesTBL.name,
-                        customerAddress = result.invoiceTBL.CustomerTBL.address,
-                        phone1 = result.invoiceTBL.CustomerTBL.phone1,
-                        phone2 = result.invoiceTBL.CustomerTBL.phone2,
-                        deliveryID = result.deliveryID,
-                        invoiceID = result.invoiceID,
-                        start_date = result.start_date,
-                        end_date = result.end_date,
-                        firstItemdate = result.firstItemAvailableDate,
-                        lastItemDate = result.lastItemAvailableDate,
-                        ServicesCount = result.invoiceTBL.DeliveryServiceTBLs.Count,
-                        status = result.statusID,
-                        statusName = result.DeliveryStatusTBL.name,
-                        totalCustodycost = result.invoiceTBL.custodyTBL.amount,
-                        totalcost = result.invoiceTBL.totalcost,
+                    try {
+                        return new DeliveryDTO() {
+                            custodyID = result.invoiceTBL.custodyID,
+                            driverID = result.driverID,
+                            driverName = result.EmployeeTBL.name,
+                            customername = result.invoiceTBL.CustomerTBL.name,
+                            customercityCodee = result.invoiceTBL.CustomerTBL.LibyanCitiesTBL.city_code,
+                            customerCityname = result.invoiceTBL.CustomerTBL.LibyanCitiesTBL.name,
+                            customerAddress = result.invoiceTBL.CustomerTBL.address,
+                            phone1 = result.invoiceTBL.CustomerTBL.phone1,
+                            phone2 = result.invoiceTBL.CustomerTBL.phone2,
+                            deliveryID = result.deliveryID,
+                            invoiceID = result.invoiceID,
+                            start_date = result.start_date,
+                            end_date = result.end_date,
+                            firstItemdate = result.firstItemAvailableDate,
+                            lastItemDate = result.lastItemAvailableDate,
+                            ServicesCount = result.invoiceTBL.DeliveryServiceTBLs.Count,
+                            status = result.statusID,
+                            statusName = result.DeliveryStatusTBL.name,
+                            totalCustodycost = result.invoiceTBL.custodyTBL.amount != null ? result.invoiceTBL.custodyTBL.amount : 0,
+                            totalcost = result.invoiceTBL.totalcost,
 
-                    };
+                        };
+                    }
+                    catch (Exception e) {
+
+                        var a = e;
+                    }
+                    
                 };
 
                 return new DeliveryDTO() { };

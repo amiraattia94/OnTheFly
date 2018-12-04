@@ -28,7 +28,7 @@
           </Key>
           <Property Name="custodyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ownerID" Type="int" Nullable="false" />
-          <Property Name="amount" Type="money" Nullable="false" />
+          <Property Name="amount" Type="money" />
           <Property Name="active" Type="bit" Nullable="false" />
           <Property Name="invoiceID" Type="int" Nullable="false" />
         </EntityType>
@@ -986,7 +986,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </Key>
           <Property Name="custodyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ownerID" Type="Int32" Nullable="false" />
-          <Property Name="amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="active" Type="Boolean" Nullable="false" />
           <Property Name="invoiceID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_custodyTBL_EmployeeTBL" FromRole="custodyTBL" ToRole="EmployeeTBL" />
