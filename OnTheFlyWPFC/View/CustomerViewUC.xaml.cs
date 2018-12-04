@@ -26,6 +26,7 @@ namespace OnTheFlyWPFC.View
 
         CityViewModel cityViewModel;
         CustomerViewModel customerViewModel;
+        FinanceViewModel financeViewModel;
 
         public delegate void RefreshList();
         public event RefreshList RefreshListEvent;
@@ -37,6 +38,7 @@ namespace OnTheFlyWPFC.View
             InitializeComponent();
             cityViewModel = new CityViewModel();
             customerViewModel = new CustomerViewModel();
+            financeViewModel = new FinanceViewModel();
         }
 
         private void RefreshListView()
@@ -105,8 +107,14 @@ namespace OnTheFlyWPFC.View
             var a = button.CommandParameter as CustomerDTO;
             HelperClass.Customer = a.customerID;
 
-            if (await customerViewModel.DeleteCustomerByID(a.customerID))
-                MessageBox.Show("تم المسح بنجاح");
+            customerViewModel.GetCustomerByID(a.customerID);
+            if (await customerViewModel.DeleteCustomerByID(a.customerID)) {
+                if (await financeViewModel.AddFinance(false, (decimal)customerViewModel.customer.credit,"مسح رصيد مع زبون "+ customerViewModel.customer.name , HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName,  DateTime.Now ))
+                    MessageBox.Show("تم المسح بنجاح");
+            }
+
+            customerViewModel.customer = null;
+
             RefreshListView();
         }
 

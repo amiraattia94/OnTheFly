@@ -49,7 +49,7 @@ namespace OnTheFlyWPFC.View
                     invoiceViewModel.GetAllDeliveryServicesByInvoice(int.Parse(lblNewInvoice.Text));
                     lstViewDeliveryServices.ItemsSource = invoiceViewModel.allDeliveryService;
 
-
+                    txtDiscount.Content = invoiceViewModel.Invoice.discount;
                     lblTotalAfter.Content = invoiceViewModel.Invoice.totalafter;
 
                     if (invoiceViewModel.Invoice.custodyID == null) {

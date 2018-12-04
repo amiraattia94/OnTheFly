@@ -40,6 +40,10 @@ namespace OnTheFlyWPFC.ViewModel
             return await customerService.EditCustomerByID(CustomerID, CustomerName, CustomerPhone1, CustomerPhone2, cityCode, CustomerAddress, CustomerCredit);
         }
 
+        async public Task<bool> RemoveCreditFromCustomer(int CustomerID, decimal SpentCredit) {
+            return await customerService.RemoveCreditFromCustomer(CustomerID, SpentCredit);
+        }
+
         async public Task<bool> DeleteCustomerByID(int customerID)
         {
             return await customerService.DeleteCustomerByID(customerID);

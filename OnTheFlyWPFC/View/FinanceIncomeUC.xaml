@@ -356,7 +356,7 @@
                                 <GridView>
                                     <GridViewColumn Header="قيمة الدخل" Width="120" DisplayMemberBinding="{Binding financeValue}"/>
                                     <GridViewColumn Header="ملاحظات" Width="200" DisplayMemberBinding="{Binding financeReason}"/>
-                                    <GridViewColumn Header="الموظف المعني" Width="120" DisplayMemberBinding="{Binding financeEmployee}"/>
+                                    <GridViewColumn Header="الموظف المعني" Width="120" DisplayMemberBinding="{Binding financeEmployeeName}"/>
                                     <GridViewColumn Header="تاريخ الادخال" Width="200" DisplayMemberBinding="{Binding financeAddDate}"/>
                                 </GridView>
 

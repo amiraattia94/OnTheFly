@@ -25,13 +25,17 @@ namespace OnTheFlyWPFC.View
         public Delegate UpdateMainList;
         CityViewModel cityViewModel;
         CustomerViewModel customerViewModel;
+        FinanceViewModel financeViewModel;
+        decimal oldmoney;
 
         public CustomerEditMiniWindow()
         {
             InitializeComponent();
             cityViewModel = new CityViewModel();
             customerViewModel = new CustomerViewModel();
+            financeViewModel = new FinanceViewModel();
             customerViewModel.GetCustomerByID(HelperClass.Customer);
+
         }
 
         private void cmbcustomerCities_Loaded(object sender, RoutedEventArgs e)
@@ -70,9 +74,13 @@ namespace OnTheFlyWPFC.View
         {
             var city = (CityDTO)cmbcustomerCities.SelectedValue;
 
+            
+
             if (await customerViewModel.EditCustomer(HelperClass.Customer, txtCustomerName.Text, txtCustomerPhone1.Text, txtCustomerPhone2.Text, city.cityCode, txtCustomerAddress.Text, decimal.Parse(txtCustomerCredit.Text)))
             {
-                MessageBox.Show("تم الحفظ");
+                if(await financeViewModel.AddFinance(false,oldmoney,"تعديل رصيد زبون  " + customerViewModel.customer.name ,HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now))
+                    if(await financeViewModel.AddFinance(true, decimal.Parse(txtCustomerCredit.Text), "تعديل رصيد زبون  " + customerViewModel.customer.name,HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now))
+                        MessageBox.Show("تم الحفظ");
 
                 UpdateMainList.DynamicInvoke();
                 this.Close();
@@ -85,6 +93,7 @@ namespace OnTheFlyWPFC.View
         {
             customerViewModel.GetCustomerByID(HelperClass.Customer);
             stkCustomerEdit.DataContext = customerViewModel.customer;
+            oldmoney = (decimal)customerViewModel.customer.credit;
         }
     }
 }

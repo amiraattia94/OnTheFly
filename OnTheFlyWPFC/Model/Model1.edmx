@@ -28,7 +28,7 @@
           </Key>
           <Property Name="custodyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ownerID" Type="int" Nullable="false" />
-          <Property Name="amount" Type="money" Nullable="false" />
+          <Property Name="amount" Type="money" />
           <Property Name="active" Type="bit" Nullable="false" />
           <Property Name="invoiceID" Type="int" Nullable="false" />
         </EntityType>
@@ -118,6 +118,7 @@
           <Property Name="FinanceValue" Type="money" Nullable="false" />
           <Property Name="FinanceReason" Type="nvarchar(max)" />
           <Property Name="FinanceEmployee" Type="int" Nullable="false" />
+          <Property Name="FinanceEmployeeName" Type="nvarchar(max)" />
           <Property Name="FinanceAddDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="invoiceTBL">
@@ -133,6 +134,7 @@
           <Property Name="discount" Type="money" />
           <Property Name="deliveryID" Type="int" />
           <Property Name="totalcost" Type="money" />
+          <Property Name="totaldelivery" Type="money" />
         </EntityType>
         <EntityType Name="JobsTBL">
           <Key>
@@ -1001,7 +1003,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           </Key>
           <Property Name="custodyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ownerID" Type="Int32" Nullable="false" />
-          <Property Name="amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="active" Type="Boolean" Nullable="false" />
           <Property Name="invoiceID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EmployeeTBL" Relationship="Self.FK_custodyTBL_EmployeeTBL" FromRole="custodyTBL" ToRole="EmployeeTBL" />
@@ -1118,6 +1120,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="FinanceValue" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="FinanceReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FinanceEmployee" Type="Int32" Nullable="false" />
+          <Property Name="FinanceEmployeeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FinanceAddDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="invoiceTBL">
@@ -1133,6 +1136,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="discount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="deliveryID" Type="Int32" />
           <Property Name="totalcost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="totaldelivery" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="custodyTBLs" Relationship="Self.FK_custodyTBL_invoiceTBL" FromRole="invoiceTBL" ToRole="custodyTBL" />
           <NavigationProperty Name="custodyTBL" Relationship="Self.FK_invoiceTBL_custodyTBL" FromRole="invoiceTBL" ToRole="custodyTBL" />
           <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="invoiceTBL" ToRole="CustomerTBL" />
@@ -2090,6 +2094,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
                 <ScalarProperty Name="FinanceValue" ColumnName="FinanceValue" />
                 <ScalarProperty Name="FinanceReason" ColumnName="FinanceReason" />
                 <ScalarProperty Name="FinanceEmployee" ColumnName="FinanceEmployee" />
+                <ScalarProperty Name="FinanceEmployeeName" ColumnName="FinanceEmployeeName" />
                 <ScalarProperty Name="FinanceAddDate" ColumnName="FinanceAddDate" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2106,6 +2111,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
                 <ScalarProperty Name="discount" ColumnName="discount" />
                 <ScalarProperty Name="deliveryID" ColumnName="deliveryID" />
                 <ScalarProperty Name="totalcost" ColumnName="totalcost" />
+                <ScalarProperty Name="totaldelivery" ColumnName="totaldelivery" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -25,9 +25,17 @@ namespace OnTheFlyWPFC.ViewModel
             GetAllFinances();
         }
 
-        async public Task<bool> AddFinance(bool financePosative, decimal financeValue, string financeReason, int financeEmployee, DateTime financeAddDate)
+        async public Task<bool> AddFinance(bool financePosative, decimal financeValue, string financeReason, int financeEmployee,string financeEmployeeName, DateTime financeAddDate)
         {
-            return await financeService.AddFinance( financePosative,  financeValue,  financeReason, financeEmployee,  financeAddDate);
+            return await financeService.AddFinance( financePosative,  financeValue,  financeReason, financeEmployee,financeEmployeeName,  financeAddDate);
+        }
+
+        async public Task<decimal> GetAllPosativeFinanceDecimal() {
+            return await financeService.GetAllPosativeFinanceDecimal();
+        }
+
+        async public Task<decimal> GetAllNegativeFinanceDecimal() {
+            return await financeService.GetAllNegativeFinanceDecimal();
         }
 
         async public void GetAllFinances()

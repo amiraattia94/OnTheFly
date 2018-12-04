@@ -1,0 +1,93 @@
+﻿<Window x:Class="OnTheFlyWPFC.View.DeliveryViewEditMiniWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnTheFlyWPFC.View"
+        mc:Ignorable="d"
+        Title="DeliveryViewEditMiniWindow" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="Transparent" WindowStyle="None" 
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen"
+        Height="350" Width="350" ResizeMode="NoResize" >
+    <UniformGrid FlowDirection="RightToLeft">
+        <Border BorderThickness="0" Background="White" CornerRadius="8" Height="300" Width="300" >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1" Color="#FFACACAC"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Height="65" VerticalAlignment="Top" Grid.Row="0">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
+                    </Grid.Effect>
+
+                    <UniformGrid FlowDirection="LeftToRight">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="btnCloseForm"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Height="65" FontWeight="Light" BorderBrush="{x:Null}" Click="BtnCloseForm_Click">
+                                <UniformGrid FlowDirection="RightToLeft">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Close" Width="20" Height="20" Foreground="#8C9AB6"/>
+                                    </StackPanel>
+                                </UniformGrid>
+                            </Button>
+                        </StackPanel>
+                    </UniformGrid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="200*"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="150*"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="اضافة تصنيف" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0" HorizontalAlignment="Center"/>
+
+                        <StackPanel  Grid.Row="1" Grid.Column="1" >
+
+                            <Border Height="40" Margin="0,0,0,15">
+                                <ComboBox Name="cmbChangeStatus" Loaded="CmbChangeStatus_Loaded" SelectionChanged="CmbChangeStatus_SelectionChanged"  VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                            </Border>
+
+                            <!--<Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox Name="cmbServiceState" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6">
+                                        <ComboBoxItem Content="مفعل">
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Content="غير مفعل">
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                </Border>-->
+
+
+                            <Border Height="40" Margin="50,20,50,0">
+                                <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="0,0,0,0" >
+                                    <Button Click="Edit" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                        <UniformGrid FlowDirection="RightToLeft">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock FontSize="16" Foreground="White" FontFamily="Noto Kufi Arabic" Text="تعديل " Margin="0,0,0,0" VerticalAlignment="Center" />
+                                            </StackPanel>
+                                        </UniformGrid>
+                                    </Button>
+                                </Border>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </UniformGrid>
+</Window>
