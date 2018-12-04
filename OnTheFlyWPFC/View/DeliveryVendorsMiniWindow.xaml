@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="DeliveryVendorsMiniWindow" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="600" Width="750" ResizeMode="NoResize">
@@ -63,33 +64,128 @@
 
                             <ColumnDefinition Width="30"/>
                         </Grid.ColumnDefinitions>
-                        <Label Name="lblVendorBranch" Content="اضافة فرع" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                        <Label Name="lblVendorBranch" Content="اضافة مزود" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
                         <StackPanel Grid.Row="1" Grid.Column="1" Name="stkVendorEdit">
-                            <Border  Height="40" Margin="0,0,0,15" >
-                                <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" FontSize="16" Foreground="#768295" />
-                            </Border>
+                            <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtname" Text="ادخل الاسم"  FontSize="16" Foreground="#768295" VerticalAlignment="Stretch"/>
+                                <Grid>
+                                    <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" Loaded="cmbBranchCities_Loaded" FontSize="16" Foreground="DarkSlateGray" />
+                                    <TextBlock IsHitTestVisible="False"  Text="المدينة" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbBranchCities}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
+
+                            <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtaddress" Text="ادخل العنوان"  FontSize="16" Foreground="#768295" VerticalAlignment="Stretch"/>
+                                <Grid>
+                                    <TextBox Name="txtname"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="الاسم"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtname}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
+
+                            <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtphone1" Text="ادخل رقم الهاتف"  FontSize="16" Foreground="#768295" VerticalAlignment="Stretch"/>
+                                <Grid>
+                                    <TextBox Name="txtaddress"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="العنوان"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtaddress}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
+
+                            <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtphone2" Text="ادخل رقم الهاتف"  FontSize="16" Foreground="#768295" VerticalAlignment="Stretch"/>
+                                <Grid>
+                                    <TextBox Name="txtphone1" FontSize="16" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="رقم الهاتف 1"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtphone1}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
+
+                            <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbBranchStatus" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295">
-                                    <ComboBoxItem Content="مفعل">
-                                    
-                                    </ComboBoxItem>
-                                    <ComboBoxItem Content="غير مفعل">
-                                     
-                                    </ComboBoxItem>
-                                </ComboBox>
+                                <Grid>
+                                    <TextBox Name="txtphone2" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="رقم الهاتف 2"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtphone2}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+                            <!-- Service Tyype ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <ComboBox Name="cmbBranchStatus" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray">
+                                        <ComboBoxItem Content="مفعل">
+
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Content="غير مفعل">
+
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                    <TextBlock IsHitTestVisible="False"  Text="حالة الفرع"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbBranchStatus}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
 
                             <Border Height="40" Margin="55,20,55,0">

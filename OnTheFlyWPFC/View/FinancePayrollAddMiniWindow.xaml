@@ -64,89 +64,197 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="30"/>
                             <ColumnDefinition Width="150*"/>
-
                             <ColumnDefinition Width="30"/>
                         </Grid.ColumnDefinitions>
 
-<!--
-                        <Grid.Resources>
-                            <Style TargetType="{x:Type TextBox}">
-                                <Style.Triggers>
-                                    <Trigger Property="Validation.HasError" Value="true">
-                                        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Grid.Resources>
--->
-                               
-                        
                         <Label Content="اضافة مرتب" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
                         <StackPanel Grid.Row="1" Grid.Column="1" >
+                            <!-- Service Tyype ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15" >
+                                <Grid>
+                                    <ComboBox Name="cmbEmployeeName" Loaded="cmbEmployeeName_Loaded" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False" Text="اسم الموظف"   HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbEmployeeName}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+                         
                             <Border Height="40" Margin="0,0,0,15">
-                                <StackPanel Orientation="Horizontal" Name="stkAddPayroll" Loaded="stkAddPayroll_Loaded">
-                                                                     
-                                     <Grid Grid.Row="0"   >
-                                        <TextBlock Margin="5,2" Text="This prompt dissappears as you type..." 
-                       Visibility="{Binding ElementName=txtUserEntry, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                        <TextBox Name="txtUserEntry" Background="Transparent"/>
-                                    </Grid>
-
-                                    <Grid  Background="Gray" >
-                                        <TextBlock Margin="5,2" Text="This dissappears as the control gets focus..."  >
-                                            <TextBlock.Visibility>
-                                                <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
-                                                    <Binding ElementName="txtUserEntry2" Path="Text.IsEmpty" />
-                                                    <Binding ElementName="txtUserEntry2" Path="IsFocused" />
-                                                </MultiBinding>
-                                            </TextBlock.Visibility>
-                                        </TextBlock>
-                                        <TextBox Name="txtUserEntry2" Background="Transparent"/>
-                                    </Grid>
+                                <StackPanel Orientation="Horizontal">
                                     
-                                  
+                                    <!-- Service Tyype ComboBox -->
+                                    <Border >
+                                        <Grid>
+                                            <TextBox    behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  PreviewTextInput="txtNumberOfWorkedDays_Preview" Name="txtNumberOfWorkedDays" Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                            <TextBlock IsHitTestVisible="False"  Text="ايام اضافية" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Text, ElementName=txtNumberOfWorkedDays}" Value="">
+                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Border>
+
+                                    <!-- Service Tyype ComboBox -->
+                                    <Border >
+                                        <Grid>
+                                            <TextBox Name="txtNumberOfWorkedHours" Width="130" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
+                                            <TextBlock IsHitTestVisible="False"  Text="ساعات اضافية" Margin="15,0,0,0"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Text, ElementName=txtNumberOfWorkedHours}" Value="">
+                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Border>
+
+                                    
+                                </StackPanel>
+                            </Border>
+                                    <!-- Service Tyype ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15" >
+                                        <Grid>
+                                    <TextBox   Name="txtBonus" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" />
+                                    <TextBlock IsHitTestVisible="False" Text="زيادة"   HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Text, ElementName=txtNumberOfWorkedHours}" Value="">
+                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Border>
+
+                            <Border Height="40" Margin="0,0,0,15">
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Service Tyype ComboBox -->
+                                    <Border >
+                                        <Grid>
+                                            <TextBox   Name="txtAbsentDays"  Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True" />
+                                            <TextBlock IsHitTestVisible="False"  Text="عدد ايام الغياب" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Text, ElementName=txtAbsentDays}" Value="">
+                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Border>
+
+                                    <!-- Service Tyype ComboBox -->
+                                    <Border >
+                                        <Grid>
+                                            <TextBox Name="txtLateHours" Width="130" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
+                                            <TextBlock IsHitTestVisible="False"  Text="ساعات التأخير" Margin="15,0,0,0"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Text, ElementName=txtLateHours}" Value="">
+                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Border>
                                    
-                                    <Label Content="اسم الموظف" Width="120"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
-                                    <ComboBox Name="cmbEmployeeName" Loaded="cmbEmployeeName_Loaded" VerticalAlignment="Stretch" Width="170"  FontSize="16" Foreground="#768295"/>
                                 </StackPanel>
-                            </Border>
-                           
-                            <Border Height="40" Margin="0,0,0,15">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBox  Text="ايام اضافية"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  PreviewTextInput="txtNumberOfWorkedDays_Preview" Name="txtNumberOfWorkedDays" Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="#768295">
-                                                                              
-                                    </TextBox>
-                                    <TextBox Text="ساعات اضافية" Name="txtNumberOfWorkedHours" Width="130" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </StackPanel>
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                
-                                <TextBox Text="زيادة"  Name="txtBonus" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBox  Text="عدد ايام الغياب" Name="txtAbsentDays"  Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                    <TextBox Text="ساعات التأخير" Name="txtLateHours" Width="130" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </StackPanel>
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="سلفة نقدية"  Name="txtCashAdvance" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                            </Border>
-                            <!---
-                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="قيمة العمل الاضافي" Name="txtOvertimePay" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                             </Border>
 
-                            -->
-                           
-                           
+                            <!-- Service Tyype ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15" >
+                                <Grid>
+                                    <TextBox  Name="txtCashAdvance" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
+                                    <TextBlock IsHitTestVisible="False" Text="سلفة نقدية"   HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtCashAdvance}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
                             
                                 <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBox  Text="{Binding Path=payroll_month, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                      Width="130" Margin="0,0,15,0" Name="txtMonth" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                    <TextBox Text="السنة" Width="130" Margin="15,0,0,0" Name="txtYear" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                    <!-- Service Tyype ComboBox -->
+                                    <Border >
+                                        <Grid>
+                                            <TextBox   Name="txtMonth"  Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" />
+                                            <TextBlock IsHitTestVisible="False"  Text="الشهر" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Text, ElementName=txtMonth}" Value="">
+                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Border>
+
+                                    <!-- Service Tyype ComboBox -->
+                                    <Border >
+                                        <Grid>
+                                            <TextBox   Name="txtYear"  Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
+                                            <TextBlock IsHitTestVisible="False"  Text="السنة" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Text, ElementName=txtYear}" Value="">
+                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Border>
+                                    
                                 </StackPanel>
                             </Border>
                             
@@ -154,8 +262,8 @@
                             
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="تم الصرف" Width="100"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
-                                   
-                                <ComboBox  Name="cmbPayrollPaid" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6"  Loaded="cmbPayrollPaid_Loaded" SelectionChanged="cmbPayrollPaid_SelectionChanged">
+
+                                <ComboBox  Name="cmbPayrollPaid" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="DarkSlateGray"  Loaded="cmbPayrollPaid_Loaded" SelectionChanged="cmbPayrollPaid_SelectionChanged">
                                     <ComboBoxItem Content="نعم">
                                     </ComboBoxItem>
                                     <ComboBoxItem Content="لا">

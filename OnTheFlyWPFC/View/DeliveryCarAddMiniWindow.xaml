@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
         mc:Ignorable="d"
-        
+        xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
         Title="DeliveryCarAddMiniWindow" 
         
         
@@ -68,37 +68,148 @@
                         <Label Content="اضافة مركبة" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0" HorizontalAlignment="Center"/>
 
                         <StackPanel Grid.Row="1" Grid.Column="1" >
+                            
+                            <!-- Vehicle Type ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbCarType" Loaded="CmbCarType_Loaded" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtPlateNumber" Text="رقم اللوحة" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtCompany" Text="الشركة" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                            </Border>
-
-                            <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtModel" Text="موديل" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtYear" Text="سنة الصنع" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbBranchs" VerticalAlignment="Stretch" Loaded="cmbBranchS_Loaded" FontSize="16" Foreground="#768295" />
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbStatus" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295">
-                                    <ComboBoxItem Content="تشتغل">
-
-                                    </ComboBoxItem>
-                                    <ComboBoxItem Content="متوقف">
-
-                                    </ComboBoxItem>
-                                </ComboBox>
+                                <Grid>
+                                    <ComboBox Name="cmbCarType" Loaded="CmbCarType_Loaded" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="نوع المركبة"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbCarType}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
 
+                            <!-- Vehicle Type ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox Name="txtPlateNumber" Text="" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="رقم اللوحة"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtPlateNumber}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
 
+                            <!-- Vehicle Type ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox Name="txtCompany"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="الشركة"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtCompany}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+                            <!-- Vehicle Type ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox Name="txtModel" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="الموديل"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtModel}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+                            <!-- Vehicle Type ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox Name="txtYear" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="سنة الصنع"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtYear}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+                            <!-- Vehicle Type ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <ComboBox Name="cmbBranchs" VerticalAlignment="Stretch" Loaded="cmbBranchS_Loaded" FontSize="16" Foreground="DarkSlateGray" />
+                                    <TextBlock IsHitTestVisible="False"  Text="الفرع"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbBranchs}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+                            <!-- Vehicle Type ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <ComboBox Name="cmbStatus" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray">
+                                        <ComboBoxItem Content="تشتغل">
+
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Content="متوقف">
+
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                    <TextBlock IsHitTestVisible="False"  Text="الحالة"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbStatus}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+                           
                             <Border Height="40" Margin="55,20,55,0">
                                 <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
                                     <Button Click="Save" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">

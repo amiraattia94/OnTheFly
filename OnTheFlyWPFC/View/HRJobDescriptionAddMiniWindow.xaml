@@ -358,9 +358,28 @@
                     <StackPanel Grid.Row="1" Grid.Column="1">
                         <Label Content="اضافة وظيفة" FontFamily="Noto Kufi Arabic" HorizontalAlignment="Center" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1"  Height="44" Margin="0,8"/>
                         <Border Height="40" Margin="0,0,0,15">
-                            <TextBox Name="txtJobName" Text="اسم الوظيفة" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" />
+                            
+                        </Border>
+                        <!-- Service Tyype ComboBox -->
+                        <Border Height="40" Margin="0,0,0,15">
+                            <Grid>
+                                <TextBox Name="txtJobName"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" />
+                                <TextBlock IsHitTestVisible="False" Text="اسم الوظيفة"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=txtJobName}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
                         </Border>
 
+                        
                         <Border Height="40" Margin="0,0,0,15">
                             <TextBox Name="txtBasicSalary" Text="المرتب الأساسي" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                         </Border>

@@ -60,23 +60,45 @@
                             <Label Content="اضافة دخل" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0" HorizontalAlignment="Center"/>
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
-                                <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="قيمة الدخل" Name="txtFinanceValue" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </Border>
-                            <Border Height="100" Margin="0,0,0,15">
-                                <!--
-                                <TextBox Text="ملاحظات" Name="txtFinanceReason" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                -->
-
-                                <TextBox Text="ملاحظات" Name="txtFinanceReason" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Height="100" Width="240" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"/>
+                                
+                            <!-- Service Tyype ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox  Name="txtFinanceValue" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="قيمة الدخل"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtFinanceValue}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
-                            
 
-                                
-
-                                
-
-
+                            <!-- Service Tyype ComboBox -->
+                            <Border Height="100" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox  Name="txtFinanceReason" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Height="100" Width="240" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="ملاحظات"    FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Stretch" Height="100" Width="240"  HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtFinanceReason}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+  
                                 <Border Height="40" Margin="55,20,55,0">
                                     <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
                                     <Button Name="btnAddFinance" Click="btnAddFinance_Click" Background="Transparent"  Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">

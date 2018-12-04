@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
+        xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
         mc:Ignorable="d"
         Title="CustomerMembershipMiniWindow" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -69,11 +70,11 @@
 
 
                       
-                            <!-- Customer Name TextBox -->
+                            <!-- Membership ID Name TextBox -->
                           
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox x:Name="txtMembershipID" Background="Transparent"   HorizontalAlignment="Center" Width="190" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="txtMembershipID"  Background="Transparent"   HorizontalAlignment="Center" Width="190" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
                                     <TextBlock IsHitTestVisible="False"  Text="ادخل رقم العضوية"   Width="190" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -88,7 +89,8 @@
                                     </TextBlock>
                                 </Grid>
                             </Border>
-                     
+
+                            <!-- Service Category Name ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <ComboBox Name="cmbServiceCategory"  VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbServiceCategory_Loaded" SelectionChanged="cmbServiceCategory_SelectionChanged" />
@@ -108,7 +110,7 @@
                                 
                             </Border>
 
-
+                            <!-- Vendor Name ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <ComboBox Name="cmbVendors" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbVendors_Loaded" />

@@ -63,23 +63,87 @@
                             <Label Content="اضافة موظف" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
-                                <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="اسم الموظف" Name="txtEmployeeName" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </Border>
-                                <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="رقم الهاتف 1" Name="txtPhone1" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </Border>
-                                <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="رقم الهاتف 2" Name="txtPhone2" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </Border>
+                            <!-- Service Tyype ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox  Name="txtEmployeeName" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="اسم الموظف"   HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtEmployeeName}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
 
-                                <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Text="العنوان" Name="txtAddress" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </Border>
+                            <!-- Service Tyype ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox  Name="txtPhone1" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False" Text="رقم الهاتف 1"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtPhone1}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+                            <!-- Service Tyype ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox  Name="txtPhone2" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False" Text="رقم الهاتف 2 "  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtPhone2}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+                            <!-- Service Tyype ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox Name="txtAddress" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False" Text="العنوان"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtAddress}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+
                             <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="المدينة" Width="100"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
-                                    <ComboBox Name="cmbEmployeeCity" Loaded="cmbEmployeeCity_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="#768295"/>
+                                    <ComboBox Name="cmbEmployeeCity" Loaded="cmbEmployeeCity_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="DarkSlateGray"/>
                                 </StackPanel>
                             </Border>
                             <Border Height="40" Margin="0,0,0,15">
@@ -88,7 +152,7 @@
                                     <Label Content="تاريخ المباشرة" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
                                     <DatePicker Grid.Column = "1"
                                      Grid.Row = "2"
-                                     VerticalAlignment="Stretch" Width="180" HorizontalAlignment="Left" FontSize="16" Foreground="#768295"
+                                     VerticalAlignment="Stretch" Width="180" HorizontalAlignment="Left" FontSize="16" Foreground="DarkSlateGray"
                                      Language = "ar-LY"
                                      Name="datePickerStartDate"
                                      SelectedDate = "{Binding BirthDate, Mode=TwoWay}" />
@@ -98,14 +162,14 @@
                                 <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="الوظيفة" Width="100" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
-                                    <ComboBox Name="cmbEmployeeJob" Loaded="cmbEmployeeJob_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="#768295"/>
+                                    <ComboBox Name="cmbEmployeeJob" Loaded="cmbEmployeeJob_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="DarkSlateGray"/>
                                 </StackPanel>
                                 </Border>
 
                             <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="الفرع" Width="100" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
-                                    <ComboBox Name="cmbEmployeeBranch" Loaded="cmbEmployeeBranch_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="#768295"/>
+                                    <ComboBox Name="cmbEmployeeBranch" Loaded="cmbEmployeeBranch_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="DarkSlateGray"/>
                                 </StackPanel>
                             </Border>
 

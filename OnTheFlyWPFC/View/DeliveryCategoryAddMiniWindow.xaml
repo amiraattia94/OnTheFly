@@ -61,11 +61,27 @@
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 
-                                <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox Name="txtCategoryName" Text="ادخل اسم التصنيف" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                                </Border>
                                 
-                                <!--<Border Height="40" Margin="0,0,0,15">
+                            <!-- Category Name TextBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+                                    <TextBox Name="txtCategoryName"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="ادخل اسم التصنيف"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtCategoryName}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+                            <!--<Border Height="40" Margin="0,0,0,15">
                                     <ComboBox Name="cmbServiceState" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6">
                                         <ComboBoxItem Content="مفعل">
                                         </ComboBoxItem>
