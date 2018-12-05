@@ -30,34 +30,34 @@ namespace OnTheFlyWPFC.View {
             invoiceViewModel.GetInvoiceByID(HelperClass.POSInvoiceID);
 
 
-            ReportDocument rDoc = new ReportDocument();
-            rDoc.Load(@"C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CrystalReport1.rpt");
+            //ReportDocument rDoc = new ReportDocument();
+            //rDoc.Load(@"C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CrystalReport1.rpt");
 
             // Do whatever else you need to setup rDoc here
             // SetDatabaseLogon, VerifyDatabase, Set ParameterFields, etc.
-            rDoc.SetDataSource(invoiceViewModel.allDeliveryService2);
-            rDoc.SetParameterValue("pInvoiceID", invoiceViewModel.Invoice.invoiceID.ToString());
-            rDoc.SetParameterValue("pCustomerName", invoiceViewModel.Invoice.customername);
-            rDoc.SetParameterValue("pCustomerAddress", invoiceViewModel.Invoice.customerAddress);
-            rDoc.SetParameterValue("pCustomerPhone1", invoiceViewModel.Invoice.phone1);
-            rDoc.SetParameterValue("pCustomerPhone2", invoiceViewModel.Invoice.phone2);
-            rDoc.SetParameterValue("pInvoiceDate", invoiceViewModel.Invoice.dateTime);
-            rDoc.SetParameterValue("pImployeeName", invoiceViewModel.Invoice.issuerName);
-            rDoc.SetParameterValue("pDriverName", invoiceViewModel.Invoice.DriverName);
-            var a0 = invoiceViewModel.Invoice.discount.ToString("#.##");
-            rDoc.SetParameterValue("pDiscoundPercent", (a0 + "%"));
-            rDoc.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
+            //rDoc.SetDataSource(invoiceViewModel.allDeliveryService2);
+            //rDoc.SetParameterValue("pInvoiceID", invoiceViewModel.Invoice.invoiceID.ToString());
+            //rDoc.SetParameterValue("pCustomerName", invoiceViewModel.Invoice.customername);
+            //rDoc.SetParameterValue("pCustomerAddress", invoiceViewModel.Invoice.customerAddress);
+            //rDoc.SetParameterValue("pCustomerPhone1", invoiceViewModel.Invoice.phone1);
+            //rDoc.SetParameterValue("pCustomerPhone2", invoiceViewModel.Invoice.phone2);
+            //rDoc.SetParameterValue("pInvoiceDate", invoiceViewModel.Invoice.dateTime);
+            //rDoc.SetParameterValue("pImployeeName", invoiceViewModel.Invoice.issuerName);
+            //rDoc.SetParameterValue("pDriverName", invoiceViewModel.Invoice.DriverName);
+            //var a0 = invoiceViewModel.Invoice.discount.ToString("#.##");
+            //rDoc.SetParameterValue("pDiscoundPercent", (a0 + "%"));
+            //rDoc.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
 
-            CrystalViewr.ViewerCore.ReportSource = rDoc;
-            // Find out what the Default Printer Name is
-            //rDoc.PrintOptions.PrinterName = "Default Printer Name";
-            try {
-                rDoc.PrintToPrinter(1, false, 0, 0);
+            //CrystalViewr.ViewerCore.ReportSource = rDoc;
+            //// Find out what the Default Printer Name is
+            ////rDoc.PrintOptions.PrinterName = "Default Printer Name";
+            //try {
+            //    rDoc.PrintToPrinter(1, false, 0, 0);
 
-            }
-            catch (Exception) {
+            //}
+            //catch (Exception) {
 
-            }
+            //}
 
 
 
@@ -65,23 +65,23 @@ namespace OnTheFlyWPFC.View {
         }
 
         private void CrystalViewr_Loaded(object sender, RoutedEventArgs e) {
-            //CrystalReport1 crystalReport = new CrystalReport1();
-            //crystalReport.Load(@"CrystalReport1.rep");
-            //crystalReport.SetDataSource(invoiceViewModel.allDeliveryService2);
+            CrystalReport1 crystalReport = new CrystalReport1();
+            crystalReport.Load(@"CrystalReport1.rep");
+            crystalReport.SetDataSource(invoiceViewModel.allDeliveryService2);
 
-            //crystalReport.SetParameterValue("pInvoiceID", invoiceViewModel.Invoice.invoiceID.ToString());
-            //crystalReport.SetParameterValue("pCustomerName", invoiceViewModel.Invoice.customername);
-            //crystalReport.SetParameterValue("pCustomerAddress", invoiceViewModel.Invoice.customerAddress);
-            //crystalReport.SetParameterValue("pCustomerPhone1", invoiceViewModel.Invoice.phone1);
-            //crystalReport.SetParameterValue("pCustomerPhone2", invoiceViewModel.Invoice.phone2);
-            //crystalReport.SetParameterValue("pInvoiceDate", invoiceViewModel.Invoice.dateTime);
-            //crystalReport.SetParameterValue("pImployeeName", invoiceViewModel.Invoice.issuerName);
-            //crystalReport.SetParameterValue("pDriverName", invoiceViewModel.Invoice.DriverName);
-            //var a = invoiceViewModel.Invoice.discount.ToString("#.##");
-            //crystalReport.SetParameterValue("pDiscoundPercent",( a + "%"));
-            //crystalReport.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
+            crystalReport.SetParameterValue("pInvoiceID", invoiceViewModel.Invoice.invoiceID.ToString());
+            crystalReport.SetParameterValue("pCustomerName", invoiceViewModel.Invoice.customername);
+            crystalReport.SetParameterValue("pCustomerAddress", invoiceViewModel.Invoice.customerAddress);
+            crystalReport.SetParameterValue("pCustomerPhone1", invoiceViewModel.Invoice.phone1);
+            crystalReport.SetParameterValue("pCustomerPhone2", invoiceViewModel.Invoice.phone2);
+            crystalReport.SetParameterValue("pInvoiceDate", invoiceViewModel.Invoice.dateTime);
+            crystalReport.SetParameterValue("pImployeeName", invoiceViewModel.Invoice.issuerName);
+            crystalReport.SetParameterValue("pDriverName", invoiceViewModel.Invoice.DriverName);
+            var a = invoiceViewModel.Invoice.discount.ToString("#.##");
+            crystalReport.SetParameterValue("pDiscoundPercent", (a + "%"));
+            crystalReport.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
 
-            //CrystalViewr.ViewerCore.ReportSource = crystalReport;
+            CrystalViewr.ViewerCore.ReportSource = crystalReport;
 
 
 

@@ -128,39 +128,44 @@ namespace OnTheFlyWPFC.View
 
         private void PrintInvoice_Click(object sender, RoutedEventArgs e) {
 
-            invoiceViewModel = new InvoiceViewModel();
+            //invoiceViewModel = new InvoiceViewModel();
 
-            invoiceViewModel.GetAllDeliveryServicesByInvoice2(HelperClass.POSInvoiceID);
-            invoiceViewModel.GetInvoiceByID(HelperClass.POSInvoiceID);
+            //invoiceViewModel.GetAllDeliveryServicesByInvoice2(HelperClass.POSInvoiceID);
+            //invoiceViewModel.GetInvoiceByID(HelperClass.POSInvoiceID);
+
+            //try {
+            //    ReportDocument rDoc = new ReportDocument();
 
 
-            ReportDocument rDoc = new ReportDocument();
-            rDoc.Load(@"C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CrystalReport1.rpt");
-            rDoc.SetDataSource(invoiceViewModel.allDeliveryService2);
-            rDoc.SetParameterValue("pInvoiceID", invoiceViewModel.Invoice.invoiceID.ToString());
-            rDoc.SetParameterValue("pCustomerName", invoiceViewModel.Invoice.customername);
-            rDoc.SetParameterValue("pCustomerAddress", invoiceViewModel.Invoice.customerAddress);
-            rDoc.SetParameterValue("pCustomerPhone1", invoiceViewModel.Invoice.phone1);
-            rDoc.SetParameterValue("pCustomerPhone2", invoiceViewModel.Invoice.phone2);
-            rDoc.SetParameterValue("pInvoiceDate", invoiceViewModel.Invoice.dateTime);
-            rDoc.SetParameterValue("pImployeeName", invoiceViewModel.Invoice.issuerName);
-            rDoc.SetParameterValue("pDriverName", invoiceViewModel.Invoice.DriverName);
-            var a0 = invoiceViewModel.Invoice.discount.ToString("#.##");
-            rDoc.SetParameterValue("pDiscoundPercent", (a0 + "%"));
-            rDoc.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
+            //    //note change this later to something like System.Windows.Forms.Application.StartupPath + @"";
+            //    //rDoc.Load( @"C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CrystalReport1.rpt");
 
-            //CrystalViewr.ViewerCore.ReportSource = rDoc;
-            //rDoc.PrintOptions.PrinterName = "Default Printer Name";
-            try {
-                rDoc.PrintToPrinter(1, false, 0, 0);
 
-            }
-            catch (Exception) {
+            //    rDoc.Load(@"C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CrystalReport1.rpt");
+            //    rDoc.SetDataSource(invoiceViewModel.allDeliveryService2);
+            //    rDoc.SetParameterValue("pInvoiceID", invoiceViewModel.Invoice.invoiceID.ToString());
+            //    rDoc.SetParameterValue("pCustomerName", invoiceViewModel.Invoice.customername);
+            //    rDoc.SetParameterValue("pCustomerAddress", invoiceViewModel.Invoice.customerAddress);
+            //    rDoc.SetParameterValue("pCustomerPhone1", invoiceViewModel.Invoice.phone1);
+            //    rDoc.SetParameterValue("pCustomerPhone2", invoiceViewModel.Invoice.phone2);
+            //    rDoc.SetParameterValue("pInvoiceDate", invoiceViewModel.Invoice.dateTime);
+            //    rDoc.SetParameterValue("pImployeeName", invoiceViewModel.Invoice.issuerName);
+            //    rDoc.SetParameterValue("pDriverName", invoiceViewModel.Invoice.DriverName);
+            //    var a0 = invoiceViewModel.Invoice.discount.ToString("#.##");
+            //    rDoc.SetParameterValue("pDiscoundPercent", (a0 + "%"));
+            //    rDoc.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
 
-            }
+            //    //CrystalViewr.ViewerCore.ReportSource = rDoc;
+            //    //rDoc.PrintOptions.PrinterName = "Default Printer Name";
+            //    rDoc.PrintToPrinter(1, false, 0, 0);
 
-            //var printreport = new CrystalReportView();
-            //printreport.ShowDialog();
+            //}
+            //catch (Exception) {
+
+            //}
+
+            var printreport = new CrystalReportView();
+            printreport.ShowDialog();
         }
 
 
