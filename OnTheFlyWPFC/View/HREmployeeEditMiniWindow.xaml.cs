@@ -98,7 +98,7 @@ namespace OnTheFlyWPFC.View
             bool active = HelperClass.TrueOrFalse(cmbEmployeeActive.SelectedIndex.ToString());
             var job = (JobsDTO)cmbEmployeeJob.SelectedValue;
             var branch = (BranchDTO)cmbEmployeeBranch.SelectedValue;
-            if (await _employeeViewModel.EditEmployee(HelperClass.employeeID,txtEmployeeName.Text, txtPhone1.Text, txtPhone2.Text, txtAddress.Text, active, job.jobID, city.cityCode, datePickerStartDate.DisplayDate, datePickerEndDate.DisplayDate, branch.branchID))
+            if (await _employeeViewModel.EditEmployee(HelperClass.employeeID,txtEmployeeName.Text, txtPhone1.Text, txtPhone2.Text, txtAddress.Text, active, job.jobID, city.cityCode, (DateTime)datePickerStartDate.SelectedDate, (DateTime)datePickerEndDate.SelectedDate, branch.branchID))
             {
                 MessageBox.Show("تم الحفظ");
                 UpdateMainList.DynamicInvoke();
@@ -111,6 +111,17 @@ namespace OnTheFlyWPFC.View
         {
             _employeeViewModel.GetEmployeeByID(HelperClass.employeeID);
             StkEditEmployee.DataContext = _employeeViewModel.employee;
+        }
+
+        private void CmbEmployeeActive_Loaded(object sender, RoutedEventArgs e) {
+            if (_employeeViewModel.employee.active) {
+                cmbEmployeeActive.SelectedIndex = 0;
+
+
+            }
+            else {
+                cmbEmployeeActive.SelectedIndex = 1;
+            }
         }
     }
 }

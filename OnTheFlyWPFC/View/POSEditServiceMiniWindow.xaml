@@ -136,7 +136,7 @@
 
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBlock Name="txtDeliveryPrice" Loaded="TxtDeliveryPrice_Loaded"/>
+                                    <TextBox Name="txtDeliveryPrice" Loaded="TxtDeliveryPrice_Loaded" TextChanged="TxtDeliveryPrice_TextChanged" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" />
                                 </Border>
                                 <!--<Border Height="40" Margin="0,0,0,15">
 

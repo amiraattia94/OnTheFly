@@ -90,8 +90,7 @@
                                      Grid.Row = "2"
                                      VerticalAlignment="Stretch" Width="180" HorizontalAlignment="Left" FontSize="16" Foreground="#768295"
                                      Language = "ar-LY"
-                                     Name="datePickerStartDate"
-                                     SelectedDate = "{Binding BirthDate, Mode=TwoWay}" />
+                                     Name="datePickerStartDate"/>
                                 </StackPanel>
                                 </Border>
 

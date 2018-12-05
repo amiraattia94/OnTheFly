@@ -80,7 +80,7 @@ namespace OnTheFlyWPFC.View {
 
             crystalReport.SetParameterValue("pTotalBefore", invoiceViewModel.Invoice.totalBefore);
 
-            var a = invoiceViewModel.Invoice.discount.ToString("#.##");
+            var a = invoiceViewModel.Invoice.discount.ToString("0.##");
             crystalReport.SetParameterValue("pDiscoundPercent", (a + "%"));
             crystalReport.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
 

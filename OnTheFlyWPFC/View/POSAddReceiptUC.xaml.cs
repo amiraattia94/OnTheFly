@@ -394,6 +394,7 @@ namespace OnTheFlyWPFC.View
 
                 }
 
+                HelperClass.POSInvoiceIDView = HelperClass.POSInvoiceID;
                 var printreport = new CrystalReportView();
                 printreport.ShowDialog();
                 //UpdateMainUC.DynamicInvoke();

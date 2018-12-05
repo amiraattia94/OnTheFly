@@ -417,6 +417,43 @@ namespace OnTheFlyWPFC.Model.Service
 
         }
 
+
+        async public Task<ObservableCollection<EmployeeDTO>> GetEmployeeByBranch(int branchID) {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.EmployeeTBLs.Where(w => w.branchID == branchID).Select(s => new EmployeeDTO() {
+                    employeeID = s.employeeID,
+                    name = s.name,
+                    phone1 = s.phone1,
+                    phone2 = s.phone2,
+                    address = s.address,
+                    active = s.active,
+                    jobID = s.jobID,
+                    jobName = s.JobsTBL.job_name,
+                    cityID = s.cityID,
+                    cityName = s.LibyanCitiesTBL.name,
+                    start_date = s.start_date,
+                    end_date = s.end_date,
+                    branchID = s.branchID,
+                    branchName = s.CompanyBranchTBL.branch_name,
+                }).ToList();
+
+                if (result != null) {
+                    return new ObservableCollection<EmployeeDTO>(result);
+                }
+                else {
+                    return new ObservableCollection<EmployeeDTO>();
+                }
+
+
+
+            }
+
+        }
+
+
+
     }
 
 }
