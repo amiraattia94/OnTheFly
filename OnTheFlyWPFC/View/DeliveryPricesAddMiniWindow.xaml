@@ -62,7 +62,7 @@
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 
-                                <!-- Service Tyype ComboBox -->
+                                <!-- Service Type ComboBox -->
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Grid>
                                         <ComboBox Name="cmbServiceType" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbServiceType_Loaded"/>
@@ -81,10 +81,10 @@
                                     </Grid>
                                 </Border>
 
-                                <!-- Service Tyype ComboBox -->
+                                <!-- Service Customer Location ComboBox -->
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Grid>
-                                    <ComboBox Name="cmbCustomerLocation" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbServiceType_Loaded"/>
+                                    <ComboBox Name="cmbCustomerLocation" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbCustomerLocation_Loaded"/>
                                         <TextBlock IsHitTestVisible="False"  Text="موقع الزبون"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                             <TextBlock.Style>
                                                 <Style TargetType="{x:Type TextBlock}">
@@ -100,7 +100,7 @@
                                     </Grid>
                                 </Border>
 
-                                <!-- Service Tyype ComboBox -->
+                                <!-- Service Vendor Location ComboBox -->
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Grid>
                                     <ComboBox Name="cmbVendorLocation" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbVendorLocation_Loaded"/>
@@ -119,7 +119,7 @@
                                     </Grid>
                                 </Border>
 
-                                <!-- Service Tyype ComboBox -->
+                                <!-- Service Full Trip Price TextBox -->
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Grid>
                                     <TextBox Name="txtFullPrice" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
@@ -138,49 +138,51 @@
                                     </Grid>
                                 </Border>
 
-                            <!-- Service Tyype ComboBox -->
-                            <Border Height="40" Margin="0,0,0,15">
-                                <Grid>
-                                    <TextBox Name="txtHalfPrice" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
-                                    <TextBlock IsHitTestVisible="False"  Text="تكلفة نصف رحلة"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                               <!-- Service Half Trip Price TextBox -->
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <Grid>
+                                        <TextBox Name="txtHalfPrice" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                        <TextBlock IsHitTestVisible="False"  Text="تكلفة نصف رحلة"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=txtHalfPrice}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Grid>
+                                </Border>
+
+                                <!-- Service Status ComboBox -->
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <Grid>
+
+                                        <ComboBox Name="cmbServiceState" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="DarkSlateGray">
+                                        <ComboBoxItem Content="مفعل">
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Content="غير مفعل">
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                    <TextBlock IsHitTestVisible="False"  Text="حالة التفعيل"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=txtHalfPrice}" Value="">
+                                                        <DataTrigger Binding="{Binding Text, ElementName=cmbServiceState}" Value="">
                                                         <Setter Property="Visibility" Value="Visible"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
-                                </Grid>
-                            </Border>
-
-                            
-                            <Border Height="40" Margin="0,0,0,15">
-                                <Grid>
-
-                                    <ComboBox Name="cmbServiceState" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="DarkSlateGray">
-                                    <ComboBoxItem Content="مفعل">
-                                    </ComboBoxItem>
-                                    <ComboBoxItem Content="غير مفعل">
-                                    </ComboBoxItem>
-                                </ComboBox>
-                                <TextBlock IsHitTestVisible="False"  Text="حالة التفعيل"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock.Style>
-                                        <Style TargetType="{x:Type TextBlock}">
-                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                            <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbServiceState}" Value="">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                </Grid>
-                            </Border>
+                                    </Grid>
+                                </Border>
+                                
+                                
                                 <Border Height="40" Margin="50,20,50,0">
                                     <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
                                         <Button Click="Add" Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">

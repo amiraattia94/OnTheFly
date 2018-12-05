@@ -81,16 +81,6 @@
                                 </Grid>
                             </Border>
 
-                            <!--<Border Height="40" Margin="0,0,0,15">
-                                    <ComboBox Name="cmbServiceState" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6">
-                                        <ComboBoxItem Content="مفعل">
-                                        </ComboBoxItem>
-                                        <ComboBoxItem Content="غير مفعل">
-                                        </ComboBoxItem>
-                                    </ComboBox>
-                                </Border>-->
-
-
                                 <Border Height="40" Margin="50,20,50,0">
                                     <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
                                     <Button Click="Save" Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
         mc:Ignorable="d"
+        xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
         Title="HREmployeeAddMiniWindow" 
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
@@ -85,7 +86,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox  Name="txtPhone1" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox  Name="txtPhone1" VerticalAlignment="Stretch" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"   FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False" Text="رقم الهاتف 1"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -104,7 +105,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox  Name="txtPhone2" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox  Name="txtPhone2" VerticalAlignment="Stretch" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False" Text="رقم الهاتف 2 "  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">

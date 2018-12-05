@@ -32,9 +32,9 @@ namespace OnTheFlyWPFC.View
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
+           
             string username, password, error_message;
-            bool user_exist;
+            bool user_exist = false ;
             if (string.IsNullOrWhiteSpace(usernametxt.Text) || string.IsNullOrWhiteSpace(pbPassword.Password))
             {
                 error_message = get_message();
@@ -42,19 +42,33 @@ namespace OnTheFlyWPFC.View
             }
             password = pbPassword.Password;// passwordtxt.Text;
             username = usernametxt.Text;
-            user_exist = await userViewModel.GetUserExists(usernametxt.Text, pbPassword.Password);
-            if (user_exist == true) 
+            try
             {
-                loginViewModel.GetLoginUserData(usernametxt.Text, pbPassword.Password);
-                var tempW = new MainWindow();
-                tempW.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("عفواً، لقد اخطأت في اسم المستخدم او كلمة المرور ", "خطأ", MessageBoxButton.OK, MessageBoxImage.Error);
+                user_exist = await userViewModel.GetUserExists(usernametxt.Text, pbPassword.Password);
+                if (user_exist == true)
+                {
+                    loginViewModel.GetLoginUserData(usernametxt.Text, pbPassword.Password);
+                    var tempW = new MainWindow();
+                    tempW.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("عفواً، لقد اخطأت في اسم المستخدم او كلمة المرور ", "خطأ", MessageBoxButton.OK, MessageBoxImage.Error);
 
+                }
             }
+            catch(Exception )
+            {
+                System.Windows.Forms.DialogResult dialog = System.Windows.Forms.MessageBox.Show("عفواَ، هناك خطأ في الإتصال بقاعدة البيانات", "خطأ", System.Windows.Forms.MessageBoxButtons.OK);
+                if (dialog == System.Windows.Forms.DialogResult.OK)
+                {
+                    //     Close entire appliction
+                    System.Windows.Application.Current.Shutdown();
+                }
+            }
+            
+           
 
         }
 

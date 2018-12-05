@@ -55,7 +55,7 @@
                             <ColumnDefinition Width="150*"/>
                             <ColumnDefinition Width="30"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="اضافة تصنيف" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0" HorizontalAlignment="Center"/>
+                        <Label Content="تعديل تصنيف" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0" HorizontalAlignment="Center"/>
 
                         <StackPanel  Grid.Row="1" Grid.Column="1" >
 

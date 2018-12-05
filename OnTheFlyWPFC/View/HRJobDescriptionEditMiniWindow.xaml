@@ -6,6 +6,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
         mc:Ignorable="d"
+        xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:sys="http://schemas.microsoft.com/winfx/2009/xaml"
         Background="Transparent" WindowStyle="None" 
@@ -60,19 +61,63 @@
                         <Label Content="تعديل الوظيفة" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
                         <StackPanel Name="StkEditJob" Grid.Row="1" Grid.Column="1" Loaded="StkEditJob_Loaded">
+
+                            <!-- Job Name TxtBox-->
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtJobName" Text="{Binding job_name}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <Grid>
+                                    <TextBox Name="txtJobName" Text="{Binding job_name}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" />
+                                    <TextBlock IsHitTestVisible="False" Text="اسم الوظيفة"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtJobName}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
 
+                            <!--Job Basic Salary TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtBasicSalary" Text="{Binding basic_salary}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <Grid>
+                                    <TextBox Name="txtBasicSalary" Text="{Binding basic_salary}" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False" Text="المرتب الأساسي" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtBasicSalary}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
+
+                            <!-- Job Working hours per month TextBox-->
                             <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtWorkingHoursPerMonth" Text="{Binding working_days_per_month}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <Grid>
+                                    <TextBox Name="txtWorkingHoursPerMonth" Text="{Binding working_days_per_month}"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False" Text="عدد ساعات العمل في الشهر"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtWorkingHoursPerMonth}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
-                            
-
-
 
                             <Border Height="40" Margin="55,20,55,0">
                                 <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="0,0,0,0" >

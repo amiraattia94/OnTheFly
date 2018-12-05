@@ -398,7 +398,6 @@
                             </Grid>
 
                         </Border>
-
                         <!-- Branch Address TextBox -->
                         <Border Height="40" Margin="0,0,0,15">
                             <Grid>
@@ -417,7 +416,6 @@
                                 </TextBlock>
                             </Grid>
                         </Border>
-
                         <!-- Branch State ComboBox -->
                         <Border Height="40" Margin="0,0,0,15">
                             <Grid>

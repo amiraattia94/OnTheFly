@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using OnTheFlyWPFC.Model.DTO;
 using OnTheFlyWPFC.Model.Service;
 using System.ComponentModel.DataAnnotations;
+using System.Windows;
 
 namespace OnTheFlyWPFC.ViewModel
 {
@@ -44,7 +45,17 @@ namespace OnTheFlyWPFC.ViewModel
 
         async public void GetAllUsers()
         {
-            viewUser = await _userService.GetAllUser();
+            try
+            {
+                viewUser = await _userService.GetAllUser();
+            }
+            catch( Exception e)
+            {
+                MessageBox.Show("عفواَ، هناك خطأ في الإتصال بقاعدة البيانات" ,"خطأ",MessageBoxButton.OK);
+               
+                
+            }
+            
         }
 
         async public void GetUserByID(int userID)

@@ -88,7 +88,7 @@
                                 </Grid>
                             </Border>
 
-                            <!-- Vehicle Type ComboBox -->
+                            <!-- Vehicle Number TextBox-->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <TextBox Name="txtPlateNumber" Text="" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
@@ -107,7 +107,7 @@
                                 </Grid>
                             </Border>
 
-                            <!-- Vehicle Type ComboBox -->
+                            <!-- Vehicle Made Company TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <TextBox Name="txtCompany"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
@@ -126,7 +126,7 @@
                                 </Grid>
                             </Border>
 
-                            <!-- Vehicle Type ComboBox -->
+                            <!-- Vehicle Edition TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <TextBox Name="txtModel" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
@@ -145,7 +145,7 @@
                                 </Grid>
                             </Border>
 
-                            <!-- Vehicle Type ComboBox -->
+                            <!-- Vehicle Year TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <TextBox Name="txtYear" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
@@ -164,7 +164,7 @@
                                 </Grid>
                             </Border>
 
-                            <!-- Vehicle Type ComboBox -->
+                            <!-- Vehicle Branch ComboBox-->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <ComboBox Name="cmbBranchs" VerticalAlignment="Stretch" Loaded="cmbBranchS_Loaded" FontSize="16" Foreground="DarkSlateGray" />
@@ -183,7 +183,7 @@
                                 </Grid>
                             </Border>
 
-                            <!-- Vehicle Type ComboBox -->
+                            <!-- Vehicle Condiition ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <ComboBox Name="cmbStatus" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray">

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
+        xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
         mc:Ignorable="d"
         Title="FinanceIncomeAddMiniWindow"  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
@@ -64,7 +65,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox  Name="txtFinanceValue" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox  Name="txtFinanceValue" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False"  Text="قيمة الدخل"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Stretch">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">

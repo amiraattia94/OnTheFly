@@ -60,7 +60,7 @@
                         <Label Content="اضافة مصروف" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0" HorizontalAlignment="Center"/>
 
                         <StackPanel Grid.Row="1" Grid.Column="1" >
-                            <!-- Service Tyype ComboBox -->
+                            <!--Finance Spending TextBox-->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <TextBox  Name="txtFinanceValue" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
@@ -79,7 +79,7 @@
                                 </Grid>
                             </Border>
 
-                            <!-- Service Tyype ComboBox -->
+                            <!-- Finance Spending large TextBox -->
                             <Border Height="100" Margin="0,0,0,15">
                                 <Grid>
                                     <TextBox  Name="txtFinanceReason" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Height="100" Width="240" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"/>

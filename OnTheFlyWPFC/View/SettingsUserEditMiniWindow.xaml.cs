@@ -65,7 +65,7 @@ namespace OnTheFlyWPFC.View
             var employee = (EmployeeDTO)cmbUserEmployee.SelectedValue;
 
 
-            if (await usersViewModel.EditUsrByID(HelperClass.employeeID, txtUserName.Text, txtPassword.Text, employee.employeeID))
+            if (await usersViewModel.EditUsrByID(HelperClass.employeeID, txtUserName.Text, pbPassword.Password, employee.employeeID))
             {
                 MessageBox.Show("تم الحفظ");
 

@@ -356,20 +356,68 @@
 
                     <StackPanel Grid.Row="1" Grid.Column="1">
                         <Label Content="اضافة مستخدم" FontFamily="Noto Kufi Arabic" HorizontalAlignment="Center" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1"  Height="44" Margin="0,8"/>
-                        <Border Height="40" Margin="0,0,0,15">
-                            <TextBox Name="txtUserName" Text="اسم المستخدم" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" />
-                        </Border>
-                        <Border Height="40" Margin="0,0,0,15">
-                            <TextBox Name="txtPassword" Text="كلمة المرور" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
-                        </Border>
-                        <Border  Height="40" Margin="0,0,0,15" >
 
-
-                            <ComboBox Name="cmbUserEmployee" VerticalAlignment="Stretch" Loaded="cmbUserEmployee_Loaded" FontSize="16" Foreground="#768295" />
+                        <!-- Service Tyype ComboBox -->
+                        <Border Height="40" Margin="0,0,0,15">
+                            <Grid>
+                                <TextBox Name="txtUserName" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" />
+                                <TextBlock IsHitTestVisible="False"  Text="اسم المستخدم" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=txtUserName}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
                         </Border>
+
+                        <!-- Service Tyype ComboBox -->
+                        <Border Height="40" Margin="0,0,0,15">
+                            <Grid>
+                                <PasswordBox Name="pbPassword" xmlns:x="#unknown" PasswordChar="*"  HorizontalAlignment="Stretch" FontFamily="Noto Kufi Arabic" FontSize="16"  Foreground="DarkSlateGray"  VerticalAlignment="Center"  />
+                                <TextBlock IsHitTestVisible="False" Text="كلمة المرور" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Password, ElementName=pbPassword}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                  
+                        <!-- Service Tyype ComboBox -->
+                        <Border Height="40" Margin="0,0,0,15">
+                            <Grid>
+                                <ComboBox Name="cmbUserEmployee" VerticalAlignment="Stretch" Loaded="cmbUserEmployee_Loaded" FontSize="16" Foreground="DarkSlateGray" />
+                                <TextBlock IsHitTestVisible="False"  Text="اسم الموظف" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=cmbUserEmployee}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                        
+    
                         <Border Height="40" Margin="0,20,0,0">
                             <Border Height="40" Width="150" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
-                                <Button Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnAddUser_Click">
+                                <Button Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnAddUser_Click" HorizontalAlignment="Right" Width="150">
                                     <UniformGrid FlowDirection="RightToLeft">
 
                                         <StackPanel Orientation="Horizontal">

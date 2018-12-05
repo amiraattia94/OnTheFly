@@ -61,7 +61,7 @@
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 
-                            <!-- Service Tyype ComboBox -->
+                            <!-- Delivery Type ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <ComboBox Name="cmbServiceType" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbServiceType_Loaded"/>
@@ -80,7 +80,7 @@
                                 </Grid>
                             </Border>
 
-                            <!-- Service Tyype ComboBox -->
+                            <!-- Delivery Location TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
                                     <TextBox Name="txtVendorName"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
@@ -99,6 +99,7 @@
                                 </Grid>
                             </Border>
 
+                            <!-- Delivery Status ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
 

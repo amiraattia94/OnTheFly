@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
         mc:Ignorable="d"
         Title="POSServiceADDMiniWindow"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
+        xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="750" Width="500" ResizeMode="NoResize" >
@@ -76,36 +77,116 @@
                             <Label Content="اضافة خدمة توصيل" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Column="1" Height="44" Margin="0,8"/>
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
+                                <!-- Service Tyype ComboBox -->
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <ComboBox Name="cmbServiceType" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbServiceType_Loaded" SelectionChanged="CmbServiceType_SelectionChanged"/>
-                                </Border>
-                                <Border Height="40" Margin="0,0,0,15">
-                                    <ComboBox Name="cmbVendors" Loaded="CmbVendors_Loaded" SelectionChanged="CmbVendors_SelectionChanged" VerticalAlignment="Stretch"/>
-                                </Border>
-                                <Border Height="40" Margin="0,0,0,15">
-                                    <ComboBox Name="cmbBranches" Loaded="CmbBranches_Loaded" SelectionChanged="CmbBranches_SelectionChanged" VerticalAlignment="Stretch"/>
+                                    <Grid>
+                                        <ComboBox Name="cmbServiceType" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbServiceType_Loaded" SelectionChanged="CmbServiceType_SelectionChanged"/>
+                                        <TextBlock IsHitTestVisible="False" Text="نوع الخدمة"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=cmbServiceType}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Grid>
                                 </Border>
 
+                                <!-- Service Tyype ComboBox -->
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <ComboBox Name="cmbTrip" Loaded="CmbTrip_Loaded" SelectionChanged="CmbTrip_SelectionChanged" VerticalAlignment="Stretch">
-                                        <ComboBoxItem Content="رحلة كاملة">
-                                        </ComboBoxItem>
-                                        <ComboBoxItem Content="نصف رحلة">
-                                        </ComboBoxItem>
-                                    </ComboBox>
+                                    <Grid>
+                                        <ComboBox Name="cmbVendors" Loaded="CmbVendors_Loaded" SelectionChanged="CmbVendors_SelectionChanged" VerticalAlignment="Stretch" Foreground="DarkSlateGray"/>
+                                        <TextBlock IsHitTestVisible="False" Text="المزود"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=cmbVendors}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Grid>
                                 </Border>
+
+                                <!-- Service Tyype ComboBox -->
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <Grid>
+                                        <ComboBox Name="cmbBranches" Loaded="CmbBranches_Loaded" SelectionChanged="CmbBranches_SelectionChanged" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                        <TextBlock IsHitTestVisible="False" Text="الفرع"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=cmbBranches}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Grid>
+                                </Border>
+
+                                <!-- Service Tyype ComboBox -->
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <Grid>
+                                        <ComboBox Name="cmbTrip" Loaded="CmbTrip_Loaded" SelectionChanged="CmbTrip_SelectionChanged" Foreground="DarkSlateGray" VerticalAlignment="Stretch">
+                                            <ComboBoxItem Content="رحلة كاملة">
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="نصف رحلة">
+                                            </ComboBoxItem>
+                                        </ComboBox>
+                                        <TextBlock IsHitTestVisible="False" Text="نوع الرحلة"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=cmbTrip}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Grid>
+                                </Border>
+
+                                <!-- Service Tyype ComboBox -->
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <Grid>
+                                        <ComboBox Name="cmbPaid" Loaded="CmbPaid_Loaded" SelectionChanged="CmbPaid_SelectionChanged" Foreground="DarkSlateGray" VerticalAlignment="Stretch">
+                                            <ComboBoxItem Content="مدفوع">
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="غير مدفوع">
+                                            </ComboBoxItem>
+                                        </ComboBox>
+                                        <TextBlock IsHitTestVisible="False" Text="الدفع"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=cmbPaid}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Grid>
+                                </Border>
+
 
                                 <!--<Border Height="40" Margin="0,0,0,15">
                                     <ComboBox VerticalAlignment="Stretch"/>
                                 </Border>-->
-                                <Border Height="40" Margin="0,0,0,15">
-                                    <ComboBox Name="cmbPaid" Loaded="CmbPaid_Loaded" SelectionChanged="CmbPaid_SelectionChanged" VerticalAlignment="Stretch">
-                                        <ComboBoxItem Content="مدفوع">
-                                        </ComboBoxItem>
-                                        <ComboBoxItem Content="غير مدفوع">
-                                        </ComboBoxItem>
-                                    </ComboBox>
-                                </Border>
+                                
 
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Label Content="تاريخ توفير المنتج" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
@@ -140,15 +221,33 @@
                                 </Border>
                                 <!--<Border Height="40" Margin="0,0,0,15">
 
+                                
                                 </Border>-->
-                                <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox Name="txtPaidPrice" TextChanged="TxtPaidPrice_TextChanged" Text="0" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" />
 
+                                <!-- Service Tyype ComboBox -->
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <Grid>
+                                        <TextBox Name="txtPaidPrice" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" TextChanged="TxtPaidPrice_TextChanged" Foreground="DarkSlateGray" FontFamily="Noto Kufi Arabic" FontSize="18" VerticalAlignment="Center" />
+                                        <TextBlock IsHitTestVisible="False" Text="0"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=txtPaidPrice}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Grid>
                                 </Border>
+
+   
                                 <Border Height="40" Margin="0,0,0,15">
                                     <DatePicker Grid.Column = "1"
                                      Grid.Row = "2"
-                                     VerticalAlignment="Stretch" Width="auto" FontSize="16" Foreground="#768295"
+                                     VerticalAlignment="Stretch" Width="auto" FontSize="16" Foreground="DarkSlateGray"
                                      Language = "ar-LY"
                                      Name="datePickerStartDate"  Loaded="DatePickerStartDate_Loaded" 
                                      HorizontalAlignment="Stretch" />

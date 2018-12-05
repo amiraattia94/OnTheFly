@@ -359,16 +359,48 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right" Width="370">
-                    <ComboBox Name="cmbSearchType" FontFamily="Noto Kufi Arabic" FontSize="12" Foreground="#8C9AB6" Margin="20,0" HorizontalAlignment="Left" Width="100" Height="30">
-                        <ComboBoxItem Content="الاسم">
+                    <!-- Job Name TxtBox-->
+             
+                        <Grid>
+                            <ComboBox Name="cmbSearchType" FontFamily="Noto Kufi Arabic" FontSize="12" Foreground="#8C9AB6" Margin="20,0" HorizontalAlignment="Left" Width="100" Height="30">
+                                <ComboBoxItem Content="الاسم">
 
-                        </ComboBoxItem>
-                        <ComboBoxItem Content="العضوية">
+                                </ComboBoxItem>
+                                <ComboBoxItem Content="العضوية">
 
-                        </ComboBoxItem>
-                    </ComboBox>
+                                </ComboBoxItem>
+                            </ComboBox>
+                        <TextBlock IsHitTestVisible="False" Text="نوع البحث"  HorizontalAlignment="Stretch" FontSize="16" Margin="20,0"  Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=cmbSearchType}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
 
-                    <TextBox Name="txtSearchCustomerName" Width="200" VerticalAlignment="Center"  FontSize="16" Foreground="#768295" TextChanged="TxtSearchCustomerName_TextChanged" />
+
+                    <Grid>
+                        <TextBox Name="txtSearchCustomerName" Width="200" VerticalAlignment="Center"  FontSize="16" Foreground="#768295" TextChanged="TxtSearchCustomerName_TextChanged" />
+                        <TextBlock IsHitTestVisible="False" Text="ادخل اسم الزبون للبحث..."  HorizontalAlignment="Stretch" FontSize="16" Margin="20,0"  Foreground="#BDC5D4" VerticalAlignment="Center" >
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtSearchCustomerName}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                    
                     <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Height="30" Width="30" Foreground="#8C9AB6"/>
                 </StackPanel>
 

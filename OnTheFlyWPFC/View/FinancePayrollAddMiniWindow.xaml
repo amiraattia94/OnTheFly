@@ -70,7 +70,7 @@
                         <Label Content="اضافة مرتب" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
 
                         <StackPanel Grid.Row="1" Grid.Column="1" >
-                            <!-- Service Tyype ComboBox -->
+                            <!-- Employee Name ComboBox -->
                             <Border Height="40" Margin="0,0,0,15" >
                                 <Grid>
                                     <ComboBox Name="cmbEmployeeName" Loaded="cmbEmployeeName_Loaded" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
@@ -92,10 +92,10 @@
                             <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
                                     
-                                    <!-- Service Tyype ComboBox -->
+                                    <!-- Payroll Overtime Days TextBox -->
                                     <Border >
                                         <Grid>
-                                            <TextBox    behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  PreviewTextInput="txtNumberOfWorkedDays_Preview" Name="txtNumberOfWorkedDays" Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                            <TextBox    behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  Name="txtNumberOfWorkedDays" Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                             <TextBlock IsHitTestVisible="False"  Text="ايام اضافية" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
@@ -111,7 +111,7 @@
                                         </Grid>
                                     </Border>
 
-                                    <!-- Service Tyype ComboBox -->
+                                    <!-- Payroll Overtime Hours TextBox -->
                                     <Border >
                                         <Grid>
                                             <TextBox Name="txtNumberOfWorkedHours" Width="130" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
@@ -133,7 +133,7 @@
                                     
                                 </StackPanel>
                             </Border>
-                                    <!-- Service Tyype ComboBox -->
+                            <!-- Payroll Bonus TextBox -->
                             <Border Height="40" Margin="0,0,0,15" >
                                         <Grid>
                                     <TextBox   Name="txtBonus" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" />
@@ -154,7 +154,7 @@
 
                             <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
-                                    <!-- Service Tyype ComboBox -->
+                                    <!-- Payroll Absent Days TextBox -->
                                     <Border >
                                         <Grid>
                                             <TextBox   Name="txtAbsentDays"  Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True" />
@@ -173,7 +173,7 @@
                                         </Grid>
                                     </Border>
 
-                                    <!-- Service Tyype ComboBox -->
+                                    <!-- Payroll Late Hours TextBox -->
                                     <Border >
                                         <Grid>
                                             <TextBox Name="txtLateHours" Width="130" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
@@ -195,7 +195,7 @@
                                 </StackPanel>
                             </Border>
 
-                            <!-- Service Tyype ComboBox -->
+                            <!-- Payroll Cash Advance TextBox -->
                             <Border Height="40" Margin="0,0,0,15" >
                                 <Grid>
                                     <TextBox  Name="txtCashAdvance" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
@@ -217,7 +217,7 @@
                             
                                 <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
-                                    <!-- Service Tyype ComboBox -->
+                                    <!-- Payroll Month TextBox -->
                                     <Border >
                                         <Grid>
                                             <TextBox   Name="txtMonth"  Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" />
@@ -236,7 +236,7 @@
                                         </Grid>
                                     </Border>
 
-                                    <!-- Service Tyype ComboBox -->
+                                    <!-- Payroll Year TextBox -->
                                     <Border >
                                         <Grid>
                                             <TextBox   Name="txtYear"  Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>

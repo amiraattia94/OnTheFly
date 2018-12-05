@@ -9,10 +9,10 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        Height="500" Width="350" ResizeMode="NoResize" >
+        Height="450" Width="350" ResizeMode="NoResize" >
 
     <UniformGrid FlowDirection="RightToLeft">
-        <Border BorderThickness="0" Background="White" CornerRadius="8" Height="450" Width="300" >
+        <Border BorderThickness="0" Background="White" CornerRadius="8" Height="400" Width="300" >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" ShadowDepth="1" Color="#FFACACAC"/>
             </Border.Effect>
@@ -60,21 +60,72 @@
                             <Label Content="تعديل وجهة" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0" HorizontalAlignment="Center" />
 
                         <StackPanel Name="stkEditVendors" Loaded="StkEditVendors_Loaded" Grid.Row="1" Grid.Column="1" >
+
+                            <!-- Delivery Type ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbServiceType" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbServiceType_Loaded"/>
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                <TextBox Name="txtVendorName" Text="{Binding VendorName}" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                                <Grid>
+                                    <ComboBox Name="cmbServiceType" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbServiceType_Loaded"/>
+                                    <TextBlock IsHitTestVisible="False"  Text="نوع الخدمة"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbServiceType}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
 
+                            <!-- Delivery Location TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
-                                <ComboBox Name="cmbServiceState" Loaded="CmbServiceState_Loaded" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6">
-                                    <ComboBoxItem Content="مفعل">
-                                    </ComboBoxItem>
-                                    <ComboBoxItem Content="غير مفعل">
-                                    </ComboBoxItem>
-                                </ComboBox>
+                                <Grid>
+                                    <TextBox Name="txtVendorName" Text="{Binding VendorName}"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBlock IsHitTestVisible="False" Text="ادخل اسم الوجهة"    Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=txtVendorName}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </Border>
+
+                            <!-- Delivery Status ComboBox -->
+                            <Border Height="40" Margin="0,0,0,15">
+                                <Grid>
+
+                                    <ComboBox Name="cmbServiceState"  Loaded="CmbServiceState_Loaded"  MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="DarkSlateGray">
+                                        <ComboBoxItem Content="مفعل">
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Content="غير مفعل">
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                    <TextBlock IsHitTestVisible="False"  Text="حالة التفعيل"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbServiceState}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+
+
+
 
 
                             <Border Height="40" Margin="50,20,50,0">
