@@ -9,7 +9,7 @@
         Title="Window1" Height="450" Width="800">
     <Grid>
 
-        <Viewer:CrystalReportsViewer Name="CrystalViewr" Loaded="CrystalViewr_Loaded"  HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch"  Width="auto"/>
+        <Viewer:CrystalReportsViewer Name="CrystalViewr" Loaded="CrystalViewr_Loaded"  HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch"  Width="auto" ShowCopyButton="False" ShowExportButton="True" ShowGoToPageButton="True" ShowLogo="False" ShowNextPageButton="False" ShowPrevPageButton="False" ShowRefreshButton="False" ShowStatusbar="True" ShowToggleSidePanelButton="False" ShowToolbar="True" EnableToolTips="True" ToggleSidePanel="None"/>
 
     </Grid>
 </Window>

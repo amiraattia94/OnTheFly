@@ -22,6 +22,7 @@ namespace OnTheFlyWPFC.Model.DTO {
         public string Customername { get; set; }
         public string CustomerCityCode { get; set; }
         public bool isFulTrip { get; set; }
+        public decimal productPriceBeforeDiscount { get; set; }
         public decimal productPrice { get; set; }
         public decimal deliveryPrice { get; set; }
         public bool status { get; set; }

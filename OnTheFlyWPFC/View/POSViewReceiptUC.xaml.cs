@@ -52,11 +52,11 @@ namespace OnTheFlyWPFC.View
                     lstViewDeliveryServices.ItemsSource = invoiceViewModel.allDeliveryService;
 
                     if(invoiceViewModel.allDeliveryService != null) {
-                        HelperClass.POSInvoiceID = int.Parse(lblNewInvoice.Text);
+                        HelperClass.POSInvoiceIDView = int.Parse(lblNewInvoice.Text);
 
                     }
                     else {
-                        HelperClass.POSInvoiceID = 0;
+                        HelperClass.POSInvoiceIDView = 0;
                     }
 
                     txtDiscount.Content = invoiceViewModel.Invoice.discount;

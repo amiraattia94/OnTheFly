@@ -30,6 +30,7 @@ namespace OnTheFlyWPFC.Model.Service {
         public static int POSSelectedDeliveryServiceID;
         public static int? POSSelectedCustodyID;
         public static int POSInvoiceID;
+        public static int POSInvoiceIDView;
         public static int POSDeliveryID;
 
 

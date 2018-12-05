@@ -144,7 +144,8 @@ namespace OnTheFlyWPFC.Model.Service {
                             ServiceNumber = s.DeliveryServiceTBLs.Count(),
                             discount = (decimal)s.discount,
                             totalafter = (decimal)s.totalcost,
-                            custodyID = s.custodyID
+                            custodyID = s.custodyID,
+                            totalBefore = (decimal)s.DeliveryServiceTBLs.Where(w => w.invoiceID == invoiceID).Select(x => x.deliveryPrice + x.productPrice).Sum()
                         };
                     };
                 }

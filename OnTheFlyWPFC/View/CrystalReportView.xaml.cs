@@ -26,8 +26,8 @@ namespace OnTheFlyWPFC.View {
             InitializeComponent();
             invoiceViewModel = new InvoiceViewModel();
 
-            invoiceViewModel.GetAllDeliveryServicesByInvoice2(HelperClass.POSInvoiceID);
-            invoiceViewModel.GetInvoiceByID(HelperClass.POSInvoiceID);
+            invoiceViewModel.GetAllDeliveryServicesByInvoice2(HelperClass.POSInvoiceIDView);
+            invoiceViewModel.GetInvoiceByID(HelperClass.POSInvoiceIDView);
 
 
             //ReportDocument rDoc = new ReportDocument();
@@ -77,6 +77,9 @@ namespace OnTheFlyWPFC.View {
             crystalReport.SetParameterValue("pInvoiceDate", invoiceViewModel.Invoice.dateTime);
             crystalReport.SetParameterValue("pImployeeName", invoiceViewModel.Invoice.issuerName);
             crystalReport.SetParameterValue("pDriverName", invoiceViewModel.Invoice.DriverName);
+
+            crystalReport.SetParameterValue("pTotalBefore", invoiceViewModel.Invoice.totalBefore);
+
             var a = invoiceViewModel.Invoice.discount.ToString("#.##");
             crystalReport.SetParameterValue("pDiscoundPercent", (a + "%"));
             crystalReport.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);

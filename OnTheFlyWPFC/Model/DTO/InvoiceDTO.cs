@@ -33,6 +33,7 @@ namespace OnTheFlyWPFC.Model.DTO
 
         public decimal discount { get; set; }
         public decimal totalafter { get; set; }
+        public decimal totalBefore { get; set; }
 
         public int? custodyID { get; set; }
 

@@ -97,10 +97,14 @@ namespace OnTheFlyWPFC.Model.Service
                     address = s.address,
                     active = s.active,
                     jobID = s.jobID,
+                    jobName = s.JobsTBL.job_name,
                     cityID = s.cityID,
+                    cityName = s.LibyanCitiesTBL.name,
                     start_date = s.start_date,
                     end_date = s.end_date,
-                    branchID = s.branchID
+                    branchID = s.branchID,
+                    branchName = s.CompanyBranchTBL.branch_name,
+                    
                 }).ToList();
 
                 return new ObservableCollection<EmployeeDTO>(result);
@@ -157,26 +161,32 @@ namespace OnTheFlyWPFC.Model.Service
                         address = result.address,
                         active = result.active,
                         jobID = result.jobID,
+                        jobName = result.JobsTBL.job_name,
                         cityID = result.cityID,
+                        cityName = result.LibyanCitiesTBL.name,
                         start_date = result.start_date,
                         end_date = result.end_date,
-                        branchID = result.branchID
+                        branchID = result.branchID,
+                        branchName = result.CompanyBranchTBL.branch_name,
+
                     };
                 };
 
-                return new EmployeeDTO()
-                {
-                    employeeID=0,
+                return new EmployeeDTO() {
+                    employeeID = 0,
                     name = "",
                     phone1 = "",
                     phone2 = "",
                     address = "",
                     active = false,
                     jobID = 0,
-                    cityID ="",
+                    jobName = "",
+                    cityID = "",
+                    cityName = "",
                     start_date = DateTime.Today,
                     end_date = null,
-                    branchID = null
+                    branchID = null,
+                    branchName = "",
                 };
             }
         }
@@ -196,10 +206,14 @@ namespace OnTheFlyWPFC.Model.Service
                     address = s.address,
                     active = s.active,
                     jobID = s.jobID,
+                    jobName = s.JobsTBL.job_name,
                     cityID = s.cityID,
+                    cityName = s.LibyanCitiesTBL.name,
                     start_date = s.start_date,
                     end_date = s.end_date,
-                    branchID = s.branchID
+                    branchID = s.branchID,
+                    branchName = s.CompanyBranchTBL.branch_name,
+
                 }).ToList();
 
                 if (result != null)
@@ -229,10 +243,14 @@ namespace OnTheFlyWPFC.Model.Service
                     address = s.address,
                     active = s.active,
                     jobID = s.jobID,
+                    jobName = s.JobsTBL.job_name,
                     cityID = s.cityID,
+                    cityName = s.LibyanCitiesTBL.name,
                     start_date = s.start_date,
                     end_date = s.end_date,
-                    branchID = s.branchID
+                    branchID = s.branchID,
+                    branchName = s.CompanyBranchTBL.branch_name,
+
 
                 }).ToList();
 
@@ -263,10 +281,14 @@ namespace OnTheFlyWPFC.Model.Service
                     address = s.address,
                     active = s.active,
                     jobID = s.jobID,
+                    jobName = s.JobsTBL.job_name,
                     cityID = s.cityID,
+                    cityName = s.LibyanCitiesTBL.name,
                     start_date = s.start_date,
                     end_date = s.end_date,
-                    branchID = s.branchID
+                    branchID = s.branchID,
+                    branchName = s.CompanyBranchTBL.branch_name,
+
 
                 }).ToList();
 
@@ -298,10 +320,13 @@ namespace OnTheFlyWPFC.Model.Service
                     address = s.address,
                     active = s.active,
                     jobID = s.jobID,
+                    jobName = s.JobsTBL.job_name,
                     cityID = s.cityID,
+                    cityName = s.LibyanCitiesTBL.name,
                     start_date = s.start_date,
                     end_date = s.end_date,
-                    branchID = s.branchID
+                    branchID = s.branchID,
+                    branchName = s.CompanyBranchTBL.branch_name,
 
                 }).ToList();
 
@@ -332,10 +357,13 @@ namespace OnTheFlyWPFC.Model.Service
                     address = s.address,
                     active = s.active,
                     jobID = s.jobID,
+                    jobName = s.JobsTBL.job_name,
                     cityID = s.cityID,
+                    cityName = s.LibyanCitiesTBL.name,
                     start_date = s.start_date,
                     end_date = s.end_date,
-                    branchID = s.branchID
+                    branchID = s.branchID,
+                    branchName = s.CompanyBranchTBL.branch_name,
                 }).ToList();
 
                 if (result != null)
@@ -361,17 +389,20 @@ namespace OnTheFlyWPFC.Model.Service
 
                 var result = con.EmployeeTBLs.Where(w => w.address.StartsWith(address)).Select(s => new EmployeeDTO()
                 {
-                    employeeID= s.employeeID,
+                    employeeID = s.employeeID,
                     name = s.name,
                     phone1 = s.phone1,
                     phone2 = s.phone2,
                     address = s.address,
                     active = s.active,
                     jobID = s.jobID,
+                    jobName = s.JobsTBL.job_name,
                     cityID = s.cityID,
+                    cityName = s.LibyanCitiesTBL.name,
                     start_date = s.start_date,
                     end_date = s.end_date,
-                    branchID = s.branchID
+                    branchID = s.branchID,
+                    branchName = s.CompanyBranchTBL.branch_name,
                 }).ToList();
 
                 if (result != null)
