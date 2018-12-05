@@ -17,6 +17,7 @@ namespace OnTheFlyWPFC.ViewModel {
         public int invoiceNewID { get; set; }
 
         public ObservableCollection<DeliveryServiceDTO> allDeliveryService { get; set; }
+        public ObservableCollection<DeliveryServiceDTO2> allDeliveryService2 { get; set; }
         public ObservableCollection<DeliveryDTO> allDelivery { get; set; }
         public ObservableCollection<CustodyDTO> allCustody { get; set; }
         public ObservableCollection<InvoiceDTO> allInvoice { get; set; }
@@ -105,6 +106,9 @@ namespace OnTheFlyWPFC.ViewModel {
             allDeliveryService = await invoiceService.GetAllDeliveryServicesByInvoice(invoiceID);
         }
 
+        async public void GetAllDeliveryServicesByInvoice2(int invoiceID) {
+            allDeliveryService2 = await invoiceService.GetAllDeliveryServicesByInvoice2(invoiceID);
+        }
 
         async public void GetDeliveryServiceByID(int deliveryServiceID) {
             deliveryService = await invoiceService.GetDeliveryServiceByID(deliveryServiceID);

@@ -11,6 +11,7 @@
 
 using OnTheFlyWPFC.View;
 using OnTheFlyWPFC.ViewModel;
+using RootLibrary.WPF.Localization;
 using System;
 using System.Diagnostics;
 using System.Windows;

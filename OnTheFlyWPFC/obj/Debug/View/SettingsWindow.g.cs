@@ -12,6 +12,7 @@
 using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Transitions;
 using OnTheFlyWPFC.View;
+using RootLibrary.WPF.Localization;
 using SharpVectors.Converters;
 using System;
 using System.Diagnostics;

@@ -419,6 +419,36 @@ namespace OnTheFlyWPFC.Model.Service {
             }
         }
 
+        async public Task<ObservableCollection<DeliveryServiceDTO2>> GetAllDeliveryServicesByInvoice2(int InvoiceID) {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.DeliveryServiceTBLs.Where(w => w.invoiceID == InvoiceID).Select(s => new DeliveryServiceDTO2() {
+                    deliverServiceID = s.deliveryServiceID,
+                    CategoryID = s.categoryID,
+                    CategoryName = s.CategoriesTBL.category_name,
+                    VendorID = s.VendorBranchTBL.VendorTBL.vendorID,
+                    VendorName = s.VendorBranchTBL.VendorTBL.name,
+                    VendorBranchID = s.vendorBranchID,
+                    VendorBranchN = s.VendorBranchTBL.name,
+                    VendorCityCode = s.VendorBranchTBL.cityID,
+                    VendorCityname = s.VendorBranchTBL.LibyanCitiesTBL.name,
+                    CustomerID = s.customerID == null ? 0 : (int)s.customerID,
+                    Customername = s.CustomerTBL.name,
+                    CustomerCityCode = s.CustomerTBL.cityID,
+                    isFulTrip = s.isFullTrip,
+                    productPrice = s.productPrice == null ? 0 : (decimal)s.productPrice,
+                    deliveryPrice = s.deliveryPrice,
+                    InvoiceID = s.invoiceID,
+                    dateAvailable =  s.availabilityDay == null ? DateTime.Now : (DateTime)s.availabilityDay,
+                    status = false
+                }).ToList();
+
+                return new ObservableCollection<DeliveryServiceDTO2>(result);
+            }
+        }
+
+
         async public Task<DeliveryServiceDTO> GetDeliveryServiceByID(int deliveryServiceID) {
             await Task.FromResult(true);
 
