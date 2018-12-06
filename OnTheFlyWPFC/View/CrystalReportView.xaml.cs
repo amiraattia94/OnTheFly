@@ -84,6 +84,8 @@ namespace OnTheFlyWPFC.View {
             crystalReport.SetParameterValue("pDiscoundPercent", (a + "%"));
             crystalReport.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
 
+            //crystalReport.PrintToPrinter(1, false, 0, 0);
+
             CrystalViewr.ViewerCore.ReportSource = crystalReport;
 
 

@@ -74,7 +74,7 @@ namespace OnTheFlyWPFC.View
         }
 
         private void CmbServiceType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (cmbServiceType.SelectedIndex != -1) {
+            if (cmbServiceType.SelectedIndex != -1  && cmbServiceType.SelectedValue != null) {
                 cmbVendors.IsEnabled = true;
                 vendorViewModel.GetVendorByCategoryID((int)cmbServiceType.SelectedValue);
                 cmbVendors.ItemsSource = vendorViewModel.vendors;
@@ -91,7 +91,7 @@ namespace OnTheFlyWPFC.View
         }
 
         private void CmbVendors_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (cmbVendors.SelectedIndex != -1) {
+            if (cmbVendors.SelectedIndex != -1 && cmbVendors.SelectedValue != null) {
                 cmbBranches.IsEnabled = true;
                 vendorViewModel.GetAllVendorBranchByID((int)cmbVendors.SelectedValue);
                 cmbBranches.ItemsSource = vendorViewModel.vendorBranches;
@@ -197,6 +197,43 @@ namespace OnTheFlyWPFC.View
 
         private void TxtDeliveryPrice_TextChanged(object sender, TextChangedEventArgs e) {
             lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + decimal.Parse(txtPaidPrice.Text);
+        }
+
+        private void CmbMembership_Loaded(object sender, RoutedEventArgs e) {
+            customerViewModel.GetMembershipByCustomerID(HelperClass.POSSelectedCustomerID);
+            cmbMembership.ItemsSource = customerViewModel.ViewMembership;
+            cmbMembership.SelectedValuePath = "membershipID";
+            cmbMembership.DisplayMemberPath = "membershipID";
+
+
+        }
+
+        private void CmbMembership_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if(cmbMembership.SelectedIndex != -1) {
+
+                customerViewModel.GetMembershipByID((string)cmbMembership.SelectedValue);
+                cmbServiceType.SelectedValue = customerViewModel.membership.vendorCategoryID;
+                cmbServiceType.IsEnabled = false;
+
+                cmbVendors.SelectedValue = customerViewModel.membership.vendorID;
+                vendorViewModel.GetVendorByCategoryID((int)cmbServiceType.SelectedValue);
+                cmbVendors.ItemsSource = vendorViewModel.vendors;
+                cmbVendors.SelectedValuePath = "VendorID";
+                cmbVendors.DisplayMemberPath = "VendorName";
+
+                vendorViewModel.GetAllVendorBranchByID((int)cmbVendors.SelectedValue);
+                cmbBranches.ItemsSource = vendorViewModel.vendorBranches;
+                cmbBranches.SelectedValuePath = "vendorBranchID";
+                cmbBranches.DisplayMemberPath = "name";
+
+                cmbVendors.IsEnabled = false;
+
+                cmbBranches.IsEnabled = true;
+            }
+            else {
+                
+
+            }
         }
     }
 }

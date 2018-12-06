@@ -77,17 +77,20 @@
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 <Border Height="40" Margin="0,0,0,15">
+                                    <ComboBox Name="cmbMembership" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="CmbMembership_Loaded"  SelectionChanged="CmbMembership_SelectionChanged"  />
+                                </Border>
+                                <Border Height="40" Margin="0,0,0,15">
                                     <ComboBox Name="cmbServiceType" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295" Loaded="cmbServiceType_Loaded" SelectionChanged="CmbServiceType_SelectionChanged"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <ComboBox Name="cmbVendors" Loaded="CmbVendors_Loaded" SelectionChanged="CmbVendors_SelectionChanged" VerticalAlignment="Stretch"/>
+                                    <ComboBox Name="cmbVendors" Loaded="CmbVendors_Loaded" FontSize="16" Foreground="#768295" SelectionChanged="CmbVendors_SelectionChanged" VerticalAlignment="Stretch"/>
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <ComboBox Name="cmbBranches" Loaded="CmbBranches_Loaded" SelectionChanged="CmbBranches_SelectionChanged" VerticalAlignment="Stretch"/>
+                                    <ComboBox Name="cmbBranches" Loaded="CmbBranches_Loaded" FontSize="16" Foreground="#768295" SelectionChanged="CmbBranches_SelectionChanged" VerticalAlignment="Stretch"/>
                                 </Border>
 
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <ComboBox Name="cmbTrip" Loaded="CmbTrip_Loaded" SelectionChanged="CmbTrip_SelectionChanged" VerticalAlignment="Stretch">
+                                    <ComboBox Name="cmbTrip" Loaded="CmbTrip_Loaded"  FontSize="16" Foreground="#768295" SelectionChanged="CmbTrip_SelectionChanged" VerticalAlignment="Stretch">
                                         <ComboBoxItem Content="رحلة كاملة">
                                         </ComboBoxItem>
                                         <ComboBoxItem Content="نصف رحلة">
@@ -99,7 +102,7 @@
                                     <ComboBox VerticalAlignment="Stretch"/>
                                 </Border>-->
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <ComboBox Name="cmbPaid" Loaded="CmbPaid_Loaded" SelectionChanged="CmbPaid_SelectionChanged" VerticalAlignment="Stretch">
+                                    <ComboBox Name="cmbPaid" Loaded="CmbPaid_Loaded"  SelectionChanged="CmbPaid_SelectionChanged" FontSize="16" Foreground="#768295" VerticalAlignment="Stretch">
                                         <ComboBoxItem Content="مدفوع">
                                         </ComboBoxItem>
                                         <ComboBoxItem Content="غير مدفوع">
@@ -126,6 +129,9 @@
                             </StackPanel>
 
                             <StackPanel Grid.Row="1" Grid.Column="3" >
+                                <Border Height="40" Margin="0,0,0,15">
+
+                                </Border>
                                 <Border Height="40" Margin="0,0,0,15">
 
                                 </Border>
