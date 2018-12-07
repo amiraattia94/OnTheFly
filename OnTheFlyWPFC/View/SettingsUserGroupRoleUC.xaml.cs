@@ -70,8 +70,9 @@ namespace OnTheFlyWPFC.View
             cmbUserName.DisplayMemberPath = "username";
         }
 
-        private void btnEditSave_Click(object sender, RoutedEventArgs e)
+        private async void btnEditSave_Click(object sender, RoutedEventArgs e)
         {
+            UserGroupRoleDTO userGroupRole = new UserGroupRoleDTO();
             if (txtButtonName.Text == "تعديل")
             {
                 enableCheckboxes(true);
@@ -81,6 +82,22 @@ namespace OnTheFlyWPFC.View
             {
                 enableCheckboxes(false);
                 txtButtonName.Text = "تعديل";
+                if (cmbUserName.SelectedIndex != -1)
+                {
+                    var selectedUser = (UserDTO)cmbUserName.SelectedItem;
+
+                    userGroupRole = assignUserGroupRoleFromCheckBoxes();
+                    userGroupRoleViewModel.getUserGroupRoleByUserID(selectedUser.userID);
+                    if (userGroupRoleViewModel.EditUserGroupRole == null || userGroupRoleViewModel.EditUserGroupRole.groupID == 0)
+                    {
+                        await userGroupRoleViewModel.AddUserGroupRoleByUserID(selectedUser.userID, userGroupRole);
+                    }
+                    else
+                    {
+                        await userGroupRoleViewModel.EditUserGroupRoleByUserID(selectedUser.userID, userGroupRole);
+                    }
+
+                }
             }
         }
         private void enableCheckboxes(bool enable)
@@ -178,6 +195,43 @@ namespace OnTheFlyWPFC.View
             chkServiceDelete.IsChecked = userGroupRole.delete_service;
             chkViewReports.IsChecked = userGroupRole.view_report;
             chkAdminRights.IsChecked = userGroupRole.admin_rights;
+        }
+        private UserGroupRoleDTO assignUserGroupRoleFromCheckBoxes()
+        {
+            UserGroupRoleDTO userGroupRole = new UserGroupRoleDTO();
+            userGroupRole.name = "";
+            userGroupRole.view_POS = chkPOSView.IsChecked?? false;
+            userGroupRole.add_POS = chkPOSAdd.IsChecked ?? false;
+            userGroupRole.delete_POS= chkPOSDelete.IsChecked ?? false;
+            userGroupRole.view_HR = chkHRView.IsChecked ?? false;
+            userGroupRole.add_HR = chkHRAdd.IsChecked ?? false;
+            userGroupRole.delete_HR = chkHRDelete.IsChecked ?? false;
+            userGroupRole.view_branch = chkBranchView.IsChecked ?? false;
+            userGroupRole.add_branch = chkBranchAdd.IsChecked ?? false;
+            userGroupRole.delete_branch = chkBranchDelete.IsChecked ?? false;
+            userGroupRole.view_custody = chkCustodyView.IsChecked ?? false;
+            userGroupRole.add_custody = chkCustodyAdd.IsChecked ?? false;
+            userGroupRole.delete_custody = chkCustodyDelete.IsChecked ?? false;
+            userGroupRole.view_finance = chkFinanceView.IsChecked ?? false;
+            userGroupRole.add_finance = chkFinanceAdd.IsChecked ?? false;
+            userGroupRole.delete_finance = chkFinanceDelete.IsChecked ?? false;
+            userGroupRole.view_delivery = chkDeliveryView.IsChecked ?? false;
+            userGroupRole.add_delivery = chkDeliveryAdd.IsChecked ?? false;
+            userGroupRole.delete_delivery = chkDeliveryDelete.IsChecked ?? false;
+            userGroupRole.view_report = chkViewReports.IsChecked ?? false;
+            userGroupRole.view_customer = chkCustomerView.IsChecked ?? false;
+            userGroupRole.add_customer = chkCustomerAdd.IsChecked ?? false;
+            userGroupRole.delete_customer = chkCustomerDelete.IsChecked ?? false;
+            userGroupRole.view_vendor = chkVendorView.IsChecked ?? false;
+            userGroupRole.add_vendor = chkVendorAdd.IsChecked ?? false;
+            userGroupRole.delete_vendor = chkVendorDelete.IsChecked ?? false;
+            userGroupRole.view_service = chkServiceView.IsChecked ?? false;
+            userGroupRole.add_service = chkServiceAdd.IsChecked ?? false;
+            userGroupRole.delete_service = chkServiceDelete.IsChecked ?? false;
+            userGroupRole.admin_rights = chkAdminRights.IsChecked ?? false;
+            userGroupRole.userID = 0;
+            return userGroupRole;
+
         }
 
         private void stkUserGroupRoles_Loaded(object sender, RoutedEventArgs e)

@@ -263,6 +263,35 @@ namespace OnTheFlyWPFC.Model.Service
 
         }
 
+        async public Task<UserDTO> GetLastUser()
+        {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+                var result = con.UserTBLs.OrderByDescending(w => w.userID).First();
+
+                if (result != null)
+                {
+                    return new UserDTO()
+                    {
+                        userID = result.userID,
+                        username = result.user_name,
+                        password = result.password,
+                        EmployeeID = result.employeeID,
+
+                    };
+                };
+
+                return new UserDTO()
+                {
+                    userID = 0,
+                    username = "",
+                    password = "",
+                    EmployeeID = 0,
+                };
+            }
+        }
 
     }
 }

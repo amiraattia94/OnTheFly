@@ -521,54 +521,44 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
                 {
-                    var result = con.userGroupRoleTBLs.SingleOrDefault(w => w.userID == userID);
-                    if (result != null)
+                    con.userGroupRoleTBLs.Add(new userGroupRoleTBL()
                     {
+                        name = name,
+                        view_POS = view_POS,
+                        add_POS = add_POS,
+                        delete_POS = delete_POS,
+                        view_HR = view_HR,
+                        add_HR = add_HR,
+                        delete_HR = delete_HR,
+                        view_branch = view_branch,
+                        add_branch = add_branch,
+                        delete_branch = delete_branch,
+                        view_custody = view_custody,
+                        add_custody = add_custody,
+                        delete_custody = delete_custody,
+                        view_finance = view_finance,
+                        add_finance = add_finance,
+                        delete_finance = delete_finance,
+                        view_delivery = view_delivery,
+                        add_delivery = add_delivery,
+                        delete_delivery = delete_delivery,
 
-                        try
-                        {
-                            result.groupID = groupID;
-                            result.name = name;
-                            result.view_POS = view_POS;
-                            result.add_POS = add_POS;
-                            result.delete_POS = delete_POS;
-                            result.view_HR = view_HR;
-                            result.add_HR = add_HR;
-                            result.delete_HR = delete_HR;
-                            result.view_branch = view_branch;
-                            result.add_branch = add_branch;
-                            result.delete_branch = delete_branch;
-                            result.view_custody = view_custody;
-                            result.add_custody = add_custody;
-                            result.delete_custody = delete_custody;
-                            result.view_finance = view_finance;
-                            result.add_finance = add_finance;
-                            result.delete_finance = delete_finance;
-                            result.view_delivery = view_delivery;
-                            result.add_delivery = add_delivery;
-                            result.delete_delivery = delete_delivery;
+                        view_customer = view_customer,
+                        add_customer = add_customer,
+                        delete_customer = delete_customer,
+                        view_vendor = view_vendor,
+                        add_vendor = add_vendor,
+                        delete_vendor = delete_vendor,
+                        view_service = view_service,
+                        add_service = add_service,
+                        delete_service = delete_service,
+                        view_report = view_report,
+                        admin_rights = admin_rights,
+                        userID = userID,
 
-                            result.view_customer = view_customer;
-                            result.add_customer = add_customer;
-                            result.delete_customer = delete_customer;
-                            result.view_vendor = view_vendor;
-                            result.add_vendor = add_vendor;
-                            result.delete_vendor = delete_vendor;
-                            result.view_service = view_service;
-                            result.add_service = add_service;
-                            result.delete_service = delete_service;
-                            result.view_report = view_report;
-                            result.admin_rights = admin_rights;
-                            result.userID = userID;
-                            await con.SaveChangesAsync();
-                            return true;
-                        }
-                        catch
-                        {
-
-                        }
-                        return false;
-                    }
+                    });
+                    await con.SaveChangesAsync();
+                    return true;
                 }
             }
             catch (Exception)
@@ -578,6 +568,58 @@ namespace OnTheFlyWPFC.Model.Service
             return false;
         }
 
-        
+        async public Task<bool> AddUserGroupRoleByUserID(int userID, UserGroupRoleDTO userGroupRole)
+        {
+            try
+            {
+                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+                {
+                    con.userGroupRoleTBLs.Add(new userGroupRoleTBL()
+                    {
+                        name = userGroupRole.name,
+                        view_POS = userGroupRole.view_POS,
+                        add_POS = userGroupRole.add_POS,
+                        delete_POS = userGroupRole.delete_POS,
+                        view_HR = userGroupRole.view_HR,
+                        add_HR = userGroupRole.add_HR,
+                        delete_HR = userGroupRole.delete_HR,
+                        view_branch = userGroupRole.view_branch,
+                        add_branch = userGroupRole.add_branch,
+                        delete_branch = userGroupRole.delete_branch,
+                        view_custody = userGroupRole.view_custody,
+                        add_custody = userGroupRole.add_custody,
+                        delete_custody = userGroupRole.delete_custody,
+                        view_finance = userGroupRole.view_finance,
+                        add_finance = userGroupRole.add_finance,
+                        delete_finance = userGroupRole.delete_finance,
+                        view_delivery = userGroupRole.view_delivery,
+                        add_delivery = userGroupRole.add_delivery,
+                        delete_delivery = userGroupRole.delete_delivery,
+                        view_report = userGroupRole.view_report,
+                        view_customer = userGroupRole.view_customer,
+                        add_customer = userGroupRole.add_customer,
+                        delete_customer = userGroupRole.delete_customer,
+                        view_vendor = userGroupRole.view_vendor,
+                        add_vendor = userGroupRole.add_vendor,
+                        delete_vendor = userGroupRole.delete_vendor,
+                        view_service = userGroupRole.view_service,
+                        add_service = userGroupRole.add_service,
+                        delete_service = userGroupRole.delete_service,          
+                        admin_rights = userGroupRole.admin_rights,
+                        userID = userID
+
+                });
+                    await con.SaveChangesAsync();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.MessageBox.Show(e.Message);
+            }
+            return false;
+        }
+
+
     }
 }

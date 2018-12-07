@@ -73,6 +73,10 @@ namespace OnTheFlyWPFC.ViewModel
             return await _userService.GetUserExists(user_name,password);
         }
 
+        async public void GetLastUser()
+        {
+            editUser = await _userService.GetLastUser();
+        }
 
 
     }

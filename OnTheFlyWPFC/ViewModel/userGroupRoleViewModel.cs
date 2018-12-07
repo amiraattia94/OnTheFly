@@ -74,7 +74,7 @@ namespace OnTheFlyWPFC.ViewModel
         }
         async public Task<bool> AddUserGroupRoleByUserID(int userID, UserGroupRoleDTO userGroupRole)
         {
-            return await userGroupRoleService.EditUserGroupRoleByGroupID(userID, userGroupRole);
+            return await userGroupRoleService.AddUserGroupRoleByUserID(userID, userGroupRole);
         }
 
         async public Task<bool> EditUserGroupRoleByUserID(int userID , UserGroupRoleDTO userGroupRole)

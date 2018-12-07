@@ -24,6 +24,7 @@ namespace OnTheFlyWPFC.View
         public Delegate UpdateMainList;
         EmployeeViewModel employeeViewModel;
         UsersViewModel usersViewModel;
+        
         public SettingsUserAddMiniWindow()
         {
             InitializeComponent();
@@ -46,9 +47,14 @@ namespace OnTheFlyWPFC.View
             if (await usersViewModel.AddUser(txtUserName.Text,pbPassword.Password,employee.employeeID))
             {
                 MessageBox.Show("تم الحفظ");
-
+                usersViewModel.GetLastUser();
+                addUserGroupRolePOS(usersViewModel.editUser.userID);
                 UpdateMainList.DynamicInvoke();
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("عذراَ ، حدثت مشكلة في عملية الحفظ");
             }
 
         }
@@ -63,6 +69,51 @@ namespace OnTheFlyWPFC.View
             employeeViewModel.GetAllEmployees();
             cmbUserEmployee.ItemsSource = employeeViewModel.ViewEmployees;
             cmbUserEmployee.DisplayMemberPath = "name";
+        }
+        private async void addUserGroupRolePOS(int userID)
+        {
+            UserGroupRoleDTO userGroupRole = new UserGroupRoleDTO();
+            UserGroupRoleViewModel userGroupRoleViewModel = new UserGroupRoleViewModel();
+            userGroupRole.name = "نقطةالبيع";
+            userGroupRole.add_POS = true;
+            userGroupRole.view_POS = true;
+            userGroupRole.delete_POS = true;
+            userGroupRole.add_HR = false;
+            userGroupRole.view_HR = false;
+            userGroupRole.delete_HR = false;
+            userGroupRole.add_branch = false;
+            userGroupRole.view_branch = false;
+            userGroupRole.delete_branch = false;
+            userGroupRole.add_custody = false;
+            userGroupRole.view_custody = false;
+            userGroupRole.delete_custody = false;
+            userGroupRole.add_finance = false;
+            userGroupRole.view_finance = false;
+            userGroupRole.delete_finance = false;
+            userGroupRole.add_delivery = false;
+            userGroupRole.view_delivery = false;
+            userGroupRole.delete_delivery = false;
+            userGroupRole.add_customer = false;
+            userGroupRole.delete_customer = false;
+            userGroupRole.view_vendor = false;
+            userGroupRole.add_vendor = false;
+            userGroupRole.delete_vendor = false;
+            userGroupRole.view_service = false;
+            userGroupRole.add_service = false;
+            userGroupRole.delete_service = false;
+            userGroupRole.view_report = false;
+            userGroupRole.admin_rights = false;
+            userGroupRole.userID = 0;
+            try
+            {
+                await userGroupRoleViewModel.AddUserGroupRoleByUserID(userID, userGroupRole);
+            }
+            catch
+            {
+                MessageBox.Show("لم تتم اضافة صلاحية نقطة البيغ بعد", "تحذير", MessageBoxButton.OK);
+            }
+          
+
         }
     }
 }
