@@ -141,9 +141,11 @@ namespace OnTheFlyWPFC.View
 
                 txtDeliveryPrice.IsEnabled = true;
                 cmbPaid.IsEnabled = true;
-                
 
-                if(cmbTrip.SelectedIndex == 0) {
+                txtDeliveryPrice.Text = "0";
+
+
+                if (cmbTrip.SelectedIndex == 0) {
                     deliveryPrice = await deliveryPricesViewModel.GetDeliveryPrice((int)cmbServiceType.SelectedValue, vendorLocation, customerLocation, true);
                     isfull = true;
                 }
@@ -208,7 +210,7 @@ namespace OnTheFlyWPFC.View
             datePickerStartDate.SelectedDate = invoiceViewModel.deliveryService.dateAvailable;
 
 
-            if (await invoiceViewModel.EditDeliveryService(HelperClass.POSSelectedDeliveryServiceID, HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), (decimal)deliveryPrice, true, (DateTime)datePickerStartDate.SelectedDate)
+            if (await invoiceViewModel.EditDeliveryService(HelperClass.POSSelectedDeliveryServiceID, HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), decimal.Parse(txtDeliveryPrice.Text), true, (DateTime)datePickerStartDate.SelectedDate)
 )           {
                 MessageBox.Show("تم الحفظ");
                 UpdateMainList.DynamicInvoke();
@@ -231,12 +233,17 @@ namespace OnTheFlyWPFC.View
         }
 
         private void LblTotalPrice_Loaded(object sender, RoutedEventArgs e) {
-            lblTotalPrice.Content = deliveryPrice + invoiceViewModel.deliveryService.productPrice;
+            lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + invoiceViewModel.deliveryService.productPrice;
         }
 
         private void DatePickerStartDate_Loaded(object sender, RoutedEventArgs e) {
             datePickerStartDate.SelectedDate = invoiceViewModel.deliveryService.dateAvailable;
             datePickerStartDate.SelectedDate = invoiceViewModel.deliveryService.dateAvailable;
+        }
+
+        private void TxtDeliveryPrice_TextChanged(object sender, TextChangedEventArgs e) {
+            lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + decimal.Parse(txtPaidPrice.Text);
+
         }
     }
 }

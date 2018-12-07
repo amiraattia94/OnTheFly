@@ -338,30 +338,36 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
                     <Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                    <ComboBox MinWidth="100" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6" ></ComboBox>
+                    <ComboBox Name="cmbBranches" Loaded="CmbBranches_Loaded" SelectionChanged="CmbBranches_SelectionChanged" MinWidth="100" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6" >
+                        
+                    </ComboBox>
 
 
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
-                    <Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                    <!--<Label Content="الفرع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                     <TextBox Width="200" VerticalAlignment="Center" FontSize="16" Foreground="#8C9AB6"/>
                     <Button Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Name="btnSearchUsers" Click="BtnSearchUsers_Click">
                         <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Height="30" Width="30" Foreground="#8C9AB6"/>
-                    </Button>
+                    </Button>-->
                 </StackPanel>
 
 
-                <UniformGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Top" DataContext="{StaticResource ResourceKey=class1}">
+                <UniformGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Top" >
                     <StackPanel>
-                        <ListView ItemsSource="{Binding ItemsTest}"  Margin="0,0,0,0" Height="400" >
+                        <ListView Name="lstviewemp" Loaded="Lstviewemp_Loaded" Margin="0,0,0,0" Height="400" >
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="اسم الموظف" Width="110" DisplayMemberBinding="{Binding A}"/>
-                                    <GridViewColumn Header="الفرع" Width="90" DisplayMemberBinding="{Binding A}"/>
-                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding B}"/>
-                                    <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
-                                    <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
+                                    <GridViewColumn Header="اسم الموظف" Width="110" DisplayMemberBinding="{Binding name}"/>
+                                    <GridViewColumn Header="الفرع" Width="90" DisplayMemberBinding="{Binding phone1}"/>
+                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding phone2}"/>
+                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding jobName}"/>
+                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding cityName}"/>
+                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding branchName}"/>
+                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding start_date}"/>
+                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding active}"/>
+
                                 </GridView>
                             </ListView.View>
                         </ListView>

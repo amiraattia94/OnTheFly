@@ -1,4 +1,6 @@
-﻿using OnTheFlyWPFC.ViewModel;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using OnTheFlyWPFC.Model.Service;
+using OnTheFlyWPFC.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +50,14 @@ namespace OnTheFlyWPFC.View
                     //lstViewDeliveryServices.Items.Clear();
                     invoiceViewModel.GetAllDeliveryServicesByInvoice(int.Parse(lblNewInvoice.Text));
                     lstViewDeliveryServices.ItemsSource = invoiceViewModel.allDeliveryService;
+
+                    if(invoiceViewModel.allDeliveryService != null) {
+                        HelperClass.POSInvoiceIDView = int.Parse(lblNewInvoice.Text);
+
+                    }
+                    else {
+                        HelperClass.POSInvoiceIDView = 0;
+                    }
 
                     txtDiscount.Content = invoiceViewModel.Invoice.discount;
                     lblTotalAfter.Content = invoiceViewModel.Invoice.totalafter;
@@ -118,6 +128,45 @@ namespace OnTheFlyWPFC.View
 
         private void PrintInvoice_Click(object sender, RoutedEventArgs e) {
 
+            //invoiceViewModel = new InvoiceViewModel();
+
+            //invoiceViewModel.GetAllDeliveryServicesByInvoice2(HelperClass.POSInvoiceID);
+            //invoiceViewModel.GetInvoiceByID(HelperClass.POSInvoiceID);
+
+            //try {
+            //    ReportDocument rDoc = new ReportDocument();
+
+
+            //    //note change this later to something like System.Windows.Forms.Application.StartupPath + @"";
+            //    //rDoc.Load( @"C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CrystalReport1.rpt");
+
+
+            //    rDoc.Load(@"C:\Users\Taher\Documents\GitHub\OnTheFly\OnTheFlyWPFC\View\CrystalReport1.rpt");
+            //    rDoc.SetDataSource(invoiceViewModel.allDeliveryService2);
+            //    rDoc.SetParameterValue("pInvoiceID", invoiceViewModel.Invoice.invoiceID.ToString());
+            //    rDoc.SetParameterValue("pCustomerName", invoiceViewModel.Invoice.customername);
+            //    rDoc.SetParameterValue("pCustomerAddress", invoiceViewModel.Invoice.customerAddress);
+            //    rDoc.SetParameterValue("pCustomerPhone1", invoiceViewModel.Invoice.phone1);
+            //    rDoc.SetParameterValue("pCustomerPhone2", invoiceViewModel.Invoice.phone2);
+            //    rDoc.SetParameterValue("pInvoiceDate", invoiceViewModel.Invoice.dateTime);
+            //    rDoc.SetParameterValue("pImployeeName", invoiceViewModel.Invoice.issuerName);
+            //    rDoc.SetParameterValue("pDriverName", invoiceViewModel.Invoice.DriverName);
+            //    var a0 = invoiceViewModel.Invoice.discount.ToString("#.##");
+            //    rDoc.SetParameterValue("pDiscoundPercent", (a0 + "%"));
+            //    rDoc.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
+
+            //    //CrystalViewr.ViewerCore.ReportSource = rDoc;
+            //    //rDoc.PrintOptions.PrinterName = "Default Printer Name";
+            //    rDoc.PrintToPrinter(1, false, 0, 0);
+
+            //}
+            //catch (Exception) {
+
+            //}
+
+
+            var printreport = new CrystalReportView();
+            printreport.ShowDialog();
         }
 
 

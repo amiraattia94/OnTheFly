@@ -173,7 +173,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="الحالة" Width="100" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
                                     
-                                    <ComboBox Name="cmbEmployeeActive"   VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="#768295">
+                                    <ComboBox Name="cmbEmployeeActive"  Loaded="CmbEmployeeActive_Loaded"     VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="#768295">
                                         <ComboBoxItem Content="قيد العمل">
 
                                         </ComboBoxItem>

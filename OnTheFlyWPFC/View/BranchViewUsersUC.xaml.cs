@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnTheFlyWPFC.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class BranchViewUsersUC : UserControl
     {
+
+        BranchViewModel branchViewModel;
+        EmployeeViewModel employeeViewModel;
         public BranchViewUsersUC()
         {
             InitializeComponent();
+            branchViewModel = new BranchViewModel();
+            employeeViewModel = new EmployeeViewModel();
         }
 
 
@@ -30,6 +36,26 @@ namespace OnTheFlyWPFC.View
         private void BtnSearchUsers_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void CmbBranches_Loaded(object sender, RoutedEventArgs e) {
+            branchViewModel.GetAllBranches();
+            cmbBranches.ItemsSource = branchViewModel.ViewBranch;
+            cmbBranches.SelectedValuePath = "branchID";
+            cmbBranches.DisplayMemberPath = "branch_name";
+
+        }
+
+        private void CmbBranches_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+            employeeViewModel.GetEmployeeByBranch((int)cmbBranches.SelectedValue);
+            lstviewemp.ItemsSource = employeeViewModel.ViewEmployees;
+
+        }
+
+        private void Lstviewemp_Loaded(object sender, RoutedEventArgs e) {
+            employeeViewModel.GetAllEmployees();
+            lstviewemp.ItemsSource = employeeViewModel.ViewEmployees;
         }
     }
 }

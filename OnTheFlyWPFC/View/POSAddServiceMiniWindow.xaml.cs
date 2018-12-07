@@ -74,7 +74,7 @@ namespace OnTheFlyWPFC.View
         }
 
         private void CmbServiceType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (cmbServiceType.SelectedIndex != -1) {
+            if (cmbServiceType.SelectedIndex != -1  && cmbServiceType.SelectedValue != null) {
                 cmbVendors.IsEnabled = true;
                 vendorViewModel.GetVendorByCategoryID((int)cmbServiceType.SelectedValue);
                 cmbVendors.ItemsSource = vendorViewModel.vendors;
@@ -91,7 +91,7 @@ namespace OnTheFlyWPFC.View
         }
 
         private void CmbVendors_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (cmbVendors.SelectedIndex != -1) {
+            if (cmbVendors.SelectedIndex != -1 && cmbVendors.SelectedValue != null) {
                 cmbBranches.IsEnabled = true;
                 vendorViewModel.GetAllVendorBranchByID((int)cmbVendors.SelectedValue);
                 cmbBranches.ItemsSource = vendorViewModel.vendorBranches;
@@ -126,9 +126,9 @@ namespace OnTheFlyWPFC.View
 
                 txtDeliveryPrice.IsEnabled = true;
                 cmbPaid.IsEnabled = true;
-                
 
-                if(cmbTrip.SelectedIndex == 0) {
+                txtDeliveryPrice.Text = "0";
+                if (cmbTrip.SelectedIndex == 0) {
                     deliveryPrice = await deliveryPricesViewModel.GetDeliveryPrice((int)cmbServiceType.SelectedValue, vendorLocation, customerLocation, true);
                     isfull = true;
                 }
@@ -138,7 +138,8 @@ namespace OnTheFlyWPFC.View
                     isfull = false;
                 }
 
-                lblTotalPrice.Content = deliveryPrice + decimal.Parse(txtPaidPrice.Text);
+
+                lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + decimal.Parse(txtPaidPrice.Text);
 
                 txtDeliveryPrice.Text = deliveryPrice.ToString();
 
@@ -149,7 +150,7 @@ namespace OnTheFlyWPFC.View
 
         private void TxtPaidPrice_TextChanged(object sender, TextChangedEventArgs e) {
             if(txtPaidPrice.Text != "")
-                lblTotalPrice.Content = deliveryPrice + decimal.Parse(txtPaidPrice.Text);
+                lblTotalPrice.Content = deliveryPrice + decimal.Parse(txtPaidPrice.Text)  ;
         }
 
         private void CmbPaid_Loaded(object sender, RoutedEventArgs e) {
@@ -180,7 +181,7 @@ namespace OnTheFlyWPFC.View
 
 
 
-            if (await invoiceViewModel.AddDeliveryService(HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), (decimal)deliveryPrice, true, (DateTime)datePickerStartDate.SelectedDate)
+            if (await invoiceViewModel.AddDeliveryService(HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), decimal.Parse(txtDeliveryPrice.Text), true, (DateTime)datePickerStartDate.SelectedDate)
 )           {
                 MessageBox.Show("تم الحفظ");
                 UpdateMainList.DynamicInvoke();
@@ -192,6 +193,47 @@ namespace OnTheFlyWPFC.View
 
         private void DatePickerStartDate_Loaded(object sender, RoutedEventArgs e) {
             datePickerStartDate.SelectedDate = DateTime.Today;
+        }
+
+        private void TxtDeliveryPrice_TextChanged(object sender, TextChangedEventArgs e) {
+            lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + decimal.Parse(txtPaidPrice.Text);
+        }
+
+        private void CmbMembership_Loaded(object sender, RoutedEventArgs e) {
+            customerViewModel.GetMembershipByCustomerID(HelperClass.POSSelectedCustomerID);
+            cmbMembership.ItemsSource = customerViewModel.ViewMembership;
+            cmbMembership.SelectedValuePath = "membershipID";
+            cmbMembership.DisplayMemberPath = "membershipID";
+
+
+        }
+
+        private void CmbMembership_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if(cmbMembership.SelectedIndex != -1) {
+
+                customerViewModel.GetMembershipByID((string)cmbMembership.SelectedValue);
+                cmbServiceType.SelectedValue = customerViewModel.membership.vendorCategoryID;
+                cmbServiceType.IsEnabled = false;
+
+                cmbVendors.SelectedValue = customerViewModel.membership.vendorID;
+                vendorViewModel.GetVendorByCategoryID((int)cmbServiceType.SelectedValue);
+                cmbVendors.ItemsSource = vendorViewModel.vendors;
+                cmbVendors.SelectedValuePath = "VendorID";
+                cmbVendors.DisplayMemberPath = "VendorName";
+
+                vendorViewModel.GetAllVendorBranchByID((int)cmbVendors.SelectedValue);
+                cmbBranches.ItemsSource = vendorViewModel.vendorBranches;
+                cmbBranches.SelectedValuePath = "vendorBranchID";
+                cmbBranches.DisplayMemberPath = "name";
+
+                cmbVendors.IsEnabled = false;
+
+                cmbBranches.IsEnabled = true;
+            }
+            else {
+                
+
+            }
         }
     }
 }

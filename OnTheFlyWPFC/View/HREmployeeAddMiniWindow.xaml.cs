@@ -73,7 +73,7 @@ namespace OnTheFlyWPFC.View
            
             var job = (JobsDTO)cmbEmployeeJob.SelectedValue;
             var branch = (BranchDTO)cmbEmployeeBranch.SelectedValue;
-            if (await _employeeViewModel.AddEmployee(txtEmployeeName.Text,txtPhone1.Text,txtPhone2.Text,txtAddress.Text,true,job.jobID,city.cityCode, datePickerStartDate.DisplayDate, DateTime.Now,branch.branchID))
+            if (await _employeeViewModel.AddEmployee(txtEmployeeName.Text,txtPhone1.Text,txtPhone2.Text,txtAddress.Text,true,job.jobID,city.cityCode, (DateTime)datePickerStartDate.SelectedDate, DateTime.Now,branch.branchID))
             {
                 MessageBox.Show("تم الحفظ");
                 UpdateMainList.DynamicInvoke();

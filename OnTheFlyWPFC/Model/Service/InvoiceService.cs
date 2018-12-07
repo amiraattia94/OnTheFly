@@ -145,7 +145,8 @@ namespace OnTheFlyWPFC.Model.Service {
                             ServiceNumber = s.DeliveryServiceTBLs.Count(),
                             discount = (decimal)s.discount,
                             totalafter = (decimal)s.totalcost,
-                            custodyID = s.custodyID
+                            custodyID = s.custodyID,
+                            totalBefore = (decimal)s.DeliveryServiceTBLs.Where(w => w.invoiceID == invoiceID).Select(x => x.deliveryPrice + x.productPrice).Sum()
                         };
                     };
                 }
@@ -420,6 +421,36 @@ namespace OnTheFlyWPFC.Model.Service {
             }
         }
 
+        async public Task<ObservableCollection<DeliveryServiceDTO2>> GetAllDeliveryServicesByInvoice2(int InvoiceID) {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.DeliveryServiceTBLs.Where(w => w.invoiceID == InvoiceID).Select(s => new DeliveryServiceDTO2() {
+                    deliverServiceID = s.deliveryServiceID,
+                    CategoryID = s.categoryID,
+                    CategoryName = s.CategoriesTBL.category_name,
+                    VendorID = s.VendorBranchTBL.VendorTBL.vendorID,
+                    VendorName = s.VendorBranchTBL.VendorTBL.name,
+                    VendorBranchID = s.vendorBranchID,
+                    VendorBranchN = s.VendorBranchTBL.name,
+                    VendorCityCode = s.VendorBranchTBL.cityID,
+                    VendorCityname = s.VendorBranchTBL.LibyanCitiesTBL.name,
+                    CustomerID = s.customerID == null ? 0 : (int)s.customerID,
+                    Customername = s.CustomerTBL.name,
+                    CustomerCityCode = s.CustomerTBL.cityID,
+                    isFulTrip = s.isFullTrip,
+                    productPrice = s.productPrice == null ? 0 : (decimal)s.productPrice,
+                    deliveryPrice = s.deliveryPrice,
+                    InvoiceID = s.invoiceID,
+                    dateAvailable =  s.availabilityDay == null ? DateTime.Now : (DateTime)s.availabilityDay,
+                    status = false
+                }).ToList();
+
+                return new ObservableCollection<DeliveryServiceDTO2>(result);
+            }
+        }
+
+
         async public Task<DeliveryServiceDTO> GetDeliveryServiceByID(int deliveryServiceID) {
             await Task.FromResult(true);
 
@@ -686,26 +717,26 @@ namespace OnTheFlyWPFC.Model.Service {
                 if (result != null) {
                     try {
                         return new DeliveryDTO() {
-                            custodyID = result.invoiceTBL.custodyID != null ? result.invoiceTBL.custodyID : 0,
+                            //custodyID = result.invoiceTBL.custodyID != null ? result.invoiceTBL.custodyID : null,
                             driverID = result.driverID,
-                            driverName = result.EmployeeTBL.name,
-                            customername = result.invoiceTBL.CustomerTBL.name,
-                            customercityCodee = result.invoiceTBL.CustomerTBL.LibyanCitiesTBL.city_code,
-                            customerCityname = result.invoiceTBL.CustomerTBL.LibyanCitiesTBL.name,
-                            customerAddress = result.invoiceTBL.CustomerTBL.address,
-                            phone1 = result.invoiceTBL.CustomerTBL.phone1,
-                            phone2 = result.invoiceTBL.CustomerTBL.phone2,
-                            deliveryID = result.deliveryID,
-                            invoiceID = result.invoiceID,
-                            start_date = result.start_date,
-                            end_date = result.end_date,
-                            firstItemdate = result.firstItemAvailableDate,
-                            lastItemDate = result.lastItemAvailableDate,
-                            ServicesCount = result.invoiceTBL.DeliveryServiceTBLs.Count,
+                            //driverName = result.EmployeeTBL.name,
+                            //customername = result.invoiceTBL.CustomerTBL.name,
+                            //customercityCodee = result.invoiceTBL.CustomerTBL.LibyanCitiesTBL.city_code,
+                            //customerCityname = result.invoiceTBL.CustomerTBL.LibyanCitiesTBL.name,
+                            //customerAddress = result.invoiceTBL.CustomerTBL.address,
+                            //phone1 = result.invoiceTBL.CustomerTBL.phone1,
+                            //phone2 = result.invoiceTBL.CustomerTBL.phone2,
+                            //deliveryID = result.deliveryID,
+                            //invoiceID = result.invoiceID,
+                            //start_date = result.start_date,
+                            //end_date = result.end_date,
+                            //firstItemdate = result.firstItemAvailableDate,
+                            //lastItemDate = result.lastItemAvailableDate,
+                            //ServicesCount = result.invoiceTBL.DeliveryServiceTBLs.Count,
                             status = result.statusID,
-                            statusName = result.DeliveryStatusTBL.name,
-                            totalCustodycost = result.invoiceTBL.custodyTBL.amount != null ? result.invoiceTBL.custodyTBL.amount : 0,
-                            totalcost = result.invoiceTBL.totalcost,
+                            //statusName = result.DeliveryStatusTBL.name,
+                            //totalCustodycost = result.invoiceTBL.custodyTBL.amount != null ? result.invoiceTBL.custodyTBL.amount : null,
+                            //totalcost = result.invoiceTBL.totalcost,
 
                         };
                     }
