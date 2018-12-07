@@ -337,6 +337,11 @@ namespace OnTheFlyWPFC.View
 
         async private void addInvoice_Click(object sender, RoutedEventArgs e) {
 
+            if(lstViewDeliveryServices.Items.Count == 0) {
+                MessageBox.Show("يجب اضافة عنصر واحد علي الاقل ");
+                return;
+            }
+
             if(cmbPayment.SelectedIndex == 0) {
                 if(custodyID != null) {
                     if(await invoiceViewModel.DeleteCustody((int)custodyID))

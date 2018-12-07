@@ -82,13 +82,14 @@ namespace OnTheFlyWPFC.View {
 
             var a = invoiceViewModel.Invoice.discount.ToString("0.##");
             crystalReport.SetParameterValue("pDiscoundPercent", (a + "%"));
+            crystalReport.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA5;
+            crystalReport.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
             crystalReport.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
 
             //crystalReport.PrintToPrinter(1, false, 0, 0);
 
             CrystalViewr.ViewerCore.ReportSource = crystalReport;
-
-
+            
 
 
 
