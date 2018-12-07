@@ -743,7 +743,7 @@
                                    <Label Content="التقارير" FontFamily="Noto Kufi Arabic" FontSize="14" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                                     <CheckBox  Content="عرض"  HorizontalAlignment="Left"   Margin="10,0,0,0"  VerticalAlignment="Top" Name="chkViewReports"  Foreground="Gray" />
                                     <Label Content="حقوق المسؤول" FontFamily="Noto Kufi Arabic"  FontSize="14" Foreground="#8C9AB6" Margin="0,13,0,0" HorizontalAlignment="Left"/>
-                                    <CheckBox  Content="نعم"  HorizontalAlignment="Left"  Margin="10,0,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chAdminRights"/>
+                                    <CheckBox  Content="نعم"  HorizontalAlignment="Left"  Margin="10,0,0,0" VerticalAlignment="Top" Foreground="Gray" Name="chkAdminRights"/>
                                     
                                 </StackPanel>
 

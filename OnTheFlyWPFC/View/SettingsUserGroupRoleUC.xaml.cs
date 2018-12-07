@@ -41,9 +41,16 @@ namespace OnTheFlyWPFC.View
             if (cmbUserName.SelectedIndex != -1)
             {
                 var selectedUser = (UserDTO)cmbUserName.SelectedItem;
-               
-                  //  userGroupRoleViewModel.GetUserByID(selectedUser.userID);
-                                  
+                 userGroupRoleViewModel.getUserGroupRoleByUserID(selectedUser.userID);
+                 if (userGroupRoleViewModel.EditUserGroupRole==null)
+                {
+                    checkCheckBoxes(false);            
+                }
+                else
+                {
+                    checkCheckBoxes(userGroupRoleViewModel.EditUserGroupRole);
+                }
+
                 /*
                 
                 
@@ -105,7 +112,72 @@ namespace OnTheFlyWPFC.View
             chkServiceView.IsEnabled = enable;
             chkServiceAdd.IsEnabled = enable;
             chkServiceDelete.IsEnabled = enable;
-
+            chkViewReports.IsEnabled = enable;
+            chkAdminRights.IsEnabled = enable;
+        }
+        private void checkCheckBoxes( bool check)
+        {
+            chkPOSView.IsChecked = check;
+            chkPOSAdd.IsChecked = check;
+            chkPOSDelete.IsChecked = check;
+            chkHRView.IsChecked = check;
+            chkHRAdd.IsChecked = check;
+            chkHRDelete.IsChecked = check;
+            chkBranchView.IsChecked = check;
+            chkBranchAdd.IsChecked = check;
+            chkBranchDelete.IsChecked = check;
+            chkCustodyView.IsChecked = check;
+            chkCustodyAdd.IsChecked = check;
+            chkCustodyDelete.IsChecked = check;
+            chkFinanceView.IsChecked = check;
+            chkFinanceAdd.IsChecked = check;
+            chkFinanceDelete.IsChecked = check;
+            chkDeliveryView.IsChecked = check;
+            chkDeliveryAdd.IsChecked = check;
+            chkDeliveryDelete.IsChecked = check;
+            chkCustomerView.IsChecked = check;
+            chkCustomerAdd.IsChecked = check;
+            chkCustomerDelete.IsChecked = check;
+            chkVendorView.IsChecked = check;
+            chkVendorAdd.IsChecked = check;
+            chkVendorDelete.IsChecked = check;
+            chkServiceView.IsChecked = check;
+            chkServiceAdd.IsChecked = check;
+            chkServiceDelete.IsChecked = check;
+            chkViewReports.IsChecked = check;
+            chkAdminRights.IsChecked = check;
+        }
+        private void checkCheckBoxes(UserGroupRoleDTO userGroupRole)
+        {
+            chkPOSView.IsChecked = userGroupRole.view_POS;
+            chkPOSAdd.IsChecked = userGroupRole.add_POS;
+            chkPOSDelete.IsChecked = userGroupRole.delete_POS;
+            chkHRView.IsChecked = userGroupRole.view_HR;
+            chkHRAdd.IsChecked = userGroupRole.add_HR;
+            chkHRDelete.IsChecked = userGroupRole.delete_HR;
+            chkBranchView.IsChecked = userGroupRole.view_branch;
+            chkBranchAdd.IsChecked = userGroupRole.add_branch;
+            chkBranchDelete.IsChecked = userGroupRole.delete_branch;
+            chkCustodyView.IsChecked = userGroupRole.view_custody;
+            chkCustodyAdd.IsChecked = userGroupRole.add_custody;
+            chkCustodyDelete.IsChecked = userGroupRole.delete_custody;
+            chkFinanceView.IsChecked = userGroupRole.view_finance;
+            chkFinanceAdd.IsChecked = userGroupRole.add_finance;
+            chkFinanceDelete.IsChecked = userGroupRole.view_finance;
+            chkDeliveryView.IsChecked = userGroupRole.view_delivery;
+            chkDeliveryAdd.IsChecked = userGroupRole.add_delivery;
+            chkDeliveryDelete.IsChecked = userGroupRole.delete_delivery;
+            chkCustomerView.IsChecked = userGroupRole.view_customer;
+            chkCustomerAdd.IsChecked = userGroupRole.delete_customer;
+            chkCustomerDelete.IsChecked = userGroupRole.delete_customer;
+            chkVendorView.IsChecked = userGroupRole.view_vendor;
+            chkVendorAdd.IsChecked = userGroupRole.add_vendor;
+            chkVendorDelete.IsChecked = userGroupRole.delete_vendor;
+            chkServiceView.IsChecked = userGroupRole.view_service;
+            chkServiceAdd.IsChecked = userGroupRole.add_service;
+            chkServiceDelete.IsChecked = userGroupRole.delete_service;
+            chkViewReports.IsChecked = userGroupRole.view_report;
+            chkAdminRights.IsChecked = userGroupRole.admin_rights;
         }
 
         private void stkUserGroupRoles_Loaded(object sender, RoutedEventArgs e)
