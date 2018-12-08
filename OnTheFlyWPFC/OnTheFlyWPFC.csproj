@@ -340,9 +340,6 @@
     <Compile Include="View\BranchAddMiniWindow.xaml.cs">
       <DependentUpon>BranchAddMiniWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\BranchSummaryUC.xaml.cs">
-      <DependentUpon>BranchSummaryUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\BranchViewUC.xaml.cs">
       <DependentUpon>BranchViewUC.xaml</DependentUpon>
     </Compile>
@@ -427,9 +424,6 @@
     <Compile Include="View\DeliveryPricesUC.xaml.cs">
       <DependentUpon>DeliveryPricesUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeliverySummaryUC.xaml.cs">
-      <DependentUpon>DeliverySummaryUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\DeliveryViewEditMiniWindow.xaml.cs">
       <DependentUpon>DeliveryViewEditMiniWindow.xaml</DependentUpon>
     </Compile>
@@ -465,9 +459,6 @@
     </Compile>
     <Compile Include="View\FinanceSpendingUC.xaml.cs">
       <DependentUpon>FinanceSpendingUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\FinanceSummaryUC.xaml.cs">
-      <DependentUpon>FinanceSummaryUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FinanceWindow.xaml.cs">
       <DependentUpon>FinanceWindow.xaml</DependentUpon>
@@ -508,17 +499,11 @@
     <Compile Include="View\POSAddReceipetSearchCustomerMiniWindow.xaml.cs">
       <DependentUpon>POSAddReceipetSearchCustomerMiniWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\POSSummaryUC.xaml.cs">
-      <DependentUpon>POSSummaryUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\POSViewReceiptUC.xaml.cs">
       <DependentUpon>POSViewReceiptUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\POSWindow.xaml.cs">
       <DependentUpon>POSWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ReportsWindow.xaml.cs">
-      <DependentUpon>ReportsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HRJobDescriptionUC.xaml.cs">
       <DependentUpon>HRJobDescriptionUC.xaml</DependentUpon>
@@ -545,10 +530,6 @@
       <DependentUpon>CrystalReportView.xaml</DependentUpon>
     </Compile>
     <Page Include="View\BranchAddMiniWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\BranchSummaryUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -656,10 +637,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DeliverySummaryUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\DeliveryViewEditMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -708,10 +685,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FinanceSummaryUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\FinanceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -744,27 +717,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainHomeUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\Class1.cs" />
     <Compile Include="ViewModel\Class2.cs" />
-    <Compile Include="View\MainHomeUC.xaml.cs">
-      <DependentUpon>MainHomeUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="View\POSAddReceiptUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -785,19 +743,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\POSSummaryUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\POSViewReceiptUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\POSWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ReportsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

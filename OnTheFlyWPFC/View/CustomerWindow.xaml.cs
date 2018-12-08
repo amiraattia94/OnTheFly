@@ -87,14 +87,7 @@ namespace OnTheFlyWPFC.View
             WindowState = WindowState.Minimized;
         }
 
-        private void btnMain_Click(object sender, RoutedEventArgs e)
-        {
-            var newwindow = new MainWindow();
-            newwindow.WindowState = this.WindowState;
-            newwindow.Show();
-            this.Close();
-        }
-
+        
         private void btnPOS_Click(object sender, RoutedEventArgs e)
         {
             var newwindow = new POSWindow();
@@ -152,15 +145,7 @@ namespace OnTheFlyWPFC.View
             this.Close();
         }
 
-        private void btnReports_Click(object sender, RoutedEventArgs e)
-        {
-            var newwindow = new ReportsWindow();
-            newwindow.WindowState = this.WindowState;
-            newwindow.Show();
-            this.Close();
-        }
-
-        private void btnLogout_Click(object sender, RoutedEventArgs e)
+         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.DialogResult dialog = System.Windows.Forms.MessageBox.Show("هل انت متأكد من رغبتك بتسجيل الخروج", "تسجيل الخروج", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (dialog == System.Windows.Forms.DialogResult.Yes)

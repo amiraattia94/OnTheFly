@@ -40,7 +40,7 @@ namespace OnTheFlyWPFC.Model.Service {
 
         public static string LoginUserName;
         public static string LoginEmployeeName;
-
+        public static UserGroupRoleDTO userGroupRoleDTO;
 
 
         public static void assignPayrolls()

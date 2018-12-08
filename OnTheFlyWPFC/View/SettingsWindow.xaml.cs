@@ -95,14 +95,7 @@ namespace OnTheFlyWPFC.View
                 WindowState = WindowState.Minimized;
             }
 
-            private void btnMain_Click(object sender, RoutedEventArgs e)
-            {
-                var newwindow = new MainWindow();
-                newwindow.WindowState = this.WindowState;
-                newwindow.Show();
-                this.Close();
-            }
-
+           
             private void btnPOS_Click(object sender, RoutedEventArgs e)
             {
                 var newwindow = new POSWindow();
@@ -160,15 +153,7 @@ namespace OnTheFlyWPFC.View
                 this.Close();
             }
 
-            private void btnReports_Click(object sender, RoutedEventArgs e)
-            {
-                var newwindow = new ReportsWindow();
-                newwindow.WindowState = this.WindowState;
-                newwindow.Show();
-                this.Close();
-            }
-
-            private void btnSetting_Click(object sender, RoutedEventArgs e)
+             private void btnSetting_Click(object sender, RoutedEventArgs e)
             {
             var newwindow = new SettingsWindow();
             newwindow.WindowState = this.WindowState;

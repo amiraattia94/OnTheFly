@@ -378,15 +378,7 @@
                         <Label Margin="-7,0,10,0" DockPanel.Dock="Right" Content="الطاير" HorizontalAlignment="Right" 
                         VerticalAlignment="Center" FontFamily="Ara Hamah AlThawra" FontSize="25" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 
-
-                        <Button Name="btnMain" Background="Transparent" BorderThickness="0" Height="63" VerticalAlignment="Center" HorizontalAlignment="Right"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnMain_Click">
-                            <UniformGrid FlowDirection="RightToLeft">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="Images\icons\ic_dashboard.png" Height="17" Width="17" Margin="0,0,5,0"/>
-                                    <TextBlock FontSize="12" Foreground="White" FontFamily="Noto Kufi Arabic" Text="الرئيسية" />
-                                </StackPanel>
-                            </UniformGrid>
-                        </Button>
+ 
                         <Button x:Name="btnPOS"  Background="Transparent" BorderThickness="0" Height="63" VerticalAlignment="Center" HorizontalAlignment="Right"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnPOS_Click" >
                             <UniformGrid FlowDirection="RightToLeft">
                                 <StackPanel Orientation="Horizontal">
@@ -443,15 +435,7 @@
                                 </StackPanel>
                             </UniformGrid>
                         </Button>
-                        <Button x:Name="btnReports" Background="Transparent" BorderThickness="0" Height="63" VerticalAlignment="Center" HorizontalAlignment="Right"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnReports_Click">
-                            <UniformGrid FlowDirection="RightToLeft">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="Images/Icons/ic_reports.png" Height="17" Width="17" Margin="0,0,5,0"/>
-                                    <TextBlock FontSize="12" Foreground="White" FontFamily="Noto Kufi Arabic" Text="التقارير"/>
-                                </StackPanel>
-                            </UniformGrid>
-                        </Button>
-
+                        
                     </StackPanel>
 
                 </UniformGrid>

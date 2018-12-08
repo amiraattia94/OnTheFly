@@ -45,10 +45,12 @@ namespace OnTheFlyWPFC.View
             try
             {
                 user_exist = await userViewModel.GetUserExists(usernametxt.Text, pbPassword.Password);
+                userViewModel.GetUserByName(usernametxt.Text);
                 if (user_exist == true)
                 {
-                    loginViewModel.GetLoginUserData(usernametxt.Text, pbPassword.Password);
-                    var tempW = new MainWindow();
+                    
+                    initiateSession(userViewModel, usernametxt.Text);                    
+                    var tempW = new POSWindow();
                     tempW.Show();
                     this.Close();
                 }
@@ -72,8 +74,15 @@ namespace OnTheFlyWPFC.View
 
         }
 
-    
-
+        private void initiateSession(UsersViewModel userViewModel, string text)
+        {
+            UserGroupRoleViewModel userGroupRoleViewModel = new UserGroupRoleViewModel();
+            loginViewModel.GetLoginUserData(usernametxt.Text, pbPassword.Password);
+            HelperClass.systemUserID = userViewModel.editUser.userID;
+            userGroupRoleViewModel.getUserGroupRoleByUserID(userViewModel.editUser.userID);
+            HelperClass.userGroupRoleDTO = userGroupRoleViewModel.EditUserGroupRole;
+        }
+        
          private string get_message()
          {
 
