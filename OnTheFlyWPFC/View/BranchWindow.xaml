@@ -517,12 +517,7 @@
                                 <TextBlock Text="العاملين بالفروع" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem x:Name="BranchSummary" Height="60" >
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                                <TextBlock Text="ملخص الفروع" VerticalAlignment="Center" Margin="20 10"/>
-                            </StackPanel>
-                        </ListViewItem>
+                       
                     </ListView>
                 </StackPanel>
             </UniformGrid>

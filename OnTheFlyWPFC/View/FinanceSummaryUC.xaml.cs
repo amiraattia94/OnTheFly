@@ -30,16 +30,19 @@ namespace OnTheFlyWPFC.View
             financeViewModel = new FinanceViewModel();
         }
 
-        async private void LblMainHome_1_Loaded(object sender, RoutedEventArgs e) {
+        async private void LblMainHome_1_Loaded(object sender, RoutedEventArgs e)
+        {
             lblMainHome_1.Content = (await financeViewModel.GetAllNegativeFinanceDecimal()).ToString("0.##");
         }
 
-        async private void LblMainHome_3_Loaded(object sender, RoutedEventArgs e) {
+        async private void LblMainHome_3_Loaded(object sender, RoutedEventArgs e)
+        {
             lblMainHome_3.Content = (await financeViewModel.GetAllPosativeFinanceDecimal()).ToString("0.##");
 
         }
 
-        async private void LblMainHome_4_Loaded(object sender, RoutedEventArgs e) {
+        async private void LblMainHome_4_Loaded(object sender, RoutedEventArgs e)
+        {
             lblMainHome_4.Content = ((await financeViewModel.GetAllPosativeFinanceDecimal()) - (await financeViewModel.GetAllNegativeFinanceDecimal())).ToString("0.##");
 
         }

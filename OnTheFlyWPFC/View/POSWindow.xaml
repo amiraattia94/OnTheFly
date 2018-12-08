@@ -517,12 +517,7 @@
                                 <TextBlock Text="البحث عن فاتورة" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem x:Name="POSSummary" Height="60" >
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                                <TextBlock Text="الرئيسية" VerticalAlignment="Center" Margin="20 10"/>
-                            </StackPanel>
-                        </ListViewItem>
+                        
                     </ListView>
                 </StackPanel>
             </UniformGrid>

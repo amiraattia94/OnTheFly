@@ -529,13 +529,7 @@
                                 <TextBlock Text="تصنيفات" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem x:Name="DeliverySummary" Height="60" >
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                                <TextBlock Text="الملخص" VerticalAlignment="Center" Margin="20 10"/>
-                            </StackPanel>
-                        </ListViewItem>
-
+                       
                     </ListView>
                 </StackPanel>
             </UniformGrid>

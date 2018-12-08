@@ -460,6 +460,9 @@
     <Compile Include="View\FinanceSpendingUC.xaml.cs">
       <DependentUpon>FinanceSpendingUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FinanceSummaryUC.xaml.cs">
+      <DependentUpon>FinanceSummaryUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FinanceWindow.xaml.cs">
       <DependentUpon>FinanceWindow.xaml</DependentUpon>
     </Compile>
@@ -682,6 +685,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FinanceSpendingUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FinanceSummaryUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
