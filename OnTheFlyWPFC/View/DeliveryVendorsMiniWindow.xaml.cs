@@ -52,19 +52,25 @@ namespace OnTheFlyWPFC.View
         }
 
         async private void BtnSaveOrEdit_Click(object sender, RoutedEventArgs e) {
+            if (HelperClass.userGroupRoleDTO.add_vendor) {
+                bool status = HelperClass.TrueOrFalse(cmbBranchStatus.SelectedIndex.ToString());
 
-            bool status = HelperClass.TrueOrFalse(cmbBranchStatus.SelectedIndex.ToString());
-
-            if (!saveButton) {
-                if (await vendorViewModel.EditVendorBranchByID(HelperClass.vendorBranchID, txtname.Text,cmbBranchCities.SelectedValue.ToString(),txtaddress.Text,txtphone1.Text,txtphone2.Text,status))
-                    MessageBox.Show("تم الحفظ");
+                if (!saveButton) {
+                    if (await vendorViewModel.EditVendorBranchByID(HelperClass.vendorBranchID, txtname.Text, cmbBranchCities.SelectedValue.ToString(), txtaddress.Text, txtphone1.Text, txtphone2.Text, status))
+                        MessageBox.Show("تم الحفظ");
+                }
+                else {
+                    if (await vendorViewModel.AddVendorBranch(HelperClass.vendorID, txtname.Text, cmbBranchCities.SelectedValue.ToString(), txtaddress.Text, txtphone1.Text, txtphone2.Text, status))
+                        MessageBox.Show("تم الحفظ");
+                }
+                RefreshList();
+                UpdateMainList.DynamicInvoke();
             }
             else {
-                if (await vendorViewModel.AddVendorBranch(HelperClass.vendorID, txtname.Text, cmbBranchCities.SelectedValue.ToString(), txtaddress.Text, txtphone1.Text, txtphone2.Text, status))
-                    MessageBox.Show("تم الحفظ");
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
             }
-            RefreshList();
-            UpdateMainList.DynamicInvoke();
+
+            
         }
 
         private void RefreshList() {
@@ -100,23 +106,30 @@ namespace OnTheFlyWPFC.View
         }
 
         async private void DeleteVendorBranch(object sender, RoutedEventArgs e) {
-            Button button = sender as Button;
-            var a = button.CommandParameter as VendorBranchsDTO;
+            if (HelperClass.userGroupRoleDTO.delete_vendor) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as VendorBranchsDTO;
 
-            if (await vendorViewModel.DeleteVendorBranchByID(a.vendorBranchID))
-                MessageBox.Show("تم المسح بنجاح");
-            RefreshList();
+                if (await vendorViewModel.DeleteVendorBranchByID(a.vendorBranchID))
+                    MessageBox.Show("تم المسح بنجاح");
+                RefreshList();
 
-            lblVendorBranch.Content = " اضافة فرع";
-            cmbBranchCities.SelectedIndex = -1;
-            txtname.Text = "ادخل الاسم";
-            txtaddress.Text = "ادخل العنوان";
-            txtphone1.Text = "ادخل رقم الهاتف";
-            txtphone2.Text = "ادخل رقم الهاتف";
-            cmbBranchStatus.SelectedIndex = -1;
-            borderSaveOrEdit.Background = (Brush)(new BrushConverter().ConvertFrom("#ADE23F"));
-            txtSaveOrEdit.Text = "اضافة";
-            saveButton = true;
+                lblVendorBranch.Content = " اضافة فرع";
+                cmbBranchCities.SelectedIndex = -1;
+                txtname.Text = "ادخل الاسم";
+                txtaddress.Text = "ادخل العنوان";
+                txtphone1.Text = "ادخل رقم الهاتف";
+                txtphone2.Text = "ادخل رقم الهاتف";
+                cmbBranchStatus.SelectedIndex = -1;
+                borderSaveOrEdit.Background = (Brush)(new BrushConverter().ConvertFrom("#ADE23F"));
+                txtSaveOrEdit.Text = "اضافة";
+                saveButton = true;
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
 
         }
 

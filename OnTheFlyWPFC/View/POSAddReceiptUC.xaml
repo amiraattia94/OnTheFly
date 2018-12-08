@@ -542,14 +542,14 @@
                                 </Border>-->
 
                                 <Border Name="btnCustody" Height="40" BorderBrush="Transparent" CornerRadius="20"   Background="#2C99F5" Margin="0,20,0,0" HorizontalAlignment="Center" >
-                                    <Button Click="AddCostody" Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                    <!--<Button Click="AddCostody" Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                         <UniformGrid FlowDirection="RightToLeft">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة" Margin="0,0,5,0"  />
                                                 <materialDesign:PackIcon Kind="Plus" Height="15" Width="15" Margin="5,0,0,0" VerticalAlignment="Center"  />
                                             </StackPanel>
                                         </UniformGrid>
-                                    </Button>
+                                    </Button>-->
                                 </Border>
 
 

@@ -89,35 +89,56 @@ namespace OnTheFlyWPFC.View
 
         async private void Delete_Car(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as VehicleDTO;
-            HelperClass.Customer = a.vehicleID;
+            if (HelperClass.userGroupRoleDTO.delete_delivery) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as VehicleDTO;
+                HelperClass.Customer = a.vehicleID;
 
-            if (await vehicleViewModel.DeleteVehicleByID(a.vehicleID))
-                MessageBox.Show("تم المسح بنجاح");
-            RefreshListView();
+                if (await vehicleViewModel.DeleteVehicleByID(a.vehicleID))
+                    MessageBox.Show("تم المسح بنجاح");
+                RefreshListView();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
 
         private void Edit_Car(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as VehicleDTO;
-            HelperClass.CarID = a.vehicleID;
+            if (HelperClass.userGroupRoleDTO.add_delivery) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as VehicleDTO;
+                HelperClass.CarID = a.vehicleID;
 
-            var newwindow = new DeliveryCarEditMiniWindow();
+                var newwindow = new DeliveryCarEditMiniWindow();
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.ShowDialog();
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
 
         private void AddCar(object sender, RoutedEventArgs e)
         {
-            var newwindow = new DeliveryCarAddMiniWindow();
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
-            newwindow.ShowDialog();
+            if (HelperClass.userGroupRoleDTO.add_delivery) {
+
+                var newwindow = new DeliveryCarAddMiniWindow();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
     }
 }

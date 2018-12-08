@@ -52,38 +52,61 @@ namespace OnTheFlyWPFC.View
 
         private async void btnSave1(object sender, RoutedEventArgs e)
         {
-            if (await settingsViewModel1.EditSettingByID(settingsViewModel1.settings.settingID, settingsViewModel1.settings.name,decimal.Parse(txtValueMoney1.Text),  settingsViewModel1.settings.value_int??0, settingsViewModel1.settings.code))
-            {
-                MessageBox.Show("تم الحفظ");
-                HelperClass.overtimeHourPrice = decimal.Parse(txtValueMoney1.Text);
+            if (HelperClass.userGroupRoleDTO.add_finance) {
+                if (await settingsViewModel1.EditSettingByID(settingsViewModel1.settings.settingID, settingsViewModel1.settings.name, decimal.Parse(txtValueMoney1.Text), settingsViewModel1.settings.value_int ?? 0, settingsViewModel1.settings.code)) {
+                    MessageBox.Show("تم الحفظ");
+                    HelperClass.overtimeHourPrice = decimal.Parse(txtValueMoney1.Text);
+                }
             }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
 
         private async void btnSave2(object sender, RoutedEventArgs e)
         {
-            if (await settingsViewModel2.EditSettingByID(settingsViewModel2.settings.settingID, settingsViewModel2.settings.name, decimal.Parse(txtValueMoney2.Text), settingsViewModel2.settings.value_int ?? 0, settingsViewModel2.settings.code))
-            {
-                MessageBox.Show("تم الحفظ");
-                HelperClass.overtimeDayPrice = decimal.Parse(txtValueMoney2.Text);
+            if (HelperClass.userGroupRoleDTO.add_finance) {
+                if (await settingsViewModel2.EditSettingByID(settingsViewModel2.settings.settingID, settingsViewModel2.settings.name, decimal.Parse(txtValueMoney2.Text), settingsViewModel2.settings.value_int ?? 0, settingsViewModel2.settings.code)) {
+                    MessageBox.Show("تم الحفظ");
+                    HelperClass.overtimeDayPrice = decimal.Parse(txtValueMoney2.Text);
+                }
             }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
 
         private async void btnSave3(object sender, RoutedEventArgs e)
         {
-            if (await settingsViewModel3.EditSettingByID(settingsViewModel3.settings.settingID, settingsViewModel3.settings.name, decimal.Parse(txtValueMoney3.Text), settingsViewModel3.settings.value_int ?? 0, settingsViewModel3.settings.code))
-            {
-                MessageBox.Show("تم الحفظ");
-                HelperClass.AbsentDayPrice = decimal.Parse(txtValueMoney3.Text);
+            if (HelperClass.userGroupRoleDTO.add_finance) {
+                if (await settingsViewModel3.EditSettingByID(settingsViewModel3.settings.settingID, settingsViewModel3.settings.name, decimal.Parse(txtValueMoney3.Text), settingsViewModel3.settings.value_int ?? 0, settingsViewModel3.settings.code)) {
+                    MessageBox.Show("تم الحفظ");
+                    HelperClass.AbsentDayPrice = decimal.Parse(txtValueMoney3.Text);
+                }
             }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
 
         private async void btnSave4(object sender, RoutedEventArgs e)
         {
-            if (await settingsViewModel4.EditSettingByID(settingsViewModel4.settings.settingID, settingsViewModel4.settings.name, decimal.Parse(txtValueMoney4.Text), settingsViewModel4.settings.value_int ?? 0, settingsViewModel4.settings.code))
-            {
-                MessageBox.Show("تم الحفظ");
-                HelperClass.lateHourPrice = decimal.Parse(txtValueMoney4.Text);
+            if (HelperClass.userGroupRoleDTO.add_finance) {
+                if (await settingsViewModel4.EditSettingByID(settingsViewModel4.settings.settingID, settingsViewModel4.settings.name, decimal.Parse(txtValueMoney4.Text), settingsViewModel4.settings.value_int ?? 0, settingsViewModel4.settings.code)) {
+                    MessageBox.Show("تم الحفظ");
+                    HelperClass.lateHourPrice = decimal.Parse(txtValueMoney4.Text);
+                }
             }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
 
         private void stkEditPreferences2_Loaded(object sender, RoutedEventArgs e)

@@ -128,6 +128,15 @@ namespace OnTheFlyWPFC.View
 
         private void PrintInvoice_Click(object sender, RoutedEventArgs e) {
 
+            if (HelperClass.userGroupRoleDTO.view_POS) {
+                var printreport = new CrystalReportView();
+                printreport.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
             //invoiceViewModel = new InvoiceViewModel();
 
             //invoiceViewModel.GetAllDeliveryServicesByInvoice2(HelperClass.POSInvoiceID);
@@ -165,8 +174,7 @@ namespace OnTheFlyWPFC.View
             //}
 
 
-            var printreport = new CrystalReportView();
-            printreport.ShowDialog();
+
         }
 
 

@@ -47,13 +47,19 @@ namespace OnTheFlyWPFC.View
 
         private void btnAddFinance_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new FinanceIncomeAddMiniWindow();
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
-            newwindow.ShowDialog();
+            if (HelperClass.userGroupRoleDTO.add_finance) {
+                var newwindow = new FinanceIncomeAddMiniWindow();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+                newwindow.ShowDialog();
 
-            financeViewModel.GetAllPosativeFinance();
-            lstViewFinance.ItemsSource = financeViewModel.viewFinances;
+                financeViewModel.GetAllPosativeFinance();
+                lstViewFinance.ItemsSource = financeViewModel.viewFinances;
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
     }
 }

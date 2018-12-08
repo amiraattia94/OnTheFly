@@ -87,14 +87,21 @@ namespace OnTheFlyWPFC.View
 
         private void EditPayroll(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as PayrollDTO;
-            HelperClass.payrollID = a.payrollID;
+            if (HelperClass.userGroupRoleDTO.add_finance) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as PayrollDTO;
+                HelperClass.payrollID = a.payrollID;
 
-            var newwindow = new FinancePayrollEditMiniWindow();
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
-            newwindow.ShowDialog();
+                var newwindow = new FinancePayrollEditMiniWindow();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
     }
 }

@@ -55,19 +55,26 @@ namespace OnTheFlyWPFC.View {
         }
 
         private void EditCustody(object sender, RoutedEventArgs e) {
-            Button button = sender as Button;
-            var a = button.CommandParameter as CustodyDTO;
-            HelperClass.CustodyID = a.custodyID;
+            if (HelperClass.userGroupRoleDTO.add_custody) {
 
-            var newwindow = new CustodyViewEditMiniWindow();
+                Button button = sender as Button;
+                var a = button.CommandParameter as CustodyDTO;
+                HelperClass.CustodyID = a.custodyID;
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                var newwindow = new CustodyViewEditMiniWindow();
 
-            newwindow.ShowDialog();
-            invoiceViewModel.GetAllCustody();
-            lstViewCustody.Items.Refresh();
-            lstViewCustody.ItemsSource = invoiceViewModel.allCustody;
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+
+                newwindow.ShowDialog();
+                invoiceViewModel.GetAllCustody();
+                lstViewCustody.Items.Refresh();
+                lstViewCustody.ItemsSource = invoiceViewModel.allCustody;
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
 
         private void RefreshListView() {

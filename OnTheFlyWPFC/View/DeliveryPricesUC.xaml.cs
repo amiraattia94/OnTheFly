@@ -83,35 +83,56 @@ namespace OnTheFlyWPFC.View
         }
 
         private void Edit_Service(object sender, RoutedEventArgs e) {
-            Button button = sender as Button;
-            var a = button.CommandParameter as DeliveryPriceDTO;
-            HelperClass.DeliveryPriceID = a.deliveryPriceID;
+            if (HelperClass.userGroupRoleDTO.add_delivery) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as DeliveryPriceDTO;
+                HelperClass.DeliveryPriceID = a.deliveryPriceID;
 
-            var newwindow = new DeliveryPricesEditMiniWindow();
+                var newwindow = new DeliveryPricesEditMiniWindow();
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.ShowDialog();
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
 
         }
 
         async private void Delete_Service(object sender, RoutedEventArgs e) {
-            Button button = sender as Button;
-            var a = button.CommandParameter as DeliveryPriceDTO;
-            HelperClass.DeliveryPriceID = a.deliveryPriceID;
+            if (HelperClass.userGroupRoleDTO.delete_delivery) {
 
-            if (await DeliveryPricesViewModel.DeleteDeliveryPriceByID(a.deliveryPriceID))
-                MessageBox.Show("تم المسح بنجاح");
-            RefreshListView();
+                Button button = sender as Button;
+                var a = button.CommandParameter as DeliveryPriceDTO;
+                HelperClass.DeliveryPriceID = a.deliveryPriceID;
+
+                if (await DeliveryPricesViewModel.DeleteDeliveryPriceByID(a.deliveryPriceID))
+                    MessageBox.Show("تم المسح بنجاح");
+                RefreshListView();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
 
         }
 
         private void AddService(object sender, RoutedEventArgs e) {
-            var newwindow = new DeliveryPricesAddMiniWindow();
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
-            newwindow.ShowDialog();
+            if (HelperClass.userGroupRoleDTO.add_delivery) {
+
+                var newwindow = new DeliveryPricesAddMiniWindow();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
 
         private void RefreshListView() {

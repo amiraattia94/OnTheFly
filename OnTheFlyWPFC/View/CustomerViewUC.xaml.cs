@@ -81,41 +81,62 @@ namespace OnTheFlyWPFC.View
 
         private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new CustomerAddMiniWindow();
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
-            newwindow.ShowDialog();
+            if (HelperClass.userGroupRoleDTO.add_customer) {
+
+                var newwindow = new CustomerAddMiniWindow();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
 
         private void EditCustomer(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as CustomerDTO;
-            HelperClass.Customer = a.customerID;
+            if (HelperClass.userGroupRoleDTO.add_customer) {
 
-            var newwindow = new CustomerEditMiniWindow();
+                Button button = sender as Button;
+                var a = button.CommandParameter as CustomerDTO;
+                HelperClass.Customer = a.customerID;
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                var newwindow = new CustomerEditMiniWindow();
 
-            newwindow.ShowDialog();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
 
         async private void DeleteCustomer(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as CustomerDTO;
-            HelperClass.Customer = a.customerID;
+            if (HelperClass.userGroupRoleDTO.delete_customer) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as CustomerDTO;
+                HelperClass.Customer = a.customerID;
 
-            customerViewModel.GetCustomerByID(a.customerID);
-            if (await customerViewModel.DeleteCustomerByID(a.customerID)) {
-                if (await financeViewModel.AddFinance(false, (decimal)customerViewModel.customer.credit,"مسح رصيد مع زبون "+ customerViewModel.customer.name , HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName,  DateTime.Now ))
-                    MessageBox.Show("تم المسح بنجاح");
+                customerViewModel.GetCustomerByID(a.customerID);
+                if (await customerViewModel.DeleteCustomerByID(a.customerID)) {
+                    if (await financeViewModel.AddFinance(false, (decimal)customerViewModel.customer.credit, "مسح رصيد مع زبون " + customerViewModel.customer.name, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now))
+                        MessageBox.Show("تم المسح بنجاح");
+                }
+
+                customerViewModel.customer = null;
+
+                RefreshListView();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
             }
 
-            customerViewModel.customer = null;
 
-            RefreshListView();
         }
 
         private void TxtSearchCustomerName_TextChanged(object sender, TextChangedEventArgs e)
@@ -140,16 +161,23 @@ namespace OnTheFlyWPFC.View
 
         private void Memberships(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as CustomerDTO;
-            HelperClass.Customer = a.customerID;
+            if (HelperClass.userGroupRoleDTO.add_customer) {
 
-            var newwindow = new CustomerMembershipMiniWindow();
+                Button button = sender as Button;
+                var a = button.CommandParameter as CustomerDTO;
+                HelperClass.Customer = a.customerID;
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                var newwindow = new CustomerMembershipMiniWindow();
 
-            newwindow.ShowDialog();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
 
         }
 
