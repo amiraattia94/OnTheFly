@@ -85,7 +85,7 @@ namespace OnTheFlyWPFC.ViewModel
             foreach (var user in users)
             {
                 _userName.Add(user);
-                UN.Add(user.username);
+                UN.Add(user.UserName);
             }
         }
 
@@ -101,7 +101,7 @@ namespace OnTheFlyWPFC.ViewModel
             var a = await _userService.GetLoginUserData( username, password);
 
             HelperClass.LoginUserID = a.userID;
-            HelperClass.LoginUserName = a.username;
+            HelperClass.LoginUserName = a.UserName;
             HelperClass.LoginEmployeeID = a.EmployeeID;
             HelperClass.LoginEmployeeName = a.EmployeeName;
             

@@ -8,14 +8,21 @@ using OnTheFlyWPFC.Model.DTO;
 using OnTheFlyWPFC.Model.Service;
 using System.ComponentModel.DataAnnotations;
 using System.Windows;
+using System.ComponentModel;
 
 namespace OnTheFlyWPFC.ViewModel
 {
-    public class UsersViewModel 
+    public class UsersViewModel : INotifyPropertyChanged
     {
         UserService _userService;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public ObservableCollection<UserDTO> viewUser { get; set; }
-        public UserDTO editUser { get; set; }
+        public UserDTO editUser {
+            get;
+            set; }
+
 
         public UsersViewModel()
         {

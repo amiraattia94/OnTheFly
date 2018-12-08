@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using OnTheFlyWPFC.Model.DTO;
 
 namespace OnTheFlyWPFC.Model.Service
 {
-    class UserService
+    class UserService 
     {
         async public Task<List<UserDTO>> GetUser()
         {
@@ -18,7 +19,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 List<UserDTO> result = con.UserTBLs.Select(s => new UserDTO()
                 {
-                    username = s.user_name,
+                    UserName = s.user_name,
                     password = s.password
                 }).ToList();
 
@@ -36,7 +37,7 @@ namespace OnTheFlyWPFC.Model.Service
                 if(result != null) {
                     return new UserDTO() {
                         userID = result.userID,
-                        username = result.user_name,
+                        UserName = result.user_name,
                         EmployeeID = result.employeeID,
                         EmployeeName = result.EmployeeTBL.name,
                         EmployeeBranchID = result.EmployeeTBL.branchID,
@@ -133,7 +134,7 @@ namespace OnTheFlyWPFC.Model.Service
                 var result = con.UserTBLs.Select(s => new UserDTO()
                 {
                     userID = s.userID,
-                    username = s.user_name,
+                    UserName = s.user_name,
                     password = s.password,
                     EmployeeID = s.employeeID                    
                 }).ToList();
@@ -157,7 +158,7 @@ namespace OnTheFlyWPFC.Model.Service
                     return new UserDTO()
                     {
                         userID = result.userID,
-                        username = result.user_name,
+                        UserName = result.user_name,
                         password = result.password,
                         EmployeeID = result.employeeID,
 
@@ -168,7 +169,7 @@ namespace OnTheFlyWPFC.Model.Service
                 return new UserDTO()
                 {
                     userID = 0,
-                    username = "0",
+                    UserName = "0",
                     password = "0",
                     EmployeeID = 0
 
@@ -215,7 +216,7 @@ namespace OnTheFlyWPFC.Model.Service
                 var result = con.UserTBLs.Where(w => w.employeeID == employeeID).Select(s => new UserDTO()
                 {
                     userID = s.userID,
-                    username = s.user_name,
+                    UserName = s.user_name,
                     password = s.password,
                     EmployeeID = s.employeeID
                 }).ToList();
@@ -250,7 +251,7 @@ namespace OnTheFlyWPFC.Model.Service
                     return new UserDTO()
                     {
                         userID = result.userID,
-                        username = result.user_name,
+                        UserName = result.user_name,
                         password = result.password,
                         EmployeeID = result.employeeID,
 
@@ -261,7 +262,7 @@ namespace OnTheFlyWPFC.Model.Service
                 return new UserDTO()
                 {
                     userID = 0,
-                    username = "0",
+                    UserName = "0",
                     password = "0",
                     EmployeeID = 0
 
@@ -283,7 +284,7 @@ namespace OnTheFlyWPFC.Model.Service
                     return new UserDTO()
                     {
                         userID = result.userID,
-                        username = result.user_name,
+                        UserName = result.user_name,
                         password = result.password,
                         EmployeeID = result.employeeID,
 
@@ -293,7 +294,7 @@ namespace OnTheFlyWPFC.Model.Service
                 return new UserDTO()
                 {
                     userID = 0,
-                    username = "",
+                    UserName = "",
                     password = "",
                     EmployeeID = 0,
                 };
