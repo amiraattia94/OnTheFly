@@ -324,7 +324,7 @@
             </Border.Effect>
             <Grid>
 
-                <Grid>
+                <Grid DataContext="{StaticResource DataContext}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="65"/>
                         <RowDefinition Height="200*"/>
@@ -360,7 +360,7 @@
 
                         <!-- Service Tyype ComboBox -->
                         <Border Height="40" Margin="0,0,0,15">
-                            <Grid DataContext="{StaticResource DataContext}">
+                            <Grid >
                                 <TextBox Name="txtUserName" Text="{Binding editUser.UserName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" />
                                 <TextBlock IsHitTestVisible="False"  Text="اسم المستخدم" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                     <TextBlock.Style>
@@ -380,8 +380,12 @@
                         <!-- Service Tyype ComboBox -->
                         <Border Height="40" Margin="0,0,0,15">
                             <Grid>
-                                <PasswordBox Name="pbPassword" xmlns:x="#unknown" PasswordChar="*"  HorizontalAlignment="Stretch" FontFamily="Noto Kufi Arabic" FontSize="16"  Foreground="DarkSlateGray"  VerticalAlignment="Center"  />
-                                <TextBlock IsHitTestVisible="False" Text="" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <PasswordBox Name="pbPassword" xmlns:x="#unknown" PasswordChar="*"  HorizontalAlignment="Stretch" FontFamily="Noto Kufi Arabic" FontSize="16"  Foreground="DarkSlateGray"  VerticalAlignment="Center" Grid.ColumnSpan="2"  />
+                                <TextBlock IsHitTestVisible="False" Text="" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,9" >
                                     <TextBlock.Style>
                                         <Style TargetType="{x:Type TextBlock}">
                                             <Setter Property="Visibility" Value="Collapsed"/>
@@ -395,11 +399,11 @@
                                 </TextBlock>
                             </Grid>
                         </Border>
-                  
+
                         <!-- Service Tyype ComboBox -->
                         <Border Height="40" Margin="0,0,0,15">
                             <Grid>
-                                <ComboBox Name="cmbUserEmployee" VerticalAlignment="Stretch" Loaded="cmbUserEmployee_Loaded" FontSize="16" Foreground="DarkSlateGray" />
+                                <ComboBox Name="cmbUserEmployee" Text="{Binding editUser.EmployeeName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" Loaded="cmbUserEmployee_Loaded" FontSize="16" Foreground="DarkSlateGray" />
                                 <TextBlock IsHitTestVisible="False"  Text="اسم الموظف" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                     <TextBlock.Style>
                                         <Style TargetType="{x:Type TextBlock}">
@@ -414,11 +418,12 @@
                                 </TextBlock>
                             </Grid>
                         </Border>
-                        
-    
+
+
                         <Border Height="40" Margin="0,20,0,0">
                             <Border Height="40" Width="150" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
                                 <Button Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnAddUser_Click" HorizontalAlignment="Right" Width="150">
+
                                     <UniformGrid FlowDirection="RightToLeft">
 
                                         <StackPanel Orientation="Horizontal">

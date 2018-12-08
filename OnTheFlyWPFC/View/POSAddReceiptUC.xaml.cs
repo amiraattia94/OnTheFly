@@ -193,8 +193,13 @@ namespace OnTheFlyWPFC.View
             lblTotalDeliveryPrice.Content = invoiceViewModel.deliveryPrice;
 
             if (custodyID != null) {
-                if (await invoiceViewModel.DeleteCustody((int)custodyID))
-                    custodyID = null;
+                if (await invoiceViewModel.DeleteCustody((int)custodyID)) {
+
+                }
+                custodyID = null;
+                cmbPayment.SelectedIndex = 0;
+
+
             }
 
             //0913716521
@@ -392,12 +397,23 @@ namespace OnTheFlyWPFC.View
 
 
 
+
                 if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, HelperClass.POSSelectedCustomerID, decimal.Parse(txtDiscount.Text), (int)deliveryID, totalPriceAfter, totalDeliveryPriceAfter, custodyID)) {
                     MessageBox.Show("تم الحفظ");
 
-                    if (await financeViewModel.AddFinance(false, totalPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
-                        //MessageBox.Show("تم الحفظ");
+                    if(custodyID  == null) {
+                        if (await financeViewModel.AddFinance(false, totalPriceAfter, " خصم من حساب " + txtCustomerName.Text  + "فاتورة رقم " + HelperClass.POSInvoiceID , HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                            //MessageBox.Show("تم الحفظ");
+                        }
+                    }else if (custodyID != null) {
+                        if (await financeViewModel.AddFinance(false, totalPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text +  " عهدة رقم  " + custodyID, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                            //MessageBox.Show("تم الحفظ");
+                        }
                     }
+                
+                    //if (await financeViewModel.AddFinance(false, totalPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                    //   //MessageBox.Show("تم الحفظ");
+                    //}
 
                     if (await financeViewModel.AddFinance(true, totalDeliveryPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
                         //MessageBox.Show("تم الحفظ");

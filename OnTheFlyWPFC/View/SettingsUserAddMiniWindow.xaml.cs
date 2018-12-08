@@ -40,21 +40,30 @@ namespace OnTheFlyWPFC.View
 
         private async void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-            //usersViewModel = new UsersViewModel();
-            var employee = (EmployeeDTO)cmbUserEmployee.SelectedValue;
-
-
-            if (await usersViewModel.AddUser(txtUserName.Text,pbPassword.Password,employee.employeeID))
+            bool valid = usersViewModel.editUser.IsValid;
+            if (valid)
             {
-                MessageBox.Show("تم الحفظ");
-                usersViewModel.GetLastUser();
-                addUserGroupRolePOS(usersViewModel.editUser.userID);
-                UpdateMainList.DynamicInvoke();
-                this.Close();
+                //usersViewModel = new UsersViewModel();
+                var employee = (EmployeeDTO)cmbUserEmployee.SelectedValue;
+
+
+                if (await usersViewModel.AddUser(txtUserName.Text, pbPassword.Password, employee.employeeID))
+                {
+                    MessageBox.Show("تم الحفظ");
+                    usersViewModel.GetLastUser();
+                    addUserGroupRolePOS(usersViewModel.editUser.userID);
+                    UpdateMainList.DynamicInvoke();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("عذراَ ، حدثت مشكلة في عملية الحفظ");
+                }
+
             }
             else
             {
-                MessageBox.Show("عذراَ ، حدثت مشكلة في عملية الحفظ");
+                MessageBox.Show("عذراَ ، عليك التحقق من صحة الحقول اولاَ");
             }
 
         }

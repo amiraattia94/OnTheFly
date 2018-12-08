@@ -96,6 +96,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     payrollID = s.payrollID,
                     employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
                     extra_work_hours = s.extra_work_hours,
@@ -114,7 +115,35 @@ namespace OnTheFlyWPFC.Model.Service
             }
 
         }
-     
+
+        async public Task<ObservableCollection<PayrollDTO>> GetAllPayrollAtDate(int month, int year) {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.PayrollTBLs.Where(W => W.payroll_month == month && W.payroll_year == year).Select(s => new PayrollDTO() {
+                    payrollID = s.payrollID,
+                    employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
+                    extra_work_days = s.extra_work_days,
+                    bonus = s.bonus,
+                    extra_work_hours = s.extra_work_hours,
+                    cash_advance = s.cash_advance,
+                    late_hours = s.late_hours,
+                    absent_days = s.absent_days,
+                    total_deduction = s.total_deduction,
+                    total_addition = s.total_addition,
+                    gross_salary = s.gross_salary,
+                    payroll_month = s.payroll_month,
+                    payroll_year = s.payroll_year,
+                    paid = s.paid
+                }).ToList();
+
+                return new ObservableCollection<PayrollDTO>(result);
+            }
+
+        }
+
+
         async public Task<PayrollDTO> GetPayrollByID(int payrollID)
         {
             await Task.FromResult(true);
@@ -129,6 +158,7 @@ namespace OnTheFlyWPFC.Model.Service
                     {
                         payrollID = result.payrollID,
                         employeeID = result.employeeID,
+                        employeeName = result.EmployeeTBL.name,
                         extra_work_days = result.extra_work_days,
                         bonus = result.bonus,
                         extra_work_hours = result.extra_work_hours,
@@ -148,6 +178,7 @@ namespace OnTheFlyWPFC.Model.Service
                 return new PayrollDTO()
                 {
                     employeeID = 0,
+                    employeeName = "",
                     extra_work_days = 0,
                     bonus = 0,
                     extra_work_hours = 0,
@@ -174,6 +205,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     payrollID = s.payrollID,
                     employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
                     extra_work_hours = s.extra_work_hours,
@@ -215,6 +247,7 @@ namespace OnTheFlyWPFC.Model.Service
                     {
                         payrollID = result.payrollID,
                         employeeID = result.employeeID,
+                        employeeName = result.EmployeeTBL.name,
                         extra_work_days = result.extra_work_days,
                         bonus = result.bonus,
                         extra_work_hours = result.extra_work_hours,
@@ -234,6 +267,7 @@ namespace OnTheFlyWPFC.Model.Service
                 return new PayrollDTO()
                 {
                     employeeID = 0,
+                    employeeName = "",
                     extra_work_days = 0,
                     bonus = 0,
                     extra_work_hours = 0,
@@ -250,16 +284,52 @@ namespace OnTheFlyWPFC.Model.Service
             }
         }
 
-        async public Task<ObservableCollection<PayrollDTO>> GetPayrollByEmployeeIDs(int[] employeeIDs)
-        {
-            await Task.FromResult(true);
-            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
-            {
+        //async public Task<ObservableCollection<PayrollDTO>> GetPayrollByEmployeeIDs(int[] employeeIDs)
+        //{
+        //    await Task.FromResult(true);
+        //    using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+        //    {
 
-                var result = con.PayrollTBLs.Where(w => employeeIDs.Contains(w.employeeID)).Select(s => new PayrollDTO()
-                {
+        //        var result = con.PayrollTBLs.Where(w => employeeIDs.Contains(w.employeeID)).Select(s => new PayrollDTO()
+        //        {
+        //            payrollID = s.payrollID,
+        //            employeeID = s.employeeID,
+        //            employeeName = s.EmployeeTBL.name,
+        //            extra_work_days = s.extra_work_days,
+        //            bonus = s.bonus,
+        //            extra_work_hours = s.extra_work_hours,
+        //            cash_advance = s.cash_advance,
+        //            late_hours = s.late_hours,
+        //            absent_days = s.absent_days,
+        //            total_deduction = s.total_deduction,
+        //            total_addition = s.total_addition,
+        //            gross_salary = s.gross_salary,
+        //            payroll_month = s.payroll_month,
+        //            payroll_year = s.payroll_year,
+        //            paid = s.paid
+
+        //        }).ToList();
+
+
+        //        if (result != null)
+        //        {
+        //            return new ObservableCollection<PayrollDTO>(result);
+        //        }
+        //        else
+        //        {
+        //            return new ObservableCollection<PayrollDTO>();
+        //        }
+        //    }
+        //}
+
+        async public Task<ObservableCollection<PayrollDTO>> GetPayrollByEmployeeIDs(List<int> employeeIDs) {
+            await Task.FromResult(true);
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+
+                var result = con.PayrollTBLs.Where(w => employeeIDs.Contains(w.employeeID)).Select(s => new PayrollDTO() {
                     payrollID = s.payrollID,
                     employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
                     extra_work_hours = s.extra_work_hours,
@@ -276,12 +346,10 @@ namespace OnTheFlyWPFC.Model.Service
                 }).ToList();
 
 
-                if (result != null)
-                {
+                if (result != null) {
                     return new ObservableCollection<PayrollDTO>(result);
                 }
-                else
-                {
+                else {
                     return new ObservableCollection<PayrollDTO>();
                 }
             }
@@ -297,6 +365,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     payrollID = s.payrollID,
                     employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
                     extra_work_hours = s.extra_work_hours,
@@ -334,6 +403,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     payrollID = s.payrollID,
                     employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
                     extra_work_hours = s.extra_work_hours,
@@ -373,6 +443,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     payrollID = s.payrollID,
                     employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
                     extra_work_hours = s.extra_work_hours,
@@ -412,6 +483,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     payrollID = s.payrollID,
                     employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
                     extra_work_hours = s.extra_work_hours,
@@ -451,6 +523,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     payrollID = s.payrollID,
                     employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
                     extra_work_hours = s.extra_work_hours,
@@ -490,6 +563,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     payrollID = s.payrollID,
                     employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
                     extra_work_hours = s.extra_work_hours,
@@ -529,6 +603,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     payrollID = s.payrollID,
                     employeeID = s.employeeID,
+                    employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
                     extra_work_hours = s.extra_work_hours,

@@ -5,20 +5,22 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace OnTheFlyWPFC.Model.DTO
 {
-    public class UserDTO : IDataErrorInfo, INotifyPropertyChanged
+    public class UserDTO : ObservableObject, IDataErrorInfo
     {
         public int userID { get; set; }
         private string Username;
-        public string password { get; set; }
+        private string password { get; set; }
 
         public int EmployeeID { get; set; }
-        public string EmployeeName { get; set; }
+        private string employeeName { get; set; }
 
         public int? EmployeeBranchID { get; set; }
         public string EmployeeBranchName { get; set; }
+
         public string UserName
         {
             get
@@ -31,19 +33,34 @@ namespace OnTheFlyWPFC.Model.DTO
                 OnPropertyChanged("UserName");
             }
         }
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        protected virtual bool OnPropertyChanged<T>(ref T backingField, T value, [CallerMemberName] string propertyName = "")
-        {
-            if (EqualityComparer<T>.Default.Equals(backingField, value))
-                return false;
 
-            backingField = value;
-            OnPropertyChanged(propertyName);
-            return true;
+        public string Password
+        {
+            get
+            {
+                return password;
+            }
+            set
+            {
+                password = value;
+                OnPropertyChanged("Password");
+            }
         }
+
+        public string EmployeeName
+        {
+            get
+            {
+                return employeeName;
+            }
+            set
+            {
+                employeeName = value;
+                OnPropertyChanged("EmployeeName");
+            }
+        }
+
+        #region IData & IsValid
         string IDataErrorInfo.Error
         {
             get
@@ -53,13 +70,6 @@ namespace OnTheFlyWPFC.Model.DTO
 
         }
 
-        static readonly string[] ValidatedProperties =
-        {
-            "UserName"
-        };
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         string IDataErrorInfo.this[string propertyName]
         {
             get
@@ -67,6 +77,7 @@ namespace OnTheFlyWPFC.Model.DTO
                 return GetValidationError(propertyName);
             }
         }
+
         public bool IsValid
         {
             get
@@ -78,6 +89,12 @@ namespace OnTheFlyWPFC.Model.DTO
                 
             }
         }
+        #endregion
+
+        static readonly string[] ValidatedProperties =
+        {
+            "UserName","Password","EmployeeName"
+        };
         string GetValidationError(string propertyName)
         {
             string error = null;
@@ -86,16 +103,42 @@ namespace OnTheFlyWPFC.Model.DTO
                 case "UserName":
                     error = ValidateUserName();
                     break;
+                case "Password":
+                    error = ValidatePassword();
+                    break;
+                case "EmployeeName":
+                    error = ValidateEmployeeName();
+                    break;
             }
             return error;
         }
+
+        private string ValidateEmployeeName()
+        {
+            if (String.IsNullOrWhiteSpace(EmployeeName))
+            {
+                return "يجب عليك اختيار الموظف المعني";
+            }
+            return null;
+        }
+
+        private string ValidatePassword()
+        {
+            if (String.IsNullOrWhiteSpace(UserName))
+            {
+                return "لا يمكن ترك اسم المستخدم فارغا";
+            }
+            return null;
+        }
+
         private string ValidateUserName()
         {
             if (String.IsNullOrWhiteSpace(UserName))
             {
-                return "UserName cannot be empty";
+                return "لا يمكن ترك اسم المستخدم فارغا";
             }
             return null;
         }
+
     }
 }

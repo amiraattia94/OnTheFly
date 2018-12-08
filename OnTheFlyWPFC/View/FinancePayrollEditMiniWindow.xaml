@@ -88,7 +88,7 @@
                                     <!-- Payroll Overtime Days TextBox -->
                                     <Border >
                                         <Grid>
-                                            <TextBox  Text="{Binding extra_work_days}"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  Name="txtNumberOfWorkedDays" Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                            <TextBox  Text="{Binding extra_work_days}"  ToolTip="ايام اضافية"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  Name="txtNumberOfWorkedDays" Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                             <TextBlock IsHitTestVisible="False"  Text="ايام اضافية" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
@@ -107,7 +107,7 @@
                                     <!-- Payroll Overtime Hours TextBox -->
                                     <Border >
                                         <Grid>
-                                            <TextBox Name="txtNumberOfWorkedHours" Text="{Binding extra_work_hours}" Width="130" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
+                                            <TextBox Name="txtNumberOfWorkedHours" ToolTip="ساعات اضافية"  Text="{Binding extra_work_hours}" Width="130" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
                                             <TextBlock IsHitTestVisible="False"  Text="ساعات اضافية" Margin="15,0,0,0"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
@@ -129,7 +129,7 @@
                             <!-- Payroll Bonus TextBox -->
                             <Border Height="40" Margin="0,0,0,15" >
                                 <Grid>
-                                    <TextBox Text="{Binding bonus}"  Name="txtBonus" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" />
+                                    <TextBox Text="{Binding bonus}" ToolTip="زيادة" Name="txtBonus" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" />
                                     <TextBlock IsHitTestVisible="False" Text="زيادة"   HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -150,7 +150,7 @@
                                     <!-- Payroll Absent Days TextBox -->
                                     <Border >
                                         <Grid>
-                                            <TextBox Text="{Binding absent_days}"  Name="txtAbsentDays"  Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True" />
+                                            <TextBox Text="{Binding absent_days}" ToolTip="عدد ايام الغياب"  Name="txtAbsentDays"  Width="130" Margin="0,0,15,0"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True" />
                                             <TextBlock IsHitTestVisible="False"  Text="عدد ايام الغياب" HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
@@ -169,7 +169,7 @@
                                     <!-- Payroll Late Hours TextBox -->
                                     <Border >
                                         <Grid>
-                                            <TextBox Text="{Binding late_hours}" Name="txtLateHours" Width="130" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
+                                            <TextBox Text="{Binding late_hours}" ToolTip="ساعات التأخير" Name="txtLateHours" Width="130" Margin="15,0,0,0" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
                                             <TextBlock IsHitTestVisible="False"  Text="ساعات التأخير" Margin="15,0,0,0"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
@@ -191,7 +191,7 @@
                             <!-- Payroll Cash Advance TextBox -->
                             <Border Height="40" Margin="0,0,0,15" >
                                 <Grid>
-                                    <TextBox  Text="{Binding cash_advance}" Name="txtCashAdvance" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
+                                    <TextBox  Text="{Binding cash_advance}"  ToolTip="سلفة نقدية" Name="txtCashAdvance" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"  behaviors:DigitsOnlyBehavior.IsDigitOnly="True"/>
                                     <TextBlock IsHitTestVisible="False" Text="سلفة نقدية"   HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">

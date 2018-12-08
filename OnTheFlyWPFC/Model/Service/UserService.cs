@@ -20,7 +20,7 @@ namespace OnTheFlyWPFC.Model.Service
                 List<UserDTO> result = con.UserTBLs.Select(s => new UserDTO()
                 {
                     UserName = s.user_name,
-                    password = s.password
+                    Password = s.password
                 }).ToList();
 
                 return result;
@@ -135,7 +135,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     userID = s.userID,
                     UserName = s.user_name,
-                    password = s.password,
+                    Password = s.password,
                     EmployeeID = s.employeeID                    
                 }).ToList();
 
@@ -159,7 +159,7 @@ namespace OnTheFlyWPFC.Model.Service
                     {
                         userID = result.userID,
                         UserName = result.user_name,
-                        password = result.password,
+                        Password = result.password,
                         EmployeeID = result.employeeID,
 
 
@@ -170,7 +170,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     userID = 0,
                     UserName = "0",
-                    password = "0",
+                    Password = "0",
                     EmployeeID = 0
 
                 };
@@ -217,7 +217,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     userID = s.userID,
                     UserName = s.user_name,
-                    password = s.password,
+                    Password = s.password,
                     EmployeeID = s.employeeID
                 }).ToList();
 
@@ -252,7 +252,7 @@ namespace OnTheFlyWPFC.Model.Service
                     {
                         userID = result.userID,
                         UserName = result.user_name,
-                        password = result.password,
+                        Password = result.password,
                         EmployeeID = result.employeeID,
 
 
@@ -263,7 +263,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     userID = 0,
                     UserName = "0",
-                    password = "0",
+                    Password = "0",
                     EmployeeID = 0
 
                 };
@@ -285,7 +285,7 @@ namespace OnTheFlyWPFC.Model.Service
                     {
                         userID = result.userID,
                         UserName = result.user_name,
-                        password = result.password,
+                        Password = result.password,
                         EmployeeID = result.employeeID,
 
                     };
@@ -295,7 +295,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     userID = 0,
                     UserName = "",
-                    password = "",
+                    Password = "",
                     EmployeeID = 0,
                 };
             }
