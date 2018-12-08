@@ -210,6 +210,7 @@
     </Compile>
     <Compile Include="Model\DTO\BranchDTO.cs" />
     <Compile Include="Model\DTO\DeliveryServiceDTO2.cs" />
+    <Compile Include="Model\DTO\ObservableObject.cs" />
     <Compile Include="Model\DTO\PayrollDTO.cs" />
     <Compile Include="Model\DTO\DeliveryPriceDTO.cs" />
     <Compile Include="Model\DTO\DeliveryServiceDTO.cs" />
