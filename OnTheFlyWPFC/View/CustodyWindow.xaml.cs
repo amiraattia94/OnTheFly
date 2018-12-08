@@ -205,10 +205,17 @@ namespace OnTheFlyWPFC.View
 
         private void btnSetting_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new SettingsWindow();
-            newwindow.WindowState = this.WindowState;
-            newwindow.Show();
-            this.Close();
+            if (HelperClass.userGroupRoleDTO.admin_rights)
+            {
+                var newwindow = new SettingsWindow();
+                newwindow.WindowState = this.WindowState;
+                newwindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
     }
 }
