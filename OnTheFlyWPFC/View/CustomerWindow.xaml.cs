@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnTheFlyWPFC.Model.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -87,65 +88,115 @@ namespace OnTheFlyWPFC.View
             WindowState = WindowState.Minimized;
         }
 
-        
+
         private void btnPOS_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new POSWindow();
-            newwindow.WindowState = this.WindowState;
-            newwindow.Show();
-            this.Close();
+            if (HelperClass.userGroupRoleDTO.view_POS)
+            {
+                var newwindow = new POSWindow();
+                newwindow.WindowState = this.WindowState;
+                newwindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
 
         private void btnBranch_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new BranchWindow();
-            newwindow.WindowState = this.WindowState;
-            newwindow.Show();
-            this.Close();
+            if (HelperClass.userGroupRoleDTO.view_branch)
+            {
+                var newwindow = new BranchWindow();
+                newwindow.WindowState = this.WindowState;
+                newwindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
 
 
         private void btnCustomer_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new CustomerWindow();
-            newwindow.WindowState = this.WindowState;
-            newwindow.Show();
-            this.Close();
+            if (HelperClass.userGroupRoleDTO.view_customer)
+            {
+                var newwindow = new CustomerWindow();
+                newwindow.WindowState = this.WindowState;
+                newwindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
 
         private void btnHR_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new HRWindow();
-            newwindow.WindowState = this.WindowState;
-            newwindow.Show();
-            this.Close();
+            if (HelperClass.userGroupRoleDTO.view_HR)
+            {
+                var newwindow = new HRWindow();
+                newwindow.WindowState = this.WindowState;
+                newwindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
 
         private void btnCustody_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new CustodyWindow();
-            newwindow.WindowState = this.WindowState;
-            newwindow.Show();
-            this.Close();
+            if (HelperClass.userGroupRoleDTO.view_custody)
+            {
+                var newwindow = new CustodyWindow();
+                newwindow.WindowState = this.WindowState;
+                newwindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
 
         private void btnFinance_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new FinanceWindow();
-            newwindow.WindowState = this.WindowState;
-            newwindow.Show();
-            this.Close();
+            if (HelperClass.userGroupRoleDTO.view_finance)
+            {
+                var newwindow = new FinanceWindow();
+                newwindow.WindowState = this.WindowState;
+                newwindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
 
         private void btnDelivery_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new DeliveryWindow();
-            newwindow.WindowState = this.WindowState;
-            newwindow.Show();
-            this.Close();
+            if (HelperClass.userGroupRoleDTO.view_delivery)
+            {
+                var newwindow = new DeliveryWindow();
+                newwindow.WindowState = this.WindowState;
+                newwindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
 
-         private void btnLogout_Click(object sender, RoutedEventArgs e)
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.DialogResult dialog = System.Windows.Forms.MessageBox.Show("هل انت متأكد من رغبتك بتسجيل الخروج", "تسجيل الخروج", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (dialog == System.Windows.Forms.DialogResult.Yes)

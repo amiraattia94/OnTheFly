@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OnTheFlyWPFC.Model.DTO;
 using OnTheFlyWPFC.Model.Service;
 using OnTheFlyWPFC.ViewModel;
 
@@ -45,11 +46,11 @@ namespace OnTheFlyWPFC.View
             try
             {
                 user_exist = await userViewModel.GetUserExists(usernametxt.Text, pbPassword.Password);
-                userViewModel.GetUserByName(usernametxt.Text);
+                
                 if (user_exist == true)
                 {
                     
-                    initiateSession(userViewModel, usernametxt.Text);                    
+                    initiateSession(userViewModel.editUser, usernametxt.Text);                    
                     var tempW = new POSWindow();
                     tempW.Show();
                     this.Close();
@@ -74,12 +75,13 @@ namespace OnTheFlyWPFC.View
 
         }
 
-        private void initiateSession(UsersViewModel userViewModel, string text)
+        private void initiateSession(UserDTO userDTO , string text)
         {
+            UsersViewModel usersViewModel = new UsersViewModel();
+            usersViewModel.GetUserByName(text);
             UserGroupRoleViewModel userGroupRoleViewModel = new UserGroupRoleViewModel();
-            loginViewModel.GetLoginUserData(usernametxt.Text, pbPassword.Password);
-            HelperClass.systemUserID = userViewModel.editUser.userID;
-            userGroupRoleViewModel.getUserGroupRoleByUserID(userViewModel.editUser.userID);
+            HelperClass.systemUserID = usersViewModel.editUser.userID;
+            userGroupRoleViewModel.getUserGroupRoleByUserID(usersViewModel.editUser.userID);
             HelperClass.userGroupRoleDTO = userGroupRoleViewModel.EditUserGroupRole;
         }
         

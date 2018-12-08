@@ -70,7 +70,14 @@ namespace OnTheFlyWPFC.View
             HelperClass.userID = a.userID;
 
             if (await usersViewModel.DeleteUserByID(a.userID))
+            {
                 MessageBox.Show("تم المسح بنجاح");
+            }
+            else
+            {
+                MessageBox.Show("عذراَ ، عليك الق");
+            }
+                
             RefreshListView();
 
         }

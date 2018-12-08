@@ -49,7 +49,7 @@ namespace OnTheFlyWPFC.ViewModel
             {
                 viewUser = await _userService.GetAllUser();
             }
-            catch( Exception e)
+            catch( Exception)
             {
                 MessageBox.Show("عفواَ، هناك خطأ في الإتصال بقاعدة البيانات" ,"خطأ",MessageBoxButton.OK);
                
@@ -65,7 +65,7 @@ namespace OnTheFlyWPFC.ViewModel
 
         async public void GetUserByName(string username)
         {
-            viewUser = await _userService.GetUserByName(username);
+            editUser = await _userService.GetUserByName(username);
         }
 
         async public Task<bool> GetUserExists(string user_name, string password)

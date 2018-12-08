@@ -448,6 +448,10 @@ namespace OnTheFlyWPFC.Model.Service
             }
             return false;
         }
+
+
+
+
         async public Task<bool> EditUserGroupRoleByUserID(int userID, UserGroupRoleDTO userGroupRole)
         {
             try
@@ -460,7 +464,7 @@ namespace OnTheFlyWPFC.Model.Service
 
                         try
                         {
-                            result.groupID = userGroupRole.groupID;
+                            
                             result.name = userGroupRole.name;
                             result.view_POS = userGroupRole.view_POS;
                             result.add_POS = userGroupRole.add_POS;
@@ -495,9 +499,9 @@ namespace OnTheFlyWPFC.Model.Service
                             await con.SaveChangesAsync();
                             return true;
                         }
-                        catch
+                        catch (Exception e)
                         {
-
+                            System.Windows.MessageBox.Show(e.Message);
                         }
                         return false;
                     }

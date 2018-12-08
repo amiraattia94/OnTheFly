@@ -655,7 +655,9 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_userGroupRoleTBL_userTBL">
-    <End Role="UserTBL" Type="Self.UserTBL" Multiplicity="1" />
+    <End Role="UserTBL" Type="Self.UserTBL" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="userGroupRoleTBL" Type="Self.userGroupRoleTBL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserTBL">

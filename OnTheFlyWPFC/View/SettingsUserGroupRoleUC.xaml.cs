@@ -96,6 +96,10 @@ namespace OnTheFlyWPFC.View
                     {
                         await userGroupRoleViewModel.EditUserGroupRoleByUserID(selectedUser.userID, userGroupRole);
                     }
+                    if (selectedUser.userID == HelperClass.systemUserID)
+                    {
+                        HelperClass.userGroupRoleDTO = userGroupRole;
+                    }
 
                 }
             }

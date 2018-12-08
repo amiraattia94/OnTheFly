@@ -237,30 +237,37 @@ namespace OnTheFlyWPFC.Model.Service
             
         }
 
-        async public Task<ObservableCollection<UserDTO>> GetUserByName(string username)
+        async public Task<UserDTO> GetUserByName(string username)
         {
             await Task.FromResult(true);
+
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-
-                var result = con.UserTBLs.Where(w => w.user_name.StartsWith(username)).Select(s => new UserDTO()
-                {
-                    userID = s.userID,
-                    username = s.user_name,
-                    password = s.password,
-                    EmployeeID = s.employeeID
-                }).ToList();
+                var result = con.UserTBLs.SingleOrDefault(w => w.user_name == username);
 
                 if (result != null)
                 {
-                    return new ObservableCollection<UserDTO>(result);
-                }
-                else
-                {
-                    return new ObservableCollection<UserDTO>();
-                }
-            }
+                    return new UserDTO()
+                    {
+                        userID = result.userID,
+                        username = result.user_name,
+                        password = result.password,
+                        EmployeeID = result.employeeID,
 
+
+                    };
+                };
+
+                return new UserDTO()
+                {
+                    userID = 0,
+                    username = "0",
+                    password = "0",
+                    EmployeeID = 0
+
+                };
+
+            }
         }
 
         async public Task<UserDTO> GetLastUser()
