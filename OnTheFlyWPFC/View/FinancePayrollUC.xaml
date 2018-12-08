@@ -335,7 +335,17 @@
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                     <Label Content="صرف المرتبات" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="00,0,0,0" VerticalAlignment="Center"/>
                 </StackPanel >
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" >
+                    <Label  Content="الشهر" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                    <ComboBox Name="cmbMonth" Loaded="CmbMonth_Loaded" SelectionChanged="CmbMonth_SelectionChanged" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="DarkSlateGray" >
+                        
+                    </ComboBox>
+                    <Label  Content="السنة" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                    <ComboBox Name="cmbYear" Loaded="CmbYear_Loaded" SelectionChanged="CmbYear_SelectionChanged" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="DarkSlateGray">
 
+                    </ComboBox>
+                </StackPanel>
+                    
 
 
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
@@ -353,21 +363,21 @@
 
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="اسم الموظف" Width="120" DisplayMemberBinding="{Binding employeeID}"/>
-                                    <GridViewColumn Header="عدد ايام حضور العمل" Width="90" DisplayMemberBinding="{Binding extra_work_days}"/>
-                                    <GridViewColumn Header="قيمة العمل الاضافي" Width="90" DisplayMemberBinding="{Binding extra_work_hours}"/>
-                                    <GridViewColumn Header="زيادة" Width="90" DisplayMemberBinding="{Binding bonus}"/>
+                                    <GridViewColumn Header="اسم الموظف" Width="110" DisplayMemberBinding="{Binding employeeName}"/>
+                                    <GridViewColumn Header="ايام حضور" Width="90" DisplayMemberBinding="{Binding extra_work_days}"/>
+                                    <GridViewColumn Header="قيمة الاضافي" Width="110" DisplayMemberBinding="{Binding extra_work_hours}"/>
+                                    <GridViewColumn Header="زيادة" Width="60" DisplayMemberBinding="{Binding bonus}"/>
                                     
-                                    <GridViewColumn Header="سلفة نقدية" Width="90" DisplayMemberBinding="{Binding cash_advance}"/>
-                                    <GridViewColumn Header="ساعات التأخير" Width="90" DisplayMemberBinding="{Binding late_hours}"/>
-                                    <GridViewColumn Header="عدد ايام الغياب" Width="90" DisplayMemberBinding="{Binding absent_days}"/>
-                                    <GridViewColumn Header="صافي الخصم" Width="90" DisplayMemberBinding="{Binding total_deduction}"/>
-                                    <GridViewColumn Header="صافي الزيادة" Width="90" DisplayMemberBinding="{Binding total_addition}"/>
-                                    <GridViewColumn Header="صافي المرتب" Width="90" DisplayMemberBinding="{Binding gross_salary}"/>
-                                    <GridViewColumn Header="الشهر" Width="90" DisplayMemberBinding="{Binding payroll_month}"/>
-                                    <GridViewColumn Header="السنة" Width="90" DisplayMemberBinding="{Binding payroll_year}"/>
-                                    <GridViewColumn Header="تم الصرف" Width="90" DisplayMemberBinding="{Binding paid}"/>
-                                    <GridViewColumn  Width="25" >
+                                    <GridViewColumn Header="سلفة" Width="60" DisplayMemberBinding="{Binding cash_advance}"/>
+                                    <GridViewColumn Header="ساعات التأخير" Width="110" DisplayMemberBinding="{Binding late_hours}"/>
+                                    <GridViewColumn Header="ايام الغياب" Width="90" DisplayMemberBinding="{Binding absent_days}"/>
+                                    <GridViewColumn Header="صافي الخصم" Width="110" DisplayMemberBinding="{Binding total_deduction}"/>
+                                    <GridViewColumn Header="صافي الزيادة" Width="110" DisplayMemberBinding="{Binding total_addition}"/>
+                                    <GridViewColumn Header="صافي المرتب" Width="110" DisplayMemberBinding="{Binding gross_salary}"/>
+                                    <GridViewColumn Header="الشهر" Width="65" DisplayMemberBinding="{Binding payroll_month}"/>
+                                    <GridViewColumn Header="السنة" Width="65" DisplayMemberBinding="{Binding payroll_year}"/>
+                                    <GridViewColumn Header=" الصرف" Width="75" DisplayMemberBinding="{Binding paid}"/>
+                                    <GridViewColumn  Width="30" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <Button Click="EditPayroll" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  >
@@ -376,12 +386,29 @@
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                   
+                                    <!--<GridViewColumn  Width="100" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Border Height="40" Width="80" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
+                                                    <Button Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" CommandParameter="{Binding}" BorderBrush="{x:Null}">
+                                                        <UniformGrid FlowDirection="RightToLeft">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock FontSize="16" Foreground="White" FontFamily="Noto Kufi Arabic" VerticalAlignment="Center" Text="صرف" Margin="0,0,5,0"  />
+                                                                --><!--<materialDesign:PackIcon Kind="Add"  Height="15" Width="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,0,0" />--><!--
+
+                                                            </StackPanel>
+                                                        </UniformGrid>
+                                                    </Button>
+                                                </Border>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>-->
+
                                 </GridView>
 
                             </ListView.View>
                         </ListView>
-                        <Border Height="40" Margin="0,20,0,0" HorizontalAlignment="Left">
+                        <!--<Border Height="40" Margin="0,20,0,0" HorizontalAlignment="Left">
                             <Border Height="40" Width="160" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#ADE23F" Margin="0,0,0,0" >
                                 <Button Background="Transparent" Height="40" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}" Name="btnAddPayroll" Click="btnAddPayroll_Click">
                                     <UniformGrid FlowDirection="RightToLeft">
@@ -393,7 +420,7 @@
                                     </UniformGrid>
                                 </Button>
                             </Border>
-                        </Border>
+                        </Border>-->
                     </StackPanel>
 
                 </UniformGrid>

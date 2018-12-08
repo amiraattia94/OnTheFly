@@ -379,7 +379,7 @@
                         </Border>
                         
                         <Border Height="40" Margin="0,0,0,15">
-                            <ComboBox Name="cmbDriver" Loaded="CmbDriver_Loaded" VerticalAlignment="Stretch"/>
+                            <ComboBox Name="cmbDriver" Loaded="CmbDriver_Loaded"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
                         </Border>
 
 
@@ -525,7 +525,7 @@
                                 <StackPanel Orientation="Vertical">
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="طريقة الدفع : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
-                                        <ComboBox Name="cmbPayment" Loaded="CmbPayment_Loaded"  FontSize="16" Foreground="#768295" SelectionChanged="CmbPayment_SelectionChanged" MinWidth="50" Margin="10,0,10,0">
+                                        <ComboBox Name="cmbPayment" Loaded="CmbPayment_Loaded"   FontSize="16" Foreground="DarkSlateGray" SelectionChanged="CmbPayment_SelectionChanged" MinWidth="50" Margin="10,0,10,0">
                                             <ComboBoxItem Content="رصيد">
                                                 
                                             </ComboBoxItem>

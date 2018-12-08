@@ -112,6 +112,33 @@ namespace OnTheFlyWPFC.Model.Service
 
         }
 
+        async public Task<ObservableCollection<EmployeeDTO>> GetAllActiveEmployees() {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.EmployeeTBLs.Where(w=>w.active == true).Select(s => new EmployeeDTO() {
+                    employeeID = s.employeeID,
+                    name = s.name,
+                    phone1 = s.phone1,
+                    phone2 = s.phone2,
+                    address = s.address,
+                    active = s.active,
+                    jobID = s.jobID,
+                    jobName = s.JobsTBL.job_name,
+                    cityID = s.cityID,
+                    cityName = s.LibyanCitiesTBL.name,
+                    start_date = s.start_date,
+                    end_date = s.end_date,
+                    branchID = s.branchID,
+                    branchName = s.CompanyBranchTBL.branch_name,
+
+                }).ToList();
+
+                return new ObservableCollection<EmployeeDTO>(result);
+            }
+
+        }
+
         async public Task<bool> DeleteEmployeeByID(int employeeID)
         {
             await Task.FromResult(true);
@@ -266,14 +293,49 @@ namespace OnTheFlyWPFC.Model.Service
             }
         }
 
-        async public Task<ObservableCollection<EmployeeDTO>> GetEmployeeByIDs(int[] employeeIDs)
-        {
-            await Task.FromResult(true);
-            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
-            {
+        //async public Task<ObservableCollection<EmployeeDTO>> GetEmployeeByIDs(int[] employeeIDs)
+        //{
+        //    await Task.FromResult(true);
+        //    using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+        //    {
 
-                var result = con.EmployeeTBLs.Where(w => employeeIDs.Contains(w.employeeID)  ).Select(s => new EmployeeDTO()
-                {
+        //        var result = con.EmployeeTBLs.Where(w => employeeIDs.Contains(w.employeeID)  ).Select(s => new EmployeeDTO()
+        //        {
+        //            employeeID = s.employeeID,
+        //            name = s.name,
+        //            phone1 = s.phone1,
+        //            phone2 = s.phone2,
+        //            address = s.address,
+        //            active = s.active,
+        //            jobID = s.jobID,
+        //            jobName = s.JobsTBL.job_name,
+        //            cityID = s.cityID,
+        //            cityName = s.LibyanCitiesTBL.name,
+        //            start_date = s.start_date,
+        //            end_date = s.end_date,
+        //            branchID = s.branchID,
+        //            branchName = s.CompanyBranchTBL.branch_name,
+
+
+        //        }).ToList();
+
+
+        //        if (result != null)
+        //        {
+        //            return new ObservableCollection<EmployeeDTO>(result);
+        //        }
+        //        else
+        //        {
+        //            return new ObservableCollection<EmployeeDTO>();
+        //        }
+        //    }
+        //}
+
+        async public Task<ObservableCollection<EmployeeDTO>> GetEmployeeByIDs(List<int> employeeIDs) {
+            await Task.FromResult(true);
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+
+                var result = con.EmployeeTBLs.Where(w => employeeIDs.Contains(w.employeeID)).Select(s => new EmployeeDTO() {
                     employeeID = s.employeeID,
                     name = s.name,
                     phone1 = s.phone1,
@@ -293,17 +355,14 @@ namespace OnTheFlyWPFC.Model.Service
                 }).ToList();
 
 
-                if (result != null)
-                {
+                if (result != null) {
                     return new ObservableCollection<EmployeeDTO>(result);
                 }
-                else
-                {
+                else {
                     return new ObservableCollection<EmployeeDTO>();
                 }
             }
         }
-
 
         async public Task<ObservableCollection<EmployeeDTO>> GetEmployeeByActive(bool active)
         {
