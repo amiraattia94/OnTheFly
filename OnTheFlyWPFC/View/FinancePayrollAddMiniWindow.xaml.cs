@@ -35,6 +35,8 @@ namespace OnTheFlyWPFC.View
             employeeViewModel = new EmployeeViewModel();
             payrollViewModel = new PayrollViewModel();
             InitializeComponent();
+            txtMonth.Text = DateTime.Now.Month.ToString();
+            txtYear.Text = DateTime.Now.Year.ToString();
         }
 
         private void BtnCloseForm_Click(object sender, RoutedEventArgs e)

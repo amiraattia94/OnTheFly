@@ -56,6 +56,8 @@ namespace OnTheFlyWPFC.View
             cmbPaid.IsEnabled = false;
             txtPaidPrice.IsEnabled = false;
             lblTotalPrice.Content = "0";
+            txtDeliveryPrice.Text = "0";
+            txtPaidPrice.Text = "0";
         }
 
         private void btnCloseForm_Click(object sender, RoutedEventArgs e) {
@@ -242,7 +244,10 @@ namespace OnTheFlyWPFC.View
         }
 
         private void TxtDeliveryPrice_TextChanged(object sender, TextChangedEventArgs e) {
-            lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + decimal.Parse(txtPaidPrice.Text);
+            if (txtPaidPrice.Text != "" && txtDeliveryPrice.Text != "") {
+                lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + decimal.Parse(txtPaidPrice.Text);
+
+            }
 
         }
     }

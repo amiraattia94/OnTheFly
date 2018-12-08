@@ -78,6 +78,25 @@
 
                             <StackPanel Grid.Row="1" Grid.Column="1" >
                                 <!-- Service Tyype ComboBox -->
+
+                                <Border Height="40" Margin="0,0,0,15">
+                                    <Grid>
+                                        <ComboBox Name="cmbMembership" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="CmbMembership_Loaded"  SelectionChanged="CmbMembership_SelectionChanged"  />
+                                        <TextBlock IsHitTestVisible="False" Text="رقم الاشتراك"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=cmbMembership}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Grid>
+                                </Border>
+                                
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Grid>
                                         <ComboBox Name="cmbServiceType" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbServiceType_Loaded" SelectionChanged="CmbServiceType_SelectionChanged"/>
@@ -96,30 +115,13 @@
                                     </Grid>
                                  </Border>
 
-                                  <Border Height="40" Margin="0,0,0,15">
-                                    <Grid>
-                                        <ComboBox Name="cmbMembership" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="CmbMembership_Loaded"  SelectionChanged="CmbMembership_SelectionChanged"  />
-                                        <TextBlock IsHitTestVisible="False" Text="نوع الخدمة"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
-                                            <TextBlock.Style>
-                                                <Style TargetType="{x:Type TextBlock}">
-                                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding Text, ElementName=cmbMembership}" Value="">
-                                                            <Setter Property="Visibility" Value="Visible"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                    </Grid>
-                                 </Border>
-
+                                
                                   
 
                                 <!-- Service Tyype ComboBox -->
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Grid>
-                                        <ComboBox Name="cmbVendors" Loaded="CmbVendors_Loaded" SelectionChanged="CmbVendors_SelectionChanged" VerticalAlignment="Stretch" Foreground="DarkSlateGray"/>
+                                        <ComboBox Name="cmbVendors" Loaded="CmbVendors_Loaded" SelectionChanged="CmbVendors_SelectionChanged" VerticalAlignment="Stretch"  FontSize="16" Foreground="DarkSlateGray"/>
                                         <TextBlock IsHitTestVisible="False" Text="المزود"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                             <TextBlock.Style>
                                                 <Style TargetType="{x:Type TextBlock}">
@@ -138,7 +140,7 @@
                                 <!-- Service Tyype ComboBox -->
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Grid>
-                                        <ComboBox Name="cmbBranches" Loaded="CmbBranches_Loaded" SelectionChanged="CmbBranches_SelectionChanged" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                        <ComboBox Name="cmbBranches" Loaded="CmbBranches_Loaded" SelectionChanged="CmbBranches_SelectionChanged"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
                                         <TextBlock IsHitTestVisible="False" Text="الفرع"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                             <TextBlock.Style>
                                                 <Style TargetType="{x:Type TextBlock}">
@@ -160,7 +162,7 @@
                                 <!-- Service Tyype ComboBox -->
                                 <Border Height="40" Margin="0,0,0,15">
                                  <Grid>
-                                        <ComboBox Name="cmbTrip" Loaded="CmbTrip_Loaded" SelectionChanged="CmbTrip_SelectionChanged" Foreground="DarkSlateGray" VerticalAlignment="Stretch">
+                                        <ComboBox Name="cmbTrip" Loaded="CmbTrip_Loaded" SelectionChanged="CmbTrip_SelectionChanged"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch">
                                             <ComboBoxItem Content="رحلة كاملة">
                                             </ComboBoxItem>
                                             <ComboBoxItem Content="نصف رحلة">
@@ -185,7 +187,7 @@
                                 <!-- Service Tyype ComboBox -->
                                 <Border Height="40" Margin="0,0,0,15">
                                     <Grid>
-                                        <ComboBox Name="cmbPaid" Loaded="CmbPaid_Loaded" SelectionChanged="CmbPaid_SelectionChanged" Foreground="DarkSlateGray" VerticalAlignment="Stretch">
+                                        <ComboBox Name="cmbPaid" Loaded="CmbPaid_Loaded" SelectionChanged="CmbPaid_SelectionChanged"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch">
                                             <ComboBoxItem Content="مدفوع">
                                             </ComboBoxItem>
                                             <ComboBoxItem Content="غير مدفوع">

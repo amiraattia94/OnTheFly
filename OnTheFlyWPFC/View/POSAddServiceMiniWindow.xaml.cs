@@ -53,6 +53,8 @@ namespace OnTheFlyWPFC.View
             cmbPaid.IsEnabled = false;
             txtPaidPrice.IsEnabled = false;
             lblTotalPrice.Content = "0";
+            txtDeliveryPrice.Text = "0";
+            txtPaidPrice.Text = "0";
             datePickerStartDate.SelectedDate = DateTime.Today;
 
         }
@@ -138,10 +140,12 @@ namespace OnTheFlyWPFC.View
                     isfull = false;
                 }
 
+                if(txtPaidPrice.Text != "") {
+                    lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + decimal.Parse(txtPaidPrice.Text);
 
-                lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + decimal.Parse(txtPaidPrice.Text);
+                    txtDeliveryPrice.Text = deliveryPrice.ToString();
 
-                txtDeliveryPrice.Text = deliveryPrice.ToString();
+                }
 
 
 
@@ -196,7 +200,10 @@ namespace OnTheFlyWPFC.View
         }
 
         private void TxtDeliveryPrice_TextChanged(object sender, TextChangedEventArgs e) {
-            lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + decimal.Parse(txtPaidPrice.Text);
+            if(txtPaidPrice.Text != "") {
+                lblTotalPrice.Content = decimal.Parse(txtDeliveryPrice.Text) + decimal.Parse(txtPaidPrice.Text);
+
+            }
         }
 
         private void CmbMembership_Loaded(object sender, RoutedEventArgs e) {

@@ -41,6 +41,10 @@ namespace OnTheFlyWPFC.ViewModel
             viewPayrolls = await payrollService.GetAllPayroll();
         }
 
+        async public void GetAllPayrollAtDate(int month, int year) {
+            viewPayrolls = await payrollService.GetAllPayrollAtDate(month,year);
+        }
+
         async public void GetPayrollByID(int payrollID)
         {
             payroll = await payrollService.GetPayrollByID(payrollID);
@@ -91,8 +95,12 @@ namespace OnTheFlyWPFC.ViewModel
             viewPayrolls = await payrollService.GetPayrollByAbsentDays(absent_days);
         }
 
-        async public void GetPayrollByEmployeeIDs(int[] employeeIDs)
-        {
+        //async public void GetPayrollByEmployeeIDs(int[] employeeIDs)
+        //{
+        //    viewPayrolls = await payrollService.GetPayrollByEmployeeIDs(employeeIDs);
+        //}
+
+        async public void GetPayrollByEmployeeIDs(List<int> employeeIDs) {
             viewPayrolls = await payrollService.GetPayrollByEmployeeIDs(employeeIDs);
         }
     }

@@ -26,13 +26,18 @@ namespace OnTheFlyWPFC.View
         EmployeeViewModel employeeViewModel;
         PayrollViewModel payrollViewModel;
         JobsViewModel jobsViewModel;
+        FinanceViewModel financeViewModel;
         bool SelectedState = false , selectedChangesFromFalseToTrue = false, selected_state_loaded= false;
         public FinancePayrollEditMiniWindow()
         {
             employeeViewModel = new EmployeeViewModel();
             payrollViewModel = new PayrollViewModel();
             jobsViewModel = new JobsViewModel();
+            financeViewModel = new FinanceViewModel();
             InitializeComponent();
+            cmbEmployeeName.IsEnabled = false;
+            txtMonth.IsEnabled = false;
+            txtYear.IsEnabled = false;
         }
 
         private void StkEditPayroll_Loaded(object sender, RoutedEventArgs e)
@@ -109,8 +114,16 @@ namespace OnTheFlyWPFC.View
             }
             if (SelectedState &&selectedChangesFromFalseToTrue && !selected_state_loaded)
             {
-                payrollViewModel.GetLastPayroll();
-                HelperClass.addFinanceFromPayroll(payrollViewModel.payroll);
+                //payrollViewModel.GetLastPayroll();
+                //HelperClass.addFinanceFromPayroll(payrollViewModel.payroll);
+                
+                var finance_reason = "تم دفع مرتب " + employee.name + " للشهر: " + int.Parse(txtMonth.Text) + " و السنة: " + int.Parse(txtYear.Text);
+                try {
+                    await financeViewModel.AddFinance(false, salary, finance_reason, HelperClass.systemUserID, HelperClass.LoginEmployeeName, DateTime.Now);
+                }
+                catch {
+
+                }
             }
         }
 

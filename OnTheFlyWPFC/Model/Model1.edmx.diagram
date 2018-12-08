@@ -4,6 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+
       <Diagram DiagramId="9143e83c2a284254a2eba1aaa23db2cc" Name="Diagram1">
         <EntityTypeShape EntityType="OnTheFlyDBModel.CategoriesTBL" Width="1.5" PointX="1.5" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.CompanyBranchTBL" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
