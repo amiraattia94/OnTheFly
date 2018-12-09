@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:OnTheFlyWPFC.View"
              mc:Ignorable="d"           
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
              xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel">
 
     <UserControl.Resources>
@@ -343,7 +344,7 @@
                         <Border Height="40" Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal" Name="stkEditPreferences1" Loaded="stkEditPreferences1_Loaded">
                                 <TextBlock Name="txtName1" Text="{Binding name}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295" />
-                                <TextBox Name="txtValueMoney1"  Text="{Binding value_money}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295" />
+                                <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Name="txtValueMoney1"  Text="{Binding value_money}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295" />
                                 <Border Height="30" BorderBrush="Transparent" VerticalAlignment="Center"  CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="40,0,0,0" >
                                     <Button Click="btnSave1" Height="30" Width="30" VerticalAlignment="Center" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
                                         <materialDesign:PackIcon Kind="Floppy" VerticalAlignment="Center"  FontSize="25" BorderBrush="Transparent"  Background="Transparent" Foreground="White"/>
@@ -354,7 +355,7 @@
                         <Border Height="40" Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal" Name="stkEditPreferences2" Loaded="stkEditPreferences2_Loaded">
                                 <TextBlock Name="txtName2" Text="{Binding name}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295"/>
-                                <TextBox Name="txtValueMoney2"  Text="{Binding value_money}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295" />
+                                <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Name="txtValueMoney2"  Text="{Binding value_money}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295" />
                                 <Border Height="30" BorderBrush="Transparent" VerticalAlignment="Center"  CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="40,0,0,0" >
                                     <Button Click="btnSave2" Height="30" Width="30" VerticalAlignment="Center" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
                                         <materialDesign:PackIcon Kind="Floppy" VerticalAlignment="Center"  FontSize="25" BorderBrush="Transparent"  Background="Transparent" Foreground="White"/>
@@ -365,7 +366,7 @@
                         <Border Height="40" Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal" Name="stkEditPreferences3" Loaded="stkEditPreferences3_Loaded">
                                 <TextBlock Name="txtName3" Text="{Binding name}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295"/>
-                                <TextBox Name="txtValueMoney3"  Text="{Binding value_money}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295" />
+                                <TextBox  behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Name="txtValueMoney3"  Text="{Binding value_money}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295" />
                                 <Border Height="30" BorderBrush="Transparent" VerticalAlignment="Center"  CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="40,0,0,0" >
                                     <Button Click="btnSave3" Height="30" Width="30" VerticalAlignment="Center" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
                                         <materialDesign:PackIcon Kind="Floppy" VerticalAlignment="Center"  FontSize="25" BorderBrush="Transparent"  Background="Transparent" Foreground="White"/>
@@ -376,7 +377,7 @@
                         <Border Height="40" Margin="0,0,0,15">
                             <StackPanel Orientation="Horizontal" Name="stkEditPreferences4" Loaded="stkEditPreferences4_Loaded">
                                 <TextBlock Name="txtName4" Text="{Binding name}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295"/>
-                                <TextBox Name="txtValueMoney4"  Text="{Binding value_money}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295" />
+                                <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Name="txtValueMoney4"  Text="{Binding value_money}" Width="150" VerticalAlignment="Center" FontSize="16" Foreground="#768295" />
                                 <Border Height="30" BorderBrush="Transparent" VerticalAlignment="Center"  CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="40,0,0,0" >
                                     <Button Click="btnSave4" Height="30" Width="30" VerticalAlignment="Center" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
                                         <materialDesign:PackIcon Kind="Floppy" VerticalAlignment="Center"  FontSize="25" BorderBrush="Transparent"  Background="Transparent" Foreground="White"/>
