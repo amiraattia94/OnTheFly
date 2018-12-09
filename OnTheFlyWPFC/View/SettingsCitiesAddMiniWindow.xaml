@@ -363,7 +363,7 @@
                         <!-- City Code TextBox -->
                         <Border Height="40" Margin="0,0,0,15">
                             <Grid>
-                                <TextBox x:Name="txtCityCode"  Text="{Binding cityDTO.name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  Background="Transparent"   HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtCityCode"  Text="{Binding cityDTO.cityCode, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  Background="Transparent"   HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
                                 <TextBlock IsHitTestVisible="False"  Text="رمز المدينة"  Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <TextBlock.Style>
                                         <Style TargetType="{x:Type TextBlock}">
@@ -382,7 +382,7 @@
                         <!-- City Name TextBox -->
                         <Border Height="40" Margin="0,0,0,15">
                             <Grid>
-                                <TextBox x:Name="txtCityName" Background="Transparent" Text="{Binding cityDTO.cityCode, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center" Width="240"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtCityName" Background="Transparent" Text="{Binding cityDTO.name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center" Width="240"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
                                 <TextBlock IsHitTestVisible="False"  Text="اسم المدينة"  Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <TextBlock.Style>
                                         <Style TargetType="{x:Type TextBlock}">
