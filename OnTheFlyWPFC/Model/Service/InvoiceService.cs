@@ -108,7 +108,7 @@ namespace OnTheFlyWPFC.Model.Service {
                         custodyID = s.custodyID
 
 
-                    }).ToList();
+                    }).OrderByDescending(o => o.invoiceID).ToList();
 
                     return new ObservableCollection<InvoiceDTO>(result);
                 }

@@ -213,7 +213,21 @@
 
                                 </Border>
                                 <Border Height="40" Margin="0,0,0,15">
-                                    <TextBox Name="txtDeliveryPrice" Loaded="TxtDeliveryPrice_Loaded" TextChanged="TxtDeliveryPrice_TextChanged" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" />
+                                    <Grid>
+                                        <TextBox Name="txtDeliveryPrice" Loaded="TxtDeliveryPrice_Loaded" TextChanged="TxtDeliveryPrice_TextChanged" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" />
+                                        <TextBlock IsHitTestVisible="False" Text="0"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=txtDeliveryPrice}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Grid>
                                 </Border>
                                 <!--<Border Height="40" Margin="0,0,0,15">
 

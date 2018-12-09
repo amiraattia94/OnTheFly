@@ -19,9 +19,7 @@ namespace OnTheFlyWPFC.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<UserDTO> viewUser { get; set; }
-        public UserDTO editUser {
-            get;
-            set; }
+        public UserDTO editUser { get; set; }
 
 
         public UsersViewModel()

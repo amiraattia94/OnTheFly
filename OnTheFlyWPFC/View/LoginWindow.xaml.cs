@@ -79,10 +79,18 @@ namespace OnTheFlyWPFC.View
         {
             UsersViewModel usersViewModel = new UsersViewModel();
             usersViewModel.GetUserByName(text);
-            UserGroupRoleViewModel userGroupRoleViewModel = new UserGroupRoleViewModel();
             HelperClass.systemUserID = usersViewModel.editUser.userID;
+
+
+            UserGroupRoleViewModel userGroupRoleViewModel = new UserGroupRoleViewModel();
             userGroupRoleViewModel.getUserGroupRoleByUserID(usersViewModel.editUser.userID);
             HelperClass.userGroupRoleDTO = userGroupRoleViewModel.EditUserGroupRole;
+
+
+            loginViewModel.GetLoginUserData(usernametxt.Text, pbPassword.Password);
+
+
+
         }
         
          private string get_message()

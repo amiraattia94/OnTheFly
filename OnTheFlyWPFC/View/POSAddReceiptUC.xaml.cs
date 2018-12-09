@@ -125,6 +125,7 @@ namespace OnTheFlyWPFC.View
             lblCustomerCredit.Content = customerViewModel.customer.credit;
             lblCustomerCreditAfter.Content = customerViewModel.customer.credit - decimal.Parse(lblTotalAfter.Content.ToString());
 
+            cmbPayment.SelectedIndex = 0;
           
 
             //invoiceViewModel.DeleteAllDeliveryServiceByinvoice(invoiceViewModel.invoiceNewID);
@@ -353,6 +354,16 @@ namespace OnTheFlyWPFC.View
                     return;
                 }
 
+                if(totalPriceAfter < 0) {
+                    MessageBox.Show("لايمكن تخزين قيمة سالبة");
+                    return;
+                }
+
+                if(txtDiscount.Text == "") {
+                    txtDiscount.Text = "0";
+                }
+
+
                 if (cmbPayment.SelectedIndex == 0) {
                     if (custodyID != null) {
                         if (await invoiceViewModel.DeleteCustody((int)custodyID))
@@ -365,9 +376,17 @@ namespace OnTheFlyWPFC.View
                     }
                 }
                 else if (cmbPayment.SelectedIndex == 1) {
+                    if (custodyID != null) {
+                        if (await invoiceViewModel.DeleteCustody((int)custodyID))
+                            custodyID = null;
+                    }
+
                     custodyID = await invoiceViewModel.AddCustodyInt((int)cmbDriver.SelectedValue, totalPriceAfter, false, HelperClass.POSInvoiceID);
                     if (custodyID != null) {
-                        MessageBox.Show("تم الحفظ");
+                        //MessageBox.Show("تم الحفظ");
+                        //return;
+                    }
+                    else {
                         return;
                     }
                 }

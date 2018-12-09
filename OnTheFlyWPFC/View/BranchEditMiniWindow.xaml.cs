@@ -82,6 +82,28 @@ namespace OnTheFlyWPFC.View
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+
+            if (cmbBranchCities.SelectedIndex == -1) {
+                MessageBox.Show("يجب ملء الحقول");
+                return;
+            }
+            if (cmbBranchStatus.SelectedIndex == -1) {
+                MessageBox.Show("يجب ملء الحقول");
+                return;
+
+            }
+            if (txtBranchAddress.Text == "") {
+                MessageBox.Show("يجب ملء الحقول");
+
+                return;
+            }
+            if (txtBranchName.Text == "") {
+                MessageBox.Show("يجب ملء الحقول");
+
+                return;
+            }
+
+
             branchViewModel = new BranchViewModel();
             var city = (CityDTO)cmbBranchCities.SelectedValue;
             bool status = HelperClass.TrueOrFalse(cmbBranchStatus.SelectedIndex.ToString());

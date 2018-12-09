@@ -52,6 +52,26 @@ namespace OnTheFlyWPFC.View
             var city = (CityDTO)cmbBranchCities.SelectedValue;
             bool status = HelperClass.TrueOrFalse(cmbBranchStatus.SelectedIndex.ToString());
 
+            if(cmbBranchCities.SelectedIndex == -1) {
+                MessageBox.Show("يجب ملء الحقول");
+                return;
+            }
+            if (cmbBranchStatus.SelectedIndex == -1) {
+                MessageBox.Show("يجب ملء الحقول");
+                return;
+                
+            }
+            if (txtBranchAddress.Text == "") {
+                MessageBox.Show("يجب ملء الحقول");
+
+                return;
+            }
+            if (txtBranchName.Text == "") {
+                MessageBox.Show("يجب ملء الحقول");
+
+                return;
+            }
+
             if (await _branchViewModel.AddBranch(txtBranchName.Text, city.cityCode, txtBranchAddress.Text, status))
             {
                 MessageBox.Show("تم الحفظ");
