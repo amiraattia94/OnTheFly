@@ -20,7 +20,7 @@ namespace OnTheFlyWPFC.ViewModel {
 
         private CityService _cityService;
         public List<string> CN { get; private set; }
-        public CityDTO cityDTO;
+        public CityDTO cityDTO { get; set; }
 
         private ObservableCollection<CityDTO> _cityName;
         public ObservableCollection<CityDTO> CityName {

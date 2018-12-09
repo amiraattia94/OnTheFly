@@ -14,7 +14,7 @@
              xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel">
 
     <Window.Resources>
-
+        <viewmodel:CityViewModel x:Key="DataContext"/>
 
 
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
@@ -356,14 +356,14 @@
                     </Grid>
 
 
-                    <StackPanel Grid.Row="1" Grid.Column="1" Name="StkEditCity" Loaded="StkEditCity_Loaded">
+                    <StackPanel  DataContext="{StaticResource DataContext}" Grid.Row="1" Grid.Column="1" Name="StkEditCity" Loaded="StkEditCity_Loaded">
                         <Label Content="تعديل مدينة" FontFamily="Noto Kufi Arabic" HorizontalAlignment="Center" FontSize="18" Foreground="#768295"  VerticalAlignment="Center" Grid.Column="1"  Height="44" Margin="0,8"/>
 
 
                         <!-- City Code TextBox -->
                         <Border Height="40" Margin="0,0,0,15">
                             <Grid>
-                                <TextBox x:Name="txtCityCode" Text="{Binding cityCode}" Background="Transparent"   HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtCityCode" Text="{Binding cityCode, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  Background="Transparent"   HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
                                 <TextBlock IsHitTestVisible="False"  Text="رمز المدينة"  Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <TextBlock.Style>
                                         <Style TargetType="{x:Type TextBlock}">
@@ -382,7 +382,7 @@
                         <!-- City Name TextBox -->
                         <Border Height="40" Margin="0,0,0,15">
                             <Grid>
-                                <TextBox x:Name="txtCityName" Text="{Binding name}" Background="Transparent"   HorizontalAlignment="Center" Width="240"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtCityName" Text="{Binding name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Background="Transparent"   HorizontalAlignment="Center" Width="240"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
                                 <TextBlock IsHitTestVisible="False"  Text="اسم المدينة"  Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <TextBlock.Style>
                                         <Style TargetType="{x:Type TextBlock}">
