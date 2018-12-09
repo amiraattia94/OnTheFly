@@ -20,6 +20,7 @@ namespace OnTheFlyWPFC.ViewModel {
 
         private CityService _cityService;
         public List<string> CN { get; private set; }
+        public CityDTO cityDTO;
 
         private ObservableCollection<CityDTO> _cityName;
         public ObservableCollection<CityDTO> CityName {
@@ -49,7 +50,7 @@ namespace OnTheFlyWPFC.ViewModel {
         public CityViewModel() {
             _cityName = new ObservableCollection<CityDTO>();
             _cityService = new CityService();
-
+            cityDTO = new CityDTO();
 
         }
         
@@ -59,9 +60,52 @@ namespace OnTheFlyWPFC.ViewModel {
             foreach(var city in cities) {
                 _cityName.Add(city);
                 CN.Add(city.name);
-                
-
             }
-        }       
+        }
+
+        async public Task<bool> DeleteCityCode(string code)
+        {
+            return await _cityService.DeleteCityByCode(code);
+        }
+
+        async public void GetAllTheCities()
+        {
+            _cityName = await _cityService.GetAllCities();
+        }
+
+
+        async public Task<bool> AddCity(string code, string name)
+        {
+            return await _cityService.AddCity(code,name);
+        }
+    
+
+        async public Task<bool> EditCity(string code, string name)
+        {
+          return await _cityService.EditCityByCode(code, name);
+        }
+        async public Task<bool> EditCity(string oldcode, string newcode, string name)
+        {
+            return await _cityService.EditCityByCode(oldcode,newcode, name);
+        }
+
+        async public void GetCityByCode(string code)
+        {
+
+            cityDTO = await _cityService.GetCityByCode(code);
+        }
+
+        async public void GetCityStartByName(string name)
+        {
+            CityName = await _cityService.GetCityStartByName(name);
+        }
+
+        async public void GetCityStartByCode(string code)
+        {
+            CityName = await _cityService.GetCityStartByCode(code);
+        }
+
+        
+
     }
 }

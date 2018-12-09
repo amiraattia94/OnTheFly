@@ -40,11 +40,12 @@ namespace OnTheFlyWPFC.View
 
         private async void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
+            /*
             bool valid = usersViewModel.editUser.IsValid;
             if (valid)
-            {
-                //usersViewModel = new UsersViewModel();
-                var employee = (EmployeeDTO)cmbUserEmployee.SelectedValue;
+            {*/
+            //usersViewModel = new UsersViewModel();
+            var employee = (EmployeeDTO)cmbUserEmployee.SelectedValue;
 
 
                 if (await usersViewModel.AddUser(txtUserName.Text, pbPassword.Password, employee.employeeID))
@@ -59,13 +60,13 @@ namespace OnTheFlyWPFC.View
                 {
                     MessageBox.Show("عذراَ ، حدثت مشكلة في عملية الحفظ");
                 }
-
+/*
             }
             else
             {
                 MessageBox.Show("عذراَ ، عليك التحقق من صحة الحقول اولاَ");
             }
-
+            */
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -124,5 +125,6 @@ namespace OnTheFlyWPFC.View
           
 
         }
+
     }
 }

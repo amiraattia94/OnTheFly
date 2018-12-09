@@ -67,7 +67,7 @@ namespace OnTheFlyWPFC.View
         {
             usersViewModel.GetAllUsers();
             cmbUserName.ItemsSource = usersViewModel.viewUser;
-            cmbUserName.DisplayMemberPath = "username";
+            cmbUserName.DisplayMemberPath = "UserName";
         }
 
         private async void btnEditSave_Click(object sender, RoutedEventArgs e)

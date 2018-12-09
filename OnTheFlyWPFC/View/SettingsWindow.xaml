@@ -517,7 +517,13 @@
                                 <TextBlock Text="الأدوار و الصلاحيات" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
-                        
+                        <ListViewItem x:Name="ItemCities" Height="60" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="City" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="المدن" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+
                     </ListView>
                     </StackPanel>
                 </UniformGrid>

@@ -512,6 +512,15 @@
     <Compile Include="View\HRJobDescriptionUC.xaml.cs">
       <DependentUpon>HRJobDescriptionUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SettingsCitiesAddMiniWindow.xaml.cs">
+      <DependentUpon>SettingsCitiesAddMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsCitiesEditMiniWindow.xaml.cs">
+      <DependentUpon>SettingsCitiesEditMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsCitiesUC.xaml.cs">
+      <DependentUpon>SettingsCitiesUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SettingsUserAddMiniWindow.xaml.cs">
       <DependentUpon>SettingsUserAddMiniWindow.xaml</DependentUpon>
     </Compile>
@@ -760,6 +769,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HRJobDescriptionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsCitiesAddMiniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsCitiesEditMiniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsCitiesUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

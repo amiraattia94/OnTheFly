@@ -92,6 +92,9 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSAddReceip
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSViewReceiptUC.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSWindow.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionUC.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsCitiesAddMiniWindow.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsCitiesEditMiniWindow.g.cs
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsCitiesUC.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserAddMiniWindow.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserEditMiniWindow.g.cs
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserGroupRoleUC.g.cs
@@ -161,6 +164,9 @@ C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSAddReceip
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSViewReceiptUC.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\HRJobDescriptionUC.baml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsCitiesAddMiniWindow.baml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsCitiesEditMiniWindow.baml
+C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsCitiesUC.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserAddMiniWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserEditMiniWindow.baml
 C:\Users\User\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\SettingsUserGroupRoleUC.baml
