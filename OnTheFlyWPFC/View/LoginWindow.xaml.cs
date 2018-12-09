@@ -113,8 +113,8 @@ namespace OnTheFlyWPFC.View
     }
 
         private void btnCloseForm_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
+        {            
+           System.Windows.Application.Current.Shutdown();       
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {

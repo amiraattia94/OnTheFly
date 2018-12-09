@@ -59,7 +59,12 @@ namespace OnTheFlyWPFC.View
 
                         MainUC.Children.Add(usc);
                         break;
-                    
+                case "ItemCities":
+                    usc = new SettingsCitiesUC();
+
+                    MainUC.Children.Add(usc);
+                    break;
+
 
                 default:
                         break;
@@ -74,8 +79,16 @@ namespace OnTheFlyWPFC.View
 
             private void btnCloseForm_Click(object sender, RoutedEventArgs e)
             {
-                Close();
-            }
+                System.Windows.Forms.DialogResult dialog = System.Windows.Forms.MessageBox.Show("هل انت متأكد من رغبتك بإيقاف البرنامج", "تأكيد", System.Windows.Forms.MessageBoxButtons.YesNo);
+                if (dialog == System.Windows.Forms.DialogResult.Yes)
+                {
+                    //     Close entire appliction
+                    System.Windows.Application.Current.Shutdown();
+                }
+                else
+                {
+                }
+              }
 
             private void btnMaxForm_Click(object sender, RoutedEventArgs e)
             {

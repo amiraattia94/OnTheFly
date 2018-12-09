@@ -32,6 +32,7 @@ namespace OnTheFlyWPFC.Model.Service {
         public static int POSInvoiceID;
         public static int POSInvoiceIDView;
         public static int POSDeliveryID;
+        public static string cityCode;
 
 
         //LoginUserData
