@@ -124,9 +124,13 @@ namespace OnTheFlyWPFC.Model.DTO
 
         private string ValidatePassword()
         {
-            if (String.IsNullOrWhiteSpace(UserName))
+            if (String.IsNullOrWhiteSpace(Password))
             {
-                return "لا يمكن ترك اسم المستخدم فارغا";
+                return "لا يمكن ترك كلمة المرور فارغة";
+            }
+            else if (Password.Length > 25)
+            {
+                return "لا يمكن ان تتجاوز كلمة المرور 20 حرفاَ";
             }
             return null;
         }
@@ -136,6 +140,10 @@ namespace OnTheFlyWPFC.Model.DTO
             if (String.IsNullOrWhiteSpace(UserName))
             {
                 return "لا يمكن ترك اسم المستخدم فارغا";
+            }
+            else if (UserName.Length > 25)
+            {
+                return "لا يمكن ان يتجاوز الاسم 25 حرفاَ";
             }
             return null;
         }

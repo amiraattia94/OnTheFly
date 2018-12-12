@@ -126,7 +126,7 @@ namespace OnTheFlyWPFC.Model.Service
                     employeeName = s.EmployeeTBL.name,
                     extra_work_days = s.extra_work_days,
                     bonus = s.bonus,
-                    extra_work_hours = s.extra_work_hours,
+                   // extra_work_days = s.extra_work_hours,
                     cash_advance = s.cash_advance,
                     late_hours = s.late_hours,
                     absent_days = s.absent_days,
