@@ -29,6 +29,7 @@ namespace OnTheFlyWPFC.Model.Service {
                                 deliveryID = deliveryID,
                                 totalcost = totalcost,
                                 totaldelivery = totaldeliveryPrice,
+                                returned = false,
 
 
                             });
@@ -80,6 +81,45 @@ namespace OnTheFlyWPFC.Model.Service {
             }
             return false;
         }
+
+        async public Task<bool> DeleteInvoiceByID(int InvoiceID)
+        {
+            await Task.FromResult(true);
+
+            try
+            {
+                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+                {
+                    var Result = con.invoiceTBLs.SingleOrDefault(w => w.invoiceID == InvoiceID);
+                    if (Result != null)
+                    {
+
+                        try
+                        {
+                            Result.returned = true;
+
+                            await con.SaveChangesAsync();
+                            return true;
+                        }
+                        catch
+                        {
+
+                        }
+                        return false;
+                    }
+
+
+                }
+            }
+            catch
+            {
+
+            }
+
+            return false;
+
+        }
+
 
         async public Task<ObservableCollection<InvoiceDTO>> GetAllInvoice() {
             await Task.FromResult(true);
@@ -146,7 +186,11 @@ namespace OnTheFlyWPFC.Model.Service {
                             discount = (decimal)s.discount,
                             totalafter = (decimal)s.totalcost,
                             custodyID = s.custodyID,
-                            totalBefore = (decimal)s.DeliveryServiceTBLs.Where(w => w.invoiceID == invoiceID).Select(x => x.deliveryPrice + x.productPrice).Sum()
+                            totalBefore = (decimal)s.DeliveryServiceTBLs.Where(w => w.invoiceID == invoiceID).Select(x => x.deliveryPrice + x.productPrice).Sum(),
+                            InvoiceState = s.returned,
+                            
+
+
                         };
                     };
                 }

@@ -35,6 +35,10 @@ namespace OnTheFlyWPFC.Model.DTO
         public decimal totalafter { get; set; }
         public decimal totalBefore { get; set; }
 
+        public bool? InvoiceState { get; set; }
+        
+
+
         public int? custodyID { get; set; }
 
     }

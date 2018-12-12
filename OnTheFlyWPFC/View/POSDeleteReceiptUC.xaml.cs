@@ -68,6 +68,18 @@ namespace OnTheFlyWPFC.View
                     else if (invoiceViewModel.Invoice.custodyID != null) {
                         cmbPayment.Content = "عهدة رقم " + invoiceViewModel.Invoice.custodyID;
                     }
+
+                    if (invoiceViewModel.Invoice.InvoiceState == true )
+                    {
+                        lblinvoiceState.Content = "ملغية";
+                    }
+                    else if (invoiceViewModel.Invoice.InvoiceState == false)
+                    {
+                        lblinvoiceState.Content = "مفاعلة";
+                    }
+
+
+                    
                 }
                 
             }
@@ -178,10 +190,27 @@ namespace OnTheFlyWPFC.View
         }
 
         private void LblinvoiceState_Loaded(object sender, RoutedEventArgs e) {
-
+            
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e) {
+
+            if (HelperClass.userGroupRoleDTO.delete_POS)
+            {
+                if (await invoiceViewModel.DeleteInvoiceByID(, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), decimal.Parse(txtDeliveryPrice.Text), true, (DateTime)datePickerStartDate.SelectedDate))
+                {
+                    MessageBox.Show("تم الحفظ");
+                    UpdateMainList.DynamicInvoke();
+                    this.Close();
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
 
         }
     }
