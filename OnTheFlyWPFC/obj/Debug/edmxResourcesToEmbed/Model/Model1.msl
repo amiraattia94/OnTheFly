@@ -140,6 +140,7 @@
           <ScalarProperty Name="deliveryID" ColumnName="deliveryID" />
           <ScalarProperty Name="totalcost" ColumnName="totalcost" />
           <ScalarProperty Name="totaldelivery" ColumnName="totaldelivery" />
+          <ScalarProperty Name="returned" ColumnName="returned" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

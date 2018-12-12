@@ -164,6 +164,7 @@
     <Property Name="deliveryID" Type="Int32" />
     <Property Name="totalcost" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="totaldelivery" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="returned" Type="Boolean" />
     <NavigationProperty Name="custodyTBLs" Relationship="Self.FK_custodyTBL_invoiceTBL" FromRole="invoiceTBL" ToRole="custodyTBL" />
     <NavigationProperty Name="custodyTBL" Relationship="Self.FK_invoiceTBL_custodyTBL" FromRole="invoiceTBL" ToRole="custodyTBL" />
     <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="invoiceTBL" ToRole="CustomerTBL" />

@@ -257,8 +257,8 @@
       <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Model1.cs">
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Model1.Designer.cs">
@@ -296,7 +296,7 @@
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\UserGroupRoleTBL.cs">
+    <Compile Include="Model\userGroupRoleTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\UserGroupTBL.cs">
@@ -502,6 +502,9 @@
     </Compile>
     <Compile Include="View\POSAddReceipetSearchCustomerMiniWindow.xaml.cs">
       <DependentUpon>POSAddReceipetSearchCustomerMiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POSDeleteReceiptUC.xaml.cs">
+      <DependentUpon>POSDeleteReceiptUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\POSViewReceiptUC.xaml.cs">
       <DependentUpon>POSViewReceiptUC.xaml</DependentUpon>
@@ -759,6 +762,10 @@
     <Page Include="View\POSAddReceipetSearchCustomerMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\POSDeleteReceiptUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\POSViewReceiptUC.xaml">
       <SubType>Designer</SubType>

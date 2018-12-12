@@ -130,6 +130,7 @@
     <Property Name="deliveryID" Type="int" />
     <Property Name="totalcost" Type="money" />
     <Property Name="totaldelivery" Type="money" />
+    <Property Name="returned" Type="bit" />
   </EntityType>
   <EntityType Name="JobsTBL">
     <Key>

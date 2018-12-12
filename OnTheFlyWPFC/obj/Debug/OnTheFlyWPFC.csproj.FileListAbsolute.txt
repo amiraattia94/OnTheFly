@@ -184,3 +184,5 @@ C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.c
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.csproj.CopyComplete
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.exe
 C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\OnTheFlyWPFC.pdb
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSDeleteReceiptUC.g.cs
+C:\Users\Altah3r\Documents\GitHub\OnTheFly\OnTheFlyWPFC\obj\Debug\View\POSDeleteReceiptUC.baml

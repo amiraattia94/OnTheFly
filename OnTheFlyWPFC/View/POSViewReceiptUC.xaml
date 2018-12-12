@@ -479,12 +479,14 @@
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
+
+                            
                             <StackPanel Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <!--<Border Height="40" Margin="0,0,30,0">
                                     <TextBox Name="txtCustodyNumber" Text="رقم العهدة" Foreground="#768295" FontSize="16" Height="40" VerticalAlignment="Top" MinWidth="70" />
                                 </Border>-->
 
-                                
+
 
 
                             </StackPanel>
