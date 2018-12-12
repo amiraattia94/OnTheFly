@@ -366,8 +366,7 @@
 
                                 <GridViewColumn Header="القيمة" Width="70" DisplayMemberBinding="{Binding totalafter}"/>
                                 
-                                <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
-                                <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding C}"/>
+                                
                             </GridView>
                         </ListView.View>
                     </ListView>

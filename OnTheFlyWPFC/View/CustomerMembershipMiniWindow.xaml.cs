@@ -61,43 +61,61 @@ namespace OnTheFlyWPFC.View
 
         private void addNewMembership_Click(object sender, RoutedEventArgs e)
         {
-            lblMembership.Content = "اضافة عضوية";
-            txtMembershipID.Text = "ادخل رقم العضوية";
-            txtMembershipID.IsEnabled = true;
-            cmbServiceCategory.SelectedIndex = -1;
-            cmbVendors.SelectedIndex = -1;
-            borderSaveOrEdit.Background = (Brush)(new BrushConverter().ConvertFrom("#ADE23F"));
-            txtSaveOrEdit.Text = "اضافة";
-            saveButton = true;
+            if (HelperClass.userGroupRoleDTO.add_customer) {
+                lblMembership.Content = "اضافة عضوية";
+                txtMembershipID.Text = "ادخل رقم العضوية";
+                txtMembershipID.IsEnabled = true;
+                cmbServiceCategory.SelectedIndex = -1;
+                cmbVendors.SelectedIndex = -1;
+                borderSaveOrEdit.Background = (Brush)(new BrushConverter().ConvertFrom("#ADE23F"));
+                txtSaveOrEdit.Text = "اضافة";
+                saveButton = true;
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
 
         }
 
         private void EditMembership(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as MembershipDTO;
+            if (HelperClass.userGroupRoleDTO.add_customer) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as MembershipDTO;
 
-            lblMembership.Content = "تعديل عضوية";
-            txtMembershipID.Text = a.membershipID;
-            txtMembershipID.IsEnabled = false;
-            cmbServiceCategory.SelectedValue = a.vendorCategoryID;
-            vendorViewModel.GetVendors(a.vendorCategoryID);
-            cmbVendors.ItemsSource = vendorViewModel.vendors;
-            cmbVendors.SelectedValue = a.vendorID;
-            borderSaveOrEdit.Background = (Brush)(new BrushConverter().ConvertFrom("#2C99F5"));
-            txtSaveOrEdit.Text = "تعديل";
-            saveButton = false;
+                lblMembership.Content = "تعديل عضوية";
+                txtMembershipID.Text = a.membershipID;
+                txtMembershipID.IsEnabled = false;
+                cmbServiceCategory.SelectedValue = a.vendorCategoryID;
+                vendorViewModel.GetVendors(a.vendorCategoryID);
+                cmbVendors.ItemsSource = vendorViewModel.vendors;
+                cmbVendors.SelectedValue = a.vendorID;
+                borderSaveOrEdit.Background = (Brush)(new BrushConverter().ConvertFrom("#2C99F5"));
+                txtSaveOrEdit.Text = "تعديل";
+                saveButton = false;
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
 
         }
 
         async private void DeleteMembership(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as MembershipDTO;
+            if (HelperClass.userGroupRoleDTO.delete_customer) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as MembershipDTO;
 
-            if (await customerViewModel.DeleteMembershipByID(a.membershipID))
-                MessageBox.Show("تم المسح بنجاح");
-            RefreshList();
+                if (await customerViewModel.DeleteMembershipByID(a.membershipID))
+                    MessageBox.Show("تم المسح بنجاح");
+                RefreshList();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
 
         private void cmbServiceCategory_Loaded(object sender, RoutedEventArgs e)

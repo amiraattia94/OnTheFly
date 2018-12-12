@@ -98,46 +98,74 @@ namespace OnTheFlyWPFC.View
         }
 
         private void VendorBranches_click(object sender, RoutedEventArgs e) {
-            Button button = sender as Button;
-            var a = button.CommandParameter as VendorDTO;
-            HelperClass.vendorID = (int)a.VendorID;
+            if (HelperClass.userGroupRoleDTO.add_vendor) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as VendorDTO;
+                HelperClass.vendorID = (int)a.VendorID;
 
-            var newwindow = new DeliveryVendorsMiniWindow();
+                var newwindow = new DeliveryVendorsMiniWindow();
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.ShowDialog();
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
 
         private void Add(object sender, RoutedEventArgs e) {
-            var newwindow = new DeliveryVendorsAddMiniWindow();
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
-            newwindow.ShowDialog();
+            if (HelperClass.userGroupRoleDTO.add_vendor) {
+                var newwindow = new DeliveryVendorsAddMiniWindow();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
 
         private void EditVendor(object sender, RoutedEventArgs e) {
-            Button button = sender as Button;
-            var a = button.CommandParameter as VendorDTO;
-            HelperClass.vendorID = (int)a.VendorID;
+            if (HelperClass.userGroupRoleDTO.add_vendor) {
 
-            var newwindow = new DeliveryVendorsEditMiniWindow();
+                Button button = sender as Button;
+                var a = button.CommandParameter as VendorDTO;
+                HelperClass.vendorID = (int)a.VendorID;
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                var newwindow = new DeliveryVendorsEditMiniWindow();
 
-            newwindow.ShowDialog();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
 
         async private void DeleteVendor(object sender, RoutedEventArgs e) {
-            Button button = sender as Button;
-            var a = button.CommandParameter as VendorDTO;
-            HelperClass.vendorID = (int)a.VendorID;
+            if (HelperClass.userGroupRoleDTO.delete_vendor) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as VendorDTO;
+                HelperClass.vendorID = (int)a.VendorID;
 
-            if (await vendorViewModel.DeleteVendorByID((int)a.VendorID))
-                MessageBox.Show("تم المسح بنجاح");
-            RefreshListView();
+                if (await vendorViewModel.DeleteVendorByID((int)a.VendorID))
+                    MessageBox.Show("تم المسح بنجاح");
+                RefreshListView();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+            
 
         }
 

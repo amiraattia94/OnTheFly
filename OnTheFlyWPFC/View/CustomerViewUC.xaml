@@ -342,7 +342,7 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
-                    <ComboBox Name="cmbSearchType" FontFamily="Noto Kufi Arabic" FontSize="12" Foreground="#8C9AB6" Margin="20,0" HorizontalAlignment="Left" Width="100" Height="30">
+                    <ComboBox Name="cmbSearchType" SelectedIndex="1" FontFamily="Noto Kufi Arabic" FontSize="12" Foreground="#8C9AB6" Margin="20,0" HorizontalAlignment="Left" Width="100" Height="30">
                         <ComboBoxItem Content="الاسم">
 
                         </ComboBoxItem>

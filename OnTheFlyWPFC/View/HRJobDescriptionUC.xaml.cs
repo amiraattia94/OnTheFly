@@ -51,35 +51,53 @@ namespace OnTheFlyWPFC.View
 
         private void EditJob(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as JobsDTO;
-            HelperClass.JobID = a.jobID;
-            // CHANGE CODE HERE BAKA
-            var newwindow = new HRJobDescriptionEditMiniWindow();
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+            if (HelperClass.userGroupRoleDTO.add_HR) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as JobsDTO;
+                HelperClass.JobID = a.jobID;
+                // CHANGE CODE HERE BAKA
+                var newwindow = new HRJobDescriptionEditMiniWindow();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.ShowDialog();
-            RefreshListView();
+                newwindow.ShowDialog();
+                RefreshListView();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
 
         }
 
         private async void DeleteJob(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as JobsDTO;
-            HelperClass.JobID = a.jobID;
-            MessageBox.Show("DELETE IS INVOKED");
-            if (await jobViewModel.DeleteJobByID(a.jobID))
-                MessageBox.Show("تم المسح بنجاح");
-            RefreshListView();
+            if (HelperClass.userGroupRoleDTO.delete_HR) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as JobsDTO;
+                HelperClass.JobID = a.jobID;
+                MessageBox.Show("DELETE IS INVOKED");
+                if (await jobViewModel.DeleteJobByID(a.jobID))
+                    MessageBox.Show("تم المسح بنجاح");
+                RefreshListView();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
 
         private void btnAddJob_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new HRJobDescriptionAddMiniWindow();
-            newwindow.ShowDialog();
-            RefreshListView();
+            if (HelperClass.userGroupRoleDTO.add_HR) {
+                var newwindow = new HRJobDescriptionAddMiniWindow();
+                newwindow.ShowDialog();
+                RefreshListView();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
     }
 }

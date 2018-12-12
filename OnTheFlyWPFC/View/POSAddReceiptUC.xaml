@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:OnTheFlyWPFC.View"
              mc:Ignorable="d" 
              
+             
+             xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel">
 
@@ -507,7 +509,22 @@
                                 <StackPanel HorizontalAlignment="Center" Margin="0,0,0,0">
                                     <Label Name="lblTotalPrice" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
                                     <Label Name="lblTotalDeliveryPrice" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
-                                    <TextBox Name="txtDiscount" Text="0" TextChanged="TxtDiscount_TextChanged"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                                    <Grid>
+                                        <TextBox Name="txtDiscount" Text="0" TextChanged="TxtDiscount_TextChanged" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"   FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
+                                        <TextBlock IsHitTestVisible="False" Text="0"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=txtDiscount}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Grid>
+                                    
                                     <Label Name="lblTotalAfter" Content="0" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" />
                                 </StackPanel>
                             </StackPanel>
@@ -542,14 +559,14 @@
                                 </Border>-->
 
                                 <Border Name="btnCustody" Height="40" BorderBrush="Transparent" CornerRadius="20"   Background="#2C99F5" Margin="0,20,0,0" HorizontalAlignment="Center" >
-                                    <Button Click="AddCostody" Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                                    <!--<Button Click="AddCostody" Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                         <UniformGrid FlowDirection="RightToLeft">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" Text="اضافة" Margin="0,0,5,0"  />
                                                 <materialDesign:PackIcon Kind="Plus" Height="15" Width="15" Margin="5,0,0,0" VerticalAlignment="Center"  />
                                             </StackPanel>
                                         </UniformGrid>
-                                    </Button>
+                                    </Button>-->
                                 </Border>
 
 

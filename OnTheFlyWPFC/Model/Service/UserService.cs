@@ -254,6 +254,10 @@ namespace OnTheFlyWPFC.Model.Service
                         UserName = result.user_name,
                         Password = result.password,
                         EmployeeID = result.employeeID,
+                        EmployeeName = result.EmployeeTBL.name,
+                        EmployeeBranchID = result.EmployeeTBL.branchID,
+                        EmployeeBranchName = result.EmployeeTBL.CompanyBranchTBL.branch_name
+                        
 
 
                     };

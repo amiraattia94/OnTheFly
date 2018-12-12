@@ -65,30 +65,36 @@ namespace OnTheFlyWPFC.View {
         }
 
         private void CrystalViewr_Loaded(object sender, RoutedEventArgs e) {
-            CrystalReport1 crystalReport = new CrystalReport1();
-            crystalReport.Load(@"CrystalReport1.rep");
-            crystalReport.SetDataSource(invoiceViewModel.allDeliveryService2);
 
-            crystalReport.SetParameterValue("pInvoiceID", invoiceViewModel.Invoice.invoiceID.ToString());
-            crystalReport.SetParameterValue("pCustomerName", invoiceViewModel.Invoice.customername);
-            crystalReport.SetParameterValue("pCustomerAddress", invoiceViewModel.Invoice.customerAddress);
-            crystalReport.SetParameterValue("pCustomerPhone1", invoiceViewModel.Invoice.phone1);
-            crystalReport.SetParameterValue("pCustomerPhone2", invoiceViewModel.Invoice.phone2);
-            crystalReport.SetParameterValue("pInvoiceDate", invoiceViewModel.Invoice.dateTime);
-            crystalReport.SetParameterValue("pImployeeName", invoiceViewModel.Invoice.issuerName);
-            crystalReport.SetParameterValue("pDriverName", invoiceViewModel.Invoice.DriverName);
+            try {
+                CrystalReport1 crystalReport = new CrystalReport1();
+                crystalReport.Load(@"CrystalReport1.rep");
+                crystalReport.SetDataSource(invoiceViewModel.allDeliveryService2);
 
-            crystalReport.SetParameterValue("pTotalBefore", invoiceViewModel.Invoice.totalBefore);
+                crystalReport.SetParameterValue("pInvoiceID", invoiceViewModel.Invoice.invoiceID.ToString());
+                crystalReport.SetParameterValue("pCustomerName", invoiceViewModel.Invoice.customername);
+                crystalReport.SetParameterValue("pCustomerAddress", invoiceViewModel.Invoice.customerAddress);
+                crystalReport.SetParameterValue("pCustomerPhone1", invoiceViewModel.Invoice.phone1);
+                crystalReport.SetParameterValue("pCustomerPhone2", invoiceViewModel.Invoice.phone2);
+                crystalReport.SetParameterValue("pInvoiceDate", invoiceViewModel.Invoice.dateTime);
+                crystalReport.SetParameterValue("pImployeeName", invoiceViewModel.Invoice.issuerName);
+                crystalReport.SetParameterValue("pDriverName", invoiceViewModel.Invoice.DriverName);
 
-            var a = invoiceViewModel.Invoice.discount.ToString("0.##");
-            crystalReport.SetParameterValue("pDiscoundPercent", (a + "%"));
-            crystalReport.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA5;
-            crystalReport.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-            crystalReport.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
+                crystalReport.SetParameterValue("pTotalBefore", invoiceViewModel.Invoice.totalBefore);
 
-            //crystalReport.PrintToPrinter(1, false, 0, 0);
+                var a = invoiceViewModel.Invoice.discount.ToString("0.##");
+                crystalReport.SetParameterValue("pDiscoundPercent", (a + "%"));
+                crystalReport.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA5;
+                crystalReport.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
+                crystalReport.SetParameterValue("pTotalPrice", invoiceViewModel.Invoice.totalafter);
 
-            CrystalViewr.ViewerCore.ReportSource = crystalReport;
+                //crystalReport.PrintToPrinter(1, false, 0, 0);
+
+                CrystalViewr.ViewerCore.ReportSource = crystalReport;
+            }catch {
+
+            }
+
             
 
 

@@ -53,29 +53,43 @@ namespace OnTheFlyWPFC.View
 
         private async void DeleteBranch(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as BranchDTO;
-            HelperClass.BranchID = a.branchID;
+            if (HelperClass.userGroupRoleDTO.delete_branch) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as BranchDTO;
+                HelperClass.BranchID = a.branchID;
 
-            if (await branchViewModel.DeleteBranchByID(a.branchID))
-                MessageBox.Show("تم المسح بنجاح");
-            RefreshListView();
+                if (await branchViewModel.DeleteBranchByID(a.branchID))
+                    MessageBox.Show("تم المسح بنجاح");
+                RefreshListView();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
 
 
         }
 
         private void EditBranch(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as BranchDTO;
-            HelperClass.BranchID = a.branchID;
+            if (HelperClass.userGroupRoleDTO.add_branch) {
 
-            var newwindow = new BranchEditMiniWindow();
+                Button button = sender as Button;
+                var a = button.CommandParameter as BranchDTO;
+                HelperClass.BranchID = a.branchID;
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                var newwindow = new BranchEditMiniWindow();
 
-            newwindow.Show();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+
+                newwindow.Show();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
 
 
         }
@@ -133,13 +147,20 @@ namespace OnTheFlyWPFC.View
 
         private void btnAddBranch_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new BranchAddMiniWindow();
+            if (HelperClass.userGroupRoleDTO.add_branch) {
+                var newwindow = new BranchAddMiniWindow();
 
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.ShowDialog();
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
 
         private void BtnSearchBranch_Click(object sender, RoutedEventArgs e)

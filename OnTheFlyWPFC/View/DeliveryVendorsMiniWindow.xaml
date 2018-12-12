@@ -146,7 +146,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtphone2" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtphone2" FontSize="16" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
                                     <TextBlock IsHitTestVisible="False"  Text="رقم الهاتف 2"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">

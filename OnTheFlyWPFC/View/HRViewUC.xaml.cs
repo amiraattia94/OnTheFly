@@ -48,13 +48,20 @@ namespace OnTheFlyWPFC.View
 
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            var newwindow = new HREmployeeAddMiniWindow();
+            if (HelperClass.userGroupRoleDTO.add_HR) {
+                var newwindow = new HREmployeeAddMiniWindow();
 
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.ShowDialog();
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+            
         }
 
         private void BtnSearchHR_Click(object sender, RoutedEventArgs e)
@@ -74,6 +81,13 @@ namespace OnTheFlyWPFC.View
 
         private async void DeleteEmployee(object sender, RoutedEventArgs e)
         {
+            if (HelperClass.userGroupRoleDTO.delete_HR) {
+
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
             Button button = sender as Button;
             var a = button.CommandParameter as EmployeeDTO;
             HelperClass.employeeID = a.employeeID;
@@ -85,16 +99,22 @@ namespace OnTheFlyWPFC.View
 
         private void EditEmployee(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            var a = button.CommandParameter as EmployeeDTO;
-            HelperClass.employeeID = a.employeeID;
+            if (HelperClass.userGroupRoleDTO.add_HR) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as EmployeeDTO;
+                HelperClass.employeeID = a.employeeID;
 
-            var newwindow = new HREmployeeEditMiniWindow();
+                var newwindow = new HREmployeeEditMiniWindow();
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.Show();
+                newwindow.Show();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
 
 
         }

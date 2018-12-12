@@ -54,33 +54,54 @@ namespace OnTheFlyWPFC.View
         }
 
         private void Add(object sender, RoutedEventArgs e) {
-            var newwindow = new DeliveryCategoryAddMiniWindow();
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
-            newwindow.ShowDialog();
+            if (HelperClass.userGroupRoleDTO.add_delivery) {
+                var newwindow = new DeliveryCategoryAddMiniWindow();
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
 
         private void EditCategory(object sender, RoutedEventArgs e) {
-            Button button = sender as Button;
-            var a = button.CommandParameter as CategoryDTO;
-            HelperClass.categoryID = (int)a.CategoryID;
+            if (HelperClass.userGroupRoleDTO.add_delivery) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as CategoryDTO;
+                HelperClass.categoryID = (int)a.CategoryID;
 
-            var newwindow = new DeliveryCategoryEditMiniWindow();
+                var newwindow = new DeliveryCategoryEditMiniWindow();
 
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
+                RefreshListEvent += new RefreshList(RefreshListView);
+                newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.ShowDialog();
+                newwindow.ShowDialog();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
+
         }
 
         async private void DeleteCategory(object sender, RoutedEventArgs e) {
-            Button button = sender as Button;
-            var a = button.CommandParameter as CategoryDTO;
-            HelperClass.categoryID = (int)a.CategoryID;
+            if (HelperClass.userGroupRoleDTO.delete_delivery) {
 
-            if (await categoryViewModel.DeleteCategoryByID((int)a.CategoryID))
-                MessageBox.Show("تم المسح بنجاح");
-            RefreshListView();
+                Button button = sender as Button;
+                var a = button.CommandParameter as CategoryDTO;
+                HelperClass.categoryID = (int)a.CategoryID;
+
+                if (await categoryViewModel.DeleteCategoryByID((int)a.CategoryID))
+                    MessageBox.Show("تم المسح بنجاح");
+                RefreshListView();
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
 
         }
 

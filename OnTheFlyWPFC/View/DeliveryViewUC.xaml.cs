@@ -49,19 +49,25 @@ namespace OnTheFlyWPFC.View
 
 
         private void EditDelivery(object sender, RoutedEventArgs e) {
-            Button button = sender as Button;
-            var a = button.CommandParameter as DeliveryDTO;
-            HelperClass.DeliveryID = a.deliveryID;
+            if (HelperClass.userGroupRoleDTO.add_delivery) {
+                Button button = sender as Button;
+                var a = button.CommandParameter as DeliveryDTO;
+                HelperClass.DeliveryID = a.deliveryID;
 
-            var newwindow = new DeliveryViewEditMiniWindow();
+                var newwindow = new DeliveryViewEditMiniWindow();
 
-            //RefreshListEvent += new RefreshList(RefreshListView);
-            //newwindow.UpdateMainList = RefreshListEvent;
+                //RefreshListEvent += new RefreshList(RefreshListView);
+                //newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.ShowDialog();
+                newwindow.ShowDialog();
 
-            invoiceViewModel.GetAllDelivery();
-            lstdelivery.ItemsSource = invoiceViewModel.allDelivery;
+                invoiceViewModel.GetAllDelivery();
+                lstdelivery.ItemsSource = invoiceViewModel.allDelivery;
+            }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
+
         }
 
         private void RefreshListView() {

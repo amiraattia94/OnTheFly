@@ -53,7 +53,7 @@ namespace OnTheFlyWPFC.View
 
             invoiceViewModel.GetNewInvoiceID();
             btnAddService.Visibility = System.Windows.Visibility.Hidden;
-            btnCustody.Visibility = System.Windows.Visibility.Hidden;
+            //btnCustody.Visibility = System.Windows.Visibility.Hidden;
 
             lblCustomerCredit.Content = 0;
             lblCustomerCreditAfter.Content = 0;
@@ -125,6 +125,7 @@ namespace OnTheFlyWPFC.View
             lblCustomerCredit.Content = customerViewModel.customer.credit;
             lblCustomerCreditAfter.Content = customerViewModel.customer.credit - decimal.Parse(lblTotalAfter.Content.ToString());
 
+            cmbPayment.SelectedIndex = 0;
           
 
             //invoiceViewModel.DeleteAllDeliveryServiceByinvoice(invoiceViewModel.invoiceNewID);
@@ -290,23 +291,23 @@ namespace OnTheFlyWPFC.View
             }
         }
 
-        async private void AddCostody(object sender, RoutedEventArgs e) {
-            if(custodyID == null) {
-                custodyID = await invoiceViewModel.AddCustodyInt((int)cmbDriver.SelectedValue, totalPriceAfter, false, HelperClass.POSInvoiceID);
-                if (custodyID != null) {
-                    MessageBox.Show("تم الحفظ");
-                    return;
-                }
-                
-            }
-            MessageBox.Show("توجد عهدة سابقة");
+        //async private void AddCostody(object sender, RoutedEventArgs e) {
+        //    if (custodyID == null) {
+        //        custodyID = await invoiceViewModel.AddCustodyInt((int)cmbDriver.SelectedValue, totalPriceAfter, false, HelperClass.POSInvoiceID);
+        //        if (custodyID != null) {
+        //            MessageBox.Show("تم الحفظ");
+        //            return;
+        //        }
 
-        }
+        //    }
+        //    MessageBox.Show("توجد عهدة سابقة");
+
+        //}
 
         private void CmbPayment_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if(cmbPayment.SelectedIndex != -1) {
                 if(cmbPayment.SelectedIndex == 0){
-                    btnCustody.Visibility = System.Windows.Visibility.Hidden;
+                    //btnCustody.Visibility = System.Windows.Visibility.Hidden;
                     RefreshInvoicePriceList();
                     if (invoiceViewModel.totalPrice != null) {
                         if (!string.IsNullOrEmpty(txtDiscount.Text)) {
@@ -334,7 +335,7 @@ namespace OnTheFlyWPFC.View
                 }
                 else if(cmbPayment.SelectedIndex == 1) {
                     
-                    btnCustody.Visibility = System.Windows.Visibility.Visible;
+                    //btnCustody.Visibility = System.Windows.Visibility.Visible;
                     lblCustomerCreditAfter.Content =  customerViewModel.customer.credit;
                 }
             }
@@ -342,112 +343,152 @@ namespace OnTheFlyWPFC.View
 
         async private void addInvoice_Click(object sender, RoutedEventArgs e) {
 
-            if(lstViewDeliveryServices.Items.Count == 0) {
-                MessageBox.Show("يجب اضافة عنصر واحد علي الاقل ");
-                return;
-            }
-
-            if(cmbPayment.SelectedIndex == 0) {
-                if(custodyID != null) {
-                    if(await invoiceViewModel.DeleteCustody((int)custodyID))
-                        custodyID = null;
-                }
-                if(totalPriceAfter > customerViewModel.customer.credit) {
-                    MessageBox.Show("القيمة اكبر من الرصيد ");
-
+            if (HelperClass.userGroupRoleDTO.add_POS) {
+                if (cmbDriver.SelectedIndex == -1) {
+                    MessageBox.Show("يجب اضافة سائق  ");
                     return;
                 }
-            }
-            else if(cmbPayment.SelectedIndex == 1){
+
+                if (lstViewDeliveryServices.Items.Count == 0) {
+                    MessageBox.Show("يجب اضافة عنصر واحد علي الاقل ");
+                    return;
+                }
+
+                if(totalPriceAfter < 0) {
+                    MessageBox.Show("لايمكن تخزين قيمة سالبة");
+                    return;
+                }
+
+                if(txtDiscount.Text == "") {
+                    txtDiscount.Text = "0";
+                }
+
+
+                if (cmbPayment.SelectedIndex == 0) {
+                    if (custodyID != null) {
+                        if (await invoiceViewModel.DeleteCustody((int)custodyID))
+                            custodyID = null;
+                    }
+                    if (totalPriceAfter > customerViewModel.customer.credit) {
+                        MessageBox.Show("القيمة اكبر من الرصيد ");
+
+                        return;
+                    }
+                }
+                else if (cmbPayment.SelectedIndex == 1) {
+                    if (custodyID != null) {
+                        if (await invoiceViewModel.DeleteCustody((int)custodyID))
+                            custodyID = null;
+                    }
+
+                    custodyID = await invoiceViewModel.AddCustodyInt((int)cmbDriver.SelectedValue, totalPriceAfter, false, HelperClass.POSInvoiceID);
+                    if (custodyID != null) {
+                        //MessageBox.Show("تم الحفظ");
+                        //return;
+                    }
+                    else {
+                        return;
+                    }
+                }
+
+
+                int? carID = null;
+
+                DateTime? enddate = null;
+
+                DateTime? firstdate = await invoiceViewModel.GetFirstDeliveryItemDateByInvoiceID(HelperClass.POSInvoiceID);
+                DateTime? lastdate = await invoiceViewModel.GetLastDeliveryItemDateByInvoiceID(HelperClass.POSInvoiceID);
+
+                //if(await invoiceViewModel.AddDeliveryInt(carID,(int)cmbDriver.SelectedValue,DateTime.Now,enddate,1,firstdate,lastdate)) {
+                //    MessageBox.Show("تم الحفظ");
+                //}
+                int? deliveryID = null;
+                try {
+                    deliveryID = await invoiceViewModel.AddDeliveryInt(carID, (int)cmbDriver.SelectedValue, DateTime.Now, enddate, 1, firstdate, lastdate, HelperClass.POSInvoiceID);
+
+                }
+                catch (Exception) {
+                    MessageBox.Show("لم يتم الحفظ");
+                    return;
+                }
+
+
+
+
+
+
+                if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, HelperClass.POSSelectedCustomerID, decimal.Parse(txtDiscount.Text), (int)deliveryID, totalPriceAfter, totalDeliveryPriceAfter, custodyID)) {
+                    MessageBox.Show("تم الحفظ");
+
+                    if(custodyID  == null) {
+                        if (await financeViewModel.AddFinance(false, totalPriceAfter, " خصم من حساب " + txtCustomerName.Text  + "فاتورة رقم " + HelperClass.POSInvoiceID , HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                            //MessageBox.Show("تم الحفظ");
+                        }
+                    }else if (custodyID != null) {
+                        if (await financeViewModel.AddFinance(false, totalPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text +  " عهدة رقم  " + custodyID, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                            //MessageBox.Show("تم الحفظ");
+                        }
+                    }
                 
+                    //if (await financeViewModel.AddFinance(false, totalPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                    //   //MessageBox.Show("تم الحفظ");
+                    //}
+
+                    if (await financeViewModel.AddFinance(true, totalDeliveryPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                        //MessageBox.Show("تم الحفظ");
+                    }
+
+                    if (cmbPayment.SelectedIndex == 0) {
+                        if (await customerViewModel.RemoveCreditFromCustomer(HelperClass.POSSelectedCustomerID, totalPriceAfter)) {
+
+                        }
+
+                    }
+
+                    HelperClass.POSInvoiceIDView = HelperClass.POSInvoiceID;
+                    var printreport = new CrystalReportView();
+                    printreport.ShowDialog();
+                    //UpdateMainUC.DynamicInvoke();
+
+
+                    HelperClass.POSSelectedCustomerID = 0;
+                    HelperClass.POSInvoiceID = 0;
+                    HelperClass.POSSelectedDeliveryServiceID = 0;
+                    customerViewModel.GetCustomerByID(HelperClass.POSSelectedCustomerID);
+
+                    invoiceViewModel.GetNewInvoiceID();
+                    invoiceViewModel.GetNewInvoiceID();
+
+                    lblNewInvoice.Content = invoiceViewModel.invoiceNewID.ToString("D8");
+
+                    invoiceViewModel.GetAllDeliveryServices();
+                    lstViewDeliveryServices.ItemsSource = invoiceViewModel.allDeliveryService;
+
+                    txtCustomerName.Text = "اسم المستخدم";
+                    txtCustomerPhone.Text = "رقم الهاتف";
+                    txtCustomerPhone2.Text = "رقم الهاتف";
+                    txtCities.Text = "المدينة";
+                    txtCustomerAddress.Text = "العنوان";
+                    lblCustomerCredit.Content = 0;
+                    lblCustomerCreditAfter.Content = 0;
+                    txtDiscount.Text = null;
+                    cmbDriver.SelectedIndex = -1;
+
+
+                    //RefreshDeliveryServiceList();
+                    RefreshInvoicePriceList();
+
+                }
+                else {
+
+                }
             }
-
-            int? carID = null;
-
-            DateTime? enddate = null;
-
-            DateTime? firstdate = await invoiceViewModel.GetFirstDeliveryItemDateByInvoiceID(HelperClass.POSInvoiceID);
-            DateTime? lastdate = await invoiceViewModel.GetLastDeliveryItemDateByInvoiceID(HelperClass.POSInvoiceID);
-
-            //if(await invoiceViewModel.AddDeliveryInt(carID,(int)cmbDriver.SelectedValue,DateTime.Now,enddate,1,firstdate,lastdate)) {
-            //    MessageBox.Show("تم الحفظ");
-            //}
-            int? deliveryID = null;
-            try {
-                deliveryID = await invoiceViewModel.AddDeliveryInt(carID, (int)cmbDriver.SelectedValue, DateTime.Now, enddate, 1, firstdate, lastdate, HelperClass.POSInvoiceID);
-
-            }
-            catch (Exception) {
-                MessageBox.Show("لم يتم الحفظ");
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
 
             
-
-
-
-            if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, HelperClass.POSSelectedCustomerID, decimal.Parse(txtDiscount.Text), (int)deliveryID, totalPriceAfter,totalDeliveryPriceAfter, custodyID)) {
-                MessageBox.Show("تم الحفظ");
-
-                if(custodyID  == null) {
-                    if (await financeViewModel.AddFinance(false, totalPriceAfter, " خصم من حساب " + txtCustomerName.Text  + "فاتورة رقم " + HelperClass.POSInvoiceID , HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
-                        //MessageBox.Show("تم الحفظ");
-                    }
-                }else if (custodyID != null) {
-                    if (await financeViewModel.AddFinance(false, totalPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text +  " عهدة رقم  " + custodyID, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
-                        //MessageBox.Show("تم الحفظ");
-                    }
-                }
-                
-
-                if (await financeViewModel.AddFinance(true, totalDeliveryPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
-                    //MessageBox.Show("تم الحفظ");
-                }
-
-                if(cmbPayment.SelectedIndex == 0) {
-                    if (await customerViewModel.RemoveCreditFromCustomer(HelperClass.POSSelectedCustomerID, totalPriceAfter)) {
-
-                    }
-
-                }
-
-                HelperClass.POSInvoiceIDView = HelperClass.POSInvoiceID;
-                var printreport = new CrystalReportView();
-                printreport.ShowDialog();
-                //UpdateMainUC.DynamicInvoke();
-
-
-                HelperClass.POSSelectedCustomerID = 0;
-                HelperClass.POSInvoiceID = 0;
-                HelperClass.POSSelectedDeliveryServiceID = 0;
-                customerViewModel.GetCustomerByID(HelperClass.POSSelectedCustomerID);
-
-                invoiceViewModel.GetNewInvoiceID();
-                invoiceViewModel.GetNewInvoiceID();
-
-                lblNewInvoice.Content = invoiceViewModel.invoiceNewID.ToString("D8");
-
-                invoiceViewModel.GetAllDeliveryServices();
-                lstViewDeliveryServices.ItemsSource = invoiceViewModel.allDeliveryService;
-
-                txtCustomerName.Text = "اسم المستخدم";
-                txtCustomerPhone.Text = "رقم الهاتف";
-                txtCustomerPhone2.Text = "رقم الهاتف";
-                txtCities.Text = "المدينة";
-                txtCustomerAddress.Text = "العنوان";
-                lblCustomerCredit.Content = 0;
-                lblCustomerCreditAfter.Content = 0;
-                txtDiscount.Text = null;
-                cmbDriver.SelectedIndex = -1;
-
-                
-                //RefreshDeliveryServiceList();
-                RefreshInvoicePriceList();
-
-            }
-            else {
-
-            }
         }
 
         private void CmbPayment_Loaded(object sender, RoutedEventArgs e) {

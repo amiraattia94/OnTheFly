@@ -80,7 +80,10 @@ namespace OnTheFlyWPFC.ViewModel {
             return await invoiceService.GetFirstDeliveryItemDateByInvoiceID(invoiceID);
         }
 
-
+        async public Task<bool> DeleteInvoiceByID( int invoiceID)
+        {
+            return await invoiceService.DeleteInvoiceByID(invoiceID);
+        }
 
         async public Task<bool> AddDeliveryService(int invoiceID, int categoreID, int vendorBranchID, int customerID, bool isFullTrip, decimal productPrice, decimal deliveryPrice, bool status, DateTime avilable) {
             return await invoiceService.AddDeliveryService(invoiceID, categoreID, vendorBranchID, customerID, isFullTrip, productPrice, deliveryPrice, status, avilable);

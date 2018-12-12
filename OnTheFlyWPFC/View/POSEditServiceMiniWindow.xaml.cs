@@ -206,19 +206,54 @@ namespace OnTheFlyWPFC.View
             //var city = (CityDTO)cmbBranchCities.SelectedValue;
             //bool status = HelperClass.TrueOrFalse(cmbBranchStatus.SelectedIndex.ToString());
 
-
-
-
             datePickerStartDate.SelectedDate = invoiceViewModel.deliveryService.dateAvailable;
+            if (HelperClass.userGroupRoleDTO.add_service) {
+
+                if ((int)cmbServiceType.SelectedIndex == -1) {
+                    MessageBox.Show("يجب اختيار نوع الخدمة ");
+                    return;
+                }
+                if ((int)cmbVendors.SelectedIndex == -1) {
+                    MessageBox.Show("يجب اختيار مزود الخدمة ");
+                    return;
+                }
+                if ((int)cmbBranches.SelectedIndex == -1) {
+                    MessageBox.Show("يجب اختيار الفرع ");
+                    return;
+                }
+                if ((int)cmbTrip.SelectedIndex == -1) {
+                    MessageBox.Show("يجب اختيار نوع الرحلة ");
+                    return;
+                }
+                if ((int)cmbPaid.SelectedIndex == -1) {
+                    MessageBox.Show("يجب اختيار نوع الدفع ");
+                    return;
+                }
+                if (txtDeliveryPrice.Text == "") {
+                    MessageBox.Show("يجب تعبعةرالحقل ");
+                    return;
+                }
+                if (txtPaidPrice.Text == "") {
+                    MessageBox.Show("يجب تعبعةرالحقل ");
+                    return;
+                }
 
 
-            if (await invoiceViewModel.EditDeliveryService(HelperClass.POSSelectedDeliveryServiceID, HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), decimal.Parse(txtDeliveryPrice.Text), true, (DateTime)datePickerStartDate.SelectedDate)
-)           {
-                MessageBox.Show("تم الحفظ");
-                UpdateMainList.DynamicInvoke();
-                this.Close();
+                if (await invoiceViewModel.EditDeliveryService(HelperClass.POSSelectedDeliveryServiceID, HelperClass.POSInvoiceID, (int)cmbServiceType.SelectedValue, (int)cmbBranches.SelectedValue, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), decimal.Parse(txtDeliveryPrice.Text), true, (DateTime)datePickerStartDate.SelectedDate)) {
+                    MessageBox.Show("تم الحفظ");
+                    UpdateMainList.DynamicInvoke();
+                    this.Close();
+
+                }
 
             }
+            else {
+                MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+
+
+
 
         }
 

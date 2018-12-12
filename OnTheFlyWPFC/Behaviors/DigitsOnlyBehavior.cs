@@ -37,7 +37,13 @@ namespace OnTheFlyWPFC.Behaviors
 
         private static void BlockNonDigitCharacters(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = e.Text.Any(ch => !Char.IsDigit(ch));
+            var textBox = (TextBox)sender;
+            if (e.Text.Contains('.') && textBox.Text.Count(x => x == '.') < 1) {
+                e.Handled = e.Text.Any(ch => !Char.IsDigit(ch) && ch != '.' || ch == ' ');
+            }
+            else {
+                e.Handled = e.Text.Any(ch => !Char.IsDigit(ch) || ch == ' ');
+            }
         }
     }
 }
