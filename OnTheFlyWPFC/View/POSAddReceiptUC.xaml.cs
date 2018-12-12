@@ -375,6 +375,7 @@ namespace OnTheFlyWPFC.View
                         return;
                     }
                 }
+
                 else if (cmbPayment.SelectedIndex == 1) {
                     if (custodyID != null) {
                         if (await invoiceViewModel.DeleteCustody((int)custodyID))
@@ -402,6 +403,7 @@ namespace OnTheFlyWPFC.View
                 //if(await invoiceViewModel.AddDeliveryInt(carID,(int)cmbDriver.SelectedValue,DateTime.Now,enddate,1,firstdate,lastdate)) {
                 //    MessageBox.Show("تم الحفظ");
                 //}
+
                 int? deliveryID = null;
                 try {
                     deliveryID = await invoiceViewModel.AddDeliveryInt(carID, (int)cmbDriver.SelectedValue, DateTime.Now, enddate, 1, firstdate, lastdate, HelperClass.POSInvoiceID);
@@ -411,11 +413,6 @@ namespace OnTheFlyWPFC.View
                     MessageBox.Show("لم يتم الحفظ");
                     return;
                 }
-
-
-
-
-
 
                 if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, HelperClass.POSSelectedCustomerID, decimal.Parse(txtDiscount.Text), (int)deliveryID, totalPriceAfter, totalDeliveryPriceAfter, custodyID)) {
                     MessageBox.Show("تم الحفظ");
@@ -449,7 +446,6 @@ namespace OnTheFlyWPFC.View
                     var printreport = new CrystalReportView();
                     printreport.ShowDialog();
                     //UpdateMainUC.DynamicInvoke();
-
 
                     HelperClass.POSSelectedCustomerID = 0;
                     HelperClass.POSInvoiceID = 0;

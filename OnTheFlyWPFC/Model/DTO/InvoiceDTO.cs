@@ -21,7 +21,7 @@ namespace OnTheFlyWPFC.Model.DTO
         public string phone1 { get; set; }
         public string phone2 { get; set; }
 
-
+        public int? DeliveryID { get; set; }
         public int DriverID { get; set; }
         public string DriverName { get; set; }
 
@@ -40,6 +40,7 @@ namespace OnTheFlyWPFC.Model.DTO
 
 
         public int? custodyID { get; set; }
+        public decimal? deliveryPriceAfter { get; set; }
 
     }
 }

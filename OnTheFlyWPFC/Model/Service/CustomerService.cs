@@ -75,6 +75,31 @@ namespace OnTheFlyWPFC.Model.Service
             return false;
         }
 
+        async public Task<bool> AddCreditToCustomer(int CustomerID, decimal SpentCredit) {
+            try {
+                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                    var Result = con.CustomerTBLs.SingleOrDefault(w => w.customerID == CustomerID);
+                    if (Result != null) {
+
+                        try {
+                            Result.credit += SpentCredit;
+
+                            await con.SaveChangesAsync();
+                            return true;
+                        }
+                        catch {
+
+                        }
+                        return false;
+                    }
+                }
+            }
+            catch (Exception) {
+
+            }
+            return false;
+        }
+
         async public Task<bool> RemoveCreditFromCustomer(int CustomerID, decimal SpentCredit) {
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {

@@ -39,10 +39,10 @@ namespace OnTheFlyWPFC.Behaviors
         {
             var textBox = (TextBox)sender;
             if (e.Text.Contains('.') && textBox.Text.Count(x => x == '.') < 1) {
-                e.Handled = e.Text.Any(ch => !Char.IsDigit(ch) && ch != '.' || ch == ' ');
+                e.Handled = e.Text.Any(ch => !Char.IsDigit(ch) && ch != '.' && ch != ' ');
             }
             else {
-                e.Handled = e.Text.Any(ch => !Char.IsDigit(ch) || ch == ' ');
+                e.Handled = e.Text.Any(ch => !Char.IsDigit(ch) && ch != ' ');
             }
         }
     }

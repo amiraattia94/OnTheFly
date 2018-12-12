@@ -66,7 +66,13 @@ namespace OnTheFlyWPFC.View
                     usc = new POSViewReceiptUC();
                     MainUC.Children.Add(usc);
                     lblMenuename.Content = "البحث عن فاتورة";
-                    break;                
+                    break;
+                case "POSDeleteReceipt":
+                    usc = new POSDeleteReceiptUC();
+                    MainUC.Children.Add(usc);
+                    lblMenuename.Content = "مسح فاتورة";
+                    break;
+
                 default:
                     break;
             }

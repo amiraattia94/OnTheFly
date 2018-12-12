@@ -24,12 +24,18 @@ namespace OnTheFlyWPFC.View
     public partial class POSDeleteReceiptUC : UserControl
     {
         InvoiceViewModel invoiceViewModel;
+        CustomerViewModel customerViewModel;
+        FinanceViewModel financeViewModel;
+
 
         public POSDeleteReceiptUC()
         {
             InitializeComponent();
 
             invoiceViewModel = new InvoiceViewModel();
+            customerViewModel = new CustomerViewModel();
+            financeViewModel = new FinanceViewModel();
+
         }
 
         private void LblNewInvoice_TextChanged(object sender, TextChangedEventArgs e) {
@@ -72,14 +78,17 @@ namespace OnTheFlyWPFC.View
                     if (invoiceViewModel.Invoice.InvoiceState == true )
                     {
                         lblinvoiceState.Content = "ملغية";
+                        btndisable.IsEnabled = false;
                     }
                     else if (invoiceViewModel.Invoice.InvoiceState == false)
                     {
                         lblinvoiceState.Content = "مفاعلة";
+                        btndisable.IsEnabled = true;
+
                     }
 
 
-                    
+
                 }
                 
             }
@@ -193,17 +202,54 @@ namespace OnTheFlyWPFC.View
             
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e) {
+        async private void Delete_Click(object sender, RoutedEventArgs e) {
 
             if (HelperClass.userGroupRoleDTO.delete_POS)
             {
-                if (await invoiceViewModel.DeleteInvoiceByID(, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), decimal.Parse(txtDeliveryPrice.Text), true, (DateTime)datePickerStartDate.SelectedDate))
-                {
-                    MessageBox.Show("تم الحفظ");
-                    UpdateMainList.DynamicInvoke();
-                    this.Close();
+
+                try {
+                    
+                    if (await invoiceViewModel.EditDelivery((int)invoiceViewModel.Invoice.DeliveryID, 5)) {
+
+                    }
+
+
+
+                    if (invoiceViewModel.Invoice.custodyID == null) {
+                        if(await customerViewModel.AddCreditToCustomer(invoiceViewModel.Invoice.customerID, invoiceViewModel.Invoice.totalafter)) {
+                            if (await financeViewModel.AddFinance(true, invoiceViewModel.Invoice.totalafter, " اضافة من حساب " + txtCustomerName.Text + "فاتورة رقم " + HelperClass.POSInvoiceIDView + " اللتي تم الفائها", HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                                //MessageBox.Show("تم الحفظ");
+                            }
+                        }
+
+
+                    }
+                    else if (invoiceViewModel.Invoice.custodyID != null) {
+                        if (await invoiceViewModel.EditCustody((int)invoiceViewModel.Invoice.custodyID, true)) {
+                            if (await financeViewModel.AddFinance(true, invoiceViewModel.Invoice.totalafter, "فاتورة رقم " + HelperClass.POSInvoiceIDView + " لي  " + txtCustomerName.Text + " عهدة رقم  " + (int)invoiceViewModel.Invoice.custodyID + " اللتي تم الفائها", HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                                //MessageBox.Show("تم الحفظ");
+                            }
+                        }
+
+                    }
+
+                    if (await financeViewModel.AddFinance(false, (decimal)invoiceViewModel.Invoice.deliveryPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceIDView + " لي  " + txtCustomerName.Text  + " اللتي تم الفائها", HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                        //MessageBox.Show("تم الحفظ");
+                    }
+
+
+                    if (await invoiceViewModel.DeleteInvoiceByID(HelperClass.POSInvoiceIDView)) {
+                        MessageBox.Show("تم الالغاء");
+
+                        lblNewInvoice.Text = HelperClass.POSInvoiceIDView.ToString();
+
+                    }
 
                 }
+                catch {
+
+                }
+
 
             }
             else

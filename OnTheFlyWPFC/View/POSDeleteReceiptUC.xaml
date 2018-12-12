@@ -504,7 +504,7 @@
 
                             <StackPanel>
                                 <Border  Margin="0,70,0,0" HorizontalAlignment="Center" >
-                                    <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="Red" Margin="0,0,0,0" >
+                                    <Border Name="btndisable" Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="Red" Margin="0,0,0,0" >
                                         <Button Click="Delete_Click" Height="40" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
                                             <UniformGrid FlowDirection="RightToLeft">
                                                 <StackPanel Orientation="Horizontal">

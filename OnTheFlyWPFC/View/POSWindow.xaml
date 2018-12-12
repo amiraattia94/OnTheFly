@@ -517,7 +517,13 @@
                                 <TextBlock Text="البحث عن فاتورة" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
-                        
+                        <ListViewItem x:Name="POSDeleteReceipt" Height="60" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="DeleteForever" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="مسح فاتورة" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+
                     </ListView>
                 </StackPanel>
             </UniformGrid>
