@@ -42,7 +42,7 @@ namespace OnTheFlyWPFC.View
             invoiceViewModel.GetDeliveryByID(HelperClass.DeliveryID);
             cmbChangeStatus.SelectedValue = invoiceViewModel.Delivery.status;
 
-            if (invoiceViewModel.Delivery.status == 4)
+            if (invoiceViewModel.Delivery.status == 4 || invoiceViewModel.Delivery.status == 5)
                 cmbChangeStatus.IsEnabled = false;
 
         }

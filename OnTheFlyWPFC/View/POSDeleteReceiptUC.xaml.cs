@@ -240,7 +240,7 @@ namespace OnTheFlyWPFC.View
 
                     if (await invoiceViewModel.DeleteInvoiceByID(HelperClass.POSInvoiceIDView)) {
                         MessageBox.Show("تم الالغاء");
-
+                        btndisable.IsEnabled = false;
                         lblNewInvoice.Text = HelperClass.POSInvoiceIDView.ToString();
 
                     }

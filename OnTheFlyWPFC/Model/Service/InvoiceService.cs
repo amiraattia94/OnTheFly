@@ -675,7 +675,7 @@ namespace OnTheFlyWPFC.Model.Service {
 
 
 
-                    }).ToList();
+                    }).ToList().OrderByDescending(o => o.invoiceID);
 
                     return new ObservableCollection<DeliveryDTO>(result);
                 }
