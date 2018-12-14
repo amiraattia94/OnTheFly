@@ -121,5 +121,10 @@ namespace OnTheFlyWPFC.View
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
+
+        private void BtnSettings_Click(object sender, RoutedEventArgs e) {
+            var Settingwindow = new DBConnectionWindow();
+            Settingwindow.ShowDialog();
+        }
     }
 }

@@ -157,6 +157,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Printing" />
@@ -273,6 +274,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Service\BranchService.cs" />
+    <Compile Include="Model\Service\DataBaseService.cs" />
     <Compile Include="Model\Service\DeliverlyStatusService.cs" />
     <Compile Include="Model\Service\EmployeeService.cs" />
     <Compile Include="Model\Service\FinanceService.cs" />
@@ -484,6 +486,9 @@
     </Compile>
     <Compile Include="View\HRWindow.xaml.cs">
       <DependentUpon>HRWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DBConnectionWindow.xaml.cs">
+      <DependentUpon>DBConnectionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -732,6 +737,10 @@
     <Page Include="View\HRWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DBConnectionWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\LoginWindow.xaml">
       <SubType>Designer</SubType>

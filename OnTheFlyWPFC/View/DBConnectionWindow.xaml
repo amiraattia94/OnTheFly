@@ -1,0 +1,113 @@
+﻿<Window x:Class="OnTheFlyWPFC.View.DBConnectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:OnTheFlyWPFC.View"
+        xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
+        mc:Ignorable="d"
+        Title="Login" Height="550" Width="300"
+        Background="Transparent" WindowStyle="None" 
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <behaviors:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+        
+            <Style x:Key="TextBoxHint"  TargetType="{x:Type TextBlock}" >
+                <Setter Property="Visibility" Value="Collapsed"/>
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding  Path=Tag,
+                                RelativeSource={RelativeSource Self}}"
+                                        Value="">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        
+    </Window.Resources>
+    
+    <Border Background="#FFEFF3FA" BorderThickness="0" CornerRadius="10" MouseDown="Border_MouseDown">
+
+        <Grid>
+            <StackPanel Orientation="Vertical" >
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="btnCloseForm"  Background="Transparent" Height="63" VerticalAlignment="Center" HorizontalAlignment="Left"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnCloseForm_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Close" Width="20" Height="20" Foreground="#8C9AB6"/>
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+                
+
+                <!--
+                 <Grid Grid.Row="0"  >
+                    <TextBlock  Text="اسم المستخدم" Margin="30" TextAlignment="Center" FontFamily="Noto Kufi Arabic"  Width="240" FontSize="18" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Visibility="{Binding ElementName=txtUserEntry, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBox Name="usernametxt" Background="Transparent"  Margin="30" HorizontalAlignment="Center" Width="240" TextAlignment="Center" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                </Grid>
+                -->
+
+                <Grid>
+                    <TextBox x:Name="IPAddress" Background="Transparent"  Margin="30" HorizontalAlignment="Center" Width="240" TextAlignment="Center" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                    <TextBlock IsHitTestVisible="False"  Text="IP address" Margin="30" TextAlignment="Center" FontFamily="Noto Kufi Arabic"  Width="240" FontSize="18" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=IPAddress}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+
+                <Grid>
+                    <TextBox x:Name="port" Background="Transparent"  Margin="30" HorizontalAlignment="Center" Width="240" TextAlignment="Center" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                    <TextBlock IsHitTestVisible="False"  Text="port" Margin="30" TextAlignment="Center" FontFamily="Noto Kufi Arabic"  Width="240" FontSize="18" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=port}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+
+                <Grid>
+                    <TextBox x:Name="usernametxt" Background="Transparent"  Margin="30" HorizontalAlignment="Center" Width="240" TextAlignment="Center" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                    <TextBlock IsHitTestVisible="False"  Text="اسم المستخدم" Margin="30" TextAlignment="Center" FontFamily="Noto Kufi Arabic"  Width="240" FontSize="18" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=usernametxt}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+
+                <PasswordBox Name="pbPassword" xmlns:x="#unknown" ToolTip="قم بإدخال كلمة المرور" PasswordChar="*" HorizontalContentAlignment="Center" HorizontalAlignment="Center" MinWidth="300" FontFamily="Noto Kufi Arabic" FontSize="18" Margin="30,0,30,30" Foreground="DarkSlateGray"  VerticalAlignment="Center"  />
+                            
+                <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Background="#2C99F5" Margin="40,30,40,0" >
+                    <Button Name="btnChangeDB" Click="BtnChangeDB_Click" Background="Transparent" BorderThickness="0"  VerticalAlignment="Center"  FontWeight="Light" BorderBrush="{x:Null}">
+                        <UniformGrid FlowDirection="RightToLeft">
+                            <TextBlock FontSize="15" Foreground="White" FontFamily="Noto Kufi Arabic" VerticalAlignment="Center" Text="تسجيل الدخول" Margin="0,0,0,0"  />
+                        </UniformGrid>
+                    </Button>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

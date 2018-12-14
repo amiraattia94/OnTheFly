@@ -32,11 +32,20 @@
 
         <Grid>
             <StackPanel Orientation="Vertical" >
-                <Button Name="btnCloseForm"  Background="Transparent" Height="63" VerticalAlignment="Center" HorizontalAlignment="Left"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnCloseForm_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Close" Width="20" Height="20" Foreground="#8C9AB6"/>
-                    </StackPanel>
-                </Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="btnCloseForm"  Background="Transparent" Height="63" VerticalAlignment="Center" HorizontalAlignment="Left"  FontWeight="Light" BorderBrush="{x:Null}" Click="btnCloseForm_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Close" Width="20" Height="20" Foreground="#8C9AB6"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button Name="btnSettings" Click="BtnSettings_Click"  Background="Transparent" Height="63" VerticalAlignment="Center" HorizontalAlignment="Left"  FontWeight="Light" BorderBrush="{x:Null}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" Foreground="#8C9AB6"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
                 <Label x:Name="lblLogin" Content="تسجيل الدخول" Foreground="#8C9AB6" FontFamily="Noto Kufi Arabic" FontSize="23.5" HorizontalAlignment="Center" Padding="0,30,0,30"/>
                 <Separator></Separator>
                 <Label Content="           username:kurt     password: kurtCobain "/>
