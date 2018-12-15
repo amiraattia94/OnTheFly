@@ -135,6 +135,7 @@
           <Property Name="deliveryID" Type="int" />
           <Property Name="totalcost" Type="money" />
           <Property Name="totaldelivery" Type="money" />
+          <Property Name="returned" Type="bit" />
         </EntityType>
         <EntityType Name="JobsTBL">
           <Key>
@@ -1139,6 +1140,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
           <Property Name="deliveryID" Type="Int32" />
           <Property Name="totalcost" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="totaldelivery" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="returned" Type="Boolean" />
           <NavigationProperty Name="custodyTBLs" Relationship="Self.FK_custodyTBL_invoiceTBL" FromRole="invoiceTBL" ToRole="custodyTBL" />
           <NavigationProperty Name="custodyTBL" Relationship="Self.FK_invoiceTBL_custodyTBL" FromRole="invoiceTBL" ToRole="custodyTBL" />
           <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_invoiceTBL_customerTBL" FromRole="invoiceTBL" ToRole="CustomerTBL" />
@@ -2116,6 +2118,7 @@ warning 6002: The table/view 'OnTheFlyDB.dbo.SettingsTBL' does not have a primar
                 <ScalarProperty Name="deliveryID" ColumnName="deliveryID" />
                 <ScalarProperty Name="totalcost" ColumnName="totalcost" />
                 <ScalarProperty Name="totaldelivery" ColumnName="totaldelivery" />
+                <ScalarProperty Name="returned" ColumnName="returned" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
