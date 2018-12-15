@@ -82,6 +82,16 @@ namespace OnTheFlyWPFC.View
                 cmbVendors.ItemsSource = vendorViewModel.vendors;
                 cmbVendors.SelectedValuePath = "VendorID";
                 cmbVendors.DisplayMemberPath = "VendorName";
+
+
+                cmbVendors.SelectedIndex = -1;
+                cmbBranches.SelectedIndex = -1;
+                cmbTrip.SelectedIndex = -1;
+                cmbPaid.SelectedIndex = -1;
+
+                txtDeliveryPrice.Text = "0";
+                txtPaidPrice.Text = "0";
+
             }
                 
         }
@@ -99,6 +109,14 @@ namespace OnTheFlyWPFC.View
                 cmbBranches.ItemsSource = vendorViewModel.vendorBranches;
                 cmbBranches.SelectedValuePath = "vendorBranchID"; 
                 cmbBranches.DisplayMemberPath = "name";
+
+                //cmbVendors.SelectedIndex = -1;
+                cmbBranches.SelectedIndex = -1;
+                cmbTrip.SelectedIndex = -1;
+                cmbPaid.SelectedIndex = -1;
+
+                txtDeliveryPrice.Text = "0";
+                txtPaidPrice.Text = "0";
             }
         }
 
@@ -110,6 +128,15 @@ namespace OnTheFlyWPFC.View
             if (cmbBranches.SelectedIndex != -1) {
 
                 cmbTrip.IsEnabled = true;
+
+                //cmbVendors.SelectedIndex = -1;
+                //cmbBranches.SelectedIndex = -1;
+                cmbTrip.SelectedIndex = -1;
+                cmbPaid.SelectedIndex = -1;
+
+                txtDeliveryPrice.Text = "0";
+                txtPaidPrice.Text = "0";
+
             }
                 
         }
@@ -146,6 +173,14 @@ namespace OnTheFlyWPFC.View
                     txtDeliveryPrice.Text = deliveryPrice.ToString();
 
                 }
+
+                //cmbVendors.SelectedIndex = -1;
+                //cmbBranches.SelectedIndex = -1;
+                //cmbTrip.SelectedIndex = -1;
+                cmbPaid.SelectedIndex = -1;
+
+                //txtDeliveryPrice.Text = "0";
+                txtPaidPrice.Text = "0";
 
 
 
@@ -271,6 +306,16 @@ namespace OnTheFlyWPFC.View
                 cmbVendors.IsEnabled = false;
 
                 cmbBranches.IsEnabled = true;
+
+                //cmbVendors.SelectedIndex = -1;
+                cmbBranches.SelectedIndex = -1;
+                cmbTrip.SelectedIndex = -1;
+                cmbPaid.SelectedIndex = -1;
+
+                txtDeliveryPrice.Text = "0";
+                txtPaidPrice.Text = "0";
+
+
             }
             else {
                 

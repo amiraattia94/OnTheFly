@@ -87,6 +87,8 @@ namespace OnTheFlyWPFC.View
                 cmbVendors.DisplayMemberPath = "VendorName";
 
                 cmbVendors.SelectedValue = invoiceViewModel.deliveryService.VendorID;
+
+
             }
                 
         }
