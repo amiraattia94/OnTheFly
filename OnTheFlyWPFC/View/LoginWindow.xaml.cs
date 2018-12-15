@@ -24,16 +24,22 @@ namespace OnTheFlyWPFC.View
     {
         UsersViewModel userViewModel;
         LoginViewModel loginViewModel;
+
         public LoginWindow()
         {
+        
             userViewModel = new UsersViewModel();
             loginViewModel = new LoginViewModel();
+
+            
+
             InitializeComponent();
         }
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-           
+
+
             string username, password, error_message;
             bool user_exist = false ;
             if (string.IsNullOrWhiteSpace(usernametxt.Text) || string.IsNullOrWhiteSpace(pbPassword.Password))
@@ -63,11 +69,13 @@ namespace OnTheFlyWPFC.View
             }
             catch(Exception )
             {
-                System.Windows.Forms.DialogResult dialog = System.Windows.Forms.MessageBox.Show("عفواَ، هناك خطأ في الإتصال بقاعدة البيانات", "خطأ", System.Windows.Forms.MessageBoxButtons.OK);
+                System.Windows.Forms.DialogResult dialog = System.Windows.Forms.MessageBox.Show(" عفواَ، هناك خطأ في الإتصال بقاعدة البيانات الرجاء ادخال الاعدادات الصحيحة", "خطأ", System.Windows.Forms.MessageBoxButtons.OK);
                 if (dialog == System.Windows.Forms.DialogResult.OK)
                 {
+                    var Settingwindow = new DBConnectionWindow();
+                    Settingwindow.ShowDialog();
                     //     Close entire appliction
-                    System.Windows.Application.Current.Shutdown();
+                    //System.Windows.Application.Current.Shutdown();
                 }
             }
             

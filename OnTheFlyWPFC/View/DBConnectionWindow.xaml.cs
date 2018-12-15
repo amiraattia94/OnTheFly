@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,61 +26,39 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class DBConnectionWindow : Window
     {
-        UsersViewModel userViewModel;
-        LoginViewModel loginViewModel;
+
+
+        Configuration config;
 
         public DBConnectionWindow()
         {
-            userViewModel = new UsersViewModel();
-            loginViewModel = new LoginViewModel();
+
+            config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+
             InitializeComponent();
+
+            fillData();
+
+
         }
 
-        //private async void btnLogin_Click(object sender, RoutedEventArgs e)
-        //{
-           
-        //    //string username, password, error_message;
-        //    //bool user_exist = false ;
-        //    //if (string.IsNullOrWhiteSpace(usernametxt.Text) || string.IsNullOrWhiteSpace(pbPassword.Password))
-        //    //{
-        //    //    error_message = get_message();
-        //    //    MessageBox.Show(error_message, "خطأ ", MessageBoxButton.OK, MessageBoxImage.Error);
-        //    //}
-        //    //password = pbPassword.Password;// passwordtxt.Text;
-        //    //username = usernametxt.Text;
-        //    //try
-        //    //{
-        //    //    user_exist = await userViewModel.GetUserExists(usernametxt.Text, pbPassword.Password);
-                
-        //    //    if (user_exist == true)
-        //    //    {
-                    
-        //    //        initiateSession(userViewModel.editUser, usernametxt.Text);                    
-        //    //        var tempW = new POSWindow();
-        //    //        tempW.Show();
-        //    //        this.Close();
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        MessageBox.Show("عفواً، لقد اخطأت في اسم المستخدم او كلمة المرور ", "خطأ", MessageBoxButton.OK, MessageBoxImage.Error);
+        private void fillData() {
 
-        //    //    }
-        //    //}
-        //    //catch(Exception )
-        //    //{
-        //    //    System.Windows.Forms.DialogResult dialog = System.Windows.Forms.MessageBox.Show("عفواَ، هناك خطأ في الإتصال بقاعدة البيانات", "خطأ", System.Windows.Forms.MessageBoxButtons.OK);
-        //    //    if (dialog == System.Windows.Forms.DialogResult.OK)
-        //    //    {
-        //    //        //     Close entire appliction
-        //    //        System.Windows.Application.Current.Shutdown();
-        //    //    }
-        //    //}
-            
-           
+            var entityCnxStringBuilder = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["OnTheFlyDBEntities"].ConnectionString);
+            var sqlCnxStringBuilder = new SqlConnectionStringBuilder(entityCnxStringBuilder.ProviderConnectionString);
+            usernametxt.Text = sqlCnxStringBuilder.UserID.ToString();
+            pbPassword.Password = sqlCnxStringBuilder.Password.ToString();
 
-        //}
-        
-         private string get_message()
+            var ipandpor = sqlCnxStringBuilder.DataSource.Split(',');
+
+            IPAddress.Text = ipandpor[0];
+            port.Text = ipandpor[1];
+
+
+        }
+
+        private string get_message()
          {
 
              string result = "عفواَ ، لقد نسيت تعبئة الحفول الآتية : \n";
@@ -113,7 +92,7 @@ namespace OnTheFlyWPFC.View
 
 
 
-        async private void BtnChangeDB_Click(object sender, RoutedEventArgs e) {
+        private void BtnChangeDB_Click(object sender, RoutedEventArgs e) {
 
             //DataBaseService.ChangeDatabase(
             //    initialCatalog: "OnTheFlyDB",
@@ -124,22 +103,29 @@ namespace OnTheFlyWPFC.View
 
             //    );
 
+            if (string.IsNullOrWhiteSpace(usernametxt.Text) || string.IsNullOrWhiteSpace(pbPassword.Password) || string.IsNullOrWhiteSpace(IPAddress.Text) || string.IsNullOrWhiteSpace(port.Text)) {
+
+                var error_message = get_message();
+                MessageBox.Show(error_message, "خطأ ", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                return;
+            }
+
+
             try {
-                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            //var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-                var entityCnxStringBuilder = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["OnTheFlyDBEntities"].ConnectionString);
-                var sqlCnxStringBuilder = new SqlConnectionStringBuilder(entityCnxStringBuilder.ProviderConnectionString);
-                sqlCnxStringBuilder.InitialCatalog = "OnTheFlyDB";
-                sqlCnxStringBuilder.UserID = usernametxt.Text;
-                sqlCnxStringBuilder.Password = pbPassword.Password;
-                sqlCnxStringBuilder.DataSource = IPAddress.Text + " ," + port.Text;
+            var entityCnxStringBuilder = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["OnTheFlyDBEntities"].ConnectionString);
+            var sqlCnxStringBuilder = new SqlConnectionStringBuilder(entityCnxStringBuilder.ProviderConnectionString);
+            sqlCnxStringBuilder.InitialCatalog = "OnTheFlyDB";
+            sqlCnxStringBuilder.UserID = usernametxt.Text;
+            sqlCnxStringBuilder.Password = pbPassword.Password;
+            sqlCnxStringBuilder.DataSource = IPAddress.Text + " ," + port.Text;
                 
 
-                entityCnxStringBuilder.ProviderConnectionString = sqlCnxStringBuilder.ConnectionString;
+            entityCnxStringBuilder.ProviderConnectionString = sqlCnxStringBuilder.ConnectionString;
                 
-                config.ConnectionStrings.ConnectionStrings["OnTheFlyDBEntities"].ConnectionString = entityCnxStringBuilder.ConnectionString;
-                config.Save(ConfigurationSaveMode.Modified, true);
-                ConfigurationManager.RefreshSection("connectionStrings");
+
 
 
 
@@ -151,11 +137,23 @@ namespace OnTheFlyWPFC.View
 
                     if(testConnection.State == System.Data.ConnectionState.Closed) {
                         testConnection.Open();
-                        MessageBox.Show("تم الاتصال بقاعدة البيانات الرجاء اعادة تشغيل البرنامج ");
+
+                        config.ConnectionStrings.ConnectionStrings["OnTheFlyDBEntities"].ConnectionString = entityCnxStringBuilder.ConnectionString;
+                        config.Save(ConfigurationSaveMode.Modified);
+                        ConfigurationManager.RefreshSection("connectionStrings");
+                        ConfigurationManager.RefreshSection("OnTheFlyDBEntities");
+
+                        System.Windows.Forms.DialogResult dialog = System.Windows.Forms.MessageBox.Show("تم الاتصال بقاعدة البيانات سيتم اعادة تشغيل البرنامج ", "تم الاتصال", System.Windows.Forms.MessageBoxButtons.OK);
+                        if (dialog == System.Windows.Forms.DialogResult.OK) {
+                            //     Close entire appliction
+
+                            Process.Start(Application.ResourceAssembly.Location);
+                            Application.Current.Shutdown();
+                        }
+
+                        fillData();
 
                     }
-
-
 
                 }
                 catch (Exception ex) {
@@ -166,8 +164,6 @@ namespace OnTheFlyWPFC.View
                     //    System.Windows.Application.Current.Shutdown();
                     //}
                 }
-
-
             }
             catch (Exception) {
 

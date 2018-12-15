@@ -9,6 +9,7 @@ using OnTheFlyWPFC.Model.Service;
 using System.ComponentModel.DataAnnotations;
 using System.Windows;
 using System.ComponentModel;
+using OnTheFlyWPFC.View;
 
 namespace OnTheFlyWPFC.ViewModel
 {
@@ -56,9 +57,13 @@ namespace OnTheFlyWPFC.ViewModel
             }
             catch( Exception)
             {
-                MessageBox.Show("عفواَ، هناك خطأ في الإتصال بقاعدة البيانات" ,"خطأ",MessageBoxButton.OK);
-               
-                
+                System.Windows.Forms.DialogResult dialog = System.Windows.Forms.MessageBox.Show(" عفواَ، هناك خطأ في الإتصال بقاعدة البيانات الرجاء ادخال الاعدادات الصحيحة", "خطأ", System.Windows.Forms.MessageBoxButtons.OK);
+                if (dialog == System.Windows.Forms.DialogResult.OK) {
+                    var Settingwindow = new DBConnectionWindow();
+                    Settingwindow.ShowDialog();
+
+                }
+
             }
             
         }
