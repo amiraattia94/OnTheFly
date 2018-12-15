@@ -29,7 +29,7 @@ namespace OnTheFlyWPFC.Model.Service {
                                 deliveryID = deliveryID,
                                 totalcost = totalcost,
                                 totaldelivery = totaldeliveryPrice,
-                        //        returned = false,
+                                returned = false,
 
 
                             });
@@ -97,7 +97,7 @@ namespace OnTheFlyWPFC.Model.Service {
 
                         try
                         {
-                    //        Result.returned = true;
+                            Result.returned = true;
 
                             await con.SaveChangesAsync();
                             return true;
@@ -191,7 +191,7 @@ namespace OnTheFlyWPFC.Model.Service {
                             InvoiceState = s.returned,
                             DeliveryID = s.deliveryID,
                             deliveryPriceAfter = s.totaldelivery,
-
+                            
                             
 
 
