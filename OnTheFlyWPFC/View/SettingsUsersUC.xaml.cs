@@ -103,18 +103,6 @@ namespace OnTheFlyWPFC.View
             newwindow.ShowDialog();
         }
 
-        private void viewGroups(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            var a = button.CommandParameter as UserDTO;
-            HelperClass.userID = a.userID;
-
-            var newwindow = new SettingsUsersAddUserGroupsMiniWindow();
-
-            RefreshListEvent += new RefreshList(RefreshListView);
-            newwindow.UpdateMainList = RefreshListEvent;
-
-            newwindow.Show();
-        }
+      
     }
 }

@@ -33,7 +33,6 @@ namespace OnTheFlyWPFC.Model
         public Nullable<int> deliveryID { get; set; }
         public Nullable<decimal> totalcost { get; set; }
         public Nullable<decimal> totaldelivery { get; set; }
-        public Nullable<bool> returned { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<custodyTBL> custodyTBLs { get; set; }

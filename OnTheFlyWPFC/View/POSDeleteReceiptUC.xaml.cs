@@ -194,7 +194,7 @@ namespace OnTheFlyWPFC.View
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e) {
-
+/*
             if (HelperClass.userGroupRoleDTO.delete_POS)
             {
                 if (await invoiceViewModel.DeleteInvoiceByID(, HelperClass.POSSelectedCustomerID, isfull, decimal.Parse(txtPaidPrice.Text), decimal.Parse(txtDeliveryPrice.Text), true, (DateTime)datePickerStartDate.SelectedDate))
@@ -211,7 +211,7 @@ namespace OnTheFlyWPFC.View
                 MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
-
+            */
         }
     }
 }

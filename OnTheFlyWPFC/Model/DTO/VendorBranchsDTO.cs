@@ -101,7 +101,11 @@ namespace OnTheFlyWPFC.Model.DTO {
 
         private string ValidateName()
         {
-            if (name.Length > 30)
+            if (String.IsNullOrWhiteSpace(name))
+            {
+                return null;
+            }
+            else if(name.Length > 30)
             {
                 return "لا يمكن ان يتجاوز الإسم 30 حرف";
             }
@@ -110,7 +114,11 @@ namespace OnTheFlyWPFC.Model.DTO {
 
         private string ValidatePhone1()
         {
-            if (phone1.Length > 10)
+            if (String.IsNullOrWhiteSpace(phone1))
+            {
+                return null;
+            }
+            else if (phone1.Length > 10)
             {
                 return "لا يمكن ان يتجاوز رقم الهاتف 10 احرف";
             }
@@ -123,7 +131,11 @@ namespace OnTheFlyWPFC.Model.DTO {
 
         private string ValidatePhone2()
         {
-            if (phone2.Length > 10)
+            if (String.IsNullOrWhiteSpace(phone2))
+            {
+                return null;
+            }
+            else if(phone2.Length > 10)
             {
                 return "لا يمكن ان يتجاوز رقم الهاتف 10 احرف";
             }
@@ -136,7 +148,11 @@ namespace OnTheFlyWPFC.Model.DTO {
 
         private string ValidateAddress()
         {
-            if (address.Length > 50)
+            if (String.IsNullOrWhiteSpace(address))
+            {
+                return "لا يمكن ترك العنوان فارغاَ";
+            }
+            else if(address.Length > 50)
             {
                 return "لا يمكن ان يتجاوز العنوان 50 حرف";
             }

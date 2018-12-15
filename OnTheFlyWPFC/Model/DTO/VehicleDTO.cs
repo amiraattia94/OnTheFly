@@ -122,7 +122,11 @@ namespace OnTheFlyWPFC.Model.DTO
 
         private string ValidateMadeCompany()
         {
-            if (made_company.Length > 50)
+            if (String.IsNullOrWhiteSpace(made_company))
+            {
+                return null;
+            }
+            else if (made_company.Length > 50)
             {
                 return "لا يمكن ان يتجاوز اسم الشركة المصنعة 50 حرف";
             }
@@ -131,7 +135,11 @@ namespace OnTheFlyWPFC.Model.DTO
 
         private string ValidateMadeYear()
         {
-            if (made_year < 1960)
+            if (String.IsNullOrWhiteSpace(made_year.ToString()))
+            {
+                return null;
+            }
+            else if(made_year < 1960)
             {
                 return "يجب ان لا تقل سنة الصنع عن 1960";
             }
@@ -143,7 +151,11 @@ namespace OnTheFlyWPFC.Model.DTO
         }
             private string ValidateEditionName()
         {
-            if (edition_name.Length > 50)
+            if (String.IsNullOrWhiteSpace(edition_name))
+            {
+                return null;
+            }
+            else if (edition_name.Length > 50)
             {
                 return "لا يمكن ان يتجاوز اسم الموديل المصنعة 50 حرف";
             }

@@ -4,13 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
+        xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel"        
         mc:Ignorable="d"
         Title="DeliveryDestinationAddMiniWindow" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="350" Width="350" ResizeMode="NoResize" >
-
+    <Window.Resources>
+        <viewmodel:CategoryViewModel x:Key="DataContext"/>
+    </Window.Resources>
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="8" Height="300" Width="300" >
             <Border.Effect>
@@ -38,7 +41,7 @@
                         </StackPanel>
                     </UniformGrid>
                 </Grid>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" DataContext="{StaticResource DataContext}">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -65,7 +68,7 @@
                             <!-- Category Name TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtCategoryName"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox Name="txtCategoryName"  Text="{Binding categories.CategoryName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False"  Text="ادخل اسم التصنيف"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">

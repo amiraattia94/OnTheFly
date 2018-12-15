@@ -157,6 +157,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Printing" />
@@ -515,6 +516,9 @@
     <Compile Include="View\HRJobDescriptionUC.xaml.cs">
       <DependentUpon>HRJobDescriptionUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SettingsBackupAndRestoreUC.xaml.cs">
+      <DependentUpon>SettingsBackupAndRestoreUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SettingsCitiesAddMiniWindow.xaml.cs">
       <DependentUpon>SettingsCitiesAddMiniWindow.xaml</DependentUpon>
     </Compile>
@@ -532,9 +536,6 @@
     </Compile>
     <Compile Include="View\SettingsUserGroupRoleUC.xaml.cs">
       <DependentUpon>SettingsUserGroupRoleUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingsUsersAddUserGroupsMiniWindow.xaml.cs">
-      <DependentUpon>SettingsUsersAddUserGroupsMiniWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SettingsUsersUC.xaml.cs">
       <DependentUpon>SettingsUsersUC.xaml</DependentUpon>
@@ -779,6 +780,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\SettingsBackupAndRestoreUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\SettingsCitiesAddMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -800,10 +805,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SettingsUserGroupRoleUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\SettingsUsersAddUserGroupsMiniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

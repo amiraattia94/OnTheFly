@@ -356,16 +356,7 @@
                                     <GridViewColumn Header="اسم المستخدم" Width="120" DisplayMemberBinding="{Binding UserName}"/>
                                     <GridViewColumn Header="كلمة المرور" Width="100" DisplayMemberBinding="{Binding  Password}"/>
                                     <GridViewColumn Header="الموظف" Width="90" DisplayMemberBinding="{Binding EmployeeID}"/>
-                                    <GridViewColumn  Width="25" >
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <Button Click="viewGroups" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  >
-                                                    <materialDesign:PackIcon Kind="GroupAdd" BorderBrush="Transparent"  Background="Transparent" Foreground="Gray"/>
-                                                </Button>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-                                    
+                                                                       
                                     <GridViewColumn  Width="25" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

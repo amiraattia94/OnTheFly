@@ -46,7 +46,11 @@ namespace OnTheFlyWPFC.Model.DTO
 
         private string ValidateCategoryName()
         {
-            if (CategoryName.Length > 20)
+            if (String.IsNullOrWhiteSpace(CategoryName))
+            {
+                return null;
+            }
+            else if (CategoryName.Length > 20)
             {
                 return "لا يمكن ان يتجاوز الإسم 20 حرف";
             }

@@ -64,7 +64,11 @@ namespace OnTheFlyWPFC.View
 
                     MainUC.Children.Add(usc);
                     break;
+                case "ItemBackupAndRestore":
+                    usc = new SettingsBackupAndRestoreUC();
 
+                    MainUC.Children.Add(usc);
+                    break;
 
                 default:
                         break;

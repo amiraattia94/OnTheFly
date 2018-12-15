@@ -523,7 +523,12 @@
                                 <TextBlock Text="المدن" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
-
+                        <ListViewItem x:Name="ItemBackupAndRestore" Height="60" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Database" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="النسخ الاحتياطي والاستعادة" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
                     </ListView>
                     </StackPanel>
                 </UniformGrid>

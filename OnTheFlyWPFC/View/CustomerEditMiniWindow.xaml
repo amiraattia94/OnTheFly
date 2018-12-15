@@ -5,12 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
         mc:Ignorable="d"
+        xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel"
         xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
         Title="CustomerEditMiniWindow" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="600" Width="350" ResizeMode="NoResize" >
-
+    <Window.Resources>
+        <viewmodel:CustomerViewModel x:Key="DataContext"/>
+    </Window.Resources>
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="8" Height="550" Width="300" >
             <Border.Effect>
@@ -47,7 +50,7 @@
 
 
 
-                    <Grid>
+                    <Grid DataContext="{StaticResource DataContext}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60"/>
                             <RowDefinition Height="178*"/>
@@ -66,7 +69,7 @@
                             <!-- Customer Name TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtCustomerName" Text="{Binding name}" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtCustomerName" Text="{Binding name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
                                     <TextBlock IsHitTestVisible="False"  Text="اسم الزبون"   Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -85,7 +88,7 @@
                             <!-- Customer Phone1 TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtCustomerPhone1" Text="{Binding phone1}" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"   FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtCustomerPhone1" Text="{Binding phone1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"   FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
                                     <TextBlock IsHitTestVisible="False"  Text="رقم الزبون 1"   Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -104,7 +107,7 @@
                             <!-- Customer Phone2 TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtCustomerPhone2" Text="{Binding phone2}" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"   FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtCustomerPhone2" Text="{Binding phone2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"   FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
                                     <TextBlock IsHitTestVisible="False"  Text="رقم الزبون 2"   Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -142,7 +145,7 @@
                             <!-- Customer Adress TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtCustomerAddress" Text="{Binding address}" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                                    <TextBox Name="txtCustomerAddress" Text="{Binding address, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
                                     <TextBlock IsHitTestVisible="False"  Text="العنوان"   Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -177,32 +180,6 @@
                                     </TextBlock>
                                 </Grid>
                             </Border>
-
-
-
-                            <Border Height="40" Margin="0,0,0,15">
-                                
-                            </Border>
-
-                            <Border Height="40" Margin="0,0,0,15">
-                                
-                            </Border>
-                            <Border Height="40" Margin="0,0,0,15">
-                                
-                            </Border>
-
-                            <Border Height="40" Margin="0,0,0,15">
-                                
-                            </Border>
-
-                            <Border Height="40" Margin="0,0,0,15">
-                                
-                            </Border>
-
-                            <Border Height="40" Margin="0,0,0,15">
-                                
-                            </Border>
-
 
                             <Border Height="40" Margin="55,20,55,0">
                                 <Border Height="40" BorderBrush="Transparent" CornerRadius="20"  Grid.Column="2" Background="#2C99F5" Margin="0,0,0,0" >

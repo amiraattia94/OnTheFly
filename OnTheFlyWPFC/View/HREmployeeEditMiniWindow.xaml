@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
         xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
+        xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel"
         mc:Ignorable="d"
         Title="HREmployeeEditMiniWindow" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="820" Width="400" ResizeMode="NoResize" >
-
+    <Window.Resources>
+        <viewmodel:EmployeeViewModel x:Key="DataContext"/>
+    </Window.Resources>
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="8" Height="770" Width="350"  >
             <Border.Effect>
@@ -39,7 +42,7 @@
                         </StackPanel>
                     </UniformGrid>
                 </Grid>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" DataContext="{StaticResource DataContext}">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -64,7 +67,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Text="{Binding name}" Name="txtEmployeeName" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox  Text="{Binding name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Name="txtEmployeeName" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False"  Text="اسم الموظف"   HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -83,7 +86,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Text="{Binding phone1}" Name="txtPhone1" VerticalAlignment="Stretch" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"   FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox  Text="{Binding phone1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Name="txtPhone1" VerticalAlignment="Stretch" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"   FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False" Text="رقم الهاتف 1"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -102,7 +105,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Text="{Binding phone2}" Name="txtPhone2" VerticalAlignment="Stretch" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox  Text="{Binding phone2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Name="txtPhone2" VerticalAlignment="Stretch" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False" Text="رقم الهاتف 2 "  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -121,7 +124,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Text="{Binding address}" Name="txtAddress" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox  Text="{Binding address, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Name="txtAddress" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False" Text="العنوان"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -165,7 +168,7 @@
                                      Grid.Row = "2"
                                      VerticalAlignment="Stretch" Width="180" HorizontalAlignment="Left" FontSize="16" Foreground="#768295"
                                      Language = "ar-LY"
-                                     Name="datePickerEndDate"
+                                     Name="datePickerEndDate"  Text="{Binding end_date, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                                      SelectedDate = "{Binding end_date, Mode=TwoWay}" />
                                 </StackPanel>
                             </Border>
