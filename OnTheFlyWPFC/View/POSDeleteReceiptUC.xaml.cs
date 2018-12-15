@@ -257,7 +257,7 @@ namespace OnTheFlyWPFC.View
                 MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
-
+            
         }
     }
 }

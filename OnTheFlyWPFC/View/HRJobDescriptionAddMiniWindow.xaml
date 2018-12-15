@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OnTheFlyWPFC.View"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
              mc:Ignorable="d" 
              d:DesignHeight="430" d:DesignWidth="350"
             Background="Transparent" WindowStyle="None" 
@@ -15,6 +15,7 @@
              xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel">
 
     <Window.Resources>
+        <viewmodel:JobsViewModel x:Key="DataContext"/>
         <viewmodel:Class1 x:Key="class1"/>
         <viewmodel:CityViewModel x:Key="City"/>
 
@@ -325,7 +326,7 @@
             </Border.Effect>
             <Grid>
 
-                <Grid>
+                <Grid DataContext="{StaticResource DataContext}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="65"/>
                         <RowDefinition Height="200*"/>
@@ -362,7 +363,7 @@
                         <!-- Job Name TxtBox-->
                         <Border Height="40" Margin="0,0,0,15">
                             <Grid>
-                                <TextBox Name="txtJobName"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" />
+                                <TextBox Name="txtJobName" Text="{Binding EditJob.job_name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" />
                                 <TextBlock IsHitTestVisible="False" Text="اسم الوظيفة"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                     <TextBlock.Style>
                                         <Style TargetType="{x:Type TextBlock}">
@@ -400,7 +401,7 @@
                         <!-- Job Working hours per month TextBox-->
                         <Border Height="40" Margin="0,0,0,15">
                             <Grid>
-                                <TextBox Name="txtWorkingHoursPerMonth" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                <TextBox Name="txtWorkingHoursPerMonth"  Text="{Binding EditJob.working_days_per_month, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                 <TextBlock IsHitTestVisible="False" Text="عدد ساعات العمل في الشهر"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                     <TextBlock.Style>
                                         <Style TargetType="{x:Type TextBlock}">

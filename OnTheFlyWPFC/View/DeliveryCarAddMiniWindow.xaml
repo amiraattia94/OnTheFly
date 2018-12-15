@@ -7,13 +7,14 @@
         mc:Ignorable="d"
         xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
         Title="DeliveryCarAddMiniWindow" 
-        
-        
-         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel"       
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="700" Width="350" ResizeMode="NoResize" >
-
+    <Window.Resources>
+        <viewmodel:VehicleViewModel x:Key="DataContext"/>
+    </Window.Resources>
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="8"  Height="650" Width="300" >
             <Border.Effect>
@@ -53,7 +54,7 @@
 
 
 
-                    <Grid>
+                    <Grid DataContext="{StaticResource DataContext}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="65"/>
                             <RowDefinition Height="200*"/>
@@ -91,7 +92,7 @@
                             <!-- Vehicle Number TextBox-->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtPlateNumber" Text="" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox Name="txtPlateNumber" Text="{Binding vehicle.plate_number, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False"  Text="رقم اللوحة"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -110,7 +111,7 @@
                             <!-- Vehicle Made Company TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtCompany"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox Name="txtCompany" Text="{Binding vehicle.made_company, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False"  Text="الشركة"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -129,7 +130,7 @@
                             <!-- Vehicle Edition TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtModel" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox Name="txtModel" Text="{Binding vehicle.edition_name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False"  Text="الموديل"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -148,7 +149,7 @@
                             <!-- Vehicle Year TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtYear" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox Name="txtYear" Text="{Binding vehicle.made_year, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False"  Text="سنة الصنع"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">

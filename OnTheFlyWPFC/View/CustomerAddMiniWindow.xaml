@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
+        xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel"
         mc:Ignorable="d"
         Title="CustomerAddMiniWindow" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="600" Width="350"  ResizeMode="NoResize" >
 
+    <Window.Resources>
+        <viewmodel:CustomerViewModel x:Key="DataContext"/>
+    </Window.Resources>
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="8" Height="550" Width="300" >
             <Border.Effect>
@@ -45,7 +49,7 @@
 
 
 
-                    <Grid>
+                    <Grid DataContext="{StaticResource DataContext}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60"/>
                             <RowDefinition Height="178*"/>
@@ -65,7 +69,7 @@
                             <!-- Customer Name TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox x:Name="txtCustomerName" Background="Transparent"   HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="txtCustomerName" Text="{Binding customer.name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Background="Transparent"   HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
                                     <TextBlock IsHitTestVisible="False"  Text="اسم الزبون"   Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -84,7 +88,7 @@
                             <!-- Customer Phone1 TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox x:Name="txtCustomerPhone1" Background="Transparent" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="txtCustomerPhone1" Text="{Binding customer.phone1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
                                     <TextBlock IsHitTestVisible="False"  Text="رقم الزبون 1"   Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -103,7 +107,7 @@
                             <!-- Customer Phone2 TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox x:Name="txtCustomerPhone2" Background="Transparent" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="txtCustomerPhone2" Text="{Binding customer.phone2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
                                     <TextBlock IsHitTestVisible="False"  Text="رقم الزبون 2"   Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -122,7 +126,7 @@
                             <!-- Customer Branch Cities ComboBox-->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbBranchCities_Loaded"/>
+                                    <ComboBox Name="cmbBranchCities" VerticalAlignment="Stretch"  FontSize="16" Foreground="DarkSlateGray" Loaded="cmbBranchCities_Loaded"/>
                                     <TextBlock IsHitTestVisible="False"  Text="المدينة"   Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -141,7 +145,7 @@
                             <!-- Customer Adress TextBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox x:Name="txtCustomerAddress" Background="Transparent"   HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="txtCustomerAddress" Text="{Binding customer.address, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Background="Transparent"   HorizontalAlignment="Center" Width="240" FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Center"/>
                                     <TextBlock IsHitTestVisible="False"  Text="العنوان"   Width="240" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">

@@ -6,12 +6,15 @@
         xmlns:local="clr-namespace:OnTheFlyWPFC.View"
         mc:Ignorable="d"
         xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
+        xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel"
         Title="HREmployeeAddMiniWindow" 
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="710" Width="400" ResizeMode="NoResize" >
-
+    <Window.Resources>
+        <viewmodel:EmployeeViewModel x:Key="DataContext"/>
+    </Window.Resources>
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="8" Height="660" Width="350" >
             <Border.Effect>
@@ -41,7 +44,7 @@
                     </UniformGrid>
                 </Grid>
 
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" DataContext="{StaticResource DataContext}">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -67,7 +70,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox  Name="txtEmployeeName" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox  Name="txtEmployeeName" Text="{Binding employee.name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False"  Text="اسم الموظف"   HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -86,7 +89,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox  Name="txtPhone1" VerticalAlignment="Stretch" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"   FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox  Name="txtPhone1" Text="{Binding employee.phone1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"   FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False" Text="رقم الهاتف 1"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -105,7 +108,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox  Name="txtPhone2" VerticalAlignment="Stretch" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox  Name="txtPhone2" Text="{Binding employee.phone2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" behaviors:DigitsOnlyBehavior.IsDigitOnly="True"  FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False" Text="رقم الهاتف 2 "  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -124,7 +127,7 @@
                             <!-- Service Tyype ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <TextBox Name="txtAddress" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
+                                    <TextBox Name="txtAddress" Text="{Binding employee.address, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray"/>
                                     <TextBlock IsHitTestVisible="False" Text="العنوان"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -144,7 +147,7 @@
                             <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="المدينة" Width="100"  FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
-                                    <ComboBox Name="cmbEmployeeCity" Loaded="cmbEmployeeCity_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="DarkSlateGray"/>
+                                    <ComboBox Name="cmbEmployeeCity"  Loaded="cmbEmployeeCity_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="DarkSlateGray"/>
                                 </StackPanel>
                             </Border>
                             <Border Height="40" Margin="0,0,0,15">
@@ -152,7 +155,7 @@
 
                                     <Label Content="تاريخ المباشرة" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
                                     <DatePicker Grid.Column = "1"
-                                     Grid.Row = "2"
+                                     Grid.Row = "2" 
                                      VerticalAlignment="Stretch" Width="180" HorizontalAlignment="Left" FontSize="16" Foreground="DarkSlateGray"
                                      Language = "ar-LY"
                                      Name="datePickerStartDate"/>
@@ -161,7 +164,7 @@
 
                                 <Border Height="40" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="الوظيفة" Width="100" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
+                                    <Label Content="الوظيفة"  Width="100" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#768295" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Height="44" Margin="0"/>
                                     <ComboBox Name="cmbEmployeeJob" Loaded="cmbEmployeeJob_Loaded" VerticalAlignment="Stretch" Width="190"  FontSize="16" Foreground="DarkSlateGray"/>
                                 </StackPanel>
                                 </Border>

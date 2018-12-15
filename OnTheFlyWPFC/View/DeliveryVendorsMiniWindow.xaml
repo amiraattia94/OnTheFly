@@ -8,10 +8,13 @@
         Title="DeliveryVendorsMiniWindow" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:behaviors="clr-namespace:OnTheFlyWPFC.Behaviors"
+        xmlns:viewmodel="clr-namespace:OnTheFlyWPFC.ViewModel"
         Background="Transparent" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="600" Width="750" ResizeMode="NoResize">
-
+    <Window.Resources>
+        <viewmodel:VendorViewModel x:Key="DataContext"/>
+    </Window.Resources>
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="8" Height="550" Width="700" >
             <Border.Effect>

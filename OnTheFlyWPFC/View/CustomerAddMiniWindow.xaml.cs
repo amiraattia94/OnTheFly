@@ -58,7 +58,7 @@ namespace OnTheFlyWPFC.View
 
         async private void Button_Click(object sender, RoutedEventArgs e)
         {
-            customerViewModel = new CustomerViewModel();
+         //   customerViewModel = new CustomerViewModel();
             var city = (CityDTO)cmbBranchCities.SelectedValue;
 
 
