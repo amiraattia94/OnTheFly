@@ -242,7 +242,7 @@
                                         <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding address}"/>
                                         <GridViewColumn Header="هاتف 1" Width="90" DisplayMemberBinding="{Binding phone1}"/>
                                         <GridViewColumn Header="هاتف 2" Width="90" DisplayMemberBinding="{Binding phone2}"/>
-                                        <GridViewColumn Header="الحالة" Width="90" DisplayMemberBinding="{Binding state}"/>
+                                        <GridViewColumn Header="الحالة" Width="90" DisplayMemberBinding="{Binding stateName}"/>
                                         <GridViewColumn  Width="30" >
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>

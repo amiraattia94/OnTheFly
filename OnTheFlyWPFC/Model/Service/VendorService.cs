@@ -102,6 +102,7 @@ namespace OnTheFlyWPFC.Model.Service
                     VendorCategoryID = s.categoryID,
                     VendorCategoryName = s.CategoriesTBL.category_name,
                     VendorStatus = s.active,
+                    stateName = (s.active == true) ? "تشتغل" : "متوقف",
                     VendorBranchCount = s.VendorBranchTBLs.Count(),
                     //membershipCount = s.MembershipTBLs.Where(w => w.customerID == s.customerID).Count()
                 }).ToList();
@@ -123,6 +124,7 @@ namespace OnTheFlyWPFC.Model.Service
                         VendorCategoryID = result.categoryID,
                         VendorCategoryName = result.CategoriesTBL.category_name,
                         VendorStatus = result.active,
+                        stateName = (result.active == true) ? "تشتغل" : "متوقف",
                         VendorBranchCount = result.VendorBranchTBLs.Count(),
 
 
@@ -150,6 +152,8 @@ namespace OnTheFlyWPFC.Model.Service
                     VendorCategoryName = s.CategoriesTBL.category_name,
                     VendorStatus = s.active,
                     VendorBranchCount = s.VendorBranchTBLs.Count(),
+                    stateName = (s.active == true) ? "تشتغل" : "متوقف",
+
 
 
 
@@ -170,6 +174,8 @@ namespace OnTheFlyWPFC.Model.Service
                     VendorCategoryName = s.CategoriesTBL.category_name,
                     VendorStatus = s.active,
                     VendorBranchCount = s.VendorBranchTBLs.Count(),
+                    stateName = (s.active == true) ? "تشتغل" : "متوقف",
+
                 }).ToList();
 
                 if (result != null) {
@@ -193,6 +199,8 @@ namespace OnTheFlyWPFC.Model.Service
                     VendorCategoryName = s.CategoriesTBL.category_name,
                     VendorStatus = s.active,
                     VendorBranchCount = s.VendorBranchTBLs.Count(),
+                    stateName = (s.active == true) ? "تشتغل" : "متوقف",
+
                 }).ToList();
 
                 if (result != null) {
@@ -291,6 +299,8 @@ namespace OnTheFlyWPFC.Model.Service
                     phone1 = s.phone1,
                     phone2 = s.phone2,
                     state = (bool)s.active,
+                    stateName = (s.active == true) ? "تشتغل" : "متوقف",
+
                 }).ToList();
 
                 if (result != null) {
@@ -319,7 +329,9 @@ namespace OnTheFlyWPFC.Model.Service
                         phone1 = result.phone1,
                         phone2 = result.phone2,
                         state = (bool)result.active,
-                        
+                        stateName = (result.active == true) ? "تشتغل" : "متوقف",
+
+
                     };
                 };
                 return new VendorBranchsDTO() { };

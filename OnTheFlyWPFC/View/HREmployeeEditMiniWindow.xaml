@@ -42,7 +42,7 @@
                         </StackPanel>
                     </UniformGrid>
                 </Grid>
-                <Grid Grid.Row="1" DataContext="{StaticResource DataContext}">
+                <Grid Grid.Row="1" >
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>

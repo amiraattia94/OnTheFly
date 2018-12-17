@@ -14,6 +14,7 @@ namespace OnTheFlyWPFC.Model.DTO {
         public string cityCode { get; set; }
         public string cityName { get; set; }
         public bool state { get; set; }
+        public string stateName { get; set; }
 
         // private properties
         private string _name { get; set; }

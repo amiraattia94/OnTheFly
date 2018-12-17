@@ -16,6 +16,7 @@ namespace OnTheFlyWPFC.Model.DTO
         public string Bransh { get; set; }
         public int? branchID { get; set; }
         public bool state { get; set; }
+        public string stateName { get; set; }
 
         // private properties
         private string _plate_number { get; set; }

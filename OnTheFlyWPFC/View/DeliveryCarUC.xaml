@@ -360,7 +360,7 @@
                                     <GridViewColumn Header="الموديل" Width="90" DisplayMemberBinding="{Binding edition_name}"/>
                                     <GridViewColumn Header="سنة الصنع" Width="90" DisplayMemberBinding="{Binding made_year}"/>
                                     <GridViewColumn Header="الفرع" Width="90" DisplayMemberBinding="{Binding Bransh}"/>
-                                    <GridViewColumn Header="الحالة" Width="150" DisplayMemberBinding="{Binding state}"/>
+                                    <GridViewColumn Header="الحالة" Width="150" DisplayMemberBinding="{Binding stateName}"/>
 
 
                                     <GridViewColumn  Width="25" >

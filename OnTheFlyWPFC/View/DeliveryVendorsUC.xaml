@@ -376,7 +376,7 @@
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="الحالة" Width="90" DisplayMemberBinding="{Binding VendorStatus}"/>
+                                    <GridViewColumn Header="الحالة" Width="90" DisplayMemberBinding="{Binding stateName}"/>
                                     <GridViewColumn  Width="25" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

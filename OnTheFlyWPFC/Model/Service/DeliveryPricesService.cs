@@ -97,7 +97,8 @@ namespace OnTheFlyWPFC.Model.Service {
                     vendorLocationCode = s.LibyanCitiesTBL1.city_code,
                     fullPrice = s.fullTripPrice,
                     halfPrice = s.halfTripPrice,
-                    status = s.status
+                    status = s.status,
+                    stateName = (s.status == true) ? "مفاعل" : "غير مفاعل",
 
 
                 }).ToList();
@@ -124,7 +125,9 @@ namespace OnTheFlyWPFC.Model.Service {
                         vendorLocationCode = result.LibyanCitiesTBL1.city_code,
                         fullPrice = result.fullTripPrice,
                         halfPrice = result.halfTripPrice,
-                        status = result.status
+                        status = result.status,
+                        stateName = (result.status == true) ? "مفاعل" : "غير مفاعل",
+
 
                     };
                 };
@@ -151,7 +154,9 @@ namespace OnTheFlyWPFC.Model.Service {
                     vendorLocationCode = s.LibyanCitiesTBL1.city_code,
                     fullPrice = s.fullTripPrice,
                     halfPrice = s.halfTripPrice,
-                    status = s.status
+                    status = s.status,
+                    stateName = (s.status == true) ? "مفاعل" : "غير مفاعل",
+
                 }).ToList();
 
                 if (result != null) {
@@ -181,7 +186,9 @@ namespace OnTheFlyWPFC.Model.Service {
                     vendorLocationCode = s.LibyanCitiesTBL1.city_code,
                     fullPrice = s.fullTripPrice,
                     halfPrice = s.halfTripPrice,
-                    status = s.status
+                    status = s.status,
+                    stateName = (s.status == true) ? "مفاعل" : "غير مفاعل",
+
                 }).ToList();
 
                 if (result != null) {

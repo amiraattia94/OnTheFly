@@ -90,18 +90,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevComponents.DotNetBar2.dll" size="5709824">
-      <assemblyIdentity name="DevComponents.DotNetBar2" version="14.1.0.18" publicKeyToken="7EB7C3A35B91DE04" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3s5NPRGLPOGDOFNDx4CESu6TcgGoUN2dMl5OicPTFMc=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.dll" size="5225168">
       <assemblyIdentity name="EntityFramework" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -174,14 +162,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OnTheFlyWPFC.exe" size="1715160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OnTheFlyWPFC.exe" size="1717208">
       <assemblyIdentity name="OnTheFlyWPFC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>OzHZFCCUsXiNtWWdTOM/X4gWoo/4wTObWDZOasTQRCU=</dsig:DigestValue>
+        <dsig:DigestValue>woOEz2N3H8ZKWKFx5SgskawZBkGNJnlELhQ2l9Lb0dw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

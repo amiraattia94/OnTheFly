@@ -367,7 +367,7 @@
                                     <GridViewColumn Header="الوجهة" Width="90" DisplayMemberBinding="{Binding vendorLocation}"/>
                                     <GridViewColumn Header="سعر الرحلة كاملة" Width="125" DisplayMemberBinding="{Binding fullPrice}"/>
                                     <GridViewColumn Header="سعر نص الرحلة" Width="120" DisplayMemberBinding="{Binding halfPrice}"/>
-                                    <GridViewColumn Header="الحالة" Width="150" DisplayMemberBinding="{Binding status}"/>
+                                    <GridViewColumn Header="الحالة" Width="150" DisplayMemberBinding="{Binding stateName}"/>
 
 
                                     <GridViewColumn  Width="25" >

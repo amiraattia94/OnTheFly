@@ -16,5 +16,7 @@ namespace OnTheFlyWPFC.Model.DTO {
         public decimal? fullPrice { get; set; }
         public decimal? halfPrice { get; set; }
         public bool? status { get; set; }
+        public string stateName { get; set; }
+
     }
 }

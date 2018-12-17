@@ -83,7 +83,7 @@
                             <!-- Service Customer Location ComboBox -->
                             <Border Height="40" Margin="0,0,0,15">
                                 <Grid>
-                                    <ComboBox Name="cmbCustomerLocation" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbServiceType_Loaded"/>
+                                    <ComboBox Name="cmbCustomerLocation" VerticalAlignment="Stretch" FontSize="16" Foreground="DarkSlateGray" Loaded="cmbCustomerLocation_Loaded"/>
                                     <TextBlock IsHitTestVisible="False"  Text="موقع الزبون"   Width="230" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
@@ -108,7 +108,7 @@
                                             <Style TargetType="{x:Type TextBlock}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbCustomerLocation}" Value="">
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbVendorLocation}" Value="">
                                                         <Setter Property="Visibility" Value="Visible"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>

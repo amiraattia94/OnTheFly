@@ -101,7 +101,9 @@ namespace OnTheFlyWPFC.Model.Service {
                     edition_name = s.edition_name,
                     made_year = (int)s.made_year,
                     Bransh = s.CompanyBranchTBL.branch_name,
-                    state = s.state
+                    state = s.state,
+                    stateName = (s.state == true) ? "تشتغل" : "متوقف",
+
 
                 }).ToList();
 
@@ -126,7 +128,9 @@ namespace OnTheFlyWPFC.Model.Service {
                         made_year = (int)result.made_year,
                         Bransh = result.CompanyBranchTBL.branch_name,
                         branchID = result.CompanyBranchTBL.branchID,
-                        state = result.state
+                        state = result.state,
+                        stateName = (result.state == true) ? "تشتغل" : "متوقف",
+
 
 
                     };
@@ -147,7 +151,10 @@ namespace OnTheFlyWPFC.Model.Service {
                     edition_name = s.edition_name,
                     made_year = (int)s.made_year,
                     Bransh = s.CompanyBranchTBL.branch_name,
-                    state = s.state
+                    state = s.state,
+                    stateName = (s.state == true) ? "تشتغل" : "متوقف",
+
+
                 }).ToList();
 
                 if (result != null) {
@@ -172,7 +179,10 @@ namespace OnTheFlyWPFC.Model.Service {
                     edition_name = s.edition_name,
                     made_year = (int)s.made_year,
                     Bransh = s.CompanyBranchTBL.branch_name,
-                    state = s.state
+                    state = s.state,
+                    stateName = (s.state == true) ? "تشتغل" : "متوقف",
+
+
                 }).ToList();
 
                 if (result != null) {

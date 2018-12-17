@@ -36,6 +36,9 @@ namespace OnTheFlyWPFC.View
             cityViewModel = new CityViewModel();
 
             deliveryPricesViewModel.GetDeliveryPriceByID(HelperClass.DeliveryPriceID);
+            cityViewModel.GetAllCities();
+
+
         }
 
         private void BtnCloseForm_Click(object sender, RoutedEventArgs e) {
@@ -57,7 +60,8 @@ namespace OnTheFlyWPFC.View
         }
 
         private void cmbCustomerLocation_Loaded(object sender, RoutedEventArgs e) {
-            //cityViewModel.GetAllCities();
+            
+            
             cmbCustomerLocation.ItemsSource = cityViewModel.CityName;
             cmbCustomerLocation.DisplayMemberPath = "name";
             cmbCustomerLocation.SelectedValuePath = "cityCode";
@@ -68,7 +72,6 @@ namespace OnTheFlyWPFC.View
         }
 
         private void cmbVendorLocation_Loaded(object sender, RoutedEventArgs e) {
-            cityViewModel.GetAllCities();
             cmbVendorLocation.ItemsSource = cityViewModel.CityName;
             cmbVendorLocation.DisplayMemberPath = "name";
             cmbVendorLocation.SelectedValuePath = "cityCode";

@@ -55,6 +55,7 @@ namespace OnTheFlyWPFC.ViewModel {
         }
         
         async public void GetAllCities() {
+            
             var cities = await _cityService.GetCity();
             CN = new List<string>();
             foreach(var city in cities) {

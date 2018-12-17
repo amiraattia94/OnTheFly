@@ -109,7 +109,7 @@
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="Visibility" Value="Collapsed"/>
                                                     <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding Text, ElementName=cmbCustomerLocation}" Value="">
+                                                    <DataTrigger Binding="{Binding Text, ElementName=cmbVendorLocation}" Value="">
                                                             <Setter Property="Visibility" Value="Visible"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>
