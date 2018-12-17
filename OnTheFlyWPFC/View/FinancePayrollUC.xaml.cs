@@ -153,8 +153,12 @@ namespace OnTheFlyWPFC.View
                     RefreshListEvent += new RefreshList(RefreshListView);
                     newwindow.UpdateMainList = RefreshListEvent;
                     newwindow.ShowDialog();
+
                 }
-                MessageBox.Show("لا يمكن التعديل بعد صرف المرتب");
+                else {
+                    MessageBox.Show("لا يمكن التعديل بعد صرف المرتب");
+
+                }
             }
             else {
                 MessageBox.Show("عذراَ، صلاحيتك لا تسمح بعرض هذه النافذة", "", MessageBoxButton.OK, MessageBoxImage.Stop);

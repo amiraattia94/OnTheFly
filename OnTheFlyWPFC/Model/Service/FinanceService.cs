@@ -80,7 +80,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeAddDate = s.FinanceAddDate,
                     financeEmployeeName = s.FinanceEmployeeName,
                     
-                }).ToList();
+                }).ToList().OrderByDescending(o => o.financeAddDate);
 
                 return new ObservableCollection<FinanceDTO>(result);
             }
@@ -134,7 +134,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeEmployee = s.FinanceEmployee,
                     financeEmployeeName = s.FinanceEmployeeName,
                     financeAddDate = s.FinanceAddDate
-                }).ToList();
+                }).ToList().OrderByDescending(o => o.financeAddDate);
 
                 if (result != null)
                 {
@@ -162,7 +162,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeEmployee = s.FinanceEmployee,
                     financeEmployeeName = s.FinanceEmployeeName,
                     financeAddDate = s.FinanceAddDate
-                }).ToList();
+                }).ToList().OrderByDescending(o => o.financeAddDate);
 
                 if (result != null)
                 {
@@ -193,7 +193,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeEmployee = s.FinanceEmployee,
                     financeEmployeeName = s.FinanceEmployeeName,
                     financeAddDate = s.FinanceAddDate
-                }).ToList();
+                }).ToList().OrderByDescending(o => o.financeAddDate);
 
                 if (result != null)
                 {
@@ -224,7 +224,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeEmployee = s.FinanceEmployee,
                     financeEmployeeName = s.FinanceEmployeeName,
                     financeAddDate = s.FinanceAddDate
-                }).ToList();
+                }).ToList().OrderByDescending(o => o.financeAddDate);
 
                 if (result != null)
                 {
@@ -255,7 +255,7 @@ namespace OnTheFlyWPFC.Model.Service
                     financeEmployee = s.FinanceEmployee,
                     financeEmployeeName = s.FinanceEmployeeName,
                     financeAddDate = s.FinanceAddDate
-                }).ToList();
+                }).ToList().OrderByDescending(o => o.financeAddDate);
 
                 if (result != null)
                 {

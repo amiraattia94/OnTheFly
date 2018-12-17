@@ -341,9 +341,9 @@
 
                     <Label Content="الحالة : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                     <ComboBox Name="cmbEmployeeState" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6"  Loaded="cmbEmployeeState_Loaded" SelectionChanged="cmbEmployeeState_SelectionChanged">
-                        <ComboBoxItem Content="مفعل">
+                        <ComboBoxItem Content="قيد العمل">
                         </ComboBoxItem>
-                        <ComboBoxItem Content="غير مفعل">
+                        <ComboBoxItem Content="متوقف">
                         </ComboBoxItem>
                     </ComboBox>
 
@@ -373,7 +373,7 @@
                                     <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding address}"/>
                                     <GridViewColumn Header="رقم الهاتف 1" Width="90" DisplayMemberBinding="{Binding phone1}"/>
                                     <GridViewColumn Header="رقم الهاتف 2" Width="90" DisplayMemberBinding="{Binding phone2}"/>
-                                    <GridViewColumn Header="الحالة" Width="90" DisplayMemberBinding="{Binding active}"/>
+                                    <GridViewColumn Header="الحالة" Width="90" DisplayMemberBinding="{Binding stateName}"/>
                                     <GridViewColumn Header="تاريخ المباشرة" Width="110" DisplayMemberBinding="{Binding start_date}"/>
                                     <GridViewColumn Header="تاريخ الانتهاء" Width="110" DisplayMemberBinding="{Binding end_date}"/>
                                     <GridViewColumn  Width="25" >

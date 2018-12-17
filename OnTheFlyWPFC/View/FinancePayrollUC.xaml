@@ -376,7 +376,7 @@
                                     <GridViewColumn Header="صافي المرتب" Width="110" DisplayMemberBinding="{Binding gross_salary}"/>
                                     <GridViewColumn Header="الشهر" Width="65" DisplayMemberBinding="{Binding payroll_month}"/>
                                     <GridViewColumn Header="السنة" Width="65" DisplayMemberBinding="{Binding payroll_year}"/>
-                                    <GridViewColumn Header=" الصرف" Width="75" DisplayMemberBinding="{Binding paid}"/>
+                                    <GridViewColumn Header="صرف" Width="75" DisplayMemberBinding="{Binding stateName}"/>
                                     <GridViewColumn  Width="30" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

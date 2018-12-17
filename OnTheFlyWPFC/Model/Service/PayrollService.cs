@@ -108,7 +108,9 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
+
                 }).ToList();
 
                 return new ObservableCollection<PayrollDTO>(result);
@@ -135,7 +137,8 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
                 }).ToList();
 
                 return new ObservableCollection<PayrollDTO>(result);
@@ -170,9 +173,10 @@ namespace OnTheFlyWPFC.Model.Service
                         gross_salary = result.gross_salary,
                         payroll_month = result.payroll_month,
                         payroll_year = result.payroll_year,
-                        paid = result.paid
+                        paid = result.paid,
+                        stateName = result.paid == true ? "نعم" : "لا",
 
-                };
+                    };
                 };
 
                 return new PayrollDTO()
@@ -217,7 +221,8 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
 
                 }).ToList();
 
@@ -259,7 +264,8 @@ namespace OnTheFlyWPFC.Model.Service
                         gross_salary = result.gross_salary,
                         payroll_month = result.payroll_month,
                         payroll_year = result.payroll_year,
-                        paid = result.paid
+                        paid = result.paid,
+                        stateName = result.paid == true ? "نعم" : "لا",
 
                     };
                 };
@@ -341,7 +347,8 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
 
                 }).ToList();
 
@@ -377,7 +384,8 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
 
                 }).ToList();
 
@@ -415,7 +423,8 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
                 }).ToList();
 
                 if (result != null)
@@ -455,7 +464,8 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
                 }).ToList();
 
                 if (result != null)
@@ -495,7 +505,8 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
                 }).ToList();
 
                 if (result != null)
@@ -535,7 +546,8 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
                 }).ToList();
 
                 if (result != null)
@@ -575,7 +587,8 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
                 }).ToList();
 
                 if (result != null)
@@ -615,7 +628,8 @@ namespace OnTheFlyWPFC.Model.Service
                     gross_salary = s.gross_salary,
                     payroll_month = s.payroll_month,
                     payroll_year = s.payroll_year,
-                    paid = s.paid
+                    paid = s.paid,
+                    stateName = s.paid == true ? "نعم" : "لا",
                 }).ToList();
 
                 if (result != null)

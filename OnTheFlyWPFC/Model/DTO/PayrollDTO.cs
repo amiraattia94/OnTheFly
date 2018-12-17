@@ -19,6 +19,7 @@ namespace OnTheFlyWPFC.Model.DTO
         public decimal total_addition { get; set; }
         public decimal gross_salary { get; set; }
         public bool paid { get; set; }
+        public string stateName { get; set; }
         // private properties
         private int? _extra_work_days { get; set; }
         private int? _extra_work_hours { get; set; }

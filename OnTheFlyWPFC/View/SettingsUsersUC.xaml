@@ -355,7 +355,7 @@
                                 <GridView>
                                     <GridViewColumn Header="اسم المستخدم" Width="120" DisplayMemberBinding="{Binding UserName}"/>
                                     <GridViewColumn Header="كلمة المرور" Width="100" DisplayMemberBinding="{Binding  Password}"/>
-                                    <GridViewColumn Header="الموظف" Width="90" DisplayMemberBinding="{Binding EmployeeID}"/>
+                                    <GridViewColumn Header="الموظف" Width="90" DisplayMemberBinding="{Binding EmployeeName}"/>
                                                                        
                                     <GridViewColumn  Width="25" >
                                         <GridViewColumn.CellTemplate>

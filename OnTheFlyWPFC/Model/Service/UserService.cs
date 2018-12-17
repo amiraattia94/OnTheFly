@@ -21,6 +21,7 @@ namespace OnTheFlyWPFC.Model.Service
                 {
                     UserName = s.user_name,
                     Password = s.password
+
                 }).ToList();
 
                 return result;
@@ -136,7 +137,10 @@ namespace OnTheFlyWPFC.Model.Service
                     userID = s.userID,
                     UserName = s.user_name,
                     Password = s.password,
-                    EmployeeID = s.employeeID                    
+                    EmployeeID = s.employeeID,
+                    EmployeeName = s.EmployeeTBL.name,
+                    EmployeeBranchID = s.EmployeeTBL.branchID,
+                    EmployeeBranchName = s.EmployeeTBL.CompanyBranchTBL.branch_name,
                 }).ToList();
 
                 return new ObservableCollection<UserDTO>(result);
@@ -161,6 +165,9 @@ namespace OnTheFlyWPFC.Model.Service
                         UserName = result.user_name,
                         Password = result.password,
                         EmployeeID = result.employeeID,
+                        EmployeeName = result.EmployeeTBL.name,
+                        EmployeeBranchID = result.EmployeeTBL.branchID,
+                        EmployeeBranchName = result.EmployeeTBL.CompanyBranchTBL.branch_name,
 
 
                     };
@@ -218,7 +225,11 @@ namespace OnTheFlyWPFC.Model.Service
                     userID = s.userID,
                     UserName = s.user_name,
                     Password = s.password,
-                    EmployeeID = s.employeeID
+                    EmployeeID = s.employeeID,
+                    EmployeeName = s.EmployeeTBL.name,
+                    EmployeeBranchID = s.EmployeeTBL.branchID,
+                    EmployeeBranchName = s.EmployeeTBL.CompanyBranchTBL.branch_name,
+
                 }).ToList();
 
                 if (result != null)
@@ -291,6 +302,9 @@ namespace OnTheFlyWPFC.Model.Service
                         UserName = result.user_name,
                         Password = result.password,
                         EmployeeID = result.employeeID,
+                        EmployeeName = result.EmployeeTBL.name,
+                        EmployeeBranchID = result.EmployeeTBL.branchID,
+                        EmployeeBranchName = result.EmployeeTBL.CompanyBranchTBL.branch_name,
 
                     };
                 };
