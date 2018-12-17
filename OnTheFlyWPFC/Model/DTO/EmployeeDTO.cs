@@ -15,6 +15,7 @@ namespace OnTheFlyWPFC.Model.DTO
         private string _phone2 { get; set; }
         private string _address { get; set; }
         public bool active { get; set; }
+        public string stateName { get; set; }
         public int jobID { get; set; }
         public string jobName { get; set; }
         public string cityID { get; set; }

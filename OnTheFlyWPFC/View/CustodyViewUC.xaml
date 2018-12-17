@@ -366,7 +366,7 @@
                                     <GridViewColumn Header="اسم المسلم" Width="120" DisplayMemberBinding="{Binding giverName}"/>
                                     <GridViewColumn Header="رقم الفاتورة" Width="100" DisplayMemberBinding="{Binding invoiceID}"/>
                                     <GridViewColumn Header="القيمة " Width="90" DisplayMemberBinding="{Binding amount}"/>
-                                    <GridViewColumn Header="الحالة " Width="90" DisplayMemberBinding="{Binding actve}"/>
+                                    <GridViewColumn Header="الحالة " Width="90" DisplayMemberBinding="{Binding stateName}"/>
 
                                     <GridViewColumn  Width="25" >
                                         <GridViewColumn.CellTemplate>

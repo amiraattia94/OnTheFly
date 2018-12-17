@@ -104,7 +104,8 @@ namespace OnTheFlyWPFC.Model.Service
                     end_date = s.end_date,
                     branchID = s.branchID,
                     branchName = s.CompanyBranchTBL.branch_name,
-                    
+                    stateName = s.active == true ? "قيد العمل" : "متوقف",
+
                 }).ToList();
 
                 return new ObservableCollection<EmployeeDTO>(result);
@@ -131,6 +132,8 @@ namespace OnTheFlyWPFC.Model.Service
                     end_date = s.end_date,
                     branchID = s.branchID,
                     branchName = s.CompanyBranchTBL.branch_name,
+                    stateName = s.active == true ? "قيد العمل" : "متوقف",
+
 
                 }).ToList();
 
@@ -195,6 +198,8 @@ namespace OnTheFlyWPFC.Model.Service
                         end_date = result.end_date,
                         branchID = result.branchID,
                         branchName = result.CompanyBranchTBL.branch_name,
+                        stateName = result.active == true ? "قيد العمل" : "متوقف",
+
 
                     };
                 };
@@ -240,6 +245,8 @@ namespace OnTheFlyWPFC.Model.Service
                     end_date = s.end_date,
                     branchID = s.branchID,
                     branchName = s.CompanyBranchTBL.branch_name,
+                    stateName = s.active == true ? "قيد العمل" : "متوقف",
+
 
                 }).ToList();
 
@@ -277,6 +284,8 @@ namespace OnTheFlyWPFC.Model.Service
                     end_date = s.end_date,
                     branchID = s.branchID,
                     branchName = s.CompanyBranchTBL.branch_name,
+                    stateName = s.active == true ? "قيد العمل" : "متوقف",
+
 
 
                 }).ToList();
@@ -350,6 +359,8 @@ namespace OnTheFlyWPFC.Model.Service
                     end_date = s.end_date,
                     branchID = s.branchID,
                     branchName = s.CompanyBranchTBL.branch_name,
+                    stateName = s.active == true ? "قيد العمل" : "متوقف",
+
 
 
                 }).ToList();
@@ -386,6 +397,8 @@ namespace OnTheFlyWPFC.Model.Service
                     end_date = s.end_date,
                     branchID = s.branchID,
                     branchName = s.CompanyBranchTBL.branch_name,
+                    stateName = s.active == true ? "قيد العمل" : "متوقف",
+
 
                 }).ToList();
 
@@ -423,6 +436,8 @@ namespace OnTheFlyWPFC.Model.Service
                     end_date = s.end_date,
                     branchID = s.branchID,
                     branchName = s.CompanyBranchTBL.branch_name,
+                    stateName = s.active == true ? "قيد العمل" : "متوقف",
+
                 }).ToList();
 
                 if (result != null)
@@ -462,6 +477,8 @@ namespace OnTheFlyWPFC.Model.Service
                     end_date = s.end_date,
                     branchID = s.branchID,
                     branchName = s.CompanyBranchTBL.branch_name,
+                    stateName = s.active == true ? "قيد العمل" : "متوقف",
+
                 }).ToList();
 
                 if (result != null)
@@ -496,6 +513,8 @@ namespace OnTheFlyWPFC.Model.Service
                     end_date = s.end_date,
                     branchID = s.branchID,
                     branchName = s.CompanyBranchTBL.branch_name,
+                    stateName = s.active == true ? "قيد العمل" : "متوقف",
+
                 }).ToList();
 
                 if (result != null) {

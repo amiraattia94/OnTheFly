@@ -372,8 +372,8 @@
                                     <GridViewColumn Header="اسم الفرع" Width="90" DisplayMemberBinding="{Binding branch_name}"/>
                                     <GridViewColumn Header="المنطقة" Width="90" DisplayMemberBinding="{Binding cityID}"/>
                                     <GridViewColumn Header="العنوان" Width="90" DisplayMemberBinding="{Binding address}"/>
-                                    <GridViewColumn Header="الطلبات " Width="90" DisplayMemberBinding="{Binding C}"/>
-                                    <GridViewColumn Header="الحالة " Width="90" DisplayMemberBinding="{Binding status}"/>
+
+                                    <GridViewColumn Header="الحالة " Width="90" DisplayMemberBinding="{Binding stateName}"/>
                                     <GridViewColumn  Width="25" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

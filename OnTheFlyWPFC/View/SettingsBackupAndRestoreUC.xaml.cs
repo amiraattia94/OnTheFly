@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Configuration;
 using System.Data;
+using System.Data.Entity.Core.EntityClient;
 
 namespace OnTheFlyWPFC.View
 {
@@ -24,11 +25,25 @@ namespace OnTheFlyWPFC.View
     /// </summary>
     public partial class SettingsBackupAndRestoreUC : UserControl
     {
+        //SqlConnection con;
+
         public SettingsBackupAndRestoreUC()
         {
             InitializeComponent();
             btnBackUp.IsEnabled = false;
             btnRestore.IsEnabled = false;
+
+            txtBackupFilePath.Text = @"C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\Backup";
+            btnBackUp.IsEnabled = true;
+
+            OnTheFlyDBEntities db = new OnTheFlyDBEntities();
+
+            var entityCnxStringBuilder = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["OnTheFlyDBEntities"].ConnectionString);
+            var sqlCnxStringBuilder = new SqlConnectionStringBuilder(entityCnxStringBuilder.ProviderConnectionString);
+
+            //con = new SqlConnection(sqlCnxStringBuilder.ConnectionString);
+
+
         }
 
         private void btnGetPath_Click(object sender, RoutedEventArgs e)
@@ -37,16 +52,50 @@ namespace OnTheFlyWPFC.View
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 txtBackupFilePath.Text = dlg.SelectedPath;
+
                 btnBackUp.IsEnabled = true;
             }
         }
 
         private void btnBackUp_Click(object sender, RoutedEventArgs e)
         {
-            OnTheFlyDBEntities db = new OnTheFlyDBEntities();
-            string dbname = db.Database.Connection.Database;
-            string sqlCommand = @"BACKUP DATABASE [{0}] TO  DISK = N'{1}' WITH NOFORMAT, NOINIT,  NAME = N'MyAir-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
-            db.Database.ExecuteSqlCommand(System.Data.Entity.TransactionalBehavior.DoNotEnsureTransaction, string.Format(sqlCommand, dbname, "Amin9999999999999.bak"));
+            try {
+                OnTheFlyDBEntities db = new OnTheFlyDBEntities();
+                string dbname = db.Database.Connection.Database;
+                //string sqlCommand = @"BACKUP DATABASE [{0}] TO DISK = N'{1}' WITH NOFORMAT, NOINIT,  NAME = N'MyAir-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+                string sqlCommand = @"BACKUP DATABASE [{0}] TO DISK = N'{0}_Database_BackUP-" + DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss") + ".bak' WITH NOFORMAT, NOINIT, SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+                string sqlCommand2 = @"BACKUP DATABASE [{0}] TO DISK='{1}\{0}_Database_BackUP-" + DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss") + ".bak'";
+
+
+
+                db.Database.ExecuteSqlCommand(System.Data.Entity.TransactionalBehavior.DoNotEnsureTransaction, string.Format(sqlCommand, dbname));
+
+                MessageBox.Show("تمت العملية بنجاح");
+
+                db.Database.ExecuteSqlCommand(System.Data.Entity.TransactionalBehavior.DoNotEnsureTransaction, string.Format(sqlCommand2, dbname, txtBackupFilePath.Text));
+
+                //string database = con.Database.ToString();
+
+                //string cmd = "BACKUP DATABASE [" + database + "] TO DISK='" + txtBackupFilePath.Text + "\\" + "database" + "-" + DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss") + ".bak'";
+
+                //using (SqlCommand command = new SqlCommand(cmd, con)) {
+                //    if (con.State != ConnectionState.Open) {
+                //        con.Open();
+                //    }
+                //    command.ExecuteNonQuery();
+                //    con.Close();
+                //    MessageBox.Show("database backup done successefully");
+
+                //}
+
+            }
+            catch (Exception ex) {
+
+                MessageBox.Show(ex.Message);
+
+
+            }
+
         }
 
         private void btnGetRestoreFilePath_Click(object sender, RoutedEventArgs e)
@@ -63,7 +112,26 @@ namespace OnTheFlyWPFC.View
 
         private void btnRestore_Click(object sender, RoutedEventArgs e)
         {
+            try {
+                OnTheFlyDBEntities db = new OnTheFlyDBEntities();
+                string dbname = db.Database.Connection.Database;
 
+                //RESTORE DATABASE[" + database + "] FROM DISK = '" + textBox2.Text + "'WITH REPLACE; "
+                string sqlCommand = @"USE MASTER RESTORE DATABASE [{0}] FROM DISK = '{1}'WITH REPLACE; ";
+
+
+
+                db.Database.ExecuteSqlCommand(System.Data.Entity.TransactionalBehavior.DoNotEnsureTransaction, string.Format(sqlCommand, dbname, txtRestoreFilePath.Text));
+
+                MessageBox.Show("تمت العملية بنجاح");
+
+            }
+            catch (Exception ex) {
+
+                MessageBox.Show(ex.Message);
+
+
+            }
         }
     }
 }

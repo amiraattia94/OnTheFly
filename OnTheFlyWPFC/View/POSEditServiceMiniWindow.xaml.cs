@@ -33,11 +33,14 @@ namespace OnTheFlyWPFC.View
 
         bool isfull;
         decimal? deliveryPrice;
+        bool isloaded = false;
         
 
         public POSEditServiceMiniWindow()
         {
             InitializeComponent();
+
+
 
             deliveryPricesViewModel = new DeliveryPricesViewModel();
             categoryViewModel = new CategoryViewModel();
@@ -58,7 +61,74 @@ namespace OnTheFlyWPFC.View
             lblTotalPrice.Content = "0";
             txtDeliveryPrice.Text = "0";
             txtPaidPrice.Text = "0";
+
+            loadItems();
+            
+            
+
         }
+
+        async private void loadItems() {
+
+            categoryViewModel.GetAllCategories();
+            cmbServiceType.ItemsSource = categoryViewModel.allCategories;
+            cmbServiceType.SelectedValuePath = "CategoryID";
+            cmbServiceType.DisplayMemberPath = "CategoryName";
+            cmbServiceType.SelectedValue = invoiceViewModel.deliveryService.CategoryID;
+
+            cmbVendors.IsEnabled = true;
+            vendorViewModel.GetVendorByCategoryID(invoiceViewModel.deliveryService.CategoryID);
+            cmbVendors.ItemsSource = vendorViewModel.vendors;
+            cmbVendors.SelectedValuePath = "VendorID";
+            cmbVendors.DisplayMemberPath = "VendorName";
+            cmbVendors.SelectedValue = invoiceViewModel.deliveryService.VendorID;
+
+            cmbBranches.IsEnabled = true;
+            vendorViewModel.GetAllVendorBranchByID(invoiceViewModel.deliveryService.VendorID);
+            cmbBranches.ItemsSource = vendorViewModel.vendorBranches;
+            cmbBranches.SelectedValuePath = "vendorBranchID";
+            cmbBranches.DisplayMemberPath = "name";
+            cmbBranches.SelectedValue = invoiceViewModel.deliveryService.VendorBranchID;
+
+            if (invoiceViewModel.deliveryService.isFulTrip) {
+                cmbTrip.SelectedIndex = 0;
+            }
+            else {
+                cmbTrip.SelectedIndex = 1;
+            }
+            vendorViewModel.GetVendorBranchshipByID(invoiceViewModel.deliveryService.VendorBranchID);
+            var vendorLocation = vendorViewModel.vendorBranche.cityCode;
+            customerViewModel.GetCustomerByID(HelperClass.POSSelectedCustomerID);
+            var customerLocation = customerViewModel.customer.cityCode;
+            txtDeliveryPrice.IsEnabled = true;
+            cmbPaid.IsEnabled = true;
+            txtDeliveryPrice.Text = "0";
+            if (invoiceViewModel.deliveryService.isFulTrip) {
+                deliveryPrice = await deliveryPricesViewModel.GetDeliveryPrice(invoiceViewModel.deliveryService.CategoryID, vendorLocation, customerLocation, true);
+                isfull = true;
+            }
+            else if (!invoiceViewModel.deliveryService.isFulTrip) {
+
+                deliveryPrice = await deliveryPricesViewModel.GetDeliveryPrice(invoiceViewModel.deliveryService.CategoryID, vendorLocation, customerLocation, false);
+                isfull = false;
+            }
+            lblTotalPrice.Content = deliveryPrice + decimal.Parse(txtPaidPrice.Text);
+            txtDeliveryPrice.Text = deliveryPrice.ToString();
+
+            if (invoiceViewModel.deliveryService.productPrice == 0) {
+                cmbPaid.SelectedIndex = 0;
+                txtPaidPrice.IsEnabled = false;
+                txtPaidPrice.Text = "0";
+            }
+            else if (invoiceViewModel.deliveryService.productPrice != 0) {
+                cmbPaid.SelectedIndex = 1;
+                txtPaidPrice.IsEnabled = true;
+                txtPaidPrice.Text = invoiceViewModel.deliveryService.productPrice.ToString();
+            }
+
+            isloaded = true;
+        }
+
 
         private void btnCloseForm_Click(object sender, RoutedEventArgs e) {
             this.Close();
@@ -76,40 +146,94 @@ namespace OnTheFlyWPFC.View
             cmbServiceType.DisplayMemberPath = "CategoryName";
 
             cmbServiceType.SelectedValue = invoiceViewModel.deliveryService.CategoryID;
-        }
-
-        private void CmbServiceType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (cmbServiceType.SelectedIndex != -1) {
+            if (cmbServiceType.SelectedIndex != -1 && cmbServiceType.SelectedValue != null) {
                 cmbVendors.IsEnabled = true;
-                vendorViewModel.GetVendorByCategoryID(invoiceViewModel.deliveryService.CategoryID);
+                vendorViewModel.GetVendorByCategoryID((int)cmbServiceType.SelectedValue);
                 cmbVendors.ItemsSource = vendorViewModel.vendors;
                 cmbVendors.SelectedValuePath = "VendorID";
                 cmbVendors.DisplayMemberPath = "VendorName";
 
                 cmbVendors.SelectedValue = invoiceViewModel.deliveryService.VendorID;
+            }
+        }
 
+        private void CmbServiceType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (cmbServiceType.SelectedIndex != -1 && cmbServiceType.SelectedValue != null) {
+                cmbVendors.IsEnabled = true;
+                vendorViewModel.GetVendorByCategoryID((int)cmbServiceType.SelectedValue);
+                cmbVendors.ItemsSource = vendorViewModel.vendors;
+                cmbVendors.SelectedValuePath = "VendorID";
+                cmbVendors.DisplayMemberPath = "VendorName";
+
+                //cmbVendors.SelectedValue = invoiceViewModel.deliveryService.VendorID;
+
+                if(isloaded) {
+
+                    //cmbVendors.SelectedIndex = -1;
+                    cmbBranches.SelectedIndex = -1;
+                    cmbBranches.IsEnabled = false;
+                    cmbTrip.SelectedIndex = -1;
+                    cmbTrip.IsEnabled = false;
+                    cmbPaid.SelectedIndex = -1;
+                    cmbPaid.IsEnabled = false;
+
+                    txtDeliveryPrice.Text = "0";
+                    txtPaidPrice.Text = "0";
+
+                }
 
             }
                 
         }
 
         private void CmbVendors_Loaded(object sender, RoutedEventArgs e) {
-            
 
+            if (cmbServiceType.SelectedIndex != -1 && cmbServiceType.SelectedValue != null) {
+                cmbVendors.IsEnabled = true;
+                vendorViewModel.GetVendorByCategoryID((int)cmbServiceType.SelectedValue);
+                cmbVendors.ItemsSource = vendorViewModel.vendors;
+                cmbVendors.SelectedValuePath = "VendorID";
+                cmbVendors.DisplayMemberPath = "VendorName";
+
+                cmbVendors.SelectedValue = invoiceViewModel.deliveryService.VendorID;
+            }
 
         }
 
         private void CmbVendors_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (cmbVendors.SelectedIndex != -1) {
-                cmbBranches.IsEnabled = true;
-                vendorViewModel.GetAllVendorBranchByID(invoiceViewModel.deliveryService.VendorID);
-                cmbBranches.ItemsSource = vendorViewModel.vendorBranches;
-                cmbBranches.SelectedValuePath = "vendorBranchID"; 
-                cmbBranches.DisplayMemberPath = "name";
+            try {
+                if (cmbVendors.SelectedIndex != -1 && cmbVendors.SelectedValue != null) {
+                    cmbBranches.IsEnabled = true;
+                    vendorViewModel.GetAllVendorBranchByID((int)cmbVendors.SelectedValue);
+                    cmbBranches.ItemsSource = vendorViewModel.vendorBranches;
+                    cmbBranches.SelectedValuePath = "vendorBranchID";
+                    cmbBranches.DisplayMemberPath = "name";
 
-                cmbBranches.SelectedValue = invoiceViewModel.deliveryService.VendorBranchID;
+                    cmbBranches.SelectedValue = invoiceViewModel.deliveryService.VendorBranchID;
 
+                    if (isloaded) {
+
+                        //cmbVendors.SelectedIndex = -1;
+                        cmbBranches.SelectedIndex = -1;
+                        //cmbBranches.IsEnabled = false;
+                        cmbTrip.SelectedIndex = -1;
+                        cmbTrip.IsEnabled = false;
+                        cmbPaid.SelectedIndex = -1;
+                        cmbPaid.IsEnabled = false;
+
+                        txtDeliveryPrice.Text = "0";
+                        txtPaidPrice.Text = "0";
+
+                    }
+
+
+                }
             }
+            catch (Exception) {
+
+                
+            }
+            
         }
 
         private void CmbBranches_Loaded(object sender, RoutedEventArgs e) {
@@ -120,6 +244,22 @@ namespace OnTheFlyWPFC.View
             if (cmbBranches.SelectedIndex != -1) {
 
                 cmbTrip.IsEnabled = true;
+
+
+                if (isloaded) {
+
+                    //cmbVendors.SelectedIndex = -1;
+                    //cmbBranches.SelectedIndex = -1;
+                    //cmbBranches.IsEnabled = false;
+                    cmbTrip.SelectedIndex = -1;
+                    //cmbTrip.IsEnabled = false;
+                    cmbPaid.SelectedIndex = -1;
+                    cmbPaid.IsEnabled = false;
+
+                    txtDeliveryPrice.Text = "0";
+                    txtPaidPrice.Text = "0";
+
+                }
             }
                 
         }
@@ -136,7 +276,7 @@ namespace OnTheFlyWPFC.View
         }
 
         async private void CmbTrip_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if(cmbTrip.SelectedIndex != -1) {
+            if(cmbTrip.SelectedIndex != -1 ) {
                 vendorViewModel.GetVendorBranchshipByID((int)cmbBranches.SelectedValue);
                 var vendorLocation = vendorViewModel.vendorBranche.cityCode;
 
@@ -164,6 +304,22 @@ namespace OnTheFlyWPFC.View
                 txtDeliveryPrice.Text = deliveryPrice.ToString();
 
 
+                if (isloaded) {
+
+                    //cmbVendors.SelectedIndex = -1;
+                    //cmbBranches.SelectedIndex = -1;
+                    //cmbBranches.IsEnabled = false;
+                    //cmbTrip.SelectedIndex = -1;
+                    //cmbTrip.IsEnabled = false;
+                    cmbPaid.SelectedIndex = -1;
+                    //cmbPaid.IsEnabled = false;
+
+                    //txtDeliveryPrice.Text = "0";
+                    txtPaidPrice.Text = "0";
+
+                }
+
+  
 
             }
         }

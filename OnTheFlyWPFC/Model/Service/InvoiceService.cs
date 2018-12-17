@@ -910,10 +910,12 @@ namespace OnTheFlyWPFC.Model.Service {
                     ownerID =s.ownerID,
                     ownerName = s.EmployeeTBL.name,
                     giverName = s.invoiceTBL.UserTBL.EmployeeTBL.name,
+                    stateName = s.active == true ? "مقفلة" : "مفتوحة",
 
 
 
-                }).ToList();
+
+                }).ToList().OrderByDescending(o => o.custodyID);
 
                 return new ObservableCollection<CustodyDTO>(result);
             }
@@ -932,10 +934,12 @@ namespace OnTheFlyWPFC.Model.Service {
                     ownerID = s.ownerID,
                     ownerName = s.EmployeeTBL.name,
                     giverName = s.invoiceTBL.UserTBL.EmployeeTBL.name,
+                    stateName = s.active == true ? "مقفلة" : "مفتوحة",
 
 
 
-                }).ToList();
+
+                }).ToList().OrderByDescending(o => o.custodyID);
 
                 return new ObservableCollection<CustodyDTO>(result);
             }
@@ -954,10 +958,12 @@ namespace OnTheFlyWPFC.Model.Service {
                     ownerID = s.ownerID,
                     ownerName = s.EmployeeTBL.name,
                     giverName = s.invoiceTBL.UserTBL.EmployeeTBL.name,
+                    stateName = s.active == true ? "مقفلة" : "مفتوحة",
 
 
 
-                }).ToList();
+
+                }).ToList().OrderByDescending(o => o.custodyID);
 
                 return new ObservableCollection<CustodyDTO>(result);
             }
@@ -979,6 +985,8 @@ namespace OnTheFlyWPFC.Model.Service {
                         ownerID = result.ownerID,
                         ownerName = result.EmployeeTBL.name,
                         giverName = result.invoiceTBL.UserTBL.EmployeeTBL.name,
+                        stateName = result.active == true ? "مقفلة" : "مفتوحة",
+
 
 
 

@@ -78,13 +78,15 @@ namespace OnTheFlyWPFC.Model.Service
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
             {
-                var result = con.CompanyBranchTBLs.Select(s => new BranchDTO()
-                {
+                var result = con.CompanyBranchTBLs.Select(s => new BranchDTO() {
                     branchID = s.branchID,
                     branch_name = s.branch_name,
                     address = s.address,
                     status = s.status,
-                    cityID = s.LibyanCitiesTBL.name
+                    cityID = s.LibyanCitiesTBL.name,
+                    stateName = s.status == true ? "مفاعل" : "غير مفاعل",
+                    
+                    
                 }).ToList();
 
                 return new ObservableCollection<BranchDTO>(result);
@@ -108,7 +110,10 @@ namespace OnTheFlyWPFC.Model.Service
                         branch_name = result.branch_name,
                         address = result.address,
                         status = result.status,
-                        cityID = result.LibyanCitiesTBL.name
+                        cityID = result.LibyanCitiesTBL.name,
+                        stateName = result.status == true ? "مفاعل" : "غير مفاعل",
+
+
 
                     };
                 };
@@ -141,7 +146,10 @@ namespace OnTheFlyWPFC.Model.Service
                     branch_name = s.branch_name,
                     address = s.address,
                     status = s.status,
-                    cityID = s.LibyanCitiesTBL.name
+                    cityID = s.LibyanCitiesTBL.name,
+                    stateName = s.status == true ? "مفاعل" : "غير مفاعل",
+
+
                 }).ToList();
 
                 if (result != null)
@@ -171,7 +179,9 @@ namespace OnTheFlyWPFC.Model.Service
                     branch_name = s.branch_name,
                     address = s.address,
                     status = s.status,
-                    cityID = s.LibyanCitiesTBL.name
+                    cityID = s.LibyanCitiesTBL.name,
+                    stateName = s.status == true ? "مفاعل" : "غير مفاعل",
+
                 }).ToList();
 
                 if (result != null)
@@ -201,7 +211,9 @@ namespace OnTheFlyWPFC.Model.Service
                     branch_name = s.branch_name,
                     address = s.address,
                     status = s.status,
-                    cityID = s.LibyanCitiesTBL.name
+                    cityID = s.LibyanCitiesTBL.name,
+                    stateName = s.status == true ? "مفاعل" : "غير مفاعل",
+
                 }).ToList();
 
                 if (result != null)

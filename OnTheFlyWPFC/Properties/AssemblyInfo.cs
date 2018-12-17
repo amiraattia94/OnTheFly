@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OnTheFlyWPFC")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("OnTheFly")]
+[assembly: AssemblyDescription("a wpf application made by taher and amira")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OnTheFlyWPFC")]
+[assembly: AssemblyCompany("Chain-React")]
+[assembly: AssemblyProduct("OnTheFly")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

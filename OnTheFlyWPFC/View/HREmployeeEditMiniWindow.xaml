@@ -13,7 +13,7 @@
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="820" Width="400" ResizeMode="NoResize" >
     <Window.Resources>
-        <viewmodel:EmployeeViewModel x:Key="DataContext"/>
+        
     </Window.Resources>
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="8" Height="770" Width="350"  >

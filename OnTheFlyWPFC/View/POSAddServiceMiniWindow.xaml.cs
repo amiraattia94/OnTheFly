@@ -86,8 +86,11 @@ namespace OnTheFlyWPFC.View
 
                 cmbVendors.SelectedIndex = -1;
                 cmbBranches.SelectedIndex = -1;
+                cmbBranches.IsEnabled = false;
                 cmbTrip.SelectedIndex = -1;
+                cmbTrip.IsEnabled = false;
                 cmbPaid.SelectedIndex = -1;
+                cmbPaid.IsEnabled = false;
 
                 txtDeliveryPrice.Text = "0";
                 txtPaidPrice.Text = "0";
@@ -112,11 +115,15 @@ namespace OnTheFlyWPFC.View
 
                 //cmbVendors.SelectedIndex = -1;
                 cmbBranches.SelectedIndex = -1;
+                //cmbBranches.IsEnabled = false;
                 cmbTrip.SelectedIndex = -1;
+                cmbTrip.IsEnabled = false;
                 cmbPaid.SelectedIndex = -1;
+                cmbPaid.IsEnabled = false;
 
                 txtDeliveryPrice.Text = "0";
                 txtPaidPrice.Text = "0";
+
             }
         }
 
@@ -133,9 +140,14 @@ namespace OnTheFlyWPFC.View
                 //cmbBranches.SelectedIndex = -1;
                 cmbTrip.SelectedIndex = -1;
                 cmbPaid.SelectedIndex = -1;
+                cmbPaid.IsEnabled = false;
+
 
                 txtDeliveryPrice.Text = "0";
                 txtPaidPrice.Text = "0";
+
+
+
 
             }
                 
@@ -292,11 +304,12 @@ namespace OnTheFlyWPFC.View
                 cmbServiceType.SelectedValue = customerViewModel.membership.vendorCategoryID;
                 cmbServiceType.IsEnabled = false;
 
-                cmbVendors.SelectedValue = customerViewModel.membership.vendorID;
                 vendorViewModel.GetVendorByCategoryID((int)cmbServiceType.SelectedValue);
                 cmbVendors.ItemsSource = vendorViewModel.vendors;
                 cmbVendors.SelectedValuePath = "VendorID";
                 cmbVendors.DisplayMemberPath = "VendorName";
+                cmbVendors.SelectedValue = customerViewModel.membership.vendorID;
+
 
                 vendorViewModel.GetAllVendorBranchByID((int)cmbVendors.SelectedValue);
                 cmbBranches.ItemsSource = vendorViewModel.vendorBranches;
@@ -310,7 +323,10 @@ namespace OnTheFlyWPFC.View
                 //cmbVendors.SelectedIndex = -1;
                 cmbBranches.SelectedIndex = -1;
                 cmbTrip.SelectedIndex = -1;
+                cmbTrip.IsEnabled = false;
                 cmbPaid.SelectedIndex = -1;
+                cmbPaid.IsEnabled = false;
+
 
                 txtDeliveryPrice.Text = "0";
                 txtPaidPrice.Text = "0";

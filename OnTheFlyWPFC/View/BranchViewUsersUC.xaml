@@ -360,13 +360,13 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="اسم الموظف" Width="110" DisplayMemberBinding="{Binding name}"/>
-                                    <GridViewColumn Header="الفرع" Width="90" DisplayMemberBinding="{Binding phone1}"/>
-                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding phone2}"/>
+                                    <GridViewColumn Header="رقم 1" Width="90" DisplayMemberBinding="{Binding phone1}"/>
+                                    <GridViewColumn Header="رقم 2" Width="90" DisplayMemberBinding="{Binding phone2}"/>
                                     <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding jobName}"/>
-                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding cityName}"/>
-                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding branchName}"/>
-                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding start_date}"/>
-                                    <GridViewColumn Header="الوظيفة" Width="90" DisplayMemberBinding="{Binding active}"/>
+                                    <GridViewColumn Header="المدينة" Width="90" DisplayMemberBinding="{Binding cityName}"/>
+                                    <GridViewColumn Header="الفرع" Width="90" DisplayMemberBinding="{Binding branchName}"/>
+                                    <GridViewColumn Header="تاريخ البدء" Width="90" DisplayMemberBinding="{Binding start_date}"/>
+                                    <GridViewColumn Header="الحالة" Width="90" DisplayMemberBinding="{Binding stateName}"/>
 
                                 </GridView>
                             </ListView.View>
