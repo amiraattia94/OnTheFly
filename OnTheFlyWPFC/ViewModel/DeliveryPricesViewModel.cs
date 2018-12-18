@@ -37,6 +37,11 @@ namespace OnTheFlyWPFC.ViewModel {
             return await DeliveryPricesService.DeleteDeliveryPriceByID(deleveryPriceID);
         }
 
+        async public Task<bool> CheckDeliveryExists(int categoryid, string customerLocation, string vendorLocation)
+        {
+            return await DeliveryPricesService.CheckDeliveryExists(categoryid ,customerLocation, vendorLocation);
+        }
+
         async public void GetAllDeliveryPrice() {
             ViewDeliveryPrices = await DeliveryPricesService.GetAllDeliveryPrice();
         }
@@ -53,11 +58,12 @@ namespace OnTheFlyWPFC.ViewModel {
             ViewDeliveryPrices = await DeliveryPricesService.GetDeliveryPriceByDeliveryCategory(deliveryCategory);
         }
 
-
-
-
         async public Task<decimal?> GetDeliveryPrice(int category, string vendorLocation, string customerLocation, bool isfulltrip) {
             return await DeliveryPricesService.GetDeliveryPrice(category, vendorLocation, customerLocation, isfulltrip);
+        }
+
+        async public Task<decimal?> GetActiveDeliveryPrice(int category, string vendorLocation, string customerLocation, bool isfulltrip) {
+            return await DeliveryPricesService.GetActiveDeliveryPrice(category, vendorLocation, customerLocation, isfulltrip);
         }
     }
 }

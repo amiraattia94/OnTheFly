@@ -302,6 +302,47 @@ namespace OnTheFlyWPFC.Model.Service
             }
         }
 
+        async public Task<ObservableCollection<EmployeeDTO>> GetActiveEmployeeByJobID(int jobID)
+        {
+            await Task.FromResult(true);
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+
+                var result = con.EmployeeTBLs.Where(w => w.jobID == jobID && w.active == true).Select(s => new EmployeeDTO()
+                {
+                    employeeID = s.employeeID,
+                    name = s.name,
+                    phone1 = s.phone1,
+                    phone2 = s.phone2,
+                    address = s.address,
+                    active = s.active,
+                    jobID = s.jobID,
+                    jobName = s.JobsTBL.job_name,
+                    cityID = s.cityID,
+                    cityName = s.LibyanCitiesTBL.name,
+                    start_date = s.start_date,
+                    end_date = s.end_date,
+                    branchID = s.branchID,
+                    branchName = s.CompanyBranchTBL.branch_name,
+                    stateName = s.active == true ? "قيد العمل" : "متوقف",
+
+
+
+                }).ToList();
+
+
+                if (result != null)
+                {
+                    return new ObservableCollection<EmployeeDTO>(result);
+                }
+                else
+                {
+                    return new ObservableCollection<EmployeeDTO>();
+                }
+            }
+        }
+
+
         //async public Task<ObservableCollection<EmployeeDTO>> GetEmployeeByIDs(int[] employeeIDs)
         //{
         //    await Task.FromResult(true);

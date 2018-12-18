@@ -194,7 +194,7 @@ namespace OnTheFlyWPFC.Model.Service
             {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
                 {
-                    var result = con.UserTBLs.SingleOrDefault(w => w.userID == userID);
+                    var result = con.UserTBLs.SingleOrDefault(w => w.userID == userID );
 
                     if (result != null)
                     {
@@ -205,9 +205,9 @@ namespace OnTheFlyWPFC.Model.Service
 
                 }
             }
-            catch
+            catch(Exception ex)
             {
-
+                var b = ex.Message;
             }
 
             return false;

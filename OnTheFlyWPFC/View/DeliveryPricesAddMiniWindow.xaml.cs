@@ -72,12 +72,22 @@ namespace OnTheFlyWPFC.View
 
             bool status = HelperClass.TrueOrFalse(cmbServiceState.SelectedIndex.ToString());
 
-            if (await deliveryPricesViewModel.AddDeliveryPrice((int)cmbServiceType.SelectedValue,cmbCustomerLocation.SelectedValue.ToString(),cmbVendorLocation.SelectedValue.ToString(),decimal.Parse( txtFullPrice.Text),decimal.Parse( txtHalfPrice.Text), status)) {
-                MessageBox.Show("تم الحفظ");
+            if (!await deliveryPricesViewModel.CheckDeliveryExists((int)cmbServiceType.SelectedValue, cmbCustomerLocation.SelectedValue.ToString(), cmbVendorLocation.SelectedValue.ToString()))
+            {
+                if (await deliveryPricesViewModel.AddDeliveryPrice((int)cmbServiceType.SelectedValue, cmbCustomerLocation.SelectedValue.ToString(), cmbVendorLocation.SelectedValue.ToString(), decimal.Parse(txtFullPrice.Text), decimal.Parse(txtHalfPrice.Text), status))
+                {
+                    MessageBox.Show("تم الحفظ");
 
-                UpdateMainList.DynamicInvoke();
-                this.Close();
+                    UpdateMainList.DynamicInvoke();
+                    this.Close();
+                }
             }
+            else
+            {
+                MessageBox.Show("هدا العرض موجود مسبقا");
+            }
+
+
         }
     }
 }

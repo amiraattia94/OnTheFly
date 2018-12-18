@@ -69,13 +69,18 @@ namespace OnTheFlyWPFC.View
             var a = button.CommandParameter as UserDTO;
             HelperClass.userID = a.userID;
 
+            if(HelperClass.LoginUserID == a.userID)
+            {
+                MessageBox.Show("لايمكنك مسح مستخدم قيد الاستخدام");
+                return;
+            }
             if (await usersViewModel.DeleteUserByID(a.userID))
             {
                 MessageBox.Show("تم المسح بنجاح");
             }
             else
             {
-                MessageBox.Show("عذراَ ، عليك الق");
+                
             }
                 
             RefreshListView();

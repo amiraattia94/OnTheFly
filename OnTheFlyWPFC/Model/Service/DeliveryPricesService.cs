@@ -204,6 +204,32 @@ namespace OnTheFlyWPFC.Model.Service {
 
         }
 
+        async public Task<bool> CheckDeliveryExists(int categoryID, string customerLocation, string vendorLocation)
+        {
+            await Task.FromResult(true);
+
+            try
+            {
+                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+                {
+                    var result = con.DeliveryPricesTBLs.SingleOrDefault(w => w.categoryID == categoryID && w.customerLocation == customerLocation && w.vendorLocation == vendorLocation );
+
+                    if (result != null)
+                    {
+                        
+                        return true;
+                    }
+
+                }
+            }
+            catch(Exception e)
+            {
+                var message = e.Message;
+            }
+
+            return false;
+
+        }
 
 
         async public Task<decimal?> GetDeliveryPrice(int category, string vendorLocation , string customerLocation, bool isfulltrip) {
@@ -224,5 +250,31 @@ namespace OnTheFlyWPFC.Model.Service {
             }
 
         }
+
+        async public Task<decimal?> GetActiveDeliveryPrice(int category, string vendorLocation, string customerLocation, bool isfulltrip)
+        {
+            await Task.FromResult(true);
+
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities())
+            {
+                var result = con.DeliveryPricesTBLs.SingleOrDefault(w => w.categoryID == category && w.status == true && w.vendorLocation == vendorLocation && w.customerLocation == customerLocation);
+
+                if (result != null)
+                {
+                    if (isfulltrip)
+                    {
+                        return result.fullTripPrice;
+                    }
+                    else
+                    {
+                        return result.halfTripPrice;
+                    }
+                };
+                return 0;
+            }
+
+        }
+
+
     }
 }

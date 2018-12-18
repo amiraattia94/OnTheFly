@@ -333,7 +333,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                    <Label Content="قائمة الزبائن " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                    <Label Content="قائمة المدن " FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#8C9AB6" Margin="0,0,0,0" VerticalAlignment="Center"/>
                 </StackPanel >
 
                                <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">

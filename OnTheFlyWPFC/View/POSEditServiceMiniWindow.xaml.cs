@@ -104,12 +104,12 @@ namespace OnTheFlyWPFC.View
             cmbPaid.IsEnabled = true;
             txtDeliveryPrice.Text = "0";
             if (invoiceViewModel.deliveryService.isFulTrip) {
-                deliveryPrice = await deliveryPricesViewModel.GetDeliveryPrice(invoiceViewModel.deliveryService.CategoryID, vendorLocation, customerLocation, true);
+                deliveryPrice = await deliveryPricesViewModel.GetActiveDeliveryPrice(invoiceViewModel.deliveryService.CategoryID, vendorLocation, customerLocation, true);
                 isfull = true;
             }
             else if (!invoiceViewModel.deliveryService.isFulTrip) {
 
-                deliveryPrice = await deliveryPricesViewModel.GetDeliveryPrice(invoiceViewModel.deliveryService.CategoryID, vendorLocation, customerLocation, false);
+                deliveryPrice = await deliveryPricesViewModel.GetActiveDeliveryPrice(invoiceViewModel.deliveryService.CategoryID, vendorLocation, customerLocation, false);
                 isfull = false;
             }
             lblTotalPrice.Content = deliveryPrice + decimal.Parse(txtPaidPrice.Text);
@@ -290,12 +290,12 @@ namespace OnTheFlyWPFC.View
 
 
                 if (cmbTrip.SelectedIndex == 0) {
-                    deliveryPrice = await deliveryPricesViewModel.GetDeliveryPrice((int)cmbServiceType.SelectedValue, vendorLocation, customerLocation, true);
+                    deliveryPrice = await deliveryPricesViewModel.GetActiveDeliveryPrice((int)cmbServiceType.SelectedValue, vendorLocation, customerLocation, true);
                     isfull = true;
                 }
                 else if (cmbTrip.SelectedIndex == 1) {
                     
-                    deliveryPrice = await deliveryPricesViewModel.GetDeliveryPrice((int)cmbServiceType.SelectedValue, vendorLocation, customerLocation, false);
+                    deliveryPrice = await deliveryPricesViewModel.GetActiveDeliveryPrice((int)cmbServiceType.SelectedValue, vendorLocation, customerLocation, false);
                     isfull = false;
                 }
 

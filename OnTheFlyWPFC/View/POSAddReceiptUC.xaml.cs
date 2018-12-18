@@ -82,7 +82,8 @@ namespace OnTheFlyWPFC.View
         }
 
         private void CmbDriver_Loaded(object sender, RoutedEventArgs e) {
-            employeeViewModel.GetEmployeeByJobID(2);
+
+            employeeViewModel.GetActiveEmployeeByJobID(2);
 
             cmbDriver.ItemsSource = employeeViewModel.ViewEmployees;
             cmbDriver.DisplayMemberPath = "name";

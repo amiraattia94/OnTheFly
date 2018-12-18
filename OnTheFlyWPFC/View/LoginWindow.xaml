@@ -47,8 +47,8 @@
                 </StackPanel>
 
                 <Label x:Name="lblLogin" Content="تسجيل الدخول" Foreground="#8C9AB6" FontFamily="Noto Kufi Arabic" FontSize="23.5" HorizontalAlignment="Center" Padding="0,30,0,30"/>
-                <Separator></Separator>
-                <Label Content="           username:kurt     password: kurtCobain "/>
+                <!--<Separator></Separator>-->
+                <!--<Label Content="           username:kurt     password: kurtCobain "/>-->
                 <!--
                  <Grid Grid.Row="0"  >
                     <TextBlock  Text="اسم المستخدم" Margin="30" TextAlignment="Center" FontFamily="Noto Kufi Arabic"  Width="240" FontSize="18" Foreground="#BDC5D4" VerticalAlignment="Center" HorizontalAlignment="Center"

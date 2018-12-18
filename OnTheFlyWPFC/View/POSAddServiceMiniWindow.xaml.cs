@@ -170,12 +170,12 @@ namespace OnTheFlyWPFC.View
 
                 txtDeliveryPrice.Text = "0";
                 if (cmbTrip.SelectedIndex == 0) {
-                    deliveryPrice = await deliveryPricesViewModel.GetDeliveryPrice((int)cmbServiceType.SelectedValue, vendorLocation, customerLocation, true);
+                    deliveryPrice = await deliveryPricesViewModel.GetActiveDeliveryPrice((int)cmbServiceType.SelectedValue, vendorLocation, customerLocation, true);
                     isfull = true;
                 }
                 else if (cmbTrip.SelectedIndex == 1) {
                     
-                    deliveryPrice = await deliveryPricesViewModel.GetDeliveryPrice((int)cmbServiceType.SelectedValue, vendorLocation, customerLocation, false);
+                    deliveryPrice = await deliveryPricesViewModel.GetActiveDeliveryPrice((int)cmbServiceType.SelectedValue, vendorLocation, customerLocation, false);
                     isfull = false;
                 }
 
