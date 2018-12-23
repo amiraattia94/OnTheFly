@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,8 @@ namespace OnTheFlyWPFC.View
         public delegate void RefreshList();
         public event RefreshList RefreshListEvent;
 
+
+
         private void RefreshListView()
         {
             usersViewModel.GetAllUsers();
@@ -54,12 +57,20 @@ namespace OnTheFlyWPFC.View
             var a = button.CommandParameter as UserDTO;
             HelperClass.userID = a.userID;
 
+
             var newwindow = new  SettingsUserEditMiniWindow();
 
             RefreshListEvent += new RefreshList(RefreshListView);
             newwindow.UpdateMainList = RefreshListEvent;
 
-            newwindow.Show();
+            newwindow.ShowDialog();
+            if (HelperClass.LoginUserID == a.userID)
+            {
+                MessageBox.Show("تم تعديل بيانات مستخدم قيد الاستخدام سيتم تسجيل الخروج");
+
+                Process.Start(Application.ResourceAssembly.Location);
+                Application.Current.Shutdown();
+            }
 
         }
 

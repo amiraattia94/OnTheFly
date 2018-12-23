@@ -146,7 +146,8 @@ namespace OnTheFlyWPFC.Model.Service {
                         ServiceNumber = s.DeliveryServiceTBLs.Count(),
                         discount = (decimal)s.discount,
                         totalafter = (decimal)s.totalcost,
-                        custodyID = s.custodyID
+                        custodyID = s.custodyID,
+                        
 
 
                     }).OrderByDescending(o => o.invoiceID).ToList();
@@ -417,7 +418,7 @@ namespace OnTheFlyWPFC.Model.Service {
             await Task.FromResult(true);
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                var result = con.DeliveryServiceTBLs.Where(w =>w.invoiceID == HelperClass.POSInvoiceID).Select(s => new DeliveryServiceDTO() {
+                var result = con.DeliveryServiceTBLs.Where(w => w.invoiceID == HelperClass.POSInvoiceID).Select(s => new DeliveryServiceDTO() {
                     deliverServiceID = s.deliveryServiceID,
                     CategoryID = s.categoryID,
                     CategoryName = s.CategoriesTBL.category_name,
@@ -430,6 +431,7 @@ namespace OnTheFlyWPFC.Model.Service {
                     Customername = s.CustomerTBL.name,
                     CustomerCityCode = s.CustomerTBL.cityID,
                     isFulTrip = s.isFullTrip,
+                    isFulTripName = (s.isFullTrip == true) ? "كاملة" : "نصف",
                     productPrice = s.productPrice,
                     deliveryPrice = s.deliveryPrice,
                     InvoiceID = s.invoiceID,
@@ -458,6 +460,8 @@ namespace OnTheFlyWPFC.Model.Service {
                     Customername = s.CustomerTBL.name,
                     CustomerCityCode = s.CustomerTBL.cityID,
                     isFulTrip = s.isFullTrip,
+                    isFulTripName = (s.isFullTrip == true) ? "كاملة" : "نصف",
+
                     productPrice = s.productPrice,
                     deliveryPrice = s.deliveryPrice,
                     InvoiceID = s.invoiceID,
@@ -487,6 +491,7 @@ namespace OnTheFlyWPFC.Model.Service {
                     Customername = s.CustomerTBL.name,
                     CustomerCityCode = s.CustomerTBL.cityID,
                     isFulTrip = s.isFullTrip,
+                    isFulTripName = (s.isFullTrip == true) ? "كاملة" : "نصف",
                     productPrice = s.productPrice == null ? 0 : (decimal)s.productPrice,
                     deliveryPrice = s.deliveryPrice,
                     InvoiceID = s.invoiceID,
@@ -519,6 +524,7 @@ namespace OnTheFlyWPFC.Model.Service {
                         Customername = result.CustomerTBL.name,
                         CustomerCityCode = result.CustomerTBL.cityID,
                         isFulTrip = result.isFullTrip,
+                        isFulTripName = (result.isFullTrip == true) ? "كاملة" : "نصف",
                         productPrice = result.productPrice,
                         deliveryPrice = result.deliveryPrice,
                         InvoiceID = result.invoiceID,

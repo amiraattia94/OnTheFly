@@ -408,7 +408,7 @@
                                 <GridView>
                                     <GridViewColumn Header="نوع الخدمة" Width="90" DisplayMemberBinding="{Binding CategoryName}"/>
                                     <GridViewColumn Header="الوجهة" Width="70" DisplayMemberBinding="{Binding VendorName}"/>
-                                    <GridViewColumn Header="الرحلة" Width="70" DisplayMemberBinding="{Binding isFulTrip}"/>
+                                    <GridViewColumn Header="الرحلة" Width="70" DisplayMemberBinding="{Binding isFulTripName}"/>
                                     <GridViewColumn Header="القيمة" Width="70" DisplayMemberBinding="{Binding productPrice}"/>
                                     <GridViewColumn Header="تكلفة التوصيل" Width="110" DisplayMemberBinding="{Binding deliveryPrice}"/>
 

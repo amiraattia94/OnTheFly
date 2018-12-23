@@ -26,6 +26,7 @@ namespace OnTheFlyWPFC.View
         public Delegate UpdateMainList;
         EmployeeViewModel employeeViewModel;
         UsersViewModel usersViewModel;
+
         public SettingsUserEditMiniWindow()
         {
             InitializeComponent();
@@ -36,7 +37,8 @@ namespace OnTheFlyWPFC.View
         private void StkEditUser_Loaded(object sender, RoutedEventArgs e)
         {
             usersViewModel.GetUserByID(HelperClass.userID);
-           StkEditUser.DataContext = usersViewModel.editUser;
+            StkEditUser.DataContext = usersViewModel.editUser;
+            pbPassword.Password = usersViewModel.editUser.Password;
         }
 
         private void cmbUserEmployee_Loaded(object sender, RoutedEventArgs e)
@@ -65,7 +67,7 @@ namespace OnTheFlyWPFC.View
             var employee = (EmployeeDTO)cmbUserEmployee.SelectedValue;
 
 
-            if (await usersViewModel.EditUsrByID(HelperClass.employeeID, txtUserName.Text, pbPassword.Password, employee.employeeID))
+            if (await usersViewModel.EditUsrByID(HelperClass.userID, txtUserName.Text, pbPassword.Password, employee.employeeID))
             {
                 MessageBox.Show("تم الحفظ");
 

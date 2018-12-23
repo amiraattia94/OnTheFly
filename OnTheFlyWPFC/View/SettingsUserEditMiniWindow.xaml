@@ -12,7 +12,7 @@
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Height="450" Width="350" ResizeMode="NoResize" >
     <Window.Resources>
-        <viewmodel:UsersViewModel x:Key="DataContext"/>
+        
     </Window.Resources>
     <UniformGrid FlowDirection="RightToLeft">
         <Border BorderThickness="0" Background="White" CornerRadius="8" Height="400" Width="300" >
@@ -41,7 +41,7 @@
                         </StackPanel>
                     </UniformGrid>
                 </Grid>
-                <Grid Grid.Row="1"  DataContext="{StaticResource DataContext}">
+                <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
