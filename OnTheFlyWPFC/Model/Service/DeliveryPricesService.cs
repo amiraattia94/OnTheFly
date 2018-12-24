@@ -98,7 +98,7 @@ namespace OnTheFlyWPFC.Model.Service {
                     fullPrice = s.fullTripPrice,
                     halfPrice = s.halfTripPrice,
                     status = s.status,
-                    stateName = (s.status == true) ? "مفاعل" : "غير مفاعل",
+                    stateName = (s.status == true) ? "مفعل" : "غير مفعل",
 
 
                 }).ToList();
@@ -126,7 +126,7 @@ namespace OnTheFlyWPFC.Model.Service {
                         fullPrice = result.fullTripPrice,
                         halfPrice = result.halfTripPrice,
                         status = result.status,
-                        stateName = (result.status == true) ? "مفاعل" : "غير مفاعل",
+                        stateName = (result.status == true) ? "مفعل" : "غير مفعل",
 
 
                     };
@@ -155,7 +155,7 @@ namespace OnTheFlyWPFC.Model.Service {
                     fullPrice = s.fullTripPrice,
                     halfPrice = s.halfTripPrice,
                     status = s.status,
-                    stateName = (s.status == true) ? "مفاعل" : "غير مفاعل",
+                    stateName = (s.status == true) ? "مفعل" : "غير مفعل",
 
                 }).ToList();
 
@@ -187,7 +187,7 @@ namespace OnTheFlyWPFC.Model.Service {
                     fullPrice = s.fullTripPrice,
                     halfPrice = s.halfTripPrice,
                     status = s.status,
-                    stateName = (s.status == true) ? "مفاعل" : "غير مفاعل",
+                    stateName = (s.status == true) ? "مفعل" : "غير مفعل",
 
                 }).ToList();
 

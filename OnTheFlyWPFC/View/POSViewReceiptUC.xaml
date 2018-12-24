@@ -386,7 +386,7 @@
 
                         <Border Height="40" Margin="0,50,0,0" Grid.ColumnSpan="3" >
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="الموضف :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
+                                <Label Content="الموظف :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
                                 <Label Name="lblEmployeeName" Loaded="LblEmployeeName_Loaded" Content="potato" FontFamily="Noto Kufi Arabic"  FontSize="16" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center" Width="124"/>
                             </StackPanel>
                         </Border>

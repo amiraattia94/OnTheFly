@@ -34,6 +34,13 @@
 
                     <UniformGrid FlowDirection="RightToLeft">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                        <Border BorderThickness="0" Margin="30,0,30,0" Background="#60C67C" CornerRadius="7" Width="150" Height="150">
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                    <Label Name="lblMainHome_3" Loaded="LblMainHome_3_Loaded" Content="10000" Foreground="White" FontFamily="Century Gothic" FontSize="30" HorizontalAlignment="Center"></Label>
+                                    <Label Content="المحصلة" Foreground="White" FontFamily="Noto Kufi Arabic" FontSize="20" HorizontalAlignment="Center"></Label>
+                                </StackPanel>
+                            </Border>
+
                             <Border BorderThickness="0" Margin="30,0,30,0" Background="#FF53A8F6" CornerRadius="7" Width="150" Height="150">
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                                     <Label Name="lblMainHome_1" Loaded="LblMainHome_1_Loaded" Content="500" Foreground="White" FontFamily="Century Gothic" FontSize="30" HorizontalAlignment="Center"></Label>
@@ -41,12 +48,6 @@
                                 </StackPanel>
                             </Border>
 
-                            <Border BorderThickness="0" Margin="30,0,30,0" Background="#60C67C" CornerRadius="7" Width="150" Height="150">
-                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                    <Label Name="lblMainHome_3" Loaded="LblMainHome_3_Loaded" Content="10000" Foreground="White" FontFamily="Century Gothic" FontSize="30" HorizontalAlignment="Center"></Label>
-                                    <Label Content="المحصلة" Foreground="White" FontFamily="Noto Kufi Arabic" FontSize="20" HorizontalAlignment="Center"></Label>
-                                </StackPanel>
-                            </Border>
                             <Border BorderThickness="0" Margin="30,0,30,0" Background="#ADE23F" CornerRadius="7" Width="150" Height="150">
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                                     <Label Name="lblMainHome_4" Loaded="LblMainHome_4_Loaded" Content="9500" Foreground="White" FontFamily="Century Gothic" FontSize="30" HorizontalAlignment="Center"></Label>

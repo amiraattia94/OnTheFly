@@ -84,7 +84,7 @@ namespace OnTheFlyWPFC.Model.Service
                     address = s.address,
                     status = s.status,
                     cityID = s.LibyanCitiesTBL.name,
-                    stateName = s.status == true ? "مفاعل" : "غير مفاعل",
+                    stateName = s.status == true ? "مفعل" : "غير مفعل",
                     
                     
                 }).ToList();
@@ -147,7 +147,7 @@ namespace OnTheFlyWPFC.Model.Service
                     address = s.address,
                     status = s.status,
                     cityID = s.LibyanCitiesTBL.name,
-                    stateName = s.status == true ? "مفاعل" : "غير مفاعل",
+                    stateName = s.status == true ? "مفعل" : "غير مفعل",
 
 
                 }).ToList();
@@ -180,7 +180,7 @@ namespace OnTheFlyWPFC.Model.Service
                     address = s.address,
                     status = s.status,
                     cityID = s.LibyanCitiesTBL.name,
-                    stateName = s.status == true ? "مفاعل" : "غير مفاعل",
+                    stateName = s.status == true ? "مفعل" : "غير مفعل",
 
                 }).ToList();
 
@@ -212,7 +212,7 @@ namespace OnTheFlyWPFC.Model.Service
                     address = s.address,
                     status = s.status,
                     cityID = s.LibyanCitiesTBL.name,
-                    stateName = s.status == true ? "مفاعل" : "غير مفاعل",
+                    stateName = s.status == true ? "مفعل" : "غير مفعل",
 
                 }).ToList();
 

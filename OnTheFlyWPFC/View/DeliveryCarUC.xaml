@@ -337,7 +337,7 @@
                 </StackPanel >
 
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
-                    <Label Content="نوع السيارة : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
+                    <Label Content="نوع المركبة : " FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" HorizontalAlignment="Left"/>
                     <ComboBox Name="cmbCarType" MinWidth="50" Margin="10,0,10,0" FontSize="16" Foreground="#8C9AB6" Loaded="CmbCarType_Loaded" SelectionChanged="CmbCarType_SelectionChanged"></ComboBox>
                 </StackPanel>
 

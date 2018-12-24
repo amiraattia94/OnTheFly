@@ -82,7 +82,7 @@ namespace OnTheFlyWPFC.View
                     }
                     else if (invoiceViewModel.Invoice.InvoiceState == false)
                     {
-                        lblinvoiceState.Content = "مفاعلة";
+                        lblinvoiceState.Content = "مفعلة";
                         btndisable.IsEnabled = true;
 
                     }

@@ -389,7 +389,7 @@
 
                         <Border Height="40" Margin="0,50,0,0" Grid.ColumnSpan="3" >
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="الموضف :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
+                                <Label Content="الموظف :" FontFamily="Noto Kufi Arabic" FontSize="16" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center"/>
                                 <Label Name="lblEmployeeName" Loaded="LblEmployeeName_Loaded" Content="potato" FontFamily="Noto Kufi Arabic"  FontSize="16" Foreground="#8C9AB6" Margin="0" VerticalAlignment="Center" Width="124"/>
                             </StackPanel>
                         </Border>
@@ -425,7 +425,7 @@
                                     <GridViewColumn Header="نوع الخدمة" Width="90" DisplayMemberBinding="{Binding CategoryName}"/>
                                     <GridViewColumn Header="الوجهة" Width="70" DisplayMemberBinding="{Binding VendorName}"/>
                                     <GridViewColumn Header="الرحلة" Width="70" DisplayMemberBinding="{Binding isFulTripName}"/>
-                                    <GridViewColumn Header="القيمة" Width="70" DisplayMemberBinding="{Binding productPrice}"/>
+                                    <GridViewColumn Header="القيمة" Width="70" DisplayMemberBinding="{Binding productPrice }" />
                                     <GridViewColumn Header="تكلفة التوصيل" Width="110" DisplayMemberBinding="{Binding deliveryPrice}"/>
 
                                     <GridViewColumn  Width="25" >
