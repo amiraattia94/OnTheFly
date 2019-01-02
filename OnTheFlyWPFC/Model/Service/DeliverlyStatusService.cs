@@ -12,7 +12,7 @@ namespace OnTheFlyWPFC.Model.Service {
             await Task.FromResult(true);
 
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
-                var result = con.DeliveryStatusTBLs.Select(s => new DeliveryStatusDTO() {
+                var result = con.deliveryStatusTBLs.Select(s => new DeliveryStatusDTO() {
                     name = s.name,
                     statusID = s.statusID,
 

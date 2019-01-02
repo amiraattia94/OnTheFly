@@ -12,10 +12,10 @@ namespace OnTheFlyWPFC.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class DeliveryStatusTBL
+    public partial class deliveryStatusTBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DeliveryStatusTBL()
+        public deliveryStatusTBL()
         {
             this.deliveryTBLs = new HashSet<deliveryTBL>();
         }

@@ -30,7 +30,7 @@ namespace OnTheFlyWPFC.Model
         public Nullable<System.DateTime> lastItemAvailableDate { get; set; }
         public int invoiceID { get; set; }
     
-        public virtual DeliveryStatusTBL DeliveryStatusTBL { get; set; }
+        public virtual deliveryStatusTBL deliveryStatusTBL { get; set; }
         public virtual VehicleTBL VehicleTBL { get; set; }
         public virtual EmployeeTBL EmployeeTBL { get; set; }
         public virtual invoiceTBL invoiceTBL { get; set; }

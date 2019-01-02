@@ -4,32 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3e880fcb66ec4163ba9b6bcf11a3dd0b" Name="Diagram1">
-        <EntityTypeShape EntityType="OnTheFlyDBModel.CategoriesTBL" Width="1.5" PointX="1.5" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.CompanyBranchTBL" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.custodyTBL" Width="1.5" PointX="10.5" PointY="20.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.CustomerTBL" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.DeliveryPricesTBL" Width="1.5" PointX="8" PointY="23.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.DeliveryServiceTBL" Width="1.5" PointX="15" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.DeliveryStatusTBL" Width="1.5" PointX="12.75" PointY="21.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.deliveryTBL" Width="1.5" PointX="15" PointY="25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.EmployeeTBL" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
+      <Diagram DiagramId="81b36a1943eb4e56832c3bd544d391f8" Name="Diagram1">
+        <EntityTypeShape EntityType="OnTheFlyDBModel.CategoriesTBL" Width="1.5" PointX="1.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.CompanyBranchTBL" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.custodyTBL" Width="1.5" PointX="10.5" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.CustomerTBL" Width="1.5" PointX="3" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.DeliveryPricesTBL" Width="1.5" PointX="8" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.DeliveryServiceTBL" Width="1.5" PointX="15" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.deliveryStatusTBL" Width="1.5" PointX="12.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.deliveryTBL" Width="1.5" PointX="15" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.EmployeeTBL" Width="1.5" PointX="5.25" PointY="21.625" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.FinanceTBL" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.invoiceTBL" Width="1.5" PointX="12.75" PointY="24" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.JobsTBL" Width="1.5" PointX="3" PointY="27.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.LibyanCitiesTBL" Width="1.5" PointX="0.75" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.MembershipTBL" Width="1.5" PointX="5.25" PointY="25.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.PayrollTBL" Width="1.5" PointX="7.5" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.ServiceTBL" Width="1.5" PointX="18" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.invoiceTBL" Width="1.5" PointX="12.75" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.JobsTBL" Width="1.5" PointX="3" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.LibyanCitiesTBL" Width="1.5" PointX="0.75" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.MembershipTBL" Width="1.5" PointX="5.25" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.PayrollTBL" Width="1.5" PointX="7.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.QuickDeliveryServiceTBL" Width="1.5" PointX="15" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.ServiceTBL" Width="1.5" PointX="18" PointY="27.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.userGroupRoleTBL" Width="1.5" PointX="9.75" PointY="27.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.UserGroupTBL" Width="1.5" PointX="12" PointY="30.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.UserTBL" Width="1.5" PointX="7.5" PointY="29.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.VehicleTBL" Width="1.5" PointX="8.25" PointY="19" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.VehicleTypeTBL" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.VendorBranchTBL" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.VendorServicesTBL" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnTheFlyDBModel.VendorTBL" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.userGroupRoleTBL" Width="1.5" PointX="9.75" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.UserGroupTBL" Width="1.5" PointX="12" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.UserTBL" Width="1.5" PointX="7.5" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.VehicleTBL" Width="1.5" PointX="8.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.VehicleTypeTBL" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.VendorBranchTBL" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.VendorServicesTBL" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnTheFlyDBModel.VendorTBL" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
         <EntityTypeShape EntityType="OnTheFlyDBModel.SettingsTBL" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="OnTheFlyDBModel.FK_DeliveryPricesTBL_CategoriesTBL" ManuallyRouted="false" />
         <AssociationConnector Association="OnTheFlyDBModel.FK_DeliveryServiceTBL_CategoriesTBL" ManuallyRouted="false" />
@@ -59,6 +60,7 @@
         <AssociationConnector Association="OnTheFlyDBModel.FK_payrollTBL_EmployeeTBL" ManuallyRouted="false" />
         <AssociationConnector Association="OnTheFlyDBModel.FK_userTBL_EmployeeTBL" ManuallyRouted="false" />
         <AssociationConnector Association="OnTheFlyDBModel.FK_invoiceTBL_userTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="OnTheFlyDBModel.FK_QuickDeliveryServiceTBL_invoiceTBL" ManuallyRouted="false" />
         <AssociationConnector Association="OnTheFlyDBModel.FK_vendorBranchTBL_LibyanCitiesTBL" ManuallyRouted="false" />
         <AssociationConnector Association="OnTheFlyDBModel.FK_MembershipTBL_vendorTBL1" ManuallyRouted="false" />
         <AssociationConnector Association="OnTheFlyDBModel.FK_userGroupRoleTBL_userTBL" ManuallyRouted="false" />

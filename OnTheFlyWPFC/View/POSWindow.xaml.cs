@@ -72,6 +72,11 @@ namespace OnTheFlyWPFC.View
                     MainUC.Children.Add(usc);
                     lblMenuename.Content = "مسح فاتورة";
                     break;
+                case "POSAddQuickReceipt":
+                    usc = new POSAddQuickReceiptUC();
+                    MainUC.Children.Add(usc);
+                    lblMenuename.Content = "نقطة البيع";
+                    break;
 
                 default:
                     break;

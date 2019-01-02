@@ -74,9 +74,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DeliveryStatusTBLs">
-      <EntityTypeMapping TypeName="OnTheFlyDBModel.DeliveryStatusTBL">
-        <MappingFragment StoreEntitySet="DeliveryStatusTBL">
+    <EntitySetMapping Name="deliveryStatusTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.deliveryStatusTBL">
+        <MappingFragment StoreEntitySet="deliveryStatusTBL">
           <ScalarProperty Name="statusID" ColumnName="statusID" />
           <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
@@ -189,6 +189,23 @@
           <ScalarProperty Name="payroll_month" ColumnName="payroll_month" />
           <ScalarProperty Name="payroll_year" ColumnName="payroll_year" />
           <ScalarProperty Name="paid" ColumnName="paid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuickDeliveryServiceTBLs">
+      <EntityTypeMapping TypeName="OnTheFlyDBModel.QuickDeliveryServiceTBL">
+        <MappingFragment StoreEntitySet="QuickDeliveryServiceTBL">
+          <ScalarProperty Name="qDeliveryServiceID" ColumnName="qDeliveryServiceID" />
+          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+          <ScalarProperty Name="distination" ColumnName="distination" />
+          <ScalarProperty Name="isFullTrip" ColumnName="isFullTrip" />
+          <ScalarProperty Name="productPrice" ColumnName="productPrice" />
+          <ScalarProperty Name="deliveryPrice" ColumnName="deliveryPrice" />
+          <ScalarProperty Name="customerName" ColumnName="customerName" />
+          <ScalarProperty Name="customerPhone" ColumnName="customerPhone" />
+          <ScalarProperty Name="customerAddress" ColumnName="customerAddress" />
+          <ScalarProperty Name="cityName" ColumnName="cityName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

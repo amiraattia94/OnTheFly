@@ -505,6 +505,12 @@
                                 <TextBlock Text="اضافة فاتورة" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
+                        <ListViewItem x:Name="POSAddQuickReceipt" Height="60" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ClockFast" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text=" فاتورة سريعة" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
                         <ListViewItem x:Name="viewReceipt" Height="60" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="files" Height="25" Width="25" Margin="10"/>

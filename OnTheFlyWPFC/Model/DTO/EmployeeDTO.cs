@@ -89,13 +89,13 @@ namespace OnTheFlyWPFC.Model.DTO
             set
             {
                 _end_date = value;
-                OnPropertyChanged("end_date");
+              //  OnPropertyChanged("end_date");
             }
         }
         #endregion
         static readonly string[] ValidatedProperties =
        {
-            "name","phone1","phone2","address","end_date"
+            "name","phone1","phone2","address"
         };
         string GetValidationError(string propertyName)
         {
@@ -114,26 +114,23 @@ namespace OnTheFlyWPFC.Model.DTO
                 case "address":
                     error = ValidateAddress();
                     break;
-                case "end_date":
-                    error = ValidateEndDate();
-                    break;
-
+           
             }
             return error;
         }
 
-        private string ValidateEndDate()
-        {
-            if (String.IsNullOrWhiteSpace(end_date.ToString()))
-            {
-                return null;
-            }
-            else if(end_date < start_date)
-            {
-                return "لا يمكن ان يكون موعد الانتهاء قبل موعد البدء";
-            }
-            return null;
-        }
+        //private string ValidateEndDate()
+        //{
+        //    if (String.IsNullOrWhiteSpace(end_date.ToString()))
+        //    {
+        //        return null;
+        //    }
+        //    else if(end_date < start_date)
+        //    {
+        //        return "لا يمكن ان يكون موعد الانتهاء قبل موعد البدء";
+        //    }
+        //    return null;
+        //}
 
         private string ValidateAddress()
         {

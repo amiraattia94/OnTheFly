@@ -245,6 +245,8 @@ namespace OnTheFlyWPFC.Model.Service {
             }
         }
 
+
+
         async public Task<decimal?> GetTotalPriceByInvoiceID(int invoiceID) {
             await Task.FromResult(true);
             using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
@@ -675,7 +677,7 @@ namespace OnTheFlyWPFC.Model.Service {
                         lastItemDate = s.lastItemAvailableDate,
                         ServicesCount = s.invoiceTBL.DeliveryServiceTBLs.Count,
                         status = s.statusID,
-                        statusName = s.DeliveryStatusTBL.name,
+                        statusName = s.deliveryStatusTBL.name,
                         totalCustodycost = s.invoiceTBL.custodyTBL.amount,
                         totalcost = s.invoiceTBL.totalcost,
 
@@ -714,7 +716,7 @@ namespace OnTheFlyWPFC.Model.Service {
                     lastItemDate = s.lastItemAvailableDate,
                     ServicesCount = s.invoiceTBL.DeliveryServiceTBLs.Count,
                     status = s.statusID,
-                    statusName = s.DeliveryStatusTBL.name,
+                    statusName = s.deliveryStatusTBL.name,
                     totalCustodycost = s.invoiceTBL.custodyTBL.amount,
                     totalcost = s.invoiceTBL.totalcost,
 
@@ -748,7 +750,7 @@ namespace OnTheFlyWPFC.Model.Service {
                     lastItemDate = s.lastItemAvailableDate,
                     ServicesCount = s.invoiceTBL.DeliveryServiceTBLs.Count,
                     status = s.statusID,
-                    statusName = s.DeliveryStatusTBL.name,
+                    statusName = s.deliveryStatusTBL.name,
                     totalCustodycost = s.invoiceTBL.custodyTBL.amount,
                     totalcost = s.invoiceTBL.totalcost,
 
@@ -1005,6 +1007,33 @@ namespace OnTheFlyWPFC.Model.Service {
 
 
             }
+        }
+
+        async public Task<bool> AddQuickDeliveryService(int invoiceID, string customerName, int phone, string cityname, string customerAddress, string categoreName, string Destination, bool isFullTrip) {
+            try {
+                using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                    con.QuickDeliveryServiceTBLs.Add(new QuickDeliveryServiceTBL() {
+                        invoiceID = invoiceID,
+                        customerName = customerName,
+                        customerPhone = phone,
+                        cityName = cityname,
+                        customerAddress = customerAddress,
+                        categoryName = categoreName,
+                        distination = Destination,
+                        isFullTrip = isFullTrip,
+                    });
+                    await con.SaveChangesAsync();
+                    return true;
+                }
+            }
+            catch (Exception) {
+
+            }
+            return false;
+        }
+
+        async public Task<DeliveryDTO> GetQuickDeliveryByID(int InvoiceID) {
+
         }
 
     }

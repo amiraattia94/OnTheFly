@@ -20,6 +20,7 @@ namespace OnTheFlyWPFC.Model
             this.custodyTBLs = new HashSet<custodyTBL>();
             this.DeliveryServiceTBLs = new HashSet<DeliveryServiceTBL>();
             this.deliveryTBLs = new HashSet<deliveryTBL>();
+            this.QuickDeliveryServiceTBLs = new HashSet<QuickDeliveryServiceTBL>();
             this.ServiceTBLs = new HashSet<ServiceTBL>();
         }
     
@@ -45,6 +46,8 @@ namespace OnTheFlyWPFC.Model
         public virtual ICollection<deliveryTBL> deliveryTBLs { get; set; }
         public virtual deliveryTBL deliveryTBL { get; set; }
         public virtual UserTBL UserTBL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QuickDeliveryServiceTBL> QuickDeliveryServiceTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiceTBL> ServiceTBLs { get; set; }
     }

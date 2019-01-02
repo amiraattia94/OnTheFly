@@ -225,7 +225,7 @@
     <Compile Include="Model\DeliveryServiceTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DeliveryStatusTBL.cs">
+    <Compile Include="Model\deliveryStatusTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\deliveryTBL.cs">
@@ -290,6 +290,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\PayrollTBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuickDeliveryServiceTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ServiceTBL.cs">
@@ -514,6 +517,9 @@
     </Compile>
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POSAddَQuickReceiptUC.xaml.cs">
+      <DependentUpon>POSAddَQuickReceiptUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\POSAddReceiptUC.xaml.cs">
       <DependentUpon>POSAddReceiptUC.xaml</DependentUpon>
@@ -774,6 +780,10 @@
     </Compile>
     <Compile Include="ViewModel\Class1.cs" />
     <Compile Include="ViewModel\Class2.cs" />
+    <Page Include="View\POSAddَQuickReceiptUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\POSAddReceiptUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -873,14 +883,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="App.Config" />
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
+    <EntityDeploy Include="Model\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Model\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
@@ -928,6 +938,7 @@
     <Resource Include="pie chart.png" />
     <Resource Include="linexchart.png" />
     <Resource Include="revenue summary chart.png" />
+    <Resource Include="OnTheFlyLogo.ico" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -938,7 +949,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="OnTheFlyLogo.ico" />
     <Content Include="View\Images\Icons\New System-22.svg" />
     <Content Include="View\Images\Icons\New System_ic_add.svg" />
     <Content Include="View\Images\Icons\New System_ic_arrow_down.svg" />

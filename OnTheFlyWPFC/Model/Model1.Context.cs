@@ -31,7 +31,7 @@ namespace OnTheFlyWPFC.Model
         public virtual DbSet<CustomerTBL> CustomerTBLs { get; set; }
         public virtual DbSet<DeliveryPricesTBL> DeliveryPricesTBLs { get; set; }
         public virtual DbSet<DeliveryServiceTBL> DeliveryServiceTBLs { get; set; }
-        public virtual DbSet<DeliveryStatusTBL> DeliveryStatusTBLs { get; set; }
+        public virtual DbSet<deliveryStatusTBL> deliveryStatusTBLs { get; set; }
         public virtual DbSet<deliveryTBL> deliveryTBLs { get; set; }
         public virtual DbSet<EmployeeTBL> EmployeeTBLs { get; set; }
         public virtual DbSet<FinanceTBL> FinanceTBLs { get; set; }
@@ -40,6 +40,7 @@ namespace OnTheFlyWPFC.Model
         public virtual DbSet<LibyanCitiesTBL> LibyanCitiesTBLs { get; set; }
         public virtual DbSet<MembershipTBL> MembershipTBLs { get; set; }
         public virtual DbSet<PayrollTBL> PayrollTBLs { get; set; }
+        public virtual DbSet<QuickDeliveryServiceTBL> QuickDeliveryServiceTBLs { get; set; }
         public virtual DbSet<ServiceTBL> ServiceTBLs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<userGroupRoleTBL> userGroupRoleTBLs { get; set; }
