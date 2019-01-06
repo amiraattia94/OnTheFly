@@ -48,7 +48,7 @@ namespace OnTheFlyWPFC.ViewModel {
             Invoice = new InvoiceDTO();
         }
 
-        async public Task<bool> AddInvoice(int issuerID, int customerID, decimal discount,int deliveryID,decimal totalcost,decimal totalDeliveryPrice ,int? custodyID = null) {
+        async public Task<bool> AddInvoice(int issuerID, int? customerID, decimal discount,int? deliveryID,decimal totalcost,decimal totalDeliveryPrice ,int? custodyID = null) {
            return await invoiceService.AddInvoice(issuerID, customerID, discount, deliveryID, totalcost, totalDeliveryPrice, custodyID);
         }
 
@@ -189,8 +189,11 @@ namespace OnTheFlyWPFC.ViewModel {
             return await invoiceService.AddQuickDeliveryService( invoiceID,  customerName,  phone, cityname, customerAddress, categoreName, Destination, isFullTrip);
         }
 
-        async public void GetQuickDeliveryByID(int InvoiceID) {
-            Delivery = await invoiceService.GetQuickDeliveryByID(InvoiceID);
+        async public void GetQuickDeliveryInvoiceByID(int InvoiceID) {
+            Invoice = await invoiceService.GetQuickDeliveryInvoiceByID(InvoiceID);
+        }
+        async public void GetQuickDeliveryServiceByID(int InvoiceID) {
+            allDeliveryService = await invoiceService.GetQuickDeliveryServiceByID(InvoiceID);
         }
 
 

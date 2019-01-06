@@ -264,33 +264,6 @@ namespace OnTheFlyWPFC.View
             }
         }
 
-        private void TxtDiscount_TextChanged(object sender, TextChangedEventArgs e){
-            if (invoiceViewModel != null) {
-
-
-                if (invoiceViewModel.totalPrice != null) {
-                    if (!string.IsNullOrEmpty(txtDiscount.Text)) {
-                        if (txtDiscount.Text != "") {
-                            decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
-                            //decimal totalDiscount = discountpercent * (decimal)invoiceViewModel.totalPrice;
-                            //decimal total = discountpercent * (decimal)invoiceViewModel.totalPrice;
-                            decimal total = discountpercent * (decimal)invoiceViewModel.deliveryPrice;
-                            totalDeliveryPriceAfter = (decimal)invoiceViewModel.deliveryPrice - total;
-
-                            totalPriceAfter = (decimal)invoiceViewModel.totalPrice - total;
-                            lblTotalAfter.Content = (decimal)invoiceViewModel.totalPrice - total;
-
-
-                            //if (cmbPayment.SelectedIndex != 1) {
-                            //    lblCustomerCreditAfter.Content = customerViewModel.customer.credit - totalPriceAfter;
-
-                            //}
-                        }
-
-                    }
-                }
-            }
-        }
 
         //async private void AddCostody(object sender, RoutedEventArgs e) {
         //    if (custodyID == null) {
@@ -356,50 +329,52 @@ namespace OnTheFlyWPFC.View
                 if(txtDiscount.Text == "") {
                     txtDiscount.Text = "0";
                 }
-
-
-
+                
                 int? carID = null;
-
                 DateTime? enddate = null;
-
-
                 int? deliveryID = null;
+
                 //try {
                 //    deliveryID = await invoiceViewModel.AddDeliveryInt(carID, (int)cmbDriver.SelectedValue, DateTime.Now, enddate, 1, firstdate, lastdate, HelperClass.POSInvoiceID);
-
                 //} 
                 //catch (Exception) {
                 //    MessageBox.Show("لم يتم الحفظ");
                 //    return;
                 //}
+                custodyID = await invoiceViewModel.AddCustodyInt((int)cmbDriver.SelectedValue, totalPriceAfter, false, HelperClass.POSInvoiceID);
 
-                if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, HelperClass.POSSelectedCustomerID, decimal.Parse(txtDiscount.Text), (int)deliveryID, totalPriceAfter, totalDeliveryPriceAfter, custodyID)) {
+                if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, null , decimal.Parse(txtDiscount.Text), null , totalPriceAfter, totalDeliveryPriceAfter, null )) {
                     MessageBox.Show("تم الحفظ");
 
-                    if(custodyID  == null) {
-                        if (await financeViewModel.AddFinance(false, totalPriceAfter, " خصم من حساب " + txtCustomerName.Text  + "فاتورة رقم " + HelperClass.POSInvoiceID , HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
-                            //MessageBox.Show("تم الحفظ");
-                        }
-                    }else if (custodyID != null) {
+                    bool isfull = true;
+                    if (cmbIsFull.SelectedIndex == 0)
+                        isfull = true;
+                    if (cmbIsFull.SelectedIndex == 1)
+                        isfull = false;
+
+
+                    await invoiceViewModel.AddQuickDeliveryService(HelperClass.POSInvoiceID, txtCustomerName.Text, int.Parse(txtCustomerPhone1.Text), (string)cmbCities.SelectedValue, txtCustomerAddress.Text, txtCategoryName.Text, txtDistination.Text, isfull);
+
+                    //if(custodyID  == null) {
+                    //    if (await financeViewModel.AddFinance(false, totalPriceAfter, " خصم من حساب " + txtCustomerName.Text  + "فاتورة رقم " + HelperClass.POSInvoiceID , HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                    //        //MessageBox.Show("تم الحفظ");
+                    //    }
+                    //}else 
+                    
+                    if (custodyID != null) {
                         if (await financeViewModel.AddFinance(false, totalPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text +  " عهدة رقم  " + custodyID, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
                             //MessageBox.Show("تم الحفظ");
                         }
                     }
-                
                     //if (await financeViewModel.AddFinance(false, totalPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
                     //   //MessageBox.Show("تم الحفظ");
                     //}
-
                     if (await financeViewModel.AddFinance(true, totalDeliveryPriceAfter, "فاتورة رقم " + HelperClass.POSInvoiceID + " لي  " + txtCustomerName.Text, HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
                         //MessageBox.Show("تم الحفظ");
                     }
-
                     //if (cmbPayment.SelectedIndex == 0) {
                     //    if (await customerViewModel.RemoveCreditFromCustomer(HelperClass.POSSelectedCustomerID, totalPriceAfter)) {
-
                     //    }
-
                     //}
 
                     HelperClass.POSInvoiceIDView = HelperClass.POSInvoiceID;
@@ -416,10 +391,8 @@ namespace OnTheFlyWPFC.View
                     invoiceViewModel.GetNewInvoiceID();
 
                     lblNewInvoice.Content = invoiceViewModel.invoiceNewID.ToString("D8");
-
                     invoiceViewModel.GetAllDeliveryServices();
                     //lstViewDeliveryServices.ItemsSource = invoiceViewModel.allDeliveryService;
-
                     txtCustomerName.Text = "اسم المستخدم";
                     //txtCustomerPhone.Text = "رقم الهاتف";
                     //txtCustomerPhone2.Text = "رقم الهاتف";
@@ -429,8 +402,6 @@ namespace OnTheFlyWPFC.View
                     //lblCustomerCreditAfter.Content = 0;
                     txtDiscount.Text = null;
                     cmbDriver.SelectedIndex = -1;
-
-
                     //RefreshDeliveryServiceList();
                     RefreshInvoicePriceList();
 
@@ -452,10 +423,36 @@ namespace OnTheFlyWPFC.View
         }
 
         private void TxtPaidPrice_TextChanged(object sender, TextChangedEventArgs e) {
-
+            refreshPrice();
         }
 
         private void TxtDeliveryPrice_TextChanged(object sender, TextChangedEventArgs e) {
+            refreshPrice();
+        }
+
+
+        private void TxtDiscount_TextChanged(object sender, TextChangedEventArgs e) {
+            refreshPrice();
+        }
+
+        private void refreshPrice(){
+            try {
+                if (string.IsNullOrWhiteSpace(txtPaidPrice.Text))
+                    txtPaidPrice.Text = "0";
+                if (string.IsNullOrWhiteSpace(txtDeliveryPrice.Text))
+                    txtDeliveryPrice.Text = "0";
+                lblTotalPrice.Content = decimal.Parse(txtPaidPrice.Text) + decimal.Parse(txtDeliveryPrice.Text);
+                lblTotalDeliveryPrice.Content = decimal.Parse(txtDeliveryPrice.Text);
+                decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
+                decimal total = (discountpercent * decimal.Parse(txtDeliveryPrice.Text));
+                decimal totaldelivery = decimal.Parse(txtDeliveryPrice.Text) - total;
+                lblTotalAfter.Content = decimal.Parse(txtPaidPrice.Text) + totaldelivery;
+
+            }
+            catch (Exception) {
+
+                
+            }
 
         }
     }

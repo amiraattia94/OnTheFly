@@ -10,7 +10,7 @@ namespace OnTheFlyWPFC.Model.Service {
     class InvoiceService {
 
 
-        async public Task<bool> AddInvoice(int issuerID, int customerID,decimal discount, int deliveryID,decimal totalcost,decimal totaldeliveryPrice, int? custodyID ) {
+        async public Task<bool> AddInvoice(int issuerID, int? customerID,decimal discount, int? deliveryID,decimal totalcost,decimal totaldeliveryPrice, int? custodyID ) {
             try {
                 using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
                     var issued = con.invoiceTBLs.OrderByDescending(w => w.invoiceID).First().issued;
@@ -1032,9 +1032,52 @@ namespace OnTheFlyWPFC.Model.Service {
             return false;
         }
 
-        async public Task<DeliveryDTO> GetQuickDeliveryByID(int InvoiceID) {
+        async public Task<InvoiceDTO> GetQuickDeliveryInvoiceByID(int InvoiceID) {
+            await Task.FromResult(true);
 
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.QuickDeliveryServiceTBLs.SingleOrDefault(w => w.invoiceID == InvoiceID);
+
+                if (result != null) {
+                    return new InvoiceDTO() {
+                        invoiceID = result.invoiceID,
+                        dateTime = result.invoiceTBL.time,
+                        customername = result.customerName,
+                        phone1 = result.customerPhone.ToString(),
+                        customerCityname = result.cityName,
+                        customerAddress = result.customerAddress,
+                        DriverID = result.invoiceTBL.deliveryTBL.driverID,
+                        DriverName = result.invoiceTBL.deliveryTBL.EmployeeTBL.name,
+                    };
+                };
+                return new InvoiceDTO() { };
+            }
         }
 
+        async public Task<ObservableCollection<DeliveryServiceDTO>> GetQuickDeliveryServiceByID(int InvoiceID) {
+            await Task.FromResult(true);
+            using (OnTheFlyDBEntities con = new OnTheFlyDBEntities()) {
+                var result = con.QuickDeliveryServiceTBLs.SingleOrDefault(w => w.invoiceID == InvoiceID);
+                if (result != null) {
+                    var temp = new ObservableCollection<DeliveryServiceDTO>();
+
+                    temp.Add(new DeliveryServiceDTO() {
+                        CategoryName = result.categoryName,
+                        Customername = result.customerName,
+                        VendorName = result.distination,
+                        isFulTrip = (bool)result.isFullTrip,
+                        isFulTripName = (result.isFullTrip == true) ? "كاملة" : "نصف",
+                        productPrice = result.productPrice,
+                        deliveryPrice = (decimal)result.deliveryPrice,
+                        InvoiceID = result.invoiceID,
+                        status = false,
+
+                    });
+
+                    return temp;
+                };
+                return new ObservableCollection<DeliveryServiceDTO>();
+            }
+        }
     }
 }

@@ -204,7 +204,7 @@ namespace OnTheFlyWPFC.View
 
             }
 
-            //0913716521
+            
 
             if (!string.IsNullOrEmpty(txtDiscount.Text) && txtDiscount.Text != "" && invoiceViewModel.totalPrice != null) {
                 decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;

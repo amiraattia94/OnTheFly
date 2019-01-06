@@ -163,14 +163,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OnTheFlyWPFC.exe" size="1880536">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OnTheFlyWPFC.exe" size="1885656">
       <assemblyIdentity name="OnTheFlyWPFC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qZqzfL1dqaBzMnN74Dr0f5GRaACapxPKGbNxfB0xUcY=</dsig:DigestValue>
+        <dsig:DigestValue>zY5jwISadlN+azh367wHvPp5ahXt4N2FRKMHwwMd1aU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
