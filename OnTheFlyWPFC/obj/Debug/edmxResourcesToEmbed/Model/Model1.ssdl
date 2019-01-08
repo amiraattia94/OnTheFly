@@ -180,17 +180,17 @@
     <Key>
       <PropertyRef Name="qDeliveryServiceID" />
     </Key>
-    <Property Name="qDeliveryServiceID" Type="int" Nullable="false" />
+    <Property Name="qDeliveryServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="invoiceID" Type="int" Nullable="false" />
-    <Property Name="categoryName" Type="varchar(max)" />
-    <Property Name="distination" Type="varchar(max)" />
+    <Property Name="categoryName" Type="nvarchar(max)" />
+    <Property Name="distination" Type="nvarchar(max)" />
     <Property Name="isFullTrip" Type="bit" />
     <Property Name="productPrice" Type="money" />
     <Property Name="deliveryPrice" Type="money" />
-    <Property Name="customerName" Type="varchar(max)" />
+    <Property Name="customerName" Type="nvarchar(max)" />
     <Property Name="customerPhone" Type="int" />
-    <Property Name="customerAddress" Type="varchar(max)" />
-    <Property Name="cityName" Type="varchar(max)" />
+    <Property Name="customerAddress" Type="nvarchar(max)" />
+    <Property Name="cityName" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="ServicesInvoice">
     <Key>

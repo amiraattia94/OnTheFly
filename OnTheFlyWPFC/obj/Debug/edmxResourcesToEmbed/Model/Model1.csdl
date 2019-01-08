@@ -233,17 +233,17 @@
     <Key>
       <PropertyRef Name="qDeliveryServiceID" />
     </Key>
-    <Property Name="qDeliveryServiceID" Type="Int32" Nullable="false" />
+    <Property Name="qDeliveryServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="invoiceID" Type="Int32" Nullable="false" />
-    <Property Name="categoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="distination" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="categoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="distination" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="isFullTrip" Type="Boolean" />
     <Property Name="productPrice" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="deliveryPrice" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="customerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="customerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="customerPhone" Type="Int32" />
-    <Property Name="customerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="cityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="customerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="invoiceTBL" Relationship="Self.FK_QuickDeliveryServiceTBL_invoiceTBL" FromRole="QuickDeliveryServiceTBL" ToRole="invoiceTBL" />
   </EntityType>
   <EntityType Name="ServiceTBL">

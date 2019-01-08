@@ -215,8 +215,8 @@ namespace OnTheFlyWPFC.View
 
 
 
-                    if (invoiceViewModel.Invoice.custodyID == null) {
-                        if(await customerViewModel.AddCreditToCustomer(invoiceViewModel.Invoice.customerID, invoiceViewModel.Invoice.totalafter)) {
+                    if (invoiceViewModel.Invoice.custodyID == null && invoiceViewModel.Invoice.customerID != null) {
+                        if(await customerViewModel.AddCreditToCustomer((int)invoiceViewModel.Invoice.customerID, invoiceViewModel.Invoice.totalafter)) {
                             if (await financeViewModel.AddFinance(true, invoiceViewModel.Invoice.totalafter, " اضافة من حساب " + txtCustomerName.Text + "فاتورة رقم " + HelperClass.POSInvoiceIDView + " اللتي تم الفائها", HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
                                 //MessageBox.Show("تم الحفظ");
                             }
@@ -224,6 +224,15 @@ namespace OnTheFlyWPFC.View
 
 
                     }
+                    //else if (invoiceViewModel.Invoice.custodyID == null && invoiceViewModel.Invoice.customerID == null) {
+                    //    if (await customerViewModel.AddCreditToCustomer((int)invoiceViewModel.Invoice.customerID, invoiceViewModel.Invoice.totalafter)) {
+                    //        if (await financeViewModel.AddFinance(true, invoiceViewModel.Invoice.totalafter, " اضافة من حساب " + txtCustomerName.Text + "فاتورة رقم " + HelperClass.POSInvoiceIDView + " اللتي تم الفائها", HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
+                    //            //MessageBox.Show("تم الحفظ");
+                    //        }
+                    //    }
+                    //}
+
+
                     else if (invoiceViewModel.Invoice.custodyID != null) {
                         if (await invoiceViewModel.EditCustody((int)invoiceViewModel.Invoice.custodyID, true)) {
                             if (await financeViewModel.AddFinance(true, invoiceViewModel.Invoice.totalafter, "فاتورة رقم " + HelperClass.POSInvoiceIDView + " لي  " + txtCustomerName.Text + " عهدة رقم  " + (int)invoiceViewModel.Invoice.custodyID + " اللتي تم الفائها", HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {

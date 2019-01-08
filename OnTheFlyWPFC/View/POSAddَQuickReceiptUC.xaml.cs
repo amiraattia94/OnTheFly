@@ -318,6 +318,11 @@ namespace OnTheFlyWPFC.View
         async private void addInvoice_Click(object sender, RoutedEventArgs e) {
 
             if (HelperClass.userGroupRoleDTO.add_POS) {
+
+                if (cmbCities.SelectedIndex == -1) {
+                    MessageBox.Show("يجب اختيار مدينة  ");
+                    return;
+                }
                 if (cmbDriver.SelectedIndex == -1) {
                     MessageBox.Show("يجب اضافة سائق  ");
                     return;
@@ -329,21 +334,25 @@ namespace OnTheFlyWPFC.View
                 if(txtDiscount.Text == "") {
                     txtDiscount.Text = "0";
                 }
-                
+                if(txtCustomerPhone1.Text == "") {
+                    MessageBox.Show("يجب ادخال رقم زبون");
+                    return;
+                }
+                HelperClass.POSInvoiceID = invoiceViewModel.invoiceNewID;
                 int? carID = null;
                 DateTime? enddate = null;
                 int? deliveryID = null;
 
-                //try {
-                //    deliveryID = await invoiceViewModel.AddDeliveryInt(carID, (int)cmbDriver.SelectedValue, DateTime.Now, enddate, 1, firstdate, lastdate, HelperClass.POSInvoiceID);
-                //} 
-                //catch (Exception) {
-                //    MessageBox.Show("لم يتم الحفظ");
-                //    return;
-                //}
+                try {
+                    deliveryID = await invoiceViewModel.AddDeliveryInt(carID, (int)cmbDriver.SelectedValue, DateTime.Now, enddate, 1, DateTime.Now, DateTime.Now, HelperClass.POSInvoiceID);
+                }
+                catch (Exception) {
+                    MessageBox.Show("لم يتم الحفظ");
+                    return;
+                }
                 custodyID = await invoiceViewModel.AddCustodyInt((int)cmbDriver.SelectedValue, totalPriceAfter, false, HelperClass.POSInvoiceID);
 
-                if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, null , decimal.Parse(txtDiscount.Text), null , totalPriceAfter, totalDeliveryPriceAfter, null )) {
+                if (await invoiceViewModel.AddInvoice(HelperClass.LoginUserID, null , decimal.Parse(txtDiscount.Text),deliveryID , totalPriceAfter, totalDeliveryPriceAfter, custodyID )) {
                     MessageBox.Show("تم الحفظ");
 
                     bool isfull = true;
@@ -353,7 +362,7 @@ namespace OnTheFlyWPFC.View
                         isfull = false;
 
 
-                    await invoiceViewModel.AddQuickDeliveryService(HelperClass.POSInvoiceID, txtCustomerName.Text, int.Parse(txtCustomerPhone1.Text), (string)cmbCities.SelectedValue, txtCustomerAddress.Text, txtCategoryName.Text, txtDistination.Text, isfull);
+                    await invoiceViewModel.AddQuickDeliveryService(HelperClass.POSInvoiceID, txtCustomerName.Text, int.Parse(txtCustomerPhone1.Text), (string)cmbCities.Text, txtCustomerAddress.Text, txtCategoryName.Text, txtDistination.Text, isfull, Decimal.Parse( txtDeliveryPrice.Text), Decimal.Parse(txtPaidPrice.Text ) );
 
                     //if(custodyID  == null) {
                     //    if (await financeViewModel.AddFinance(false, totalPriceAfter, " خصم من حساب " + txtCustomerName.Text  + "فاتورة رقم " + HelperClass.POSInvoiceID , HelperClass.LoginEmployeeID, HelperClass.LoginEmployeeName, DateTime.Now)) {
@@ -405,6 +414,20 @@ namespace OnTheFlyWPFC.View
                     //RefreshDeliveryServiceList();
                     RefreshInvoicePriceList();
 
+                    txtCustomerName.Text = " اسم الزبون";
+                    txtCustomerPhone1.Text = "رقم الزبون";
+                    cmbCities.SelectedIndex = -1;
+                    txtCustomerAddress.Text = "العنوان";
+                    cmbDriver.SelectedIndex = -1;
+                    txtCategoryName.Text = "";
+                    txtDistination.Text = "";
+                    cmbIsFull.SelectedIndex = 0;
+                    txtPaidPrice.Text = "0";
+                    txtDeliveryPrice.Text = "0";
+                    txtDiscount.Text = "0";
+
+
+
                 }
                 else {
 
@@ -446,6 +469,9 @@ namespace OnTheFlyWPFC.View
                 decimal discountpercent = decimal.Parse(txtDiscount.Text) / 100;
                 decimal total = (discountpercent * decimal.Parse(txtDeliveryPrice.Text));
                 decimal totaldelivery = decimal.Parse(txtDeliveryPrice.Text) - total;
+
+                totalDeliveryPriceAfter = totaldelivery;
+                totalPriceAfter = decimal.Parse(txtPaidPrice.Text) + totaldelivery;
                 lblTotalAfter.Content = decimal.Parse(txtPaidPrice.Text) + totaldelivery;
 
             }

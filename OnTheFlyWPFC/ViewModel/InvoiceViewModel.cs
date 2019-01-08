@@ -185,8 +185,8 @@ namespace OnTheFlyWPFC.ViewModel {
             Custody = await invoiceService.GetCustodyByID(CustodyID);
         }
 
-        async public Task<bool> AddQuickDeliveryService(int invoiceID, string customerName, int phone, string cityname, string customerAddress, string categoreName, string Destination, bool isFullTrip) {
-            return await invoiceService.AddQuickDeliveryService( invoiceID,  customerName,  phone, cityname, customerAddress, categoreName, Destination, isFullTrip);
+        async public Task<bool> AddQuickDeliveryService(int invoiceID, string customerName, int phone, string cityname, string customerAddress, string categoreName, string Destination, bool isFullTrip , decimal deliveryPrice, decimal productPrice) {
+            return await invoiceService.AddQuickDeliveryService( invoiceID,  customerName,  phone, cityname, customerAddress, categoreName, Destination, isFullTrip , deliveryPrice , productPrice);
         }
 
         async public void GetQuickDeliveryInvoiceByID(int InvoiceID) {

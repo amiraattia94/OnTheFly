@@ -12,7 +12,7 @@ namespace OnTheFlyWPFC.Model.DTO
 
         public DateTime dateTime { get; set; }
 
-        public int customerID { get; set; }
+        public int? customerID { get; set; }
         public string customername { get; set; }
         public string customercityCodee { get; set; }
         public string customerCityname { get; set; }

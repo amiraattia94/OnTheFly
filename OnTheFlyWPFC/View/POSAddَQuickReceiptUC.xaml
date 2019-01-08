@@ -365,7 +365,7 @@
 
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Height="auto">
                         <Border Height="40" Margin="0,0,0,15">
-                            <TextBox Name="txtCustomerName" Text=" اسم المستخدم" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
+                            <TextBox Name="txtCustomerName" Text=" اسم الزبون" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                         </Border>
                         <Border  Height="40" Margin="0,0,0,15">
                             <!--<TextBox Name="txtCustomerPhone" Text="رقم الهاتف" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>-->
@@ -395,7 +395,7 @@
                             <TextBox Name="txtCustomerAddress" Text="العنوان" VerticalAlignment="Stretch" FontSize="16" Foreground="#768295"/>
                         </Border>
                         <Border Height="40" Margin="0,0,0,15">
-                            <ComboBox Name="cmbDriver" Loaded="CmbDriver_Loaded"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Stretch"/>
+                            <ComboBox Name="cmbDriver" Loaded="CmbDriver_Loaded"  FontSize="16" Foreground="DarkSlateGray" VerticalAlignment="Bottom" Height="40"/>
                         </Border>
                         <Border  Height="40" Margin="0,0,0,15">
                         </Border>
@@ -495,7 +495,7 @@
                                 <Border Height="40" Margin="0,0,0,15">
                                     <!--<TextBox Name="txtDeliveryPricezzzz" MinWidth="50" VerticalAlignment="Center" FontSize="16" Foreground="#768295"/>-->
                                     <Grid>
-                                        <TextBox Name="txtDeliveryPrice" TextChanged="TxtDeliveryPrice_TextChanged" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="#768295"  VerticalAlignment="Center"/>
+                                        <TextBox Name="txtDeliveryPrice" TextChanged="TxtDeliveryPrice_TextChanged" behaviors:DigitsOnlyBehavior.IsDigitOnly="True" FontFamily="Noto Kufi Arabic" FontSize="18" Foreground="DarkSlateGray"  VerticalAlignment="Center"/>
                                         <TextBlock IsHitTestVisible="False" Text="0"  HorizontalAlignment="Stretch" FontSize="16" Foreground="#BDC5D4" VerticalAlignment="Center" >
                                             <TextBlock.Style>
                                                 <Style TargetType="{x:Type TextBlock}">
