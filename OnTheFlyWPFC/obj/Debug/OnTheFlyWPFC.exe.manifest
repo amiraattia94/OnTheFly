@@ -345,13 +345,13 @@
       <dsig:DigestValue>rOzvQxvoUqvuwj7BAEnm6KEA7euQcZl2OUv28E118Ic=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="OnTheFlyWPFC.exe.config" size="513">
+  <file name="OnTheFlyWPFC.exe.config" size="519">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Qkr25ON4segWS/ZTbtY1CK0kYTkMo/wTPOiqvZUdZ7M=</dsig:DigestValue>
+      <dsig:DigestValue>ddDWEwNXI7RZX7tK/XtejcEmzYaKROB2F233GuFtQ+g=</dsig:DigestValue>
     </hash>
   </file>
   <file name="View\Images\Icons\New System_ic_add.svg" size="804569">
