@@ -48,7 +48,6 @@ namespace OnTheFlyWPFC.View
         private void cmbBranchCities_Loaded(object sender, RoutedEventArgs e)
         {
             cityViewModel.GetAllCities();
-
             cmbBranchCities.ItemsSource = cityViewModel.CityName;
             cmbBranchCities.DisplayMemberPath = "name";
         }

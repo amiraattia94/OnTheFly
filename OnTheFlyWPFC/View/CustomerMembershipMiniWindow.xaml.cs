@@ -125,7 +125,6 @@ namespace OnTheFlyWPFC.View
                     cmbVendors.DisplayMemberPath = "VendorName";
                 }
 
-
             }
 
         }

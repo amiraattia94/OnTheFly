@@ -14,12 +14,12 @@ namespace OnTheFlyWPFC.Model
     
     public partial class MembershipTBL
     {
-        public int membershipID { get; set; }
+        public string membershipID { get; set; }
         public string name { get; set; }
         public int customerID { get; set; }
         public int vendorID { get; set; }
     
         public virtual CustomerTBL CustomerTBL { get; set; }
-        public virtual VendorTBL VendorTBL { get; set; }
+        public virtual vendorTBL vendorTBL { get; set; }
     }
 }

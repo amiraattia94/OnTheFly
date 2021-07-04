@@ -20,6 +20,8 @@ namespace OnTheFlyWPFC.Model
             this.CompanyBranchTBLs = new HashSet<CompanyBranchTBL>();
             this.CustomerTBLs = new HashSet<CustomerTBL>();
             this.EmployeeTBLs = new HashSet<EmployeeTBL>();
+            this.serviceTBLs = new HashSet<serviceTBL>();
+            this.serviceTBLs1 = new HashSet<serviceTBL>();
             this.VendorBranchTBLs = new HashSet<VendorBranchTBL>();
         }
     
@@ -32,6 +34,10 @@ namespace OnTheFlyWPFC.Model
         public virtual ICollection<CustomerTBL> CustomerTBLs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeTBL> EmployeeTBLs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<serviceTBL> serviceTBLs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<serviceTBL> serviceTBLs1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VendorBranchTBL> VendorBranchTBLs { get; set; }
     }

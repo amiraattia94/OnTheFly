@@ -110,6 +110,16 @@ namespace OnTheFlyWPFC.View
             }
 
 
+            if(cmbBranchCity.SelectedIndex != -1) {
+                var selectedcity = (CityDTO)cmbBranchCity.SelectedItem;
+                branchViewModel.GetBranchByCity(selectedcity.cityCode);
+                lstViewBraches.ItemsSource = branchViewModel.ViewBranch;
+                lstViewBraches.Items.Refresh();
+                cmbBranchState.SelectedIndex = -1;
+                txtSearchBranshName.Text = "";
+            }
+           
+
         }
 
         private void cmbBranchState_SelectionChanged(object sender, SelectionChangedEventArgs e)

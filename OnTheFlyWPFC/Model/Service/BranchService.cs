@@ -204,21 +204,18 @@ namespace OnTheFlyWPFC.Model.Service
                     cityID = s.LibyanCitiesTBL.name
                 }).ToList();
 
-                if (result != null)
-                {
+                if (result != null) {
                     return new ObservableCollection<BranchDTO>(result);
                 }
-                else
-                {
+                else {
                     return new ObservableCollection<BranchDTO>();
                 }
             }
 
         }
 
-        async public Task<bool> DeleteBranchByID(int BranchID)
-        {
-            await Task.FromResult(true);
+        async public Task<bool> DeleteBranchByID(int BranchID) {
+        await Task.FromResult(true);
 
             try
             {
